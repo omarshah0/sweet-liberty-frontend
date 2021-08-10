@@ -95,7 +95,7 @@ const MenuPage = () => {
         <Container>
           <div className="md:px-36">
             <TabList
-              className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-scroll tablist-scrollbar tablist-scrollbar-${activeTab} ${activeTab}`}
+              className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto tablist-scrollbar tablist-scrollbar-${activeTab} ${activeTab}`}
             >
               {React.Children.toArray(
                 tabs.map(t => (
