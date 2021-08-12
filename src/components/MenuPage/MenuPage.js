@@ -26,10 +26,7 @@ const MenuPage = () => {
           MenuNameFull
           BackgroundColor
           MenuIcon {
-            formats {
-              thumbnail {
-                url
-              }
+            url
             }
           }
           SubMenu {
@@ -107,7 +104,7 @@ const MenuPage = () => {
                   >
                     <TabButton
                       title={t.MenuNameNavigation}
-                      icon={t.MenuIcon?.formats?.thumbnail.url}
+                      icon={t.MenuIcon?.url}
                     />
                   </Tab>
                 ))
