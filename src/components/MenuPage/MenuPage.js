@@ -27,7 +27,6 @@ const MenuPage = () => {
           BackgroundColor
           MenuIcon {
             url
-            }
           }
           SubMenu {
             Border
