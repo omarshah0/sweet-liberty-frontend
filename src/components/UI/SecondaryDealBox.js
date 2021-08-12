@@ -1,7 +1,6 @@
 import React from "react"
 
 const SecondaryDealBox = ({ className, data }) => {
-  console.log("Data is ", data)
   return (
     <div
       className={`bg-brandPink text-white text-center max-w-xl mx-auto px-20 py-9 ${className} flex justify-between`}
