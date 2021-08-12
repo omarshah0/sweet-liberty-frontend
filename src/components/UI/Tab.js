@@ -9,9 +9,7 @@ const Tab = ({ title, icon }) => {
         <button
           className={`group ${theme.navButtonBg} min-w-max hover:${theme.navButtonHover} hover:${theme.navButtonHoverText} font-sourceSansProBold px-8 py-4 rounded transition`}
         >
-          {icon && (
-            <img src={icon.url} alt={icon.name} className="inline mr-3" />
-          )}
+          {icon && <img src={icon} alt={icon.name} className="inline mr-3" />}
           {title}
         </button>
       )}
