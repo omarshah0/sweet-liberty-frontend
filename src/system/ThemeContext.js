@@ -65,12 +65,12 @@ const brunch = {
 }
 
 const ACTIONS = {
-  FOOD: "#C0F3D4",
+  FOOD: "#c0f3d4",
   HAPPYHOURS: "#111827",
-  COCKTAILS: "#C0F3D4",
+  COCKTAILS: "#c0f3d4",
   SPECIALS: "#257972",
-  BRUNCH: "#F3F4F6",
-  BEER: "#C0F3D4",
+  BRUNCH: "#f3f4f6",
+  BEER: "#c0f3d4",
 }
 
 const ThemeContext = createContext(defaultState)

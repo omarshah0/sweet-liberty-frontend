@@ -4,7 +4,6 @@ import { Container } from "../UI"
 import ThemeContext from "../../system/ThemeContext"
 
 const DatoItemCard = ({ data }) => {
-  console.log("Inner data is ", data)
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (

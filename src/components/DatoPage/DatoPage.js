@@ -25,7 +25,7 @@ const MenuPage = () => {
           menuNameNavigation
           menuNameFull
           menuIcon {
-            gatsbyImageData
+            url
           }
           backgroundColor {
             hex
@@ -77,7 +77,7 @@ const MenuPage = () => {
 
   const tabClickHandler = (backgroundColor, tabName) => {
     const newName = nameFormatter(tabName)
-    setBodyColor(backgroundColor)
+    setBodyColor(nameFormatter(backgroundColor))
     setActiveTab(`tab__${newName}`)
   }
 
@@ -109,7 +109,7 @@ const MenuPage = () => {
                   >
                     <TabButton
                       title={t.menuNameNavigation}
-                      icon={t.MenuIcon?.url}
+                      icon={t.menuIcon?.url}
                     />
                   </Tab>
                 ))
