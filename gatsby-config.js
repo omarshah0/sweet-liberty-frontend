@@ -39,6 +39,15 @@ module.exports = {
         collectionTypes: [`menus`, `hours`],
       },
     },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: `6d795a6d06fa7c10e02e85bd7e2713`,
+        environment: `main`,
+        previewMode: true,
+        disableLiveReload: false,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
