@@ -6,7 +6,6 @@ import MenuTitle from "./MenuTitle"
 import SubMenuTitle from "./SubMenuTitle"
 import PrimaryDealBox from "./PrimaryDealBox"
 import SecondaryDealBox from "./SecondaryDealBox"
-import DatoPrimaryDealBox from "./DatoPrimaryDealBox"
 export {
   Container,
   FormButton,
@@ -16,5 +15,4 @@ export {
   SubMenuTitle,
   PrimaryDealBox,
   SecondaryDealBox,
-  DatoPrimaryDealBox,
 }

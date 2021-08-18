@@ -8,7 +8,7 @@ const SecondaryDealBox = ({ className, data }) => {
       <h3 className="text-2xl text-white font-frankRuhlLibre">
         {data.Name || data.title}
       </h3>
-      <p className="font-cantataOne">{data.Price || data.price}pp</p>
+      <p className="font-cantataOne">{data.price}pp</p>
     </div>
   )
 }

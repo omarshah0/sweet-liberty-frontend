@@ -18,63 +18,66 @@ import { nameFormatter } from "../../utilities"
 
 const MenuPage = () => {
   const [tabIndex, setTabIndex] = useState(0)
-  const { allStrapiMenus } = useStaticQuery(graphql`
-    query MyQuery($sort: StrapiMenusSortInput = { fields: id }) {
-      allStrapiMenus(sort: $sort) {
+  const { allDatoCmsMenu } = useStaticQuery(graphql`
+    query DatoQuery {
+      allDatoCmsMenu {
         nodes {
-          MenuNameNavigation
-          MenuNameFull
-          BackgroundColor
-          MenuIcon {
+          menuNameNavigation
+          menuNameFull
+          menuIcon {
             url
           }
-          SubMenu {
-            Border
-            DarkSection
-            SubMenuTitle
-            item {
-              Description
-              ItemName
-              Price
+          backgroundColor {
+            hex
+          }
+          menu {
+            title
+            border
+            darkSection
+            foodItem {
+              name
+              ingredients
+              price
             }
           }
-          DealBoxTop {
-            Title
-            FirstPriceTitle
-            FirstPrice
-            SecondPriceTitle
-            SecondPrice
-            ConsumerInformation
+          dealBoxTop {
+            title
+            firstPriceTitle
+            firstPrice
+            secondPriceTitle
+            secondPrice
+            consumerInformation
           }
-          SecondMenuTitle
-          SecondMenu {
-            Border
-            DarkSection
-            SubMenuTitle
-            item {
-              Description
-              ItemName
-              Price
+          secondMenuTitle
+          secondMenu {
+            title
+            border
+            darkSection
+            foodItem {
+              name
+              ingredients
+              price
             }
           }
-          DealBoxSecondMenu {
-            Name
-            Price
+          dealBoxSecondMenu {
+            title
+            price
           }
         }
       }
     }
   `)
-  const tabs = allStrapiMenus.nodes
+  const tabs = allDatoCmsMenu.nodes
+  console.log("Tabs are ", tabs)
   const [activeTab, setActiveTab] = useState(
-    nameFormatter(tabs[0].MenuNameNavigation)
+    nameFormatter(tabs[0].menuNameNavigation)
   )
   const { themeHandler } = useContext(ThemeContext)
-  const [bodyColor, setBodyColor] = useState(tabs[0].BackgroundColor)
+  const [bodyColor, setBodyColor] = useState(tabs[0].backgroundColor.hex)
 
   const tabClickHandler = (backgroundColor, tabName) => {
     const newName = nameFormatter(tabName)
-    setBodyColor(backgroundColor)
+    setBodyColor(nameFormatter(backgroundColor))
     setActiveTab(`tab__${newName}`)
   }
 
@@ -98,12 +101,15 @@ const MenuPage = () => {
                 tabs.map(t => (
                   <Tab
                     onClick={() =>
-                      tabClickHandler(t.BackgroundColor, t.MenuNameNavigation)
+                      tabClickHandler(
+                        t.backgroundColor.hex,
+                        t.menuNameNavigation
+                      )
                     }
                   >
                     <TabButton
-                      title={t.MenuNameNavigation}
-                      icon={t.MenuIcon?.url}
+                      title={t.menuNameNavigation}
+                      icon={t.menuIcon?.url}
                     />
                   </Tab>
                 ))
@@ -115,21 +121,21 @@ const MenuPage = () => {
           {React.Children.toArray(
             tabs.map(t => (
               <TabPanel>
-                <MenuTitle title={t.MenuNameFull} className="mb-14" />
-                {t.DealBoxTop && (
-                  <PrimaryDealBox className="mb-14" data={t.DealBoxTop} />
+                <MenuTitle title={t.menuNameFull} className="mb-14" />
+                {t.dealBoxTop[0] && (
+                  <PrimaryDealBox className="mb-14" data={t.dealBoxTop[0]} />
                 )}
-                <MenuItemCard data={t.SubMenu} />
-                {t.SecondMenuTitle && (
-                  <MenuTitle title={t.SecondMenuTitle} className="mb-14" />
+                <MenuItemCard data={t.menu} />
+                {t.secondMenuTitle && (
+                  <MenuTitle title={t.secondMenuTitle} className="mb-14" />
                 )}
-                {t.DealBoxSecondMenu && (
+                {t.dealBoxSecondMenu[0] && (
                   <SecondaryDealBox
                     className="mb-14"
-                    data={t.DealBoxSecondMenu}
+                    data={t.dealBoxSecondMenu[0]}
                   />
                 )}
-                {t.SecondMenu && <MenuItemCard data={t.SecondMenu} />}
+                {t.SecondMenu && <MenuItemCard data={t.secondMenu} />}
               </TabPanel>
             ))
           )}

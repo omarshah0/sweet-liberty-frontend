@@ -32,14 +32,6 @@ module.exports = {
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: `https://wweet-liberty.herokuapp.com`,
-        queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`menus`, `hours`],
-      },
-    },
-    {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: `6d795a6d06fa7c10e02e85bd7e2713`,
