@@ -2,22 +2,24 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { Container, FormButton } from "../UI"
-import { timeConverter } from "../../utilities"
 
 const FooterPrimary = () => {
-  const { allStrapiHours } = useStaticQuery(graphql`
-    query HoursQuery($sort: StrapiHoursSortInput = { fields: id }) {
-      allStrapiHours(sort: $sort) {
+  const { allDatoCmsHour } = useStaticQuery(graphql`
+    query MyQuery {
+      allDatoCmsHour {
         nodes {
-          Day
-          Open
-          OpeningTime
-          ClosingTime
+          hour {
+            day
+            open
+            openingTime(formatString: "hh:mm a")
+            closingTime(formatString: "hh:mm a")
+          }
         }
       }
     }
   `)
-  const hours = allStrapiHours.nodes
+  const hours = allDatoCmsHour.nodes
+  console.log("Hours are ", hours)
   return (
     <div className="py-16 bg-brandDark">
       <Container>
@@ -56,23 +58,15 @@ const FooterPrimary = () => {
             <h3 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
               Hours
             </h3>
-            {/* <h4 className="text-white font-redHatDisplay text-xl mb-3">
-              <strong>Everyday:</strong> 4:00 PM - 5:00 PM
-            </h4>
-            <h4 className="text-white font-redHatDisplay text-xl mb-3">
-              <strong>Happy Hour:</strong> 4:00 PM - 7:00 PM
-            </h4>
-            <h4 className="text-white font-redHatDisplay text-xl mb-8">
-              <strong>Sunday Brunch:</strong> 12:00 PM - 5:00 PM
-            </h4> */}
             {React.Children.toArray(
-              hours.map(
+              hours[0].hour.map(
                 h =>
-                  h.Open && (
+                  h.open && (
                     <h4 className="text-white font-redHatDisplay text-xl mb-3">
-                      <strong>{h.Day}: </strong>
-                      {timeConverter(h.OpeningTime)} -{" "}
-                      {timeConverter(h.ClosingTime)}
+                      <strong>{h.day}: </strong>
+                      <span className="uppercase">
+                        {h.openingTime} - {h.closingTime}
+                      </span>
                     </h4>
                   )
               )
