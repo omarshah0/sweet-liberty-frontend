@@ -12,31 +12,31 @@ const MenuItemCard = ({ data }) => {
             data.map(d => (
               <div
                 className={`py-5 md:py-8 lg:py-12 ${
-                  d.DarkSection
+                  d.darkSection
                     ? `${theme.darkSectionBg} mt-8 md:mt-12 lg:mt-16`
                     : ""
                 } relative`}
               >
                 <Container
                   className={`${
-                    d.Border ? "border-4 border-brandGold py-6" : ""
+                    d.border ? "border-4 border-brandGold py-6" : ""
                   }`}
                 >
                   <h3
                     className={`uppercase font-frankRuhlLibre text-xl font-bold ${
-                      d.DarkSection
+                      d.darkSection
                         ? `${theme.darkSectionSubMenuTitle}`
                         : `${theme.subMenuTitle}`
                     } mb-6`}
                   >
-                    {d.SubMenuTitle}
+                    {d.title}
                   </h3>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-32 lg:gap-x-36 gap-y-10 md:gap-y-14 lg:gap-y-18">
                     {React.Children.toArray(
-                      d.item?.map(item => (
+                      d.foodItem?.map(item => (
                         <div
                           className={`${
-                            d.DarkSection
+                            d.darkSection
                               ? `${theme.darkSectionItemText}`
                               : `${theme.itemText}`
                           }`}
@@ -44,24 +44,24 @@ const MenuItemCard = ({ data }) => {
                           <h4
                             className={`inline uppercase font-frankRuhlLibre text-xl font-bold`}
                           >
-                            {item.ItemName}
+                            {item.name}
                           </h4>
                           <span
                             className={`font-cantataOne text-sm inline float-right mt-1`}
                           >
-                            {item.Price}
+                            {item.price}
                           </span>
                           <p
                             className={`font-cantataOne  text-sm pt-2 md:w-4/5`}
                           >
-                            {item.Description}
+                            {item.ingredients}
                           </p>
                         </div>
                       ))
                     )}
                   </div>
                 </Container>
-                {d.DarkSection && (
+                {d.darkSection && (
                   <Fragment>
                     <div
                       className={`${theme.darkSectionBg} absolute left-0 right-0`}
