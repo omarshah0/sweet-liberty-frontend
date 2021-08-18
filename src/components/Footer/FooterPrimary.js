@@ -19,7 +19,6 @@ const FooterPrimary = () => {
     }
   `)
   const hours = allDatoCmsHour.nodes
-  console.log("Hours are ", hours)
   return (
     <div className="py-16 bg-brandDark">
       <Container>
