@@ -36,6 +36,9 @@ module.exports = {
       maxWidth: {
         "blog-card": "420px",
       },
+      minHeight: {
+        "blog-card": "206px",
+      },
     },
   },
   variants: {

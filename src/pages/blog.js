@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/Layout"
 import BlogCard from "../components/BlogCard"
@@ -6,59 +7,31 @@ import CategoriesDropDown from "../components/CategoriesDropDown"
 import { Container, Main } from "../components/UI"
 
 const BlogPage = () => {
-  const dummyData = [
-    {
-      category: "events",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "news",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "news",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "news",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "news",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "news",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "merch",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "merch",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "specials",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "specials",
-      title: "Join us for drag queen brunch every sunday",
-    },
-    {
-      category: "specials",
-      title: "Join us for drag queen brunch every sunday",
-    },
-  ]
+  const data = useStaticQuery(graphql`
+    query MyBlogs {
+      allContentfulBlog {
+        nodes {
+          title
+          slug
+          category {
+            title
+            slug
+          }
+          heroImage {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  `)
+  const posts = data.allContentfulBlog.nodes
 
-  const [blogs, setBlogs] = useState(dummyData)
+  const [blogs, setBlogs] = useState(posts)
 
   const filterBlogsHandler = filter => {
-    const newList = dummyData.filter(blog => blog.category === filter)
+    const newList = blogs.filter(blog => blog.category.slug === filter)
     if (newList.length !== 0) return setBlogs(newList)
-    setBlogs(dummyData)
+    setBlogs(blogs)
   }
 
   return (
@@ -75,7 +48,11 @@ const BlogPage = () => {
             <div className="py-5 md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-12 justify-center">
               {React.Children.toArray(
                 blogs.map(blog => (
-                  <BlogCard title={blog.title} category={blog.category} />
+                  <BlogCard
+                    title={blog.title}
+                    category={blog.category}
+                    slug={blog.slug}
+                  />
                 ))
               )}
             </div>
