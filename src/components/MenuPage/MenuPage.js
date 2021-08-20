@@ -68,7 +68,6 @@ const MenuPage = () => {
     }
   `)
   const tabs = allDatoCmsMenu.nodes
-  console.log("Tabs are ", tabs)
   const [activeTab, setActiveTab] = useState(
     nameFormatter(tabs[0].menuNameNavigation)
   )

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.2.0",
     "@fontsource/bebas-neue": "^4.5.0",
     "@fontsource/cantata-one": "^4.5.0",
     "@fontsource/frank-ruhl-libre": "^4.5.0",
@@ -20,6 +21,7 @@
     "gatsby-plugin-react-helmet": "^4.10.0",
     "gatsby-plugin-sharp": "^3.10.2",
     "gatsby-plugin-webfonts": "^2.1.1",
+    "gatsby-source-contentful": "^5.12.0",
     "gatsby-source-datocms": "^2.6.16",
     "gatsby-source-filesystem": "^3.10.0",
     "gatsby-source-strapi": "^1.0.2",
@@ -42,6 +44,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "dev": "env-cmd -f .env.development gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",

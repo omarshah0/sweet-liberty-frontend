@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+import { RightArrow } from "../UI"
+
 const BlogCard = ({ title, category }) => {
   return (
     <div className="h-blog-card bg-shopBg mb-5 md:mb-0 rounded-xl shadow-blog-card overflow-hidden max-w-blog-card">
@@ -12,14 +14,14 @@ const BlogCard = ({ title, category }) => {
         <span className="block font-bebas text-2xl text-brandRed mb-2">
           {category}
         </span>
-        <Link to="/blog">
+        <Link to="/test-blog">
           <h2 className="font-bebas text-4xl text-brandDark mb-3">{title}</h2>
         </Link>
         <Link
-          to="/blog"
-          className="inline-block font-cantataOne text-sm text-brandDark relative arrow-group"
+          to="/test-blog"
+          className="inline-block font-cantataOne text-sm text-brandDark"
         >
-          Read more <span className="arrow"></span>
+          Read more <RightArrow className="ml-2" />
         </Link>
       </div>
     </div>
