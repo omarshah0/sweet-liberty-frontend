@@ -8,9 +8,11 @@ import PrimaryDealBox from "./PrimaryDealBox"
 import SecondaryDealBox from "./SecondaryDealBox"
 import AuthorBox from "./AuthorBox"
 import PreviousArticleBox from "./PreviousArticleBox"
+import NextArticleBox from "./NextArticleBox"
 import BackToBlog from "./BackToBlog"
 import LeftArrow from "./LeftArrow"
 import RightArrow from "./RightArrow"
+import Pagination from "./Pagination"
 export {
   Container,
   FormButton,
@@ -22,7 +24,9 @@ export {
   SecondaryDealBox,
   AuthorBox,
   PreviousArticleBox,
+  NextArticleBox,
   BackToBlog,
   LeftArrow,
   RightArrow,
+  Pagination,
 }

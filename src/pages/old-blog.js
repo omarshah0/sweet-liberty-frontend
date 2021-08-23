@@ -8,7 +8,7 @@ import { Container, Main } from "../components/UI"
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
-    query MyBlogs {
+    query OldMyBlogs {
       allContentfulBlog {
         nodes {
           title
@@ -29,9 +29,14 @@ const BlogPage = () => {
   const [blogs, setBlogs] = useState(posts)
 
   const filterBlogsHandler = filter => {
-    const newList = blogs.filter(blog => blog.category.slug === filter)
-    if (newList.length !== 0) return setBlogs(newList)
-    setBlogs(blogs)
+    if (filter === "all") return setBlogs(posts)
+    const newList = blogs.filter(blog => {
+      if (blog.category) {
+        return blog => blog.category.slug === filter
+      }
+      return false
+    })
+    return setBlogs(newList)
   }
 
   return (

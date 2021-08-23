@@ -12,10 +12,14 @@ const BlogCard = ({ title, category, slug }) => {
       </div>
       <div className="pt-6 px-6 pb-7 flex-grow flex flex-col">
         <span className="block font-bebas text-2xl text-brandRed mb-2">
-          {React.Children.toArray(
-            category.map(category => (
-              <span className="mr-3">{category.title}</span>
-            ))
+          {category ? (
+            React.Children.toArray(
+              category.map(category => (
+                <span className="mr-3">{category.title}</span>
+              ))
+            )
+          ) : (
+            <span className="mr-3">Uncategorized</span>
           )}
         </span>
         <Link to={`/blog/${slug}`}>
