@@ -1,3 +1,4 @@
+const { paginate } = require("gatsby-awesome-pagination")
 const path = require("path")
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -28,21 +29,29 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   const posts = res.data.allContentfulBlog.edges
 
-  //Creating All Blog Posts with Pagination - Change number to control Posts per Page
-  const postsPerPage = 9
-  const numPages = Math.ceil(posts.length / postsPerPage)
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: allBlogPostsTemplate,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
+  //Creating All Blog Posts with Pagination - Change itemsPerPage to control Posts per Page
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: 9,
+    pathPrefix: "/blog",
+    component: allBlogPostsTemplate,
   })
+
+  // const postsPerPage = 9
+  // const numPages = Math.ceil(posts.length / postsPerPage)
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+  //     component: allBlogPostsTemplate,
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       numPages,
+  //       currentPage: i + 1,
+  //     },
+  //   })
+  // })
 
   //Creating a Single Blog Post
   posts.map(post => {

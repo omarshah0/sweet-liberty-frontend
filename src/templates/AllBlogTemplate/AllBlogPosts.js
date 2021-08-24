@@ -6,7 +6,8 @@ import BlogCard from "../../components/BlogCard"
 import CategoriesDropDown from "../../components/CategoriesDropDown"
 import { Container, Main, Pagination } from "../../components/UI"
 
-const AllBlogPosts = ({ data, pageContext: { currentPage, numPages } }) => {
+const AllBlogPosts = ({ data, pageContext }) => {
+  console.log("CTX ", pageContext)
   const posts = data.allContentfulBlog.nodes
   const [blogs, setBlogs] = useState(posts)
 
@@ -44,7 +45,7 @@ const AllBlogPosts = ({ data, pageContext: { currentPage, numPages } }) => {
               )}
             </div>
             <div className="mt-20 pb-28">
-              <Pagination currentPage={currentPage} numPages={numPages} />
+              <Pagination {...pageContext} />
             </div>
           </div>
         </Container>
