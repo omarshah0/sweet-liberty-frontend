@@ -7,7 +7,6 @@ import CategoriesDropDown from "../../components/CategoriesDropDown"
 import { Container, Main, Pagination } from "../../components/UI"
 
 const AllBlogPosts = ({ data, pageContext }) => {
-  console.log("CTX ", pageContext)
   const posts = data.allContentfulBlog.nodes
   const [blogs, setBlogs] = useState(posts)
 

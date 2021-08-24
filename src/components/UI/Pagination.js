@@ -9,8 +9,6 @@ const Pagination = ({
   humanPageNumber,
   numberOfPages,
 }) => {
-  console.log("Next Page is ", nextPagePath.length)
-  console.log("Previous Page is ", previousPagePath.length)
   return (
     <div className="flex justify-center ">
       <Link

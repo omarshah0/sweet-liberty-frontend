@@ -29,8 +29,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   const posts = res.data.allContentfulBlog.edges
 
-  console.log("Posts are ", posts)
-
   //Creating All Blog Posts with Pagination - Change itemsPerPage to control Posts per Page
   paginate({
     createPage,
