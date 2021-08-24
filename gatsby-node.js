@@ -51,7 +51,10 @@ exports.createPages = async ({ graphql, actions }) => {
           title: post.next.title || null,
           slug: post.next.slug || null,
         },
-        prevPost: { title: "Omar Farooq", slug: "cheema-lakoo" },
+        prevPost: {
+          title: post.previous.title || null,
+          slug: post.previous.slug || null,
+        },
       },
     })
   })
