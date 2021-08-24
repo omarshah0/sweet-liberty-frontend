@@ -20,8 +20,6 @@ const BlogPost = ({ data, pageContext }) => {
   const { nextPost, prevPost } = pageContext
   const { title, body, category, createdAt, author } = data.contentfulBlog
 
-  console.log("Body is ", body)
-
   const options = {
     renderText: text => {
       return text.split("\n").reduce((children, textSegment, index) => {
