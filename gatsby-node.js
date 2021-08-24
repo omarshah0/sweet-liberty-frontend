@@ -45,9 +45,12 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/blog/${post.node.slug}`,
       context: {
         slug: post.node.slug,
-        nextPost: { title: post.next?.title, slug: post.next?.slug },
-        prevPost: { title: post.previous?.title, slug: post.previous?.slug },
+        nextPost: { title: "Omar Farooq", slug: "cheema-lako" },
+        prevPost: { title: "Omar Farooq", slug: "cheema-lakoo" },
       },
     })
   })
 }
+
+// nextPost: { title: post.next?.title, slug: post.next?.slug },
+// prevPost: { title: post.previous?.title, slug: post.previous?.slug },
