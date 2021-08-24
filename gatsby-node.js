@@ -38,21 +38,6 @@ exports.createPages = async ({ graphql, actions }) => {
     component: allBlogPostsTemplate,
   })
 
-  // const postsPerPage = 9
-  // const numPages = Math.ceil(posts.length / postsPerPage)
-  // Array.from({ length: numPages }).forEach((_, i) => {
-  //   createPage({
-  //     path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-  //     component: allBlogPostsTemplate,
-  //     context: {
-  //       limit: postsPerPage,
-  //       skip: i * postsPerPage,
-  //       numPages,
-  //       currentPage: i + 1,
-  //     },
-  //   })
-  // })
-
   //Creating a Single Blog Post
   posts.map(post => {
     createPage({
