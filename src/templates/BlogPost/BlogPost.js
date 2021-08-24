@@ -82,14 +82,14 @@ const BlogPost = ({ data, pageContext }) => {
                   createdAt={createdAt}
                   className="mb-1"
                 />
-                {nextPost.title && nextPost.slug && (
+                {nextPost && (
                   <NextArticleBox
                     title={nextPost.title}
                     slug={nextPost.slug}
                     className="mb-1"
                   />
                 )}
-                {prevPost.title && prevPost.slug && (
+                {prevPost && (
                   <PreviousArticleBox
                     title={prevPost.title}
                     slug={prevPost.slug}
