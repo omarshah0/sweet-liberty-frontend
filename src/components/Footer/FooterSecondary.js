@@ -31,12 +31,13 @@ const FooterSecondary = () => {
             href="https://www.google.com/"
             target="_blank"
             rel="noreferrer"
-            className="glass__full float-right md:float-none"
+            className="glass__full block pb-4 md:pb-0"
           >
             <StaticImage
               src="../../assets/glass_full.svg"
               alt="Glass Full"
               placeholder="blurred"
+              className="float-right"
             />
           </a>
         </div>
