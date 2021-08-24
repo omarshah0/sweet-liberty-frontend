@@ -40,18 +40,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
   //Creating a Single Blog Post
   posts.map(post => {
+    console.log("Post is ", post)
     createPage({
       component: blogTemplate,
       path: `/blog/${post.node.slug}`,
       context: {
         slug: post.node.slug,
         nextPost: {
-          title: post.next.title || null,
-          slug: post.next.slug || null,
+          title: post.next?.title,
+          slug: post.next?.slug,
         },
         prevPost: {
-          title: post.previous.title || null,
-          slug: post.previous.slug || null,
+          title: post.previous?.title,
+          slug: post.previous?.slug,
         },
       },
     })
