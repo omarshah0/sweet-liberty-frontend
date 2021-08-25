@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import Nav from "../Nav"
 import Container from "../UI/Container"
 import ThemeContext from "../../system/ThemeContext"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 
-const Header = () => {
+const Header = ({ hours }) => {
   const buttonHandler = () => {
     console.log("DO SOMETHING WITH BUTTON")
   }
@@ -37,6 +38,7 @@ const Header = () => {
               </button>
             </div>
           </Container>
+          <Nav hours={hours} />
         </header>
       )}
     </ThemeContext.Consumer>

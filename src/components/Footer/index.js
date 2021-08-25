@@ -4,10 +4,10 @@ import FooterPrimary from "./FooterPrimary"
 import FooterSecondary from "./FooterSecondary"
 import "./footerStyle.css"
 
-const Footer = () => {
+const Footer = ({ hours }) => {
   return (
     <footer>
-      <FooterPrimary />
+      <FooterPrimary hours={hours} />
       <FooterSecondary />
     </footer>
   )

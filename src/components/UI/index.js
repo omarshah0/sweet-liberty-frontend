@@ -13,6 +13,10 @@ import BackToBlog from "./BackToBlog"
 import LeftArrow from "./LeftArrow"
 import RightArrow from "./RightArrow"
 import Pagination from "./Pagination"
+import NavLink from "./NavLink"
+import Contact from "./Contact"
+import Address from "./Address"
+import Hours from "./Hours"
 export {
   Container,
   FormButton,
@@ -29,4 +33,8 @@ export {
   LeftArrow,
   RightArrow,
   Pagination,
+  NavLink,
+  Contact,
+  Address,
+  Hours,
 }

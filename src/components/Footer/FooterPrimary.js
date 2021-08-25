@@ -1,24 +1,8 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
-import { Container, FormButton } from "../UI"
+import { Container, FormButton, Contact, Address, Hours } from "../UI"
 
-const FooterPrimary = () => {
-  const { allDatoCmsHour } = useStaticQuery(graphql`
-    query MyQuery {
-      allDatoCmsHour {
-        nodes {
-          hour {
-            day
-            open
-            openingTime(formatString: "hh:mm a")
-            closingTime(formatString: "hh:mm a")
-          }
-        }
-      }
-    }
-  `)
-  const hours = allDatoCmsHour.nodes
+const FooterPrimary = ({ hours }) => {
   return (
     <div className="py-16 bg-brandDark">
       <Container>
@@ -28,48 +12,10 @@ const FooterPrimary = () => {
             Art Museum, <span className="text-brandLight">Sweet Liberty</span>{" "}
             offers guests world-class cocktails and creative American food.
           </h2>
-          <div className="footer__contact mb-10">
-            <h3 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
-              Contact
-            </h3>
-            <h4 className="text-white font-redHatDisplay text-xl mb-3">
-              <strong>Call:</strong> <a href="tel:05.763.8217">05.763.8217</a>
-            </h4>
-            <h4 className="text-white font-redHatDisplay text-xl">
-              <strong>Email:</strong>{" "}
-              <a href="mailto:info@mysweetliberty.com">
-                info@mysweetliberty.com
-              </a>
-            </h4>
-          </div>
-          <div className="footer__address mb-10">
-            <h3 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
-              Address
-            </h3>
-            <h4 className="text-white font-redHatDisplay text-xl mb-3">
-              237-B 20th Street
-            </h4>
-            <h4 className="text-white font-redHatDisplay text-xl">
-              Miami Beach • FL • 33139
-            </h4>
-          </div>
+          <Contact className="mb-10" />
+          <Address className="mb-10" />
           <div className="footer__hours mb-10">
-            <h3 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
-              Hours
-            </h3>
-            {React.Children.toArray(
-              hours[0].hour.map(
-                h =>
-                  h.open && (
-                    <h4 className="text-white font-redHatDisplay text-xl mb-3">
-                      <strong>{h.day}: </strong>
-                      <span className="uppercase">
-                        {h.openingTime} - {h.closingTime}
-                      </span>
-                    </h4>
-                  )
-              )
-            )}
+            <Hours hours={hours} />
             <h4 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
               For large parties (8+)
             </h4>

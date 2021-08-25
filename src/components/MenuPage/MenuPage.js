@@ -87,8 +87,8 @@ const MenuPage = () => {
   return (
     <Main backgroundColor={bodyColor}>
       <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
-        <img src={LeafLeft} alt="Sweet Liberty" />
-        <img src={LeafRight} alt="Sweet Liberty" />
+        <img src={LeafLeft} alt="Sweet Liberty" width="381px" height="824px" />
+        <img src={LeafRight} alt="Sweet Liberty" width="220px" height="497px" />
       </div>
       <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
         <Container>

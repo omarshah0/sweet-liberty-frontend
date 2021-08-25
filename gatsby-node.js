@@ -40,7 +40,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   //Creating a Single Blog Post
   posts.map(post => {
-    console.log("Post is ", post)
     createPage({
       component: blogTemplate,
       path: `/blog/${post.node.slug}`,

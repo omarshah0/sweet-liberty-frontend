@@ -27,6 +27,8 @@ module.exports = {
       },
       fontSize: {
         xxs: "5px",
+        med: "16px",
+        resky: "10px",
       },
       boxShadow: {
         "blog-card":
