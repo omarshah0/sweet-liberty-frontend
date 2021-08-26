@@ -35,6 +35,7 @@ module.exports = {
     },
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
