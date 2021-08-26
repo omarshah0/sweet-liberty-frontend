@@ -1,10 +1,14 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 
 import { NavLink, Hours, Contact, Address, Container } from "../UI"
 
 const Nav = ({ hours, closeModal }) => {
+  const controls = useAnimation()
+  const animationController = () => {
+    controls.start("exit")
+  }
   return (
     <motion.div
       className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16"
@@ -15,7 +19,10 @@ const Nav = ({ hours, closeModal }) => {
       style={{ zIndex: "9999" }}
     >
       <Container className="relative">
-        <button onClick={closeModal} className="absolute top-2 right-16">
+        <button
+          onClick={closeModal}
+          className="absolute top-4 right-6 md:right-16"
+        >
           <span className="block border-2 bg-brandLight mb-3 w-14 transform rotate-45 translate-y-2"></span>
           <span className="block border-2 bg-brandLight mb-3 w-14 transform -rotate-45 -translate-y-2"></span>
         </button>

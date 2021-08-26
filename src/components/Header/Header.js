@@ -12,16 +12,17 @@ import Logo_Dark from "../../assets/logo_dark.svg"
 const Header = ({ hours, homepage }) => {
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
-    if (!modal) {
-      //No Scrolling When Modal is Opened
-      document.body.style.overflow = "hidden"
-      setModal(true)
-    }
-    if (modal) {
-      //Scrolling When Modal is Opened
-      document.body.style.overflow = "auto"
-      setModal(false)
-    }
+    // if (!modal) {
+    //   //No Scrolling When Modal is Opened
+    //   document.body.style.overflow = "hidden"
+    //   setModal(true)
+    // }
+    // if (modal) {
+    //   //Scrolling When Modal is Opened
+    //   document.body.style.overflow = "auto"
+    //   setModal(false)
+    // }
+    setModal(!modal)
   }
 
   return (
@@ -29,7 +30,7 @@ const Header = ({ hours, homepage }) => {
       {({ theme }) => (
         <header
           className={`py-3 absolute ${
-            homepage ? "top-10" : "top-10"
+            homepage ? "top-0 md:top-10" : "top-0 md:top-10"
           } left-0 right-0 z-10`}
         >
           {" "}
