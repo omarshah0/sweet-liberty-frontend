@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import { document, window } from "browser-monads"
 
 import Nav from "../Nav"
 import Container from "../UI/Container"
@@ -8,14 +9,28 @@ import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 
 const Header = ({ hours }) => {
+  const [modal, setModal] = useState(false)
   const buttonHandler = () => {
-    console.log("DO SOMETHING WITH BUTTON")
+    if (!modal) {
+      // When the modal is shown, we want a fixed body
+      document.body.style.position = "fixed"
+      document.body.style.top = `-${window.scrollY}px`
+      setModal(true)
+    }
+    if (modal) {
+      // When the modal is hidden, we want to remain at the top of the scroll position
+      document.body.style.position = ""
+      document.body.style.top = ""
+      setModal(false)
+    }
   }
 
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <header className="py-3 absolute top-0 left-0 right-0 z-10">
+        <header className="py-3 absolute top-10 left-0 right-0 z-10">
+          {" "}
+          {/*For Blog This is Top-0 for Other Pages This is Top-10*/}
           <Container>
             <div className="flex justify-between items-center">
               <Link to="/">
@@ -38,7 +53,7 @@ const Header = ({ hours }) => {
               </button>
             </div>
           </Container>
-          <Nav hours={hours} />
+          {modal && <Nav hours={hours} closeModal={buttonHandler} />}
         </header>
       )}
     </ThemeContext.Consumer>

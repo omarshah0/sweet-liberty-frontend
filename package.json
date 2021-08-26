@@ -11,6 +11,7 @@
     "@fontsource/frank-ruhl-libre": "^4.5.0",
     "@fontsource/red-hat-display": "^4.5.0",
     "@fontsource/source-sans-pro": "^4.5.0",
+    "browser-monads": "^1.0.0",
     "gatsby": "^3.10.2",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-gatsby-cloud": "^2.10.0",
