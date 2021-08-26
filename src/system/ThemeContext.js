@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react"
 
 const defaultState = {
   body: "bg-brandLight",
-  hamburger: "border-brandDark",
+  hamburger: "bg-brandLight",
   navButtonBg: "bg-shopBg",
   navButtonText: "text-white",
   navButtonHover: "bg-brandRed",
@@ -34,7 +34,7 @@ const happyHourState = {
 
 const specials = {
   body: "bg-brandDark",
-  hamburger: "border-brandLight",
+  hamburger: "bg-brandLight",
   navButtonBg: "bg-shopBg",
   navButtonText: "text-white",
   navButtonHover: "bg-brandPink",
@@ -50,7 +50,7 @@ const specials = {
 
 const brunch = {
   body: "bg-brunch",
-  hamburger: "border-brandDark",
+  hamburger: "bg-brandDark",
   navButtonBg: "bg-brandGrey",
   navButtonText: "text-black",
   navButtonHover: "bg-brandPink",

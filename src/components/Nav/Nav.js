@@ -1,14 +1,10 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { motion, useAnimation } from "framer-motion"
+import { motion } from "framer-motion"
 
 import { NavLink, Hours, Contact, Address, Container } from "../UI"
 
 const Nav = ({ hours, closeModal }) => {
-  const controls = useAnimation()
-  const animationController = () => {
-    controls.start("exit")
-  }
   return (
     <motion.div
       className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16"

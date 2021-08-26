@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { AnimatePresence } from "framer-motion"
-import { document } from "browser-monads"
 
 import Nav from "../Nav"
 import Container from "../UI/Container"
@@ -9,7 +8,7 @@ import ThemeContext from "../../system/ThemeContext"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 
-const Header = ({ hours, homepage }) => {
+const Header = ({ hours }) => {
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
     // if (!modal) {
@@ -28,17 +27,13 @@ const Header = ({ hours, homepage }) => {
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <header
-          className={`py-3 absolute ${
-            homepage ? "top-0 md:top-10" : "top-0 md:top-10"
-          } left-0 right-0 z-10`}
-        >
+        <header className="py-3 absolute top-0 md:top-10 left-0 right-0 z-10">
           {" "}
           {/*For Blog This is Top-0 for Other Pages This is Top-10*/}
           <Container>
             <div className="flex justify-between items-center">
               <Link to="/">
-                {theme.dark || homepage ? (
+                {theme.dark ? (
                   <img src={Logo_Dark} alt="Sweet Liberty" />
                 ) : (
                   <img src={Logo_Light} alt="Sweet Liberty" />
@@ -46,19 +41,13 @@ const Header = ({ hours, homepage }) => {
               </Link>
               <button className="hamburger block" onClick={buttonHandler}>
                 <span
-                  className={`block border-2 ${
-                    homepage ? "bg-brandLight" : theme.hamburger
-                  } mb-3 w-14 `}
+                  className={`block ${theme.hamburger} mb-3 w-14 h-1`}
                 ></span>
                 <span
-                  className={`block border-2 ${
-                    homepage ? "bg-brandLight" : theme.hamburger
-                  } mb-3 w-10 ml-auto`}
+                  className={`block ${theme.hamburger} mb-3 w-10 h-1 ml-auto`}
                 ></span>
                 <span
-                  className={`block border-2 ${
-                    homepage ? "bg-brandLight" : theme.hamburger
-                  } mb-3 w-14`}
+                  className={`block ${theme.hamburger} mb-3 w-14 h-1`}
                 ></span>
               </button>
             </div>

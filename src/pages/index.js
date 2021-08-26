@@ -6,7 +6,7 @@ import { Main, Container } from "../components/UI"
 
 const HomePage = () => {
   return (
-    <Layout homepage>
+    <Layout>
       <Main className="bg-brandDark">
         <Container>
           <Hero />
