@@ -1,11 +1,19 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { motion } from "framer-motion"
 
 import { NavLink, Hours, Contact, Address, Container } from "../UI"
 
 const Nav = ({ hours, closeModal }) => {
   return (
-    <div className="bg-brandDark absolute md:fixed inset-0 py-8 md:py-12 lg:py-16 z-10 ">
+    <motion.div
+      className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16"
+      initial={{ x: "100vw" }}
+      animate={{ x: "0vw" }}
+      exit={{ x: "100vw" }}
+      transition={{ duration: 0.5, ease: "linear" }}
+      style={{ zIndex: "9999" }}
+    >
       <Container className="relative">
         <button onClick={closeModal} className="absolute top-2 right-16">
           <span className="block border-2 bg-brandLight mb-3 w-14 transform rotate-45 translate-y-2"></span>
@@ -96,7 +104,7 @@ const Nav = ({ hours, closeModal }) => {
           </div>
         </div>
       </Container>
-    </div>
+    </motion.div>
   )
 }
 

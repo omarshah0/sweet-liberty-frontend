@@ -25,10 +25,17 @@ module.exports = {
       spacing: {
         100: "30rem",
       },
+      margin: {
+        hero: "33.5rem",
+      },
       fontSize: {
         xxs: "5px",
         med: "16px",
         resky: "10px",
+        hero: "180px",
+      },
+      lineHeight: {
+        hero: "0.8",
       },
       boxShadow: {
         "blog-card":
@@ -40,6 +47,9 @@ module.exports = {
       },
       minHeight: {
         "blog-card": "206px",
+      },
+      translate: {
+        hero: "79%",
       },
     },
   },

@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, homepage }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
   const hours = allDatoCmsHour.nodes
   return (
     <Fragment>
-      <Header hours={hours[0]} />
+      <Header hours={hours[0]} homepage={homepage} />
       {children}
       <Footer hours={hours[0]} />
     </Fragment>

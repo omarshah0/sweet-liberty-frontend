@@ -17,6 +17,9 @@ import NavLink from "./NavLink"
 import Contact from "./Contact"
 import Address from "./Address"
 import Hours from "./Hours"
+import TitleSolid from "./TitleSolid"
+import TitleStroke from "./TitleStroke"
+
 export {
   Container,
   FormButton,
@@ -37,4 +40,6 @@ export {
   Contact,
   Address,
   Hours,
+  TitleSolid,
+  TitleStroke,
 }

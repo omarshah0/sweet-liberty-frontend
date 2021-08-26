@@ -1,14 +1,19 @@
 import React from "react"
 
 import Layout from "../components/Layout"
-import MenuPage from "../components/MenuPage"
+import Hero from "../components/Hero"
+import { Main, Container } from "../components/UI"
 
-const IndexPage = () => {
+const HomePage = () => {
   return (
-    <Layout>
-      <MenuPage />
+    <Layout homepage>
+      <Main className="bg-brandDark">
+        <Container>
+          <Hero />
+        </Container>
+      </Main>
     </Layout>
   )
 }
 
-export default IndexPage
+export default HomePage
