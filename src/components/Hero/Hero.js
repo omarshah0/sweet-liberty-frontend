@@ -22,7 +22,7 @@ const Hero = () => {
       <h1 className="font-bebas text-center md:text-left text-8xl md:text-hero text-brandLight leading-hero transform lg:mt-20">
         <motion.span
           className="inline-block transform"
-          initial={{ x: "-100%" }}
+          initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{ ease: "linear", duration: 1.5 }}
         >
@@ -41,7 +41,7 @@ const Hero = () => {
         <br />
         <motion.span
           className="inline-block transform xl:ml-hero xl:-mt-6"
-          initial={{ x: "200%" }}
+          initial={{ x: "100vw" }}
           animate={{ x: "0%" }}
           transition={{ ease: "linear", duration: 1.5 }}
         >
