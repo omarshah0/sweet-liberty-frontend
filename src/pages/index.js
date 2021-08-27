@@ -8,7 +8,7 @@ import { Main } from "../components/UI"
 const HomePage = () => {
   return (
     <Layout>
-      <Main className="bg-brandDark">
+      <Main className="bg-brandDark overflow-hidden">
         <Hero />
         <PursuingExcellence />
       </Main>
