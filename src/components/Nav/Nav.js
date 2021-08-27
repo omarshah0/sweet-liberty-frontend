@@ -7,7 +7,7 @@ import { NavLink, Hours, Contact, Address, Container } from "../UI"
 const Nav = ({ hours, closeModal }) => {
   return (
     <motion.div
-      className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16"
+      className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16 lg:grid place-items-center xl:block"
       initial={{ x: "100vw" }}
       animate={{ x: "0vw" }}
       exit={{ x: "100vw" }}
@@ -17,7 +17,7 @@ const Nav = ({ hours, closeModal }) => {
       <Container className="relative">
         <button
           onClick={closeModal}
-          className="absolute top-4 right-6 md:right-16"
+          className="absolute top-2 lg:-top-44 xl:top-2 right-6 md:right-12"
         >
           <span className="block border-2 bg-brandLight mb-3 w-14 transform rotate-45 translate-y-2"></span>
           <span className="block border-2 bg-brandLight mb-3 w-14 transform -rotate-45 -translate-y-2"></span>

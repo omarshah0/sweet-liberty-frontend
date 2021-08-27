@@ -7,7 +7,21 @@ import { Container, TitleSolid, TitleStroke, Scroller } from "../UI"
 
 const Hero = () => {
   return (
-    <section className="mb-24 lg:mb-52">
+    <section className="mb-24 lg:mb-52 relative">
+      <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
+        <StaticImage
+          src="../../assets/hero_leaf_left.png"
+          alt="Sweet Liberty Leaf"
+          placeholder="blurred"
+          className="mt-60"
+        />
+        <StaticImage
+          src="../../assets/hero_leaf_right.png"
+          alt="Sweet Liberty Leaf"
+          placeholder="blurred"
+          className=""
+        />
+      </div>
       <Container>
         <div className="py-10 relative lg:min-h-screen lg:-mt-28 lg:grid place-items-center xl:block">
           <motion.div
@@ -54,7 +68,7 @@ const Hero = () => {
             </motion.span>
           </h1>
           <motion.div
-            className="inline-flex items-center  p-6 absolute ml-8 -mt-2 md:bottom-40 lg:bottom-36 xl:ml-32"
+            className="inline-flex items-center  p-6 absolute ml-8 -mt-2 md:-bottom-8 lg:bottom-36 md:-ml-4 xl:ml-32"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 2.7 }}
