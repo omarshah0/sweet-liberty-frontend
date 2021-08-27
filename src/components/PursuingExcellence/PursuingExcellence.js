@@ -101,7 +101,7 @@ const PursuingExcellence = () => {
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >
-                  <TitleStroke className="relative xl:left-80 xl:ml-9">
+                  <TitleStroke className="relative xl:left-80 xl:ml-9 tracking-wide md:tracking-normal">
                     Excellence
                   </TitleStroke>
                 </motion.span>
