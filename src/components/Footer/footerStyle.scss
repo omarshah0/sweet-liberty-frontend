@@ -9,6 +9,13 @@
   }
   @media screen and (min-width: 1024px) {
     grid-template-areas:
+      "text text text"
+      "contact address hours"
+      "social social social";
+    grid-column-gap: 7rem;
+  }
+  @media screen and (min-width: 1280px) {
+    grid-template-areas:
       "text contact hours"
       "text address hours"
       "social social social";
@@ -50,9 +57,10 @@
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-areas:
-      "sweet tos"
-      "privacy ."
-      "glassFull glassFull";
+      "sweet tos privacy"
+      "glassFull glassFull glassFull";
+    row-gap: 1rem;
+    justify-content: space-between;
   }
   @media screen and (min-width: 1024px) {
     grid-template-areas: "sweet sweet tos privacy glassFull glassFull glassFull";

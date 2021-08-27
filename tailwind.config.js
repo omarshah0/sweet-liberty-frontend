@@ -33,6 +33,7 @@ module.exports = {
         med: "16px",
         resky: "10px",
         hero: "180px",
+        pursue: "116px",
       },
       lineHeight: {
         hero: "0.8",

@@ -2,15 +2,15 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import Hero from "../components/Hero"
-import { Main, Container } from "../components/UI"
+import PursuingExcellence from "../components/PursuingExcellence"
+import { Main } from "../components/UI"
 
 const HomePage = () => {
   return (
     <Layout>
       <Main className="bg-brandDark">
-        <Container>
-          <Hero />
-        </Container>
+        <Hero />
+        <PursuingExcellence />
       </Main>
     </Layout>
   )

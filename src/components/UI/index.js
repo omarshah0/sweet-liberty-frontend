@@ -19,6 +19,7 @@ import Address from "./Address"
 import Hours from "./Hours"
 import TitleSolid from "./TitleSolid"
 import TitleStroke from "./TitleStroke"
+import Scroller from "./Scroller"
 
 export {
   Container,
@@ -42,4 +43,5 @@ export {
   Hours,
   TitleSolid,
   TitleStroke,
+  Scroller,
 }

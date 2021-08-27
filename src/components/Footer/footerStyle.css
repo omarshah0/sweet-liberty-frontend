@@ -2,20 +2,20 @@
   .footer__grid {
     display: -ms-grid;
     display: grid;
-    grid-template-areas:
-      "text text"
-      "contact address"
-      "hours ."
-      "social social";
+        grid-template-areas: "text text" "contact address" "hours ." "social social";
   }
 }
 
 @media screen and (min-width: 1024px) {
   .footer__grid {
-    grid-template-areas:
-      "text contact hours"
-      "text address hours"
-      "social social social";
+        grid-template-areas: "text text text" "contact address hours" "social social social";
+    grid-column-gap: 7rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer__grid {
+        grid-template-areas: "text contact hours" "text address hours" "social social social";
     grid-column-gap: 7rem;
   }
 }
@@ -54,19 +54,20 @@
   .secondary__footer__grid {
     display: -ms-grid;
     display: grid;
-    grid-template-areas:
-      "sweet tos"
-      "privacy ."
-      "glassFull glassFull";
+        grid-template-areas: "sweet tos privacy" "glassFull glassFull glassFull";
+    row-gap: 1rem;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .secondary__footer__grid {
-    grid-template-areas: "sweet sweet tos privacy glassFull glassFull glassFull";
+        grid-template-areas: "sweet sweet tos privacy glassFull glassFull glassFull";
     -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -84,5 +85,6 @@
 
 .glass__full {
   grid-area: glassFull;
+  justify-self: flex-end;
 }
 /*# sourceMappingURL=footerStyle.css.map */
