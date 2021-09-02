@@ -34,6 +34,8 @@ module.exports = {
         resky: "10px",
         hero: "180px",
         pursue: "116px",
+        heavy: "509px",
+        "heavy-comp": "158px",
       },
       lineHeight: {
         hero: "0.8",
@@ -45,6 +47,9 @@ module.exports = {
       },
       maxWidth: {
         "blog-card": "420px",
+      },
+      height: {
+        standard: "962px",
       },
       minHeight: {
         "blog-card": "206px",

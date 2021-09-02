@@ -36,6 +36,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.32.0",
+    "react-responsive-carousel": "^3.2.21",
     "react-tabs": "^3.2.2",
     "styled-components": "^5.3.1"
   },
