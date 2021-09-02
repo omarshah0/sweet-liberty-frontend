@@ -14,7 +14,7 @@ const PursuingExcellence = () => {
           alt="Pursue Happiness"
         />
       </div>
-      <Container className="relative z-10">
+      <Container className="relative z-20">
         <InView threshold={0.3} triggerOnce>
           {({ ref, inView }) => (
             <motion.h2
