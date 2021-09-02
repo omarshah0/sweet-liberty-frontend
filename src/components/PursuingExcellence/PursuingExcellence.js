@@ -190,7 +190,7 @@ const PursuingExcellence = () => {
           </p>
         </div>
       </Container>
-      {/* <div className="transform scale-125 absolute -bottom-6 md:-bottom-20 border-4 z-10 left-0 right-0">
+      <div className="transform scale-125 absolute -bottom-6 md:-bottom-20 z-10 left-0 right-0">
         <svg
           viewBox="0 0 1440 247"
           fill="white"
@@ -202,7 +202,7 @@ const PursuingExcellence = () => {
             fill="#257972"
           />
         </svg>
-      </div> */}
+      </div>
     </section>
   )
 }
