@@ -1,0 +1,11 @@
+.hover-link-parent > .hover-link {
+  display: none;
+}
+
+.hover-link-parent:hover > .hover-link {
+  display: inline-block;
+}
+
+.hover-link-parent:hover > .scaled {
+  transform: scale(1.7);
+}

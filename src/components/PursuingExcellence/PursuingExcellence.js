@@ -5,6 +5,9 @@ import { InView } from "react-intersection-observer"
 
 import { Container, TitleSolid, TitleStroke } from "../UI"
 
+import SelectBrandLine from "../../assets/select_anim.svg"
+import "./PX.css"
+
 const PursuingExcellence = () => {
   return (
     <section className="relative pb-16">
@@ -67,7 +70,14 @@ const PursuingExcellence = () => {
             )}
           </InView>
         </div>
-        <div className="xl:ml-40">
+        <div className="xl:ml-40 relative">
+          <div className="hidden lg:block">
+            <StaticImage
+              src="../../assets/px_leaf_right.png"
+              alt="Sweet Liverty"
+              className="absolute -top-60 -right-20 z-20"
+            />
+          </div>
           <InView threshold={0.2} triggerOnce>
             {({ ref, inView }) => (
               <motion.div
@@ -124,11 +134,20 @@ const PursuingExcellence = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear" }}
               >
-                <StaticImage
-                  src="../../assets/timeout.png"
-                  alt="Timeout Logo"
-                  layout="fixed"
-                />
+                {/* ----------------------Working Part---------------------- */}
+                <span className="relative inline-block cursor-pointer hover-link-parent">
+                  <StaticImage
+                    src="../../assets/timeout.png"
+                    alt="Timeout Logo"
+                    layout="fixed"
+                  />
+                  <img
+                    src={SelectBrandLine}
+                    alt="selected"
+                    className="absolute -top-10 left-0 hover-link"
+                  />
+                </span>
+                {/* ----------------------Working Part---------------------- */}
               </motion.div>
             )}
           </InView>
@@ -140,11 +159,18 @@ const PursuingExcellence = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.3 }}
               >
-                <StaticImage
-                  src="../../assets/best_bars.png"
-                  alt="Best Bars Logo"
-                  layout="fixed"
-                />
+                <span className="relative inline-block cursor-pointer hover-link-parent">
+                  <StaticImage
+                    src="../../assets/best_bars.png"
+                    alt="Best Bars Logo"
+                    layout="fixed"
+                  />
+                  <img
+                    src={SelectBrandLine}
+                    alt="selected"
+                    className="absolute top-4 left-0 hover-link scaled"
+                  />
+                </span>
               </motion.div>
             )}
           </InView>
@@ -156,11 +182,18 @@ const PursuingExcellence = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.6 }}
               >
-                <StaticImage
-                  src="../../assets/sprited_awards.png"
-                  alt="Sprited Awards Logo"
-                  layout="fixed"
-                />
+                <span className="relative inline-block cursor-pointer hover-link-parent">
+                  <StaticImage
+                    src="../../assets/sprited_awards.png"
+                    alt="Sprited Awards Logo"
+                    layout="fixed"
+                  />
+                  <img
+                    src={SelectBrandLine}
+                    alt="selected"
+                    className="absolute -top-10 left-0 hover-link"
+                  />
+                </span>
               </motion.div>
             )}
           </InView>
@@ -172,11 +205,18 @@ const PursuingExcellence = () => {
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.9 }}
               >
-                <StaticImage
-                  src="../../assets/tales_of_cocktails.png"
-                  alt="Tales of Cocktails Logo"
-                  layout="fixed"
-                />
+                <span className="relative inline-block cursor-pointer hover-link-parent">
+                  <StaticImage
+                    src="../../assets/tales_of_cocktails.png"
+                    alt="Tales of Cocktails Logo"
+                    layout="fixed"
+                  />
+                  <img
+                    src={SelectBrandLine}
+                    alt="selected"
+                    className="absolute -top-10 left-0 hover-link"
+                  />
+                </span>
               </motion.div>
             )}
           </InView>

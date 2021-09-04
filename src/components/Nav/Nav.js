@@ -4,16 +4,9 @@ import { motion } from "framer-motion"
 
 import { NavLink, Hours, Contact, Address, Container } from "../UI"
 
-const Nav = ({ hours, closeModal }) => {
+const Nav = ({ hours, modal, closeModal }) => {
   return (
-    <motion.div
-      className="bg-brandDark fixed inset-0 py-8 md:py-12 lg:py-16 lg:grid place-items-center xl:block"
-      initial={{ x: "100vw" }}
-      animate={{ x: "0vw" }}
-      exit={{ x: "100vw" }}
-      transition={{ duration: 0.5, ease: "linear" }}
-      style={{ zIndex: "9999" }}
-    >
+    <motion.div className="bg-brandDark fixed top-0 bottom-0 left-full py-8 md:py-12 lg:py-16 lg:grid place-items-center xl:block">
       <Container className="relative">
         <button
           onClick={closeModal}
