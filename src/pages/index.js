@@ -5,6 +5,7 @@ import Seo from "../components/SEO"
 import Hero from "../components/Hero"
 import PursuingExcellence from "../components/PursuingExcellence"
 import FeaturedSection from "../components/FeaturedSection"
+import MenuBanner from "../components/MenuBanner"
 import { Main } from "../components/UI"
 
 const HomePage = () => {
@@ -15,7 +16,7 @@ const HomePage = () => {
         <Hero />
         <PursuingExcellence />
         <FeaturedSection />
-        <div className="bg-brandLight h-52"></div>
+        <MenuBanner />
       </Main>
     </Layout>
   )

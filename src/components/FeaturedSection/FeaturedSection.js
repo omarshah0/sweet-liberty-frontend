@@ -22,7 +22,7 @@ const FeaturedSection = () => {
   }
 
   return (
-    <section className="relative">
+    <section className="relative bg-gray-400">
       <StaticImage
         src="../../assets/featured_leaf.png"
         className="hidden md:block pointer-events-none absolute -top-56 right-0 z-20"
@@ -34,12 +34,13 @@ const FeaturedSection = () => {
         showIndicators={false}
         showThumbs={false}
         showStatus={false}
+        autoPlay={false}
       >
         <SlideOne />
         <SlideTwo />
         <SlideThree />
       </Carousel>
-      <div className="inline-flex absolute bottom-4 right-3 md:bottom-8 md:right-40">
+      <div className="inline-flex absolute bottom-12 right-3 md:bottom-28 md:right-40">
         <button
           onClick={prevSlideHandler}
           className={`w-16 h-16 font-cantataOne rounded-full grid place-items-center border-4 transition-all ${
@@ -50,7 +51,7 @@ const FeaturedSection = () => {
               : currentSlide === 2
               ? "border-brandLight text-brandLight"
               : ""
-          } text-5xl mr-4`}
+          } text-5xl mr-1`}
         >
           <span className="relative right-1 bottom-1">{"<"}</span>
         </button>

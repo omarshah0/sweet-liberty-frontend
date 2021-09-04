@@ -33,6 +33,7 @@ module.exports = {
         med: "16px",
         resky: "10px",
         hero: "180px",
+        banner: "190px",
         pursue: "116px",
         heavy: "509px",
         "heavy-comp": "158px",
@@ -47,6 +48,7 @@ module.exports = {
       },
       maxWidth: {
         "blog-card": "420px",
+        1440: "1440px",
       },
       height: {
         standard: "962px",

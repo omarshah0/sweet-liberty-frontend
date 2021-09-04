@@ -16,7 +16,7 @@ const SlideOne = () => {
     }
   `
   return (
-    <div className="bg-brandLight pt-20 pb-36 md:pb-0 xl:pt-36">
+    <div className="bg-brandLight pt-20 pb-48 md:pb-28 xl:pt-36">
       <Container>
         <div className="xl:px-12 relative">
           <h2 className="font-bebas text-brandDark mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
