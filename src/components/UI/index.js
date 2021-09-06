@@ -22,6 +22,7 @@ import TitleStroke from "./TitleStroke"
 import Scroller from "./Scroller"
 import TitleWithStroke from "./TitleWithStroke"
 import MerchCard from "./MerchCard"
+import BookingCard from "./BookingCard"
 
 export {
   Container,
@@ -48,4 +49,5 @@ export {
   Scroller,
   TitleWithStroke,
   MerchCard,
+  BookingCard,
 }

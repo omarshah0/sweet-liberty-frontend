@@ -37,6 +37,7 @@ module.exports = {
         pursue: "116px",
         heavy: "509px",
         merch: "200px",
+        booking: "150px",
         "heavy-comp": "158px",
       },
       lineHeight: {

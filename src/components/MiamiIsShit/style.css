@@ -1,0 +1,11 @@
+.cutter-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  @apply bg-brandLight;
+  z-index: 10;
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
+}

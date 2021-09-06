@@ -7,7 +7,10 @@ import PursuingExcellence from "../components/PursuingExcellence"
 import FeaturedSection from "../components/FeaturedSection"
 import MenuBanner from "../components/MenuBanner"
 import MerchSection from "../components/MerchSection"
+import MiamiIsShit from "../components/MiamiIsShit/"
 import { Main } from "../components/UI"
+import StylishPursue from "../components/StylishPursue"
+import BookingSection from "../components/BookingSection"
 
 const HomePage = () => {
   return (
@@ -19,6 +22,9 @@ const HomePage = () => {
         <FeaturedSection />
         <MenuBanner />
         <MerchSection />
+        <MiamiIsShit />
+        <StylishPursue />
+        <BookingSection />
       </Main>
     </Layout>
   )

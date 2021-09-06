@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
 
@@ -81,8 +82,16 @@ const Merch = () => {
                 link="/"
               />
             </div>
-            <div>
-              <h1>Shop Now</h1>
+            <div className="text-center pb-36">
+              <Link
+                to="/shop"
+                className="font-frankRuhlLibre text-brandDark text-6xl"
+              >
+                Shop Now{" "}
+                <span className="w-16 h-16 font-cantataOne rounded-full inline-grid place-items-center border-4 border-brandDark text-brandDark text-5xl mr-1">
+                  <span className="relative left-0 bottom-1">{">"}</span>
+                </span>
+              </Link>
             </div>
           </Container>
         </section>
