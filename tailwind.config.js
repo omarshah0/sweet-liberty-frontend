@@ -36,6 +36,7 @@ module.exports = {
         banner: "190px",
         pursue: "116px",
         heavy: "509px",
+        merch: "200px",
         "heavy-comp": "158px",
       },
       lineHeight: {

@@ -6,6 +6,7 @@ import Hero from "../components/Hero"
 import PursuingExcellence from "../components/PursuingExcellence"
 import FeaturedSection from "../components/FeaturedSection"
 import MenuBanner from "../components/MenuBanner"
+import MerchSection from "../components/MerchSection"
 import { Main } from "../components/UI"
 
 const HomePage = () => {
@@ -17,6 +18,7 @@ const HomePage = () => {
         <PursuingExcellence />
         <FeaturedSection />
         <MenuBanner />
+        <MerchSection />
       </Main>
     </Layout>
   )

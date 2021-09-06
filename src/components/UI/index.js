@@ -20,6 +20,8 @@ import Hours from "./Hours"
 import TitleSolid from "./TitleSolid"
 import TitleStroke from "./TitleStroke"
 import Scroller from "./Scroller"
+import TitleWithStroke from "./TitleWithStroke"
+import MerchCard from "./MerchCard"
 
 export {
   Container,
@@ -44,4 +46,6 @@ export {
   TitleSolid,
   TitleStroke,
   Scroller,
+  TitleWithStroke,
+  MerchCard,
 }

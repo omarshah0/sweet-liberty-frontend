@@ -1,6 +1,7 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+import SmoothScrollWrapper from "../SmoothScrollWrapper"
 import Header from "../Header"
 import Footer from "../Footer"
 
@@ -21,11 +22,11 @@ const Layout = ({ children }) => {
   `)
   const hours = allDatoCmsHour.nodes
   return (
-    <Fragment>
+    <SmoothScrollWrapper>
       <Header hours={hours[0]} />
       {children}
       <Footer hours={hours[0]} />
-    </Fragment>
+    </SmoothScrollWrapper>
   )
 }
 

@@ -4,11 +4,15 @@ const FormButton = props => {
   return (
     <button
       {...props}
-      className="bg-brandPink pl-6 pr-16 py-3 font-frankRuhlLibre font-bold text-xl text-white rounded-3xl relative"
+      className={`bg-brandPink pl-6 pr-16 py-3 ${
+        props.font ? props.font : "font-frankRuhlLibre text-white text-xl"
+      } font-bold rounded-3xl relative`}
     >
       {props.children}
       <div
-        className="absolute border-brandDark bg-brandPink rounded-full flex items-center justify-center"
+        className={`absolute ${
+          props.className ? props.className : "border-brandDark"
+        } bg-brandPink rounded-full flex items-center justify-center`}
         style={{
           top: "-5px",
           right: "-18px",

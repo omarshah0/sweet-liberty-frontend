@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .will-transform {
+    will-change: transform;
+  }
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
