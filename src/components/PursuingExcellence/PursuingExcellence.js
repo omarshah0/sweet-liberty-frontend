@@ -71,11 +71,10 @@ const PursuingExcellence = () => {
           </InView>
         </div>
         <div className="xl:ml-40 relative">
-          <div className="hidden lg:block">
+          <div className="hidden lg:block absolute -top-60 -right-20 z-20">
             <StaticImage
               src="../../assets/px_leaf_right.png"
               alt="Sweet Liverty"
-              className="absolute -top-60 -right-20 z-20"
             />
           </div>
           <InView threshold={0.2} triggerOnce>

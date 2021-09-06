@@ -23,11 +23,8 @@ const FeaturedSection = () => {
 
   return (
     <section className="relative bg-gray-400">
-      <div className="hidden md:block pointer-events-none">
-        <StaticImage
-          src="../../assets/featured_leaf.png"
-          className="absolute -top-56 right-0 z-20"
-        />
+      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-20">
+        <StaticImage src="../../assets/featured_leaf.png" />
       </div>
       <Carousel
         selectedItem={currentSlide}
