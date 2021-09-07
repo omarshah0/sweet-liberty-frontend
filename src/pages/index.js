@@ -8,9 +8,11 @@ import FeaturedSection from "../components/FeaturedSection"
 import MenuBanner from "../components/MenuBanner"
 import MerchSection from "../components/MerchSection"
 import MiamiIsShit from "../components/MiamiIsShit/"
-import { Main } from "../components/UI"
 import StylishPursue from "../components/StylishPursue"
 import BookingSection from "../components/BookingSection"
+import NewsEvents from "../components/NewEvents"
+import DoGoodWork from "../components/DoGoodWork"
+import { Main } from "../components/UI"
 
 const HomePage = () => {
   return (
@@ -25,6 +27,8 @@ const HomePage = () => {
         <MiamiIsShit />
         <StylishPursue />
         <BookingSection />
+        <NewsEvents />
+        <DoGoodWork />
       </Main>
     </Layout>
   )
