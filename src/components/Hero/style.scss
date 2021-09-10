@@ -1,0 +1,37 @@
+.hero-text-animation-left {
+  animation: fadeInLeft 1.5s ease-in-out forwards;
+  transform: translateX(-100vw);
+  will-change: transform;
+}
+
+.hero-text-animation-right {
+  animation: fadeInLeft 1.5s ease-in-out forwards;
+  transform: translateX(100vw);
+  will-change: transform;
+}
+
+.hero-image-animation {
+  animation: fadeTop 1.5s ease-in-out 1s forwards;
+  transform: translateY(-150px);
+  opacity: 0;
+  will-change: transform opacity;
+}
+
+@keyframes fadeInLeft {
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes fadeInRight {
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes fadeTop {
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

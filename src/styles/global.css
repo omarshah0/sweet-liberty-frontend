@@ -198,3 +198,7 @@ body {
 .tablist-scrollbar-tab__food::-webkit-scrollbar-thumb {
   @apply bg-brandRed;
 }
+
+.marquee-container {
+  overflow-x: visible !important;
+}

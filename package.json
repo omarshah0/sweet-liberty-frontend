@@ -37,6 +37,7 @@
     "react-fast-marquee": "^1.2.1",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.32.0",
+    "react-responsive": "^9.0.0-beta.4",
     "react-responsive-carousel": "^3.2.21",
     "react-tabs": "^3.2.2",
     "resize-observer-polyfill": "^1.5.1",

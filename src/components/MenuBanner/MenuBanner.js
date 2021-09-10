@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { useMediaQuery } from "react-responsive"
 import {
   motion,
   useSpring,
@@ -7,7 +8,6 @@ import {
   useViewportScroll,
 } from "framer-motion"
 import styled from "styled-components"
-
 import { useElementPosition } from "../../hooks"
 
 const MenuBanner = () => {
@@ -15,10 +15,12 @@ const MenuBanner = () => {
   const divTwoRef = useRef(null)
   const divThreeRef = useRef(null)
   const divFourRef = useRef(null)
-  const divOnePos = useElementPosition(divOneRef, 800)
-  const divTwoPos = useElementPosition(divTwoRef, 800)
-  const divThreePos = useElementPosition(divThreeRef, 800)
-  const divFourPos = useElementPosition(divFourRef, 800)
+  const is969 = useMediaQuery({ query: "(min-height: 969px)" })
+  const divOffset = is969 ? 1100 : 850
+  const divOnePos = useElementPosition(divOneRef, divOffset)
+  const divTwoPos = useElementPosition(divTwoRef, divOffset)
+  const divThreePos = useElementPosition(divThreeRef, divOffset)
+  const divFourPos = useElementPosition(divFourRef, divOffset)
   const { scrollY } = useViewportScroll()
   const threshold = 400
   const elOneInput = [divOnePos, divOnePos + threshold]
@@ -115,7 +117,7 @@ const MenuBanner = () => {
     <section className="bg-brandLight xl:py-36">
       {/* ----------------------------This is Block One----------------------------- */}
       <div
-        className="flex justify-between items-center items-center max-w-1440 mx-auto mb-3 relative"
+        className="flex justify-between items-center max-w-1440 mx-auto mb-3 relative"
         ref={divOneRef}
       >
         <motion.span style={{ opacity: opacityOne }} className="order-1">
@@ -140,7 +142,7 @@ const MenuBanner = () => {
       </div>
       {/* ----------------------------This is Block Two----------------------------- */}
       <div
-        className="flex justify-between max-w-1440 mx-auto mb-3 relative"
+        className="flex justify-between items-center max-w-1440 mx-auto mb-3 relative"
         ref={divTwoRef}
       >
         <motion.span style={{ opacity: opacityTwo }}>

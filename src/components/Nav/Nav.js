@@ -1,23 +1,39 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
 
-import { NavLink, Hours, Contact, Address, Container } from "../UI"
+import { NavLink, Hours, Contact, Address } from "../UI"
 
 const Nav = ({ hours, modal, closeModal }) => {
   return (
-    <motion.div className="bg-brandDark fixed top-0 bottom-0 left-full py-8 md:py-12 lg:py-16 lg:grid place-items-center xl:block">
-      <Container className="relative">
-        <button
-          onClick={closeModal}
-          className="absolute top-2 lg:-top-44 xl:top-2 right-6 md:right-12"
-        >
-          <span className="block border-2 bg-brandLight mb-3 w-14 transform rotate-45 translate-y-2"></span>
-          <span className="block border-2 bg-brandLight mb-3 w-14 transform -rotate-45 -translate-y-2"></span>
+    <div
+      className={`fixed inset-0 bg-brandDark transform ${
+        modal ? "translate-x-[0vw]" : "translate-x-[100vw]"
+      }`}
+    >
+      <div className="relative max-w-screen-2xl mx-auto">
+        <button onClick={closeModal} className="absolute top-0 right-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="currentColorF"
+          >
+            <path
+              d="M19.8787 59.7334L59.7338 19.8783"
+              stroke="#C0F3D4"
+              strokeWidth="3"
+            />
+            <path
+              d="M59.4419 60.1235L19.5868 20.2684"
+              stroke="#C0F3D4"
+              strokeWidth="3"
+            />
+          </svg>
         </button>
-        <div className="md:grid grid-cols-2">
+        <div className="md:grid grid-cols-2 min-h-screen mx-[7.6vw]  my-[67px]">
           <nav>
-            <ul className="mb-8 md:mb-12">
+            <ul className="mb-10">
               <li>
                 <NavLink title="About" url="/about" />
               </li>
@@ -51,7 +67,7 @@ const Nav = ({ hours, modal, closeModal }) => {
               </ul>
             </div>
           </nav>
-          <div className="grid md:justify-end md:items-end mt-16 md:mt-0">
+          <div className="">
             <div>
               <div className="mb-16">
                 <Hours hours={hours} />
@@ -99,8 +115,8 @@ const Nav = ({ hours, modal, closeModal }) => {
             </div>
           </div>
         </div>
-      </Container>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 

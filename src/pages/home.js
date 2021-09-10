@@ -8,7 +8,13 @@ const HomePage = () => {
     <Layout>
       <Main>
         <Container>
-          <h1>Cheema Lako</h1>
+          <h1 className="font-bebas text-[116px] leading-[119px] text-brandLight ml-[120px]">
+            This is Sweet Liberty.
+            <br />
+            Enjoyed by the <br />
+            Tourists, Loved By <br />
+            The Locals
+          </h1>
         </Container>
       </Main>
     </Layout>

@@ -43,7 +43,6 @@ const SlideOne = () => {
                       }}
                     >
                       Florida
-                      <Stroked className="absolute left-0">Florida</Stroked>
                     </motion.span>
                   </span>
                   <span className="absolute -bottom-4 right-0 xl:bottom-0 xl:right-10 text-7xl xl:text-heavy-comp text-brandPink z-30">

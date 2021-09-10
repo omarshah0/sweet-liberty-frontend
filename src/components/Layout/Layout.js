@@ -23,9 +23,11 @@ const Layout = ({ children }) => {
   const hours = allDatoCmsHour.nodes
   return (
     <SmoothScrollWrapper>
+      {/* <> */}
       <Header hours={hours[0]} />
       {children}
       <Footer hours={hours[0]} />
+      {/* </> */}
     </SmoothScrollWrapper>
   )
 }

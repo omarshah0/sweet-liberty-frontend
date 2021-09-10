@@ -53,7 +53,7 @@ const Header = ({ hours }) => {
               </button>
             </div>
           </Container>
-          {/* <Nav hours={hours} modal={modal} closeModal={buttonHandler} /> */}
+          <Nav hours={hours} modal={modal} closeModal={buttonHandler} />
         </header>
       )}
     </ThemeContext.Consumer>

@@ -62,6 +62,15 @@ module.exports = {
       translate: {
         hero: "79%",
       },
+      keyframes: {
+        heroFadeIn: {
+          "0%": { tranform: "translateX(-100vw)" },
+          "100%": { tranform: "translateX(0vw)" },
+        },
+      },
+      animation: {
+        fadeIn: "heroFadeIn 1.5s ease-in-out",
+      },
     },
   },
   variants: {

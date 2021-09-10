@@ -42,7 +42,7 @@ const MenuItemCard = ({ data }) => {
                           }`}
                         >
                           <h4
-                            className={`inline uppercase font-frankRuhlLibre text-xl font-bold`}
+                            className={`inline font-frankRuhlLibre text-xl font-bold`}
                           >
                             {item.name}
                           </h4>

@@ -8,10 +8,10 @@ import styled from "styled-components"
 const DoGoodWork = () => {
   const Title = styled(motion.span)`
     -webkit-text-stroke: 2px #ef5da8;
-    @media screen and (min-width: 768px) {
-      -webkit-text-stroke: 4px #ef5da8;
-      -webkit-text-fill-color: transparent;
-    }
+    /* @media screen and (min-width: 768px) { */
+    -webkit-text-stroke: 4px #ef5da8;
+    -webkit-text-fill-color: transparent;
+    /* } */
   `
   const heading = "Our greatest award is being able to open every day"
   return (
@@ -19,9 +19,9 @@ const DoGoodWork = () => {
       <div className="pl-6 md:pl-10 lg:pl-36 max-w-screen-2xl mx-auto relative">
         <InView threshold={0.1} triggerOnce>
           {({ ref, inView }) => (
-            <div className="relative w-9/12" ref={ref}>
+            <div className="relative md:w-9/12" ref={ref}>
               <motion.h2
-                className="pt-[520px] text-brandPink font-bebas text-merch leading-none relative"
+                className="pt-0 md:pt-[520px] text-[103px] text-brandPink font-bebas md:text-merch leading-none relative"
                 initial={{ x: "-100vw" }}
                 animate={inView ? { x: "0vw" } : { x: "-100vw" }}
                 transition={{ duration: 1.5, ease: "linear" }}
@@ -29,7 +29,7 @@ const DoGoodWork = () => {
                 {heading}
               </motion.h2>
               <Title
-                className="pt-[520px] text-brandPink font-bebas text-merch leading-none absolute inset-0 z-20"
+                className="pt-0 md:pt-[520px] text-[103px] text-brandPink font-bebas  md:text-merch leading-none absolute inset-0 z-20"
                 initial={{ x: "-100vw" }}
                 animate={inView ? { x: "0vw" } : { x: "-100vw" }}
                 transition={{ duration: 1.5, ease: "linear" }}
@@ -61,7 +61,7 @@ const DoGoodWork = () => {
             </span>
           </div>
         </div>
-        <div className="absolute top-0 right-0">
+        <div className="absolute top-20 lg:top-0 right-0">
           <StaticImage
             src="../../assets/OpenEveryday/jonathan.png"
             alt="Jonathan Holding US Flag"

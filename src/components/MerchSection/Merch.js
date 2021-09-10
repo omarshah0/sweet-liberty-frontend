@@ -1,12 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
-import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
 
 import { Container, MerchCard, TitleWithStroke } from "../UI"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Jacket from "../../assets/Merch/jacket_1.png"
+import Jacket from "../../assets/Merch/test_jacket.png"
 import Tee from "../../assets/Merch/tee.png"
 import Cap from "../../assets/Merch/cap.png"
 
@@ -16,24 +15,24 @@ const Merch = () => {
       {({ ref, inView }) => (
         <section className="bg-brandLight" ref={ref}>
           <Container>
-            <div className="relative pb-100">
-              <h2 className="font-bebas text-merch text-brandDark relative leading-hero ml-10">
+            <div className="relative pt-[100px] pb-0 lg:pb-[36rem] xl:pb-[37rem]">
+              <h2 className="font-bebas text-[7.875rem] md:text-[8.875rem] leading-[7rem] lg:text-[190px] xl:text-merch text-brandDark relative lg:leading-hero xl:ml-10">
                 <TitleWithStroke
                   className={`block relative transition-all duration-1000 ease-in-out ${
-                    inView ? "left-10" : "left-full"
+                    inView ? "xl:left-10" : "left-full"
                   }`}
                 >
                   Order Your
                 </TitleWithStroke>
-                <motion.span className="inline-block">
+                <span className="inline-block">
                   <TitleWithStroke
                     className={`block relative transition-all delay-150 duration-1000 ease-in-out ${
-                      inView ? "left-52" : "-left-full"
+                      inView ? "xl:left-52" : "-left-full"
                     }`}
                   >
                     Sweet Liberty
                   </TitleWithStroke>
-                </motion.span>
+                </span>
                 <TitleWithStroke
                   className={`block relative transition-all delay-250 duration-1000 ease-in-out ${
                     inView ? "left-0" : "left-full"
@@ -42,8 +41,8 @@ const Merch = () => {
                   Merch Now
                 </TitleWithStroke>
               </h2>
-              <div className="flex items-center absolute top-64 right-72">
-                <div className="relative top-20 left-4">
+              <div className="flex items-center relative top-[-200px] md:top-[-145px] lg:absolute lg:top-[23rem] lg:right-[4.8rem] xl:right-[18.8rem]">
+                <div className="relative top-20 left-4 z-10">
                   <StaticImage
                     src="../../assets/Merch/girl_standing.png"
                     alt="Girl Standing on Beach"
@@ -66,6 +65,7 @@ const Merch = () => {
                 description="Red - Womens"
                 price="$150"
                 link="/"
+                className="mb-20 md:mb-0"
               />
               <MerchCard
                 img={Tee}

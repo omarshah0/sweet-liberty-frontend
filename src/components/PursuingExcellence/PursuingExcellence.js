@@ -17,6 +17,9 @@ const PursuingExcellence = () => {
           alt="Pursue Happiness"
         />
       </div>
+      <div className="hidden lg:block absolute top-[56rem] -right-20 z-20">
+        <StaticImage src="../../assets/px_leaf_right.png" alt="Sweet Liverty" />
+      </div>
       <Container className="relative z-20">
         <InView threshold={0.3} triggerOnce>
           {({ ref, inView }) => (
@@ -71,12 +74,6 @@ const PursuingExcellence = () => {
           </InView>
         </div>
         <div className="xl:ml-40 relative">
-          <div className="hidden lg:block absolute -top-60 -right-20 z-20">
-            <StaticImage
-              src="../../assets/px_leaf_right.png"
-              alt="Sweet Liverty"
-            />
-          </div>
           <InView threshold={0.2} triggerOnce>
             {({ ref, inView }) => (
               <motion.div
