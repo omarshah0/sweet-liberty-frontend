@@ -2,7 +2,6 @@ import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import Marquee from "react-fast-marquee"
 
-import { Container } from "../UI"
 import "./style.css"
 
 const MiamiIsShit = () => {
@@ -23,14 +22,7 @@ const MiamiIsShit = () => {
         />
       </div>
       <div className="overflow-x-hidden">
-        {/* <Container> */}
         <div className="xl:flex items-center">
-          {/* <h2 className="flex-1 text-merch font-bebas text-center tracking-wider text-white leading-normal mt-24">
-            Miami
-            <br /> is the
-            <br /> shit
-            <br /> bruh
-          </h2> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="521"
@@ -108,11 +100,7 @@ const MiamiIsShit = () => {
               fill="white"
             />
           </svg>
-          {/* </Container> */}
           <div className="flex-1">
-            {/* <div className="transform rotate-12">
-                <div className="grid grid-cols-2">
-                  <div className="mr-10"> */}
             <div className="transform xl:rotate-[100deg]">
               <div>
                 <Marquee
@@ -167,66 +155,6 @@ const MiamiIsShit = () => {
                 </Marquee>
               </div>
             </div>
-            {/* <Marquee gradient={false} direction="right">
-              <StaticImage
-                src="../../assets/MiamiIsShit/sweet.jpg"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mr-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/jonathanbar.png"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mr-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/sweet.jpg"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mr-10"
-              />
-            </Marquee> */}
-            {/* <StaticImage
-                src="../../assets/MiamiIsShit/sweet.jpg"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mb-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/jonathanbar.png"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mb-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/sweet.jpg"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mb-10"
-              /> */}
-          </div>
-          <div>
-            {/* <StaticImage
-                src="../../assets/MiamiIsShit/jonathanbar.png"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mb-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/sweet.jpg"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-                className="mb-10"
-              />
-              <StaticImage
-                src="../../assets/MiamiIsShit/jonathanbar.png"
-                alt="Sweet Liberty"
-                placeholder="blurred"
-              /> */}
-            {/* </div>
-                </div>
-              </div> */}
           </div>
         </div>
       </div>

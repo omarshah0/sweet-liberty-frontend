@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
+import { useLocation } from "@reach/router"
 
 import MenuItemCard from "../MenuItemCard"
 import ThemeContext from "../../system/ThemeContext"
@@ -14,10 +15,9 @@ import {
   PrimaryDealBox,
   SecondaryDealBox,
 } from "../UI"
-import { nameFormatter } from "../../utilities"
+import { nameFormatter, createHashName } from "../../utilities"
 
 const MenuPage = () => {
-  const [tabIndex, setTabIndex] = useState(0)
   const { allDatoCmsMenu } = useStaticQuery(graphql`
     query DatoQuery {
       allDatoCmsMenu {
@@ -67,6 +67,21 @@ const MenuPage = () => {
       }
     }
   `)
+
+  const location = useLocation()
+  let initialIndex = 0
+  if (location.hash.length !== 0) {
+    const index = allDatoCmsMenu.nodes.findIndex(x => {
+      const testhash = location.hash.toLowerCase()
+      const menuName = `#${x.menuNameNavigation
+        .toLowerCase()
+        .replace(/ /g, "-")}`
+      return menuName === testhash
+    })
+    initialIndex = index
+  }
+  const [tabIndex, setTabIndex] = useState(initialIndex)
+
   const tabs = allDatoCmsMenu.nodes
   const [activeTab, setActiveTab] = useState(
     nameFormatter(tabs[0].menuNameNavigation)
@@ -74,15 +89,31 @@ const MenuPage = () => {
   const { themeHandler } = useContext(ThemeContext)
   const [bodyColor, setBodyColor] = useState(tabs[0].backgroundColor.hex)
 
-  const tabClickHandler = (backgroundColor, tabName) => {
+  const tabClickHandler = (backgroundColor, tabName, index) => {
     const newName = nameFormatter(tabName)
+    const hashName = createHashName(tabName)
+    navigate(`/menus/#${hashName}`)
     setBodyColor(nameFormatter(backgroundColor))
     setActiveTab(`tab__${newName}`)
+    setTabIndex(index)
   }
 
   useEffect(() => {
     themeHandler(bodyColor)
-  }, [bodyColor, themeHandler])
+  }, [bodyColor, themeHandler, tabIndex])
+
+  useEffect(() => {
+    if (location.hash.length !== 0) {
+      const index = allDatoCmsMenu.nodes.findIndex(x => {
+        const testhash = location.hash.toLowerCase()
+        const menuName = `#${x.menuNameNavigation
+          .toLowerCase()
+          .replace(/ /g, "-")}`
+        return menuName === testhash
+      })
+      setTabIndex(index)
+    }
+  }, [location.hash])
 
   return (
     <Main backgroundColor={bodyColor}>
@@ -90,19 +121,20 @@ const MenuPage = () => {
         <img src={LeafLeft} alt="Sweet Liberty" width="381px" height="824px" />
         <img src={LeafRight} alt="Sweet Liberty" width="220px" height="497px" />
       </div>
-      <Tabs selectedIndex={tabIndex} onSelect={index => setTabIndex(index)}>
+      <Tabs selectedIndex={tabIndex}>
         <Container>
           <div className="md:px-36">
             <TabList
               className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto tablist-scrollbar tablist-scrollbar-${activeTab} ${activeTab}`}
             >
               {React.Children.toArray(
-                tabs.map(t => (
+                tabs.map((t, index) => (
                   <Tab
                     onClick={() =>
                       tabClickHandler(
                         t.backgroundColor.hex,
-                        t.menuNameNavigation
+                        t.menuNameNavigation,
+                        index
                       )
                     }
                   >

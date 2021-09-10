@@ -8,14 +8,14 @@
   }
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
 }
 
 body {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+/* scrollbar-width: none; Firefox */
+/* } */
 
 .react-tabs__tab--selected button {
   @apply bg-brandDark text-white;

@@ -17,7 +17,6 @@ const SmoothScroll = ({ children }) => {
   // update scrollable height when browser is resizing
   const resizePageHeight = useCallback(entries => {
     for (let entry of entries) {
-      console.log("Full Body is ", entry.contentRect.height)
       setPageHeight(entry.contentRect.height)
     }
   }, [])
