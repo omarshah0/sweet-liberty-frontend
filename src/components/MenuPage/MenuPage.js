@@ -112,6 +112,8 @@ const MenuPage = () => {
         const menuName = createHashName(`#${x.menuNameNavigation}`)
         return menuName === testhash
       })
+      setActiveTab(`tab__${createHashName(tabs[index].menuNameNavigation)}`)
+      setBodyColor(nameFormatter(tabs[index].backgroundColor.hex))
       setTabIndex(index)
     }
   }, [location.hash])
