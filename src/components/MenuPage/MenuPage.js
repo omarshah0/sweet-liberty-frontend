@@ -73,9 +73,7 @@ const MenuPage = () => {
   if (location.hash.length !== 0) {
     const index = allDatoCmsMenu.nodes.findIndex(x => {
       const testhash = location.hash.toLowerCase()
-      const menuName = `#${x.menuNameNavigation
-        .toLowerCase()
-        .replace(/ /g, "-")}`
+      const menuName = createHashName(`#${x.menuNameNavigation}`)
       return menuName === testhash
     })
     initialIndex = index
@@ -84,31 +82,34 @@ const MenuPage = () => {
 
   const tabs = allDatoCmsMenu.nodes
   const [activeTab, setActiveTab] = useState(
-    nameFormatter(tabs[0].menuNameNavigation)
+    `tab__${createHashName(tabs[initialIndex].menuNameNavigation)}`
   )
   const { themeHandler } = useContext(ThemeContext)
-  const [bodyColor, setBodyColor] = useState(tabs[0].backgroundColor.hex)
+  const [bodyColor, setBodyColor] = useState(
+    tabs[initialIndex].backgroundColor.hex
+  )
 
   const tabClickHandler = (backgroundColor, tabName, index) => {
-    const newName = nameFormatter(tabName)
     const hashName = createHashName(tabName)
     navigate(`/menus/#${hashName}`)
     setBodyColor(nameFormatter(backgroundColor))
-    setActiveTab(`tab__${newName}`)
+    setActiveTab(`tab__${hashName}`)
     setTabIndex(index)
   }
 
   useEffect(() => {
+    setActiveTab(
+      `tab__${createHashName(tabs[initialIndex].menuNameNavigation)}`
+    )
+    setBodyColor(nameFormatter(tabs[initialIndex].backgroundColor.hex))
     themeHandler(bodyColor)
-  }, [bodyColor, themeHandler, tabIndex])
+  }, [bodyColor, themeHandler, tabIndex, location.hash])
 
   useEffect(() => {
     if (location.hash.length !== 0) {
       const index = allDatoCmsMenu.nodes.findIndex(x => {
         const testhash = location.hash.toLowerCase()
-        const menuName = `#${x.menuNameNavigation
-          .toLowerCase()
-          .replace(/ /g, "-")}`
+        const menuName = createHashName(`#${x.menuNameNavigation}`)
         return menuName === testhash
       })
       setTabIndex(index)

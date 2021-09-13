@@ -2,11 +2,11 @@ import React, { useState, createContext } from "react"
 
 const defaultState = {
   body: "bg-brandLight",
-  hamburger: "bg-brandLight",
+  hamburger: "bg-brandDark",
   navButtonBg: "bg-shopBg",
   navButtonText: "text-white",
-  navButtonHover: "bg-brandRed",
-  navButtonHoverText: "text-white",
+  navButtonHover: "hover:bg-brandDark",
+  navButtonHoverText: "hover:text-white",
   mainTitle: "text-brandDark",
   subMenuTitle: "text-brandRed",
   itemText: "text-brandDark",
@@ -21,8 +21,8 @@ const happyHourState = {
   hamburger: "bg-brandLight",
   navButtonBg: "bg-shopBg",
   navButtonText: "text-white",
-  navButtonHover: "bg-brandPink",
-  navButtonHoverText: "text-white",
+  navButtonHover: "hover:bg-brandPink",
+  navButtonHoverText: "hover:text-white",
   mainTitle: "text-brandPink",
   subMenuTitle: "text-brandPink",
   itemText: "text-brandLight",
@@ -37,8 +37,8 @@ const specials = {
   hamburger: "bg-brandLight",
   navButtonBg: "bg-shopBg",
   navButtonText: "text-white",
-  navButtonHover: "bg-brandPink",
-  navButtonHoverText: "text-white",
+  navButtonHover: "hover:bg-brandPink",
+  navButtonHoverText: "hover:text-white",
   mainTitle: "text-brandLight",
   subMenuTitle: "text-brandLight",
   itemText: "text-white ",
@@ -53,8 +53,8 @@ const brunch = {
   hamburger: "bg-brandDark",
   navButtonBg: "bg-brandGrey",
   navButtonText: "text-black",
-  navButtonHover: "bg-brandPink",
-  navButtonHoverText: "text-white",
+  navButtonHover: "hover:bg-brandPink",
+  navButtonHoverText: "hover:text-white",
   mainTitle: "text-brandPink",
   subMenuTitle: "text-brandPink",
   itemText: "text-black ",
@@ -78,6 +78,7 @@ const ThemeContext = createContext(defaultState)
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(defaultState)
   const themeHandler = theme => {
+    console.log("Theme Handler Executed ", theme)
     switch (theme) {
       case ACTIONS.FOOD || ACTIONS.COCKTAILS || ACTIONS.BEER:
         setTheme(defaultState)

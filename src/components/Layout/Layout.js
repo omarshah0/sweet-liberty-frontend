@@ -5,7 +5,7 @@ import SmoothScrollWrapper from "../SmoothScrollWrapper"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHomepage }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
   return (
     <SmoothScrollWrapper>
       {/* <> */}
-      <Header hours={hours[0]} />
+      <Header hours={hours[0]} isHomepage={isHomepage} />
       {children}
       <Footer hours={hours[0]} />
       {/* </> */}

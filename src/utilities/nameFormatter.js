@@ -3,5 +3,5 @@ export default function nameFormatter(name) {
 }
 
 export function createHashName(name) {
-  return name.toLowerCase().replace(/ /g, "").replace(" ", "-")
+  return name.replace(/\s+/g, "-").toLowerCase().replace("&", "and")
 }

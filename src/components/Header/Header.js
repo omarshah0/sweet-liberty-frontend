@@ -7,7 +7,7 @@ import ThemeContext from "../../system/ThemeContext"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 
-const Header = ({ hours }) => {
+const Header = ({ hours, isHomepage }) => {
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
     // if (!modal) {
@@ -32,24 +32,33 @@ const Header = ({ hours }) => {
           <Container>
             <div className="flex justify-between items-end">
               <Link to="/">
-                {/* {theme.dark ? (
+                {isHomepage ? (
+                  <img src={Logo_Dark} alt="Sweet Liberty" />
+                ) : theme.dark ? (
                   <img src={Logo_Dark} alt="Sweet Liberty" />
                 ) : (
                   <img src={Logo_Light} alt="Sweet Liberty" />
-                )} */}
-                <img src={Logo_Dark} alt="Sweet Liberty" />
+                )}
               </Link>
               <button
                 className="hamburger block lg:mr-4"
                 onClick={buttonHandler}
               >
                 <span
-                  className={`block ${theme.hamburger} mb-3 w-14 h-1`}
+                  className={`block ${
+                    isHomepage ? "bg-brandLight" : theme.hamburger
+                  } mb-3 w-14 h-1`}
                 ></span>
                 <span
-                  className={`block ${theme.hamburger} mb-3 w-10 h-1 ml-auto`}
+                  className={`block ${
+                    isHomepage ? "bg-brandLight" : theme.hamburger
+                  } mb-3 w-10 h-1 ml-auto`}
                 ></span>
-                <span className={`block ${theme.hamburger} w-14 h-1`}></span>
+                <span
+                  className={`block ${
+                    isHomepage ? "bg-brandLight" : theme.hamburger
+                  } w-14 h-1`}
+                ></span>
               </button>
             </div>
           </Container>

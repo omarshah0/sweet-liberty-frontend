@@ -99,23 +99,23 @@ body {
   filter: none;
 }
 
-.tab__beerAndwine .react-tabs__tab--selected button {
+.tab__beer-and-wine .react-tabs__tab--selected button {
   @apply bg-brandRed text-white;
 }
 
-.tab__beerAndwine .react-tabs__tab--selected img {
+.tab__beer-and-wine .react-tabs__tab--selected img {
   -webkit-filter: none !important;
   filter: none !important;
 }
 
-.tab__beerAndwine .react-tabs__tab img {
+.tab__beer-and-wine .react-tabs__tab img {
   -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
     brightness(96%) contrast(77%);
   filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
     brightness(96%) contrast(77%);
 }
 
-.tab__beerAndwine .react-tabs__tab:hover img {
+.tab__beer-and-wine .react-tabs__tab:hover img {
   -webkit-filter: none;
   filter: none;
 }
@@ -141,23 +141,23 @@ body {
   filter: none;
 }
 
-.tab__happyhour .react-tabs__tab--selected button {
+.tab__happy-hour .react-tabs__tab--selected button {
   @apply bg-brandPink text-white;
 }
 
-.tab__happyhour .react-tabs__tab--selected img {
+.tab__happy-hour .react-tabs__tab--selected img {
   -webkit-filter: none !important;
   filter: none !important;
 }
 
-.tab__happyhour .react-tabs__tab img {
+.tab__happy-hour .react-tabs__tab img {
   -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
     brightness(96%) contrast(77%);
   filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
     brightness(96%) contrast(77%);
 }
 
-.tab__happyhour .react-tabs__tab:hover img {
+.tab__happy-hour .react-tabs__tab:hover img {
   -webkit-filter: none;
   filter: none;
 }
@@ -175,7 +175,7 @@ body {
   @apply bg-brandRed;
 }
 
-.tablist-scrollbar-tab__happyhour::-webkit-scrollbar-thumb {
+.tablist-scrollbar-tab__happy-hour::-webkit-scrollbar-thumb {
   @apply bg-brandPink;
 }
 
@@ -191,7 +191,7 @@ body {
   @apply bg-brandRed;
 }
 
-.tablist-scrollbar-tab__beerAndwine::-webkit-scrollbar-thumb {
+.tablist-scrollbar-tab__beer-and-wine::-webkit-scrollbar-thumb {
   @apply bg-brandRed;
 }
 
