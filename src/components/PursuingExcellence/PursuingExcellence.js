@@ -15,10 +15,15 @@ const PursuingExcellence = () => {
         <StaticImage
           src="../../assets/pursue_leaf.png"
           alt="Pursue Happiness"
+          placeholder="blurred"
         />
       </div>
       <div className="hidden lg:block absolute top-[56rem] -right-20 z-20">
-        <StaticImage src="../../assets/px_leaf_right.png" alt="Sweet Liverty" />
+        <StaticImage
+          src="../../assets/px_leaf_right.png"
+          alt="Sweet Liverty"
+          placeholder="blurred"
+        />
       </div>
       <Container className="relative z-20">
         <InView threshold={0.3} triggerOnce>
@@ -68,6 +73,7 @@ const PursuingExcellence = () => {
                 <StaticImage
                   src="../../assets/hero-center.png"
                   alt="Sweet Liberty"
+                  placeholder="blurred"
                 />
               </motion.div>
             )}
@@ -85,6 +91,7 @@ const PursuingExcellence = () => {
                 <StaticImage
                   src="../../assets/pursue-dsc.png"
                   alt="Sweet Liberty Pursuing Excellence"
+                  placeholder="blurred"
                 />
               </motion.div>
             )}
@@ -136,6 +143,7 @@ const PursuingExcellence = () => {
                     src="../../assets/timeout.png"
                     alt="Timeout Logo"
                     layout="fixed"
+                    placeholder="blurred"
                   />
                   <img
                     src={SelectBrandLine}
@@ -160,6 +168,7 @@ const PursuingExcellence = () => {
                     src="../../assets/best_bars.png"
                     alt="Best Bars Logo"
                     layout="fixed"
+                    placeholder="blurred"
                   />
                   <img
                     src={SelectBrandLine}
@@ -183,6 +192,7 @@ const PursuingExcellence = () => {
                     src="../../assets/sprited_awards.png"
                     alt="Sprited Awards Logo"
                     layout="fixed"
+                    placeholder="blurred"
                   />
                   <img
                     src={SelectBrandLine}
@@ -206,6 +216,7 @@ const PursuingExcellence = () => {
                     src="../../assets/tales_of_cocktails.png"
                     alt="Tales of Cocktails Logo"
                     layout="fixed"
+                    placeholder="blurred"
                   />
                   <img
                     src={SelectBrandLine}

@@ -7,14 +7,6 @@ import { InView } from "react-intersection-observer"
 import { Container } from "../../UI"
 
 const SlideOne = () => {
-  const Stroked = styled(motion.span)`
-    -webkit-text-stroke: 2px #257972;
-    -webkit-text-fill-color: transparent;
-    z-index: 20;
-    @media screen and (min-width: 768px) {
-      -webkit-text-stroke: 6px #257972;
-    }
-  `
   return (
     <div className="bg-brandLight pt-20 pb-48 md:pb-28 xl:pt-36">
       <Container>

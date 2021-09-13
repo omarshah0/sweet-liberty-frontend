@@ -9,7 +9,11 @@ const BookingCard = ({ img, title, link, linkTitle, className }) => {
       to={link}
     >
       <div className="transform transition duration-300 group-hover:scale-105 max-w-[568px] flex justify-end xl:ml-auto mb-[12px]">
-        <StaticImage src="../../assets/Booking/card.png" alt="Bookigng" />
+        <StaticImage
+          src="../../assets/Booking/card.png"
+          alt="Bookigng"
+          placeholder="blurred"
+        />
       </div>
       <div className="flex flex-col xl:ml-3">
         <h3 className="font-bebas text-[100px] md:text-booking text-brandPink leading-hero xl:w-3/4">

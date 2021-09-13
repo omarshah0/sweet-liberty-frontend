@@ -124,6 +124,7 @@ const MenuBanner = () => {
           <StaticImage
             src="../../assets/MenuBanner/banner-cocktail-glass.png"
             alt="The Miami Martini"
+            placeholder="blurred"
           />
         </motion.span>
         <motion.span style={{ opacity: opacityOne }} className="order-3">
@@ -131,6 +132,7 @@ const MenuBanner = () => {
             src="../../assets/MenuBanner/banner-martini.png"
             alt="The Florida Cocktail"
             className="ml-10 lg:ml-0"
+            placeholder="blurred"
           />
         </motion.span>
         <Title className="font-bebas text-brandDark md:text-transparent absolute md:static text-7xl md:text-8xl text-center lg:text-left top-1/2 left-1/2 transform md:transform-none -translate-x-1/2 -translate-y-1/2 xl:text-banner order-2">
@@ -149,6 +151,7 @@ const MenuBanner = () => {
           <StaticImage
             src="../../assets/MenuBanner/buns-of-liberty.png"
             alt="Buns of Liberty"
+            placeholder="blurred"
           />
         </motion.span>
         <h3 className="font-bebas text-brandDark xl:text-banner text-7xl absolute md:static top-1/2 left-1/2 transform md:transform-none z-20 text-center xl:text-left -translate-x-1/2 -translate-y-1/2">
@@ -164,6 +167,7 @@ const MenuBanner = () => {
             src="../../assets/MenuBanner/buns-of-liberty-burger.png"
             alt="Buns of Liberty Burger"
             className="ml-10 xl:ml-0"
+            placeholder="blurred"
           />
         </motion.span>
         <Title className="font-bebas xl:text-banner">
@@ -184,6 +188,7 @@ const MenuBanner = () => {
           <StaticImage
             src="../../assets/MenuBanner/eggs.png"
             alt="Brunch Eggs"
+            placeholder="blurred"
           />
         </motion.span>
         <motion.span style={{ opacity: opacityThree }} className="order-3">
@@ -191,6 +196,7 @@ const MenuBanner = () => {
             src="../../assets/MenuBanner/brunch.png"
             alt="Sunday Brunch"
             className="ml-10 lg:ml-0"
+            placeholder="blurred"
           />
         </motion.span>
         <TitlePink className="font-bebas text-brandPink md:text-transparent absolute md:static text-7xl md:text-8xl text-center xl:text-left top-1/2 left-1/2 transform md:transform-none -translate-x-1/2 -translate-y-1/2 xl:text-banner order-2">
@@ -207,6 +213,7 @@ const MenuBanner = () => {
           <StaticImage
             src="../../assets/MenuBanner/sweet-liberty-drink.png"
             alt="Buns of Liberty"
+            placeholder="blurred"
           />
         </motion.span>
         <h3 className="font-bebas text-brandDark xl:text-banner text-7xl absolute md:static top-1/2 left-1/2 transform md:transform-none z-20 text-center xl:text-left -translate-x-1/2 -translate-y-1/2">
@@ -222,6 +229,7 @@ const MenuBanner = () => {
             src="../../assets/MenuBanner/sweet-liberty-banana.png"
             alt="Buns of Liberty Burger"
             className="ml-10 xl:ml-0"
+            placeholder="blurred"
           />
         </motion.span>
         <Title className="font-bebas xl:text-banner">

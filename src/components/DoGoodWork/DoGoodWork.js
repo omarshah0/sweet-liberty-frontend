@@ -8,10 +8,8 @@ import styled from "styled-components"
 const DoGoodWork = () => {
   const Title = styled(motion.span)`
     -webkit-text-stroke: 2px #ef5da8;
-    /* @media screen and (min-width: 768px) { */
     -webkit-text-stroke: 4px #ef5da8;
     -webkit-text-fill-color: transparent;
-    /* } */
   `
   const heading = "Our greatest award is being able to open every day"
   return (

@@ -57,25 +57,6 @@ const Hero = () => {
                 &amp; THE
               </TitleStroke>
             </span>
-            {/* <motion.span
-              className="inline-block transform"
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
-              transition={{ ease: "linear", duration: 1.5 }}
-            >
-              <TitleSolid className="inline-block transform xl:translate-x-80">
-                Life
-              </TitleSolid>
-              <br />
-              <TitleSolid className="inline-block transform xl:translate-x-24">
-                Liberty
-              </TitleSolid>
-              <br />
-              <TitleStroke className="inline-block transform xl:translate-x-56">
-                &amp; THE
-              </TitleStroke>
-            </motion.span> */}
-            {/* Working Block End */}
             <br />
             <span
               className="inline-block transform xl:ml-hero xl:-mt-6 hero-text-animation-right"
