@@ -98,10 +98,6 @@ const MenuPage = () => {
   }
 
   useEffect(() => {
-    setActiveTab(
-      `tab__${createHashName(tabs[initialIndex].menuNameNavigation)}`
-    )
-    setBodyColor(nameFormatter(tabs[initialIndex].backgroundColor.hex))
     themeHandler(bodyColor)
   }, [bodyColor, themeHandler, tabIndex, location.hash])
 
