@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import { useStaticQuery, graphql, navigate } from "gatsby"
+import { useStaticQuery, graphql, navigate, Link } from "gatsby"
 import { useLocation } from "@reach/router"
 
 import MenuItemCard from "../MenuItemCard"
@@ -67,80 +67,46 @@ const MenuPage = () => {
       }
     }
   `)
+  const tabs = allDatoCmsMenu.nodes
+  const { hash } = useLocation()
+  const [tab, setTab] = useState(0)
 
-  const location = useLocation()
-  let initialIndex = 0
-  if (location.hash.length !== 0) {
+  useEffect(() => {
     const index = allDatoCmsMenu.nodes.findIndex(x => {
-      const testhash = location.hash.toLowerCase()
-      const menuName = createHashName(`#${x.menuNameNavigation}`)
+      const testhash = hash.toLowerCase().replace("#", "")
+      const menuName = createHashName(x.menuNameNavigation)
       return menuName === testhash
     })
-    initialIndex = index
-  }
-  const [tabIndex, setTabIndex] = useState(initialIndex)
-
-  const tabs = allDatoCmsMenu.nodes
-  const [activeTab, setActiveTab] = useState(
-    `tab__${createHashName(tabs[initialIndex].menuNameNavigation)}`
-  )
-  const { themeHandler } = useContext(ThemeContext)
-  const [bodyColor, setBodyColor] = useState(
-    tabs[initialIndex].backgroundColor.hex
-  )
-
-  const tabClickHandler = (backgroundColor, tabName, index) => {
-    const hashName = createHashName(tabName)
-    navigate(`/menus/#${hashName}`)
-    setBodyColor(nameFormatter(backgroundColor))
-    setActiveTab(`tab__${hashName}`)
-    setTabIndex(index)
-  }
-
-  useEffect(() => {
-    themeHandler(bodyColor)
-  }, [bodyColor, themeHandler, tabIndex, location.hash])
-
-  useEffect(() => {
-    if (location.hash.length !== 0) {
-      const index = allDatoCmsMenu.nodes.findIndex(x => {
-        const testhash = location.hash.toLowerCase()
-        const menuName = createHashName(`#${x.menuNameNavigation}`)
-        return menuName === testhash
-      })
-      setActiveTab(`tab__${createHashName(tabs[index].menuNameNavigation)}`)
-      setBodyColor(nameFormatter(tabs[index].backgroundColor.hex))
-      setTabIndex(index)
-    }
-  }, [location.hash])
+    setTab(index)
+  }, [hash])
 
   return (
-    <Main backgroundColor={bodyColor}>
+    <Main backgroundColor="#c0f3d4">
+      {console.log("Render Check")}
       <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
         <img src={LeafLeft} alt="Sweet Liberty" width="381px" height="824px" />
         <img src={LeafRight} alt="Sweet Liberty" width="220px" height="497px" />
       </div>
-      <Tabs selectedIndex={tabIndex}>
+      <Tabs selectedIndex={tab} onSelect={i => setTab(i)}>
         <Container>
           <div className="md:px-36">
             <TabList
-              className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto tablist-scrollbar tablist-scrollbar-${activeTab} ${activeTab}`}
+              className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto`}
             >
               {React.Children.toArray(
                 tabs.map((t, index) => (
                   <Tab
-                    onClick={() =>
-                      tabClickHandler(
-                        t.backgroundColor.hex,
-                        t.menuNameNavigation,
-                        index
-                      )
-                    }
+                    className={`class__${createHashName(
+                      t.menuNameNavigation
+                    )}__${index === tab ? "active" : ""}`}
                   >
-                    <TabButton
-                      title={t.menuNameNavigation}
-                      icon={t.menuIcon?.url}
-                    />
+                    <Link to={`#${createHashName(t.menuNameNavigation)}`}>
+                      <TabButton
+                        title={t.menuNameNavigation}
+                        icon={t.menuIcon?.url}
+                        isActive={index === tab}
+                      />
+                    </Link>
                   </Tab>
                 ))
               )}

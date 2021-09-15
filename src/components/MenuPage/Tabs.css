@@ -1,0 +1,181 @@
+.react-tabs__tab--selected button {
+  @apply bg-brandDark text-white;
+}
+
+.react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__brunch .react-tabs__tab--selected button {
+  @apply bg-brandPink text-white;
+}
+
+.tab__brunch .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__brunch .react-tabs__tab img {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+.tab__brunch .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__cocktails .react-tabs__tab--selected button {
+  @apply bg-brandRed text-white;
+}
+
+.tab__cocktails .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__cocktails .react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.tab__cocktails .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__food .react-tabs__tab--selected button {
+  @apply bg-brandRed text-white;
+}
+
+.tab__food .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__food .react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.tab__food .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__beer-and-wine .react-tabs__tab--selected button {
+  @apply bg-brandRed text-white;
+}
+
+.tab__beer-and-wine .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__beer-and-wine .react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.tab__beer-and-wine .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__specials .react-tabs__tab--selected button {
+  @apply bg-brandPink text-white;
+}
+
+.tab__specials .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__specials .react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.tab__specials .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tab__happy-hour .react-tabs__tab--selected button {
+  @apply bg-brandPink text-white;
+}
+
+.tab__happy-hour .react-tabs__tab--selected img {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.tab__happy-hour .react-tabs__tab img {
+  -webkit-filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+  filter: invert(38%) sepia(8%) saturate(3900%) hue-rotate(126deg)
+    brightness(96%) contrast(77%);
+}
+
+.tab__happy-hour .react-tabs__tab:hover img {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.tablist-scrollbar::-webkit-scrollbar {
+  margin-top: 10px;
+  height: 7px;
+}
+
+.tablist-scrollbar::-webkit-scrollbar-track {
+  background-color: darkgrey;
+}
+
+.tablist-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.tablist-scrollbar-tab__happy-hour::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.tablist-scrollbar-tab__specials::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.tablist-scrollbar-tab__brunch::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.tablist-scrollbar-tab__cocktails::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.tablist-scrollbar-tab__beer-and-wine::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.tablist-scrollbar-tab__food::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
