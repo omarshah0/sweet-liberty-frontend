@@ -9,16 +9,22 @@ const Tab = ({ title, icon, isActive }) => {
         return (
           <button
             className={`${
-              isActive ? "bg-brandDark text-white" : "bg-shopBg text-brandDark"
-            } group min-w-max hover:bg-brandDark hover:text-white font-sourceSansProBold px-8 py-4 rounded transition}`}
+              isActive
+                ? `${theme.navButtonActive} ${theme.navButtonActiveText}`
+                : `${theme.navButtonBg} ${theme.navButtonText}`
+            } group min-w-max ${
+              theme.navButtonHover
+            } hover:text-white font-sourceSansProBold px-8 py-4 rounded transition}`}
           >
             {icon && (
               <img
                 src={icon}
                 alt={icon.name}
                 className={`inline mr-3 ${
-                  isActive ? "" : "svg-brandDark"
-                } group-hover:svg-none`}
+                  isActive
+                    ? theme.navButtomnActiveSvg
+                    : theme.navButtonInactiveSvg
+                } ${theme.navButtonInactiveSvgHover}`}
               />
             )}
             {title}

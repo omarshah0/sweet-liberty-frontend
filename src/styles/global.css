@@ -11,8 +11,7 @@
       brightness(89%) contrast(85%);
   }
   .svg-black {
-    filter: invert(0%) sepia(0%) saturate(3223%) hue-rotate(274deg)
-      brightness(99%) contrast(107%);
+    filter: invert(100%);
   }
   .svg-none {
     filter: none;

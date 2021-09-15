@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"
-import { useStaticQuery, graphql, navigate, Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { useLocation } from "@reach/router"
 
 import MenuItemCard from "../MenuItemCard"
@@ -15,7 +15,7 @@ import {
   PrimaryDealBox,
   SecondaryDealBox,
 } from "../UI"
-import { nameFormatter, createHashName } from "../../utilities"
+import { createHashName } from "../../utilities"
 
 const MenuPage = () => {
   const { allDatoCmsMenu } = useStaticQuery(graphql`
@@ -38,6 +38,9 @@ const MenuPage = () => {
               name
               ingredients
               price
+              vegan
+              vegetarian
+              glutenFree
             }
           }
           dealBoxTop {
@@ -70,19 +73,22 @@ const MenuPage = () => {
   const tabs = allDatoCmsMenu.nodes
   const { hash } = useLocation()
   const [tab, setTab] = useState(0)
+  const { themeHandler, theme } = useContext(ThemeContext)
 
   useEffect(() => {
+    if (hash.length === 0) return
     const index = allDatoCmsMenu.nodes.findIndex(x => {
       const testhash = hash.toLowerCase().replace("#", "")
       const menuName = createHashName(x.menuNameNavigation)
       return menuName === testhash
     })
+    if (index === -1) return
+    themeHandler(tabs[index].menuNameNavigation)
     setTab(index)
   }, [hash])
 
   return (
-    <Main backgroundColor="#c0f3d4">
-      {console.log("Render Check")}
+    <Main backgroundColor={tabs[tab].backgroundColor.hex}>
       <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
         <img src={LeafLeft} alt="Sweet Liberty" width="381px" height="824px" />
         <img src={LeafRight} alt="Sweet Liberty" width="220px" height="497px" />
@@ -132,6 +138,49 @@ const MenuPage = () => {
                   />
                 )}
                 {t.SecondMenu && <MenuItemCard data={t.secondMenu} />}
+                <Container>
+                  <div className={"pt-44 text-center font-cantataOne"}>
+                    <div className="mb-4 flex justify-center items-center">
+                      <div className="flex items-center mr-14">
+                        <span
+                          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
+                        >
+                          V
+                        </span>
+                        <span className={`text-sm ${theme.infoText}`}>
+                          Vegan
+                        </span>
+                      </div>
+                      <div className="flex items-center mr-14">
+                        <span
+                          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
+                        >
+                          Vg
+                        </span>
+                        <span className={`text-sm ${theme.infoText}`}>
+                          Vegetarian
+                        </span>
+                      </div>
+                      <div className="flex items-center">
+                        <span
+                          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
+                        >
+                          Gf
+                        </span>
+                        <span className={`text-sm ${theme.infoText}`}>
+                          Gluten Free
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <p className={`text-xs ${theme.infoText}`}>
+                        Consuming raw or undercooked meats, poultry, seafood,
+                        shellfish, or eggs may increase your risk of foodborne
+                        illness.
+                      </p>
+                    </div>
+                  </div>
+                </Container>
               </TabPanel>
             ))
           )}

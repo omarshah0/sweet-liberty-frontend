@@ -1,6 +1,5 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import styled from "styled-components"
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
 
