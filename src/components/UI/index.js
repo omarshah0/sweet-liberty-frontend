@@ -26,6 +26,7 @@ import BookingCard from "./BookingCard"
 import Hamburger from "./Hamburger"
 import FoodLink from "./FoodLink"
 import NavLinkButton from "./NavLinkButton"
+import MenuNavBtn from "./MenuNavBtn"
 
 export {
   Container,
@@ -56,4 +57,5 @@ export {
   Hamburger,
   FoodLink,
   NavLinkButton,
+  MenuNavBtn,
 }

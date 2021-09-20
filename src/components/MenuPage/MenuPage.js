@@ -77,6 +77,8 @@ const MenuPage = () => {
   const [loading, setLoading] = useState(hash.length !== 0)
   const [first, setFirst] = useState(true)
 
+  console.log("Hash is ", loading)
+
   useEffect(() => {
     if (hash.length === 0) return
     const index = allDatoCmsMenu.nodes.findIndex(x => {
@@ -96,7 +98,6 @@ const MenuPage = () => {
         <img src={LeafLeft} alt="Sweet Liberty" width="381px" height="824px" />
         <img src={LeafRight} alt="Sweet Liberty" width="220px" height="497px" />
       </div>
-      {console.log("Hash is ", loading)}
       {loading ? (
         <div className="bg-brandPink text-center">
           <h1>Loading</h1>
