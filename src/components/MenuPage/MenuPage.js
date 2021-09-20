@@ -79,7 +79,6 @@ const MenuPage = () => {
 
   useEffect(() => {
     if (hash.length === 0) return
-    setLoading(false)
     const index = allDatoCmsMenu.nodes.findIndex(x => {
       const testhash = hash.toLowerCase().replace("#", "")
       const menuName = createHashName(x.menuNameNavigation)
@@ -88,6 +87,7 @@ const MenuPage = () => {
     if (index === -1) return
     themeHandler(tabs[index].menuNameNavigation)
     setTab(index)
+    setLoading(false)
   }, [hash])
 
   return (
