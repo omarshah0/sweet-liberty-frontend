@@ -1,25 +1,27 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
-import { InView } from "react-intersection-observer"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { Container } from "../../UI"
 
-const SlideTwo = () => {
+const SlideTwo = ({ inView }) => {
   return (
-    <div className="bg-brandPink pt-20 pb-48 md:pb-28 xl:pt-36">
-      <Container>
-        <div className="xl:px-12 relative">
-          <h2 className="font-bebas text-brandLight mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
-            Featured Cocktail
-          </h2>
-          <InView threshold="0.45" triggerOnce>
-            {({ ref, inView }) => (
+    <AnimatePresence
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 6 }}
+    >
+      {inView && (
+        <motion.div className="bg-brandPink pt-20 pb-48 md:pb-28 xl:pt-36 relative">
+          <Container>
+            <div className="xl:px-12 relative">
+              <h2 className="font-bebas text-brandLight mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
+                Featured Cocktail
+              </h2>
+
               <div>
-                <h3
-                  className="relative text-center font-bebas xl:leading-none transition-all duration-1000 left-0"
-                  ref={ref}
-                >
+                <h3 className="relative text-center font-bebas xl:leading-none transition-all duration-1000 left-0">
                   <span className="absolute -top-6 left-0 md:-top-8 md:left-60 text-7xl xl:text-heavy-comp text-white z-30">
                     The
                   </span>
@@ -46,19 +48,20 @@ const SlideTwo = () => {
                   BLUE • LEMON GAS EXPLOSION
                 </p>
               </div>
-            )}
-          </InView>
-          <div className="absolute top-0 transform translate-x-20 md:-top-12 md:right-24">
-            <StaticImage
-              src="../../../assets/blue_cocktail.png"
-              alt="The Florida Cocktail"
-              placeholder="blurred"
-              className="z-30"
-            />
-          </div>
-        </div>
-      </Container>
-    </div>
+
+              <div className="absolute top-0 transform translate-x-20 md:-top-12 md:right-24">
+                <StaticImage
+                  src="../../../assets/blue_cocktail.png"
+                  alt="The Florida Cocktail"
+                  placeholder="blurred"
+                  className="z-30"
+                />
+              </div>
+            </div>
+          </Container>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

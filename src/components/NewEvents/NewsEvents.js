@@ -5,7 +5,7 @@ const NewsEvents = () => {
   return (
     <section className="bg-black py-20">
       <div className="font-bebas text-8xl text-brandLight">
-        <Marquee speed={100} gradient={false}>
+        <Marquee speed={100} gradient={false} className="h-[130px]">
           <p className="inline-flex items-center transform transition-all duration-300 hover:-skew-x-6">
             News & Events{" "}
             <span className="inline-block w-6 h-6 bg-brandLight rounded-full mx-8" />

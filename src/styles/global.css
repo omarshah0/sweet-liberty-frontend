@@ -18,14 +18,14 @@
   }
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 
 body {
   -ms-overflow-style: none; /* IE and Edge */
-/* scrollbar-width: none; Firefox */
-/* } */
+  scrollbar-width: none; /* Firefox */
+}
 
 .marquee-container {
   overflow-x: visible !important;

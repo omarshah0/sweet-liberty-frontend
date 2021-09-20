@@ -1,25 +1,22 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
-import { InView } from "react-intersection-observer"
+import { motion, AnimatePresence } from "framer-motion"
 
 import { Container } from "../../UI"
 
-const SlideOne = () => {
+const SlideOne = ({ inView }) => {
   return (
-    <div className="bg-brandLight pt-20 pb-48 md:pb-28 xl:pt-36">
-      <Container>
-        <div className="xl:px-12 relative">
-          <h2 className="font-bebas text-brandDark mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
-            Featured Cocktail
-          </h2>
-          <InView threshold="0.45" triggerOnce>
-            {({ ref, inView }) => (
+    <AnimatePresence>
+      {inView && (
+        <motion.div className="bg-brandLight pt-20 pb-48 md:pb-28 xl:pt-36 relative">
+          <Container>
+            <div className="xl:px-12 relative">
+              <h2 className="font-bebas text-brandDark mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
+                Featured Cocktail
+              </h2>
+
               <div>
-                <h3
-                  className="relative text-center font-bebas xl:leading-none transition-all duration-1000 left-0"
-                  ref={ref}
-                >
+                <h3 className="relative text-center font-bebas xl:leading-none transition-all duration-1000 left-0">
                   <span className="absolute -top-6 md:-top-10 md:left-24 text-7xl xl:text-heavy-comp text-brandPink z-30">
                     The
                   </span>
@@ -45,18 +42,19 @@ const SlideOne = () => {
                   <br /> fluffy pineapple • creme de menthe
                 </p>
               </div>
-            )}
-          </InView>
-          <div className="absolute top-0 transform translate-x-20 md:-top-12 md:right-24">
-            <StaticImage
-              src="../../../assets/cocktail_glass.png"
-              alt="The Florida Cocktail"
-              placeholder="blurred"
-            />
-          </div>
-        </div>
-      </Container>
-    </div>
+
+              <div className="absolute top-0 transform translate-x-20 md:-top-12 md:right-24">
+                <StaticImage
+                  src="../../../assets/cocktail_glass.png"
+                  alt="The Florida Cocktail"
+                  placeholder="blurred"
+                />
+              </div>
+            </div>
+          </Container>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

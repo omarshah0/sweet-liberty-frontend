@@ -100,7 +100,7 @@ const MiamiIsShit = () => {
               fill="white"
             />
           </svg>
-          <div className="flex-1">
+          <div className="flex-1 xl:min-h-[900px]">
             <div className="transform xl:rotate-[100deg]">
               <div>
                 <Marquee

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 
 import Nav from "../Nav"
-import Container from "../UI/Container"
+import { Container, Hamburger } from "../UI"
 import ThemeContext from "../../system/ThemeContext"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
@@ -10,27 +10,25 @@ import Logo_Dark from "../../assets/logo_dark.svg"
 const Header = ({ hours, isHomepage }) => {
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
-    // if (!modal) {
-    //   //No Scrolling When Modal is Opened
-    //   document.body.style.overflow = "hidden"
-    //   setModal(true)
-    // }
-    // if (modal) {
-    //   //Scrolling When Modal is Opened
-    //   document.body.style.overflow = "auto"
-    //   setModal(false)
-    // }
-    setModal(!modal)
+    if (!modal) {
+      //No Scrolling When Modal is Opened
+      document.body.style.overflow = "hidden"
+      setModal(true)
+    }
+    if (modal) {
+      //Scrolling When Modal is Opened
+      document.body.style.overflow = "auto"
+
+      setModal(false)
+    }
   }
 
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <header className="py-0 absolute top-0 md:top-6 left-0 right-0 z-10">
-          {" "}
-          {/*For Blog This is Top-0 for Other Pages This is Top-10*/}
+        <header className="absolute top-0 left-0 right-0 z-10">
           <Container>
-            <div className="flex justify-between items-end">
+            <div className="py-8 relative flex">
               <Link to="/">
                 {isHomepage ? (
                   <img src={Logo_Dark} alt="Sweet Liberty" />
@@ -40,26 +38,15 @@ const Header = ({ hours, isHomepage }) => {
                   <img src={Logo_Light} alt="Sweet Liberty" />
                 )}
               </Link>
-              <button
-                className="hamburger block lg:mr-4"
+              <Hamburger
+                className={`absolute top-1/2 right-0 -translate-y-1/2 z-20 ${
+                  modal ? "open" : ""
+                }`}
+                color={`${
+                  isHomepage || modal ? "bg-brandLight" : theme.hamburger
+                }`}
                 onClick={buttonHandler}
-              >
-                <span
-                  className={`block ${
-                    isHomepage ? "bg-brandLight" : theme.hamburger
-                  } mb-3 w-14 h-1`}
-                ></span>
-                <span
-                  className={`block ${
-                    isHomepage ? "bg-brandLight" : theme.hamburger
-                  } mb-3 w-10 h-1 ml-auto`}
-                ></span>
-                <span
-                  className={`block ${
-                    isHomepage ? "bg-brandLight" : theme.hamburger
-                  } w-14 h-1`}
-                ></span>
-              </button>
+              />
             </div>
           </Container>
           <Nav hours={hours} modal={modal} closeModal={buttonHandler} />

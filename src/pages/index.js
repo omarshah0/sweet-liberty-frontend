@@ -12,6 +12,7 @@ import StylishPursue from "../components/StylishPursue"
 import BookingSection from "../components/BookingSection"
 import NewsEvents from "../components/NewEvents"
 import DoGoodWork from "../components/DoGoodWork"
+import ShowAndEvents from "../components/ShowAndEvents"
 import { Main } from "../components/UI"
 
 const HomePage = () => {
@@ -29,6 +30,7 @@ const HomePage = () => {
         <BookingSection />
         <NewsEvents />
         <DoGoodWork />
+        <ShowAndEvents />
       </Main>
     </Layout>
   )

@@ -10,7 +10,12 @@ import "@fontsource/red-hat-display/700.css"
 import "@fontsource/source-sans-pro/700.css"
 import "@fontsource/cantata-one"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import "./src/styles/hamburger.css"
 import "./src/styles/global.css"
+
+export const onRouteUpdate = () => {
+  document.body.style.overflow = "auto"
+}
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider>{element}</ThemeProvider>
