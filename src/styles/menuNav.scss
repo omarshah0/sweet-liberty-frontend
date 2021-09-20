@@ -1,0 +1,229 @@
+.page__food {
+  nav {
+    li {
+      a {
+        @apply bg-shopBg text-brandDark hover:bg-brandRed hover:text-white;
+        img {
+          filter: invert(42%) sepia(11%) saturate(2353%) hue-rotate(126deg)
+            brightness(89%) contrast(85%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__food {
+        @apply bg-brandRed text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2 {
+    @apply text-brandRed;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-brandDark;
+    }
+  }
+  .menu-box-top,
+  .menu-box-bottom {
+    h3,
+    p {
+      @apply text-white;
+    }
+    @apply bg-brandRed;
+  }
+}
+
+.page__beer-and-wine {
+  nav {
+    li {
+      a {
+        @apply bg-shopBg text-brandDark hover:bg-brandRed hover:text-white;
+        img {
+          filter: invert(42%) sepia(11%) saturate(2353%) hue-rotate(126deg)
+            brightness(89%) contrast(85%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__beer-and-wine {
+        @apply bg-brandRed text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2 {
+    @apply text-brandDark;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-brandDark;
+    }
+  }
+}
+
+.page__brunch {
+  nav {
+    li {
+      a {
+        @apply bg-brandGrey text-black hover:bg-brandPink hover:text-white;
+        img {
+          filter: invert(100%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__brunch {
+        @apply bg-brandPink text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2,
+  h3 {
+    @apply text-brandPink;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-black;
+    }
+  }
+  .menu-box-top,
+  .menu-box-bottom {
+    h3,
+    p,
+    span {
+      @apply text-white;
+    }
+    @apply bg-brandPink;
+  }
+}
+
+.page__cocktail {
+  nav {
+    li {
+      a {
+        @apply bg-shopBg text-brandDark hover:bg-brandRed hover:text-white;
+        @apply bg-shopBg text-brandDark hover:bg-brandRed hover:text-white;
+        img {
+          filter: invert(42%) sepia(11%) saturate(2353%) hue-rotate(126deg)
+            brightness(89%) contrast(85%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__cocktail {
+        @apply bg-brandRed text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2 {
+    @apply text-brandDark;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-brandDark;
+    }
+  }
+}
+
+.page__happy-hour {
+  nav {
+    li {
+      a {
+        @apply bg-brandLight text-brandDark hover:bg-brandPink hover:text-white;
+        img {
+          filter: invert(42%) sepia(11%) saturate(2353%) hue-rotate(126deg)
+            brightness(89%) contrast(85%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__happy-hour {
+        @apply bg-brandPink text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2,
+  h3 {
+    @apply text-brandPink;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-brandLight;
+    }
+  }
+}
+
+.page__specials {
+  nav {
+    li {
+      a {
+        @apply bg-brandLight text-brandDark hover:bg-brandPink hover:text-white;
+        img {
+          filter: invert(42%) sepia(11%) saturate(2353%) hue-rotate(126deg)
+            brightness(89%) contrast(85%);
+        }
+        &:hover {
+          img {
+            filter: none;
+          }
+        }
+      }
+      .tab__specials {
+        @apply bg-brandPink text-white;
+        img {
+          filter: none;
+        }
+      }
+    }
+  }
+  h2,
+  h3 {
+    @apply text-brandLight;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-white;
+    }
+  }
+}

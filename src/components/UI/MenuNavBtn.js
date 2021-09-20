@@ -4,11 +4,11 @@ import { Link } from "gatsby"
 const MenuNavBtn = ({ icon, title, slug }) => {
   return (
     <Link
-      to={`/menus/${slug}`}
-      className={`font-sourceSansProBold px-8 py-4 rounded transition tab__${slug}`}
+      to={`/menu/${slug}`}
+      className={`flex min-w-max font-sourceSansProBold px-8 py-4 rounded transition tab__${slug}`}
     >
-      <img src={icon} alt={title} />
-      {title}
+      <img src={icon} alt={title} className="mr-3" />
+      <span className="block">{title}</span>
     </Link>
   )
 }

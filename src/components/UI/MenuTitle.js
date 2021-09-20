@@ -6,9 +6,7 @@ const MenuTitle = ({ title, className }) => {
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <h2
-          className={`font-bebas text-8xl ${theme.mainTitle} text-center ${className}`}
-        >
+        <h2 className={`font-bebas text-8xl text-center ${className}`}>
           {title}
         </h2>
       )}

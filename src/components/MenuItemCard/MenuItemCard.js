@@ -63,13 +63,7 @@ const MenuItemCard = ({ data }) => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-32 lg:gap-x-36 gap-y-10 md:gap-y-14 lg:gap-y-18">
                 {React.Children.toArray(
                   d.foodItem?.map(item => (
-                    <div
-                      className={`${
-                        d.darkSection
-                          ? `${theme.darkSectionItemText}`
-                          : `${theme.itemText}`
-                      }`}
-                    >
+                    <div className="food-item">
                       <h4
                         className={`inline font-frankRuhlLibre text-xl font-bold`}
                       >

@@ -3,7 +3,7 @@ import React from "react"
 const PrimaryDealBox = ({ className, data }) => {
   return (
     <div
-      className={`bg-brandRed text-white text-center max-w-xl mx-auto px-20 py-9 ${className}`}
+      className={`text-white text-center max-w-xl mx-auto px-20 py-9 ${className}`}
     >
       <h3 className="text-2xl text-white font-frankRuhlLibre mb-1 uppercase">
         {data.title}

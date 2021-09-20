@@ -68,16 +68,16 @@ const Nav = ({ hours, modal }) => {
           ) : (
             <ul className="mt-[90px] md:mt-[50px]">
               <li>
-                <FoodLink title="Cocktails" url="/menus/#cocktail" />
+                <FoodLink title="Cocktails" url="/menu/cocktail" />
               </li>
               <li>
-                <FoodLink title="Food" url="/menus/#food" />
+                <FoodLink title="Food" url="/menu/food" />
               </li>
               <li>
-                <FoodLink title="Brunch" url="/menus/#brunch" />
+                <FoodLink title="Brunch" url="/menu/brunch" />
               </li>
               <li>
-                <FoodLink title="Happy Hour" url="/menus/#happy-hour" />
+                <FoodLink title="Happy Hour" url="/menu/happy-hour" />
               </li>
             </ul>
           )}

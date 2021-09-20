@@ -7,8 +7,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const allBlogPostsTemplate = path.resolve(
     "./src/templates/AllBlogTemplate/AllBlogPosts.js"
   )
+  const menuPageTemplate = path.resolve("./src/templates/MenuPage/MenuPage.js")
 
-  const res = await graphql(`
+  const resPost = await graphql(`
     query {
       allContentfulBlog {
         edges {
@@ -27,7 +28,21 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  const posts = res.data.allContentfulBlog.edges
+  const posts = resPost.data.allContentfulBlog.edges
+
+  //Fetching Menus
+
+  const resMenu = await graphql(`
+    query fetchFoodMenus {
+      allDatoCmsMenu {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  const menus = resMenu.data.allDatoCmsMenu.nodes
 
   //Creating All Blog Posts with Pagination - Change itemsPerPage to control Posts per Page
   paginate({
@@ -47,6 +62,16 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: post.node.slug,
         nextPost: post.next,
         prevPost: post.previous,
+      },
+    })
+  })
+
+  menus.map(menu => {
+    createPage({
+      component: menuPageTemplate,
+      path: `/menu/${menu.slug}`,
+      context: {
+        slug: menu.slug,
       },
     })
   })
