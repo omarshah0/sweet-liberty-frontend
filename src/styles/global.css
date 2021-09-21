@@ -30,3 +30,7 @@ body {
 .marquee-container {
   overflow-x: visible !important;
 }
+
+.rotate-glass {
+  transform: rotate3d (1, -1, 1, 60deg);
+}

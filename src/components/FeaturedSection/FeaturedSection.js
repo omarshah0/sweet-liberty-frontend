@@ -1,59 +1,63 @@
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { Carousel } from "react-responsive-carousel"
-import { motion } from "framer-motion"
 
+import Panels from "../Panels"
 import { SlideOne, SlideTwo, SlideThree } from "./Slides"
 
 const FeaturedSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-
-  const updateCurrentSlide = index => {
-    if (currentSlide !== index) {
-      setCurrentSlide(index)
-    }
-  }
+  const [panelNextAnim, setPanelNextAnim] = useState(false)
+  const [panelBackAnim, setPanelBackAnim] = useState(false)
 
   const nextSlideHandler = () => {
-    setCurrentSlide(currentSlide + 1)
+    if (currentSlide === 2) return
+    setPanelNextAnim(true)
+    setTimeout(() => {
+      setCurrentSlide(currentSlide + 1)
+    }, 500)
+    setTimeout(() => {
+      setPanelNextAnim(false)
+    }, 1000)
   }
 
   const prevSlideHandler = () => {
-    setCurrentSlide(currentSlide - 1)
+    if (currentSlide === 0) return
+    setPanelBackAnim(true)
+    setTimeout(() => {
+      setCurrentSlide(currentSlide - 1)
+    }, 500)
+    setTimeout(() => {
+      setPanelBackAnim(false)
+    }, 1000)
   }
-
-  console.log("Current Slide is ", currentSlide)
 
   return (
     <section className="relative bg-gray-400">
-      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-20">
+      <Panels
+        enterAnim={panelNextAnim}
+        exitAnim={panelBackAnim}
+        color={
+          currentSlide === 0
+            ? "bg-brandLight"
+            : currentSlide === 1
+            ? "bg-brandPink"
+            : currentSlide === 2
+            ? "bg-brandDark"
+            : null
+        }
+      />
+      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-50">
         <StaticImage
           src="../../assets/featured_leaf.png"
           alt="Featured Leaf"
           placeholder="blurred"
         />
       </div>
-      <motion.div
-        className="absolute bg-brandGold z-[9]"
-        initial={{ top: 0, bottom: 0, left: 0, right: 0 }}
-        animate={{ top: 0, bottom: 0, left: 0, right: "100%" }}
-        transition={{ duration: 3, ease: "easeInOut" }}
-      />
-      <Carousel
-        selectedItem={currentSlide}
-        onChange={updateCurrentSlide}
-        showArrows={false}
-        showIndicators={false}
-        showThumbs={false}
-        showStatus={false}
-        autoPlay={false}
-        swipeScrollTolerance={20}
-      >
-        <SlideOne inView={currentSlide === 0} />
-        <SlideTwo inView={currentSlide === 1} />
-        <SlideThree inView={currentSlide === 2} />
-      </Carousel>
-      <div className="inline-flex absolute bottom-12 right-3 md:bottom-28 md:right-40 z-[10]">
+      <SlideOne className={currentSlide === 0 ? "" : "hidden"} />
+      <SlideTwo className={currentSlide === 1 ? "" : "hidden"} />
+      <SlideThree className={currentSlide === 2 ? "" : "hidden"} />
+
+      <div className="inline-flex absolute bottom-12 right-3 md:bottom-28 md:right-40 z-[60]">
         <button
           onClick={prevSlideHandler}
           className={`w-16 h-16 font-cantataOne rounded-full grid place-items-center border-4 transition-all ${

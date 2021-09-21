@@ -9,6 +9,7 @@ import {
 } from "framer-motion"
 import styled from "styled-components"
 import { useElementPosition } from "../../hooks"
+import { Link } from "gatsby"
 
 const MenuBanner = () => {
   const divOneRef = useRef(null)
@@ -116,7 +117,8 @@ const MenuBanner = () => {
   return (
     <section className="bg-brandLight xl:py-36">
       {/* ----------------------------This is Block One----------------------------- */}
-      <div
+      <Link
+        to="/menu/food"
         className="flex justify-between items-center max-w-1440 mx-auto mb-3 relative"
         ref={divOneRef}
       >
@@ -141,9 +143,10 @@ const MenuBanner = () => {
           </Span>
           <Span style={{ x: xRightOne, opacity: opacityOne }}>Menu</Span>
         </Title>
-      </div>
+      </Link>
       {/* ----------------------------This is Block Two----------------------------- */}
-      <div
+      <Link
+        to="/menu/food"
         className="flex justify-between items-center max-w-1440 mx-auto mb-3 relative"
         ref={divTwoRef}
       >
@@ -178,9 +181,10 @@ const MenuBanner = () => {
             Food
           </motion.span>
         </Title>
-      </div>
+      </Link>
       {/* ----------------------------This is Block Three----------------------------- */}
-      <div
+      <Link
+        to="/menu/brunch"
         className="flex justify-between items-center max-w-1440 mx-auto mb-3 relative"
         ref={divThreeRef}
       >
@@ -203,9 +207,10 @@ const MenuBanner = () => {
           <Span style={{ x: xLeftThree, opacity: opacityThree }}>Brunch</Span>
           <Span style={{ x: xRightThree, opacity: opacityThree }}>Menu</Span>
         </TitlePink>
-      </div>
+      </Link>
       {/* ----------------------------This is Block Four----------------------------- */}
-      <div
+      <Link
+        to="/menu/happy-hour"
         className="flex justify-between items-center max-w-1440 mx-auto relative"
         ref={divFourRef}
       >
@@ -240,7 +245,7 @@ const MenuBanner = () => {
             Hai
           </motion.span>
         </Title>
-      </div>
+      </Link>
     </section>
   )
 }

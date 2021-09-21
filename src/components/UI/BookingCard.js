@@ -8,7 +8,7 @@ const BookingCard = ({ img, title, link, linkTitle, className }) => {
       className={`xl:grid grid-cols-2 ${className} group cursor-pointer px-2 lg:px-0`}
       to={link}
     >
-      <div className="transform transition duration-300 group-hover:scale-105 max-w-[568px] flex justify-end xl:ml-auto mb-[12px]">
+      <div className="transform transition duration-300 group-hover:scale-[1.01] max-w-[568px] flex justify-end xl:ml-auto mb-[12px]">
         <StaticImage
           src="../../assets/Booking/card.png"
           alt="Bookigng"

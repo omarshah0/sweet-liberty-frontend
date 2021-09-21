@@ -34,7 +34,7 @@ const Nav = ({ hours, modal }) => {
     >
       <Container className="lg:flex h-full overflow-y-auto">
         {/* ---------------------- Left Block Nav ----------------------------- */}
-        <nav className="lg:w-1/2 flex flex-col justify-between text-center lg:justify-between md:text-left mb-[50px] lg:mb-0 relative">
+        <nav className="lg:w-1/2 flex flex-col justify-between lg:justify-between mb-[50px] lg:mb-0 relative">
           {subMenu && (
             <button
               className="absolute top-0 left-0"
@@ -97,7 +97,7 @@ const Nav = ({ hours, modal }) => {
               <li className="md:mr-[35px]">
                 <NavLink title="Homepage" url="/" small />
               </li>
-              <li className="flex items-center justify-center">
+              <li className="flex items-center">
                 <NavLink title="Reservations" url="/reservation" small />
                 <span className="bg-brandLight text-brandDark uppercase text-resky font-bold py-0 px-1 ml-3 mb-1 tracking-widest">
                   Resy
