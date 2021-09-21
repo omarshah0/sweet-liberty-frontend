@@ -17,7 +17,7 @@ import { Main } from "../components/UI"
 
 const HomePage = () => {
   return (
-    <Layout isHomepage>
+    <Layout isDark>
       <Seo title="Sweet Liberty" />
       <Main className="bg-brandDark overflow-hidden">
         <Hero />

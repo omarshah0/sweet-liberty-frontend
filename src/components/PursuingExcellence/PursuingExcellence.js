@@ -1,14 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
+import Lottie from "react-lottie"
+
+import lottieData from "../../assets/Json/data.json"
 
 import { Container, TitleSolid, TitleStroke } from "../UI"
 
-import SelectBrandLine from "../../assets/select_anim.svg"
-import "./PX.css"
-
 const PursuingExcellence = () => {
+  const [startLottie, setStartLottie] = useState(null)
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: lottieData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  }
+
   return (
     <section className="relative pb-16">
       <div className="hidden md:inline-block absolute -top-96 left-0">
@@ -136,22 +146,25 @@ const PursuingExcellence = () => {
                 initial={{ opacity: 0, y: 80 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear" }}
+                className="relative"
               >
                 {/* ----------------------Working Part---------------------- */}
-                <span className="relative inline-block cursor-pointer hover-link-parent">
-                  <StaticImage
-                    src="../../assets/timeout.png"
-                    alt="Timeout Logo"
-                    layout="fixed"
-                    placeholder="blurred"
-                  />
-                  <img
-                    src={SelectBrandLine}
-                    alt="selected"
-                    className="absolute -top-10 left-0 hover-link"
+                <span className="absolute top-[-25px] left-0">
+                  <Lottie
+                    options={defaultOptions}
+                    isStopped={startLottie !== "img"}
+                    width="220px"
                   />
                 </span>
-                {/* ----------------------Working Part---------------------- */}
+                <StaticImage
+                  src="../../assets/timeout.png"
+                  alt="Timeout Logo"
+                  layout="fixed"
+                  placeholder="blurred"
+                  onMouseEnter={() => setStartLottie("img")}
+                  onMouseLeave={() => setStartLottie(null)}
+                  className="cursor-pointer"
+                />
               </motion.div>
             )}
           </InView>
@@ -162,20 +175,24 @@ const PursuingExcellence = () => {
                 initial={{ opacity: 0, y: 80 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.3 }}
+                className="relative"
               >
-                <span className="relative inline-block cursor-pointer hover-link-parent">
-                  <StaticImage
-                    src="../../assets/best_bars.png"
-                    alt="Best Bars Logo"
-                    layout="fixed"
-                    placeholder="blurred"
-                  />
-                  <img
-                    src={SelectBrandLine}
-                    alt="selected"
-                    className="absolute top-4 left-0 hover-link scaled"
+                <span className="absolute top-[-20px] left-[-38px]">
+                  <Lottie
+                    options={defaultOptions}
+                    isStopped={startLottie !== "img2"}
+                    width="220px"
                   />
                 </span>
+                <StaticImage
+                  src="../../assets/best_bars.png"
+                  alt="Best Bars Logo"
+                  layout="fixed"
+                  placeholder="blurred"
+                  onMouseEnter={() => setStartLottie("img2")}
+                  onMouseLeave={() => setStartLottie(null)}
+                  className="cursor-pointer"
+                />
               </motion.div>
             )}
           </InView>
@@ -186,20 +203,24 @@ const PursuingExcellence = () => {
                 initial={{ opacity: 0, y: 80 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.6 }}
+                className="relative"
               >
-                <span className="relative inline-block cursor-pointer hover-link-parent">
-                  <StaticImage
-                    src="../../assets/sprited_awards.png"
-                    alt="Sprited Awards Logo"
-                    layout="fixed"
-                    placeholder="blurred"
-                  />
-                  <img
-                    src={SelectBrandLine}
-                    alt="selected"
-                    className="absolute -top-10 left-0 hover-link"
+                <span className="absolute top-[-40px] left-[2px]">
+                  <Lottie
+                    options={defaultOptions}
+                    isStopped={startLottie !== "img3"}
+                    width="220px"
                   />
                 </span>
+                <StaticImage
+                  src="../../assets/sprited_awards.png"
+                  alt="Sprited Awards Logo"
+                  layout="fixed"
+                  placeholder="blurred"
+                  onMouseEnter={() => setStartLottie("img3")}
+                  onMouseLeave={() => setStartLottie(null)}
+                  className="cursor-pointer"
+                />
               </motion.div>
             )}
           </InView>
@@ -210,23 +231,28 @@ const PursuingExcellence = () => {
                 initial={{ opacity: 0, y: 80 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
                 transition={{ duration: 0.8, ease: "linear", delay: 0.9 }}
+                className="relative"
               >
-                <span className="relative inline-block cursor-pointer hover-link-parent">
-                  <StaticImage
-                    src="../../assets/tales_of_cocktails.png"
-                    alt="Tales of Cocktails Logo"
-                    layout="fixed"
-                    placeholder="blurred"
-                  />
-                  <img
-                    src={SelectBrandLine}
-                    alt="selected"
-                    className="absolute -top-10 left-0 hover-link"
+                <span className="absolute top-[-20px] left-[-38px]">
+                  <Lottie
+                    options={defaultOptions}
+                    isStopped={startLottie !== "img4"}
+                    width="220px"
                   />
                 </span>
+                <StaticImage
+                  src="../../assets/tales_of_cocktails.png"
+                  alt="Tales of Cocktails Logo"
+                  layout="fixed"
+                  placeholder="blurred"
+                  onMouseEnter={() => setStartLottie("img4")}
+                  onMouseLeave={() => setStartLottie(null)}
+                  className="cursor-pointer"
+                />
               </motion.div>
             )}
           </InView>
+          {/* ----------------------Working Part---------------------- */}
         </div>
         <div className="text-center mt-10">
           <p className="font-bebas text-brandLight text-2xl">

@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { MenuNavBtn } from "../UI"
 
@@ -17,12 +17,10 @@ const MenuNav = ({ slug }) => {
       }
     }
   `)
-  console.log("Menu is ", allDatoCmsMenu)
-  console.log("Slug is ", slug)
   return (
     <nav>
       <ul
-        className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto page__${slug}`}
+        className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto nav__${slug} nav-scroll`}
       >
         {allDatoCmsMenu.nodes.map(m => (
           <li key={m.slug}>

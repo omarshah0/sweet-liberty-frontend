@@ -2,10 +2,11 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import SmoothScrollWrapper from "../SmoothScrollWrapper"
+import ScrollProgress from "../ScrollProgress"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children, isHomepage }) => {
+const Layout = ({ children, isDark }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -22,13 +23,14 @@ const Layout = ({ children, isHomepage }) => {
   `)
   const hours = allDatoCmsHour.nodes
   return (
-    // <SmoothScrollWrapper>
-    <>
-      <Header hours={hours[0]} isHomepage={isHomepage} />
+    <SmoothScrollWrapper>
+      {/* <> */}
+      <ScrollProgress />
+      <Header hours={hours[0]} isDark={isDark} />
       {children}
       <Footer hours={hours[0]} />
-    </>
-    // </SmoothScrollWrapper>
+      {/* </> */}
+    </SmoothScrollWrapper>
   )
 }
 

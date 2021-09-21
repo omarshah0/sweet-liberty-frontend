@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import {
   NavLink,
@@ -12,6 +13,19 @@ import {
 
 const Nav = ({ hours, modal }) => {
   const [subMenu, setSubMenu] = useState(false)
+  const { allDatoCmsMenu } = useStaticQuery(graphql`
+    query getAllMenusNav {
+      allDatoCmsMenu {
+        nodes {
+          menuNameNavigation
+          menuIcon {
+            url
+          }
+          slug
+        }
+      }
+    }
+  `)
   return (
     <div
       className={`py-8 bg-brandDark fixed inset-0 z-[10] ${
@@ -67,18 +81,14 @@ const Nav = ({ hours, modal }) => {
             </ul>
           ) : (
             <ul className="mt-[90px] md:mt-[50px]">
-              <li>
-                <FoodLink title="Cocktails" url="/menu/cocktail" />
-              </li>
-              <li>
-                <FoodLink title="Food" url="/menu/food" />
-              </li>
-              <li>
-                <FoodLink title="Brunch" url="/menu/brunch" />
-              </li>
-              <li>
-                <FoodLink title="Happy Hour" url="/menu/happy-hour" />
-              </li>
+              {allDatoCmsMenu.nodes.map(m => (
+                <li key={m.slug}>
+                  <FoodLink
+                    title={m.menuNameNavigation}
+                    url={`/menu/${m.slug}`}
+                  />
+                </li>
+              ))}
             </ul>
           )}
 

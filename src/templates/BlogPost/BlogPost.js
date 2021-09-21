@@ -44,7 +44,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Main>
+      <Main className="bg-brandLight">
         <Container>
           <div className="md:px-12 lg:px-16 pb-24 md:pb-36 lg:pb-48">
             <div className="lg:flex justify-between items-center mb-5 md:mb-9">

@@ -6,7 +6,10 @@ import { RightArrow } from "../UI"
 
 const BlogCard = ({ title, category, slug }) => {
   return (
-    <div className="h-blog-card bg-shopBg mb-5 md:mb-0 rounded-xl shadow-blog-card overflow-hidden max-w-blog-card min-h-blog-card flex flex-col">
+    <Link
+      to={`/blog/${slug}`}
+      className="h-blog-card bg-shopBg mb-5 md:mb-0 rounded-xl shadow-blog-card overflow-hidden max-w-blog-card min-h-blog-card flex flex-col"
+    >
       <div className="max-h-52 overflow-hidden">
         <StaticImage src="../../assets/blog-dummy.png" alt="Parkola" />
       </div>
@@ -22,17 +25,12 @@ const BlogCard = ({ title, category, slug }) => {
             <span className="mr-3">Uncategorized</span>
           )}
         </span>
-        <Link to={`/blog/${slug}`}>
-          <h2 className="font-bebas text-4xl text-brandDark mb-3">{title}</h2>
-        </Link>
-        <Link
-          to={`/blog/${slug}`}
-          className="inline-block font-cantataOne text-sm text-brandDark mt-auto"
-        >
+        <h2 className="font-bebas text-4xl text-brandDark mb-3">{title}</h2>
+        <p className="inline-block font-cantataOne text-sm text-brandDark mt-auto">
           Read more <RightArrow className="ml-2" />
-        </Link>
+        </p>
       </div>
-    </div>
+    </Link>
   )
 }
 

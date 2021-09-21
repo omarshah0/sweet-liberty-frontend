@@ -43,21 +43,13 @@ const MenuItemCard = ({ data }) => {
         data.map(d => (
           <div
             className={`py-5 md:py-8 lg:py-12 ${
-              d.darkSection
-                ? `${theme.darkSectionBg} mt-8 md:mt-12 lg:mt-16`
-                : ""
+              d.darkSection ? `dark-section mt-8 md:mt-12 lg:mt-16` : ""
             } relative`}
           >
             <Container
               className={`${d.border ? "border-4 border-brandGold py-6" : ""}`}
             >
-              <h3
-                className={`uppercase font-frankRuhlLibre text-xl font-bold ${
-                  d.darkSection
-                    ? `${theme.darkSectionSubMenuTitle}`
-                    : `${theme.subMenuTitle}`
-                } mb-6`}
-              >
+              <h3 className="uppercase font-frankRuhlLibre text-xl font-bold mb-6 menu-sub-category">
                 {d.title}
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-32 lg:gap-x-36 gap-y-10 md:gap-y-14 lg:gap-y-18">
@@ -90,11 +82,11 @@ const MenuItemCard = ({ data }) => {
             {d.darkSection && (
               <Fragment>
                 <div
-                  className={`${theme.darkSectionBg} absolute left-0 right-0`}
+                  className={`dark-section absolute left-0 right-0`}
                   style={{ top: "-15px", height: "11px" }}
                 ></div>
                 <div
-                  className={`h-2 ${theme.darkSectionBg}  absolute left-0 right-0`}
+                  className={`h-2 dark-section absolute left-0 right-0`}
                   style={{ bottom: "-15px", height: "11px" }}
                 ></div>
               </Fragment>

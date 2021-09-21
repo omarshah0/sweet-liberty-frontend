@@ -23,7 +23,7 @@ const AllBlogPosts = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <Main>
+      <Main className="bg-brandLight">
         <Container>
           <div className="md:px-8 lg:px-16">
             <div className="mb-5 md:flex justify-between items-center">

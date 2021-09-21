@@ -16,7 +16,7 @@ import {
 
 const MenuPage = ({ data: { datoCmsMenu } }) => {
   return (
-    <Layout>
+    <Layout isDark={datoCmsMenu.darkTheme}>
       <Main
         backgroundColor={datoCmsMenu.backgroundColor.hex}
         className={`page__${datoCmsMenu.slug}`}
@@ -151,6 +151,7 @@ export const query = graphql`
         title
         price
       }
+      darkTheme
     }
   }
 `

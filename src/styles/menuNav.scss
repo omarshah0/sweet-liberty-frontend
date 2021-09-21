@@ -24,6 +24,9 @@
   h2 {
     @apply text-brandRed;
   }
+  .menu-sub-category {
+    @apply text-brandRed;
+  }
   .food-item {
     h4,
     p,
@@ -66,6 +69,9 @@
   }
   h2 {
     @apply text-brandDark;
+  }
+  .menu-sub-category {
+    @apply text-brandRed;
   }
   .food-item {
     h4,
@@ -147,6 +153,9 @@
   h2 {
     @apply text-brandDark;
   }
+  .menu-sub-category {
+    @apply text-brandRed;
+  }
   .food-item {
     h4,
     p,
@@ -219,6 +228,9 @@
   h3 {
     @apply text-brandLight;
   }
+  .menu-sub-category {
+    @apply text-white;
+  }
   .food-item {
     h4,
     p,
@@ -226,4 +238,66 @@
       @apply text-white;
     }
   }
+}
+
+.dark-section {
+  @apply bg-brandDark;
+  h2,
+  h3,
+  p,
+  span,
+  .menu-sub-category {
+    @apply text-white;
+  }
+  .food-item {
+    h4,
+    p,
+    span {
+      @apply text-white;
+    }
+  }
+}
+
+.nav-scroll {
+  overflow-x: auto;
+  -ms-overflow-style: block; /* IE and Edge */
+  scrollbar-width: block;
+}
+
+.nav-scroll::-webkit-scrollbar {
+  display: block;
+  margin-top: 10px;
+  height: 7px;
+}
+
+.nav-scroll::-webkit-scrollbar-track {
+  background-color: darkgrey;
+}
+
+.nav-scroll::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.nav__specials::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.nav__happy-hour::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.nav__brunch::-webkit-scrollbar-thumb {
+  @apply bg-brandPink;
+}
+
+.nav__food::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.nav__beer-and-wine::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
+}
+
+.nav__cocktail::-webkit-scrollbar-thumb {
+  @apply bg-brandRed;
 }
