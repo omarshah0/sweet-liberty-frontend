@@ -11,8 +11,8 @@ import { Container, TitleSolid, TitleStroke } from "../UI"
 const PursuingExcellence = () => {
   const [startLottie, setStartLottie] = useState(null)
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData: lottieData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -152,8 +152,9 @@ const PursuingExcellence = () => {
                 <span className="absolute top-[-25px] left-0">
                   <Lottie
                     options={defaultOptions}
-                    isStopped={startLottie !== "img"}
                     width="220px"
+                    speed={3}
+                    direction={startLottie === "img" ? 1 : -1}
                   />
                 </span>
                 <StaticImage
@@ -180,8 +181,9 @@ const PursuingExcellence = () => {
                 <span className="absolute top-[-20px] left-[-38px]">
                   <Lottie
                     options={defaultOptions}
-                    isStopped={startLottie !== "img2"}
                     width="220px"
+                    speed={3}
+                    direction={startLottie === "img2" ? 1 : -1}
                   />
                 </span>
                 <StaticImage
@@ -208,8 +210,9 @@ const PursuingExcellence = () => {
                 <span className="absolute top-[-40px] left-[2px]">
                   <Lottie
                     options={defaultOptions}
-                    isStopped={startLottie !== "img3"}
                     width="220px"
+                    speed={3}
+                    direction={startLottie === "img3" ? 1 : -1}
                   />
                 </span>
                 <StaticImage
@@ -236,8 +239,9 @@ const PursuingExcellence = () => {
                 <span className="absolute top-[-20px] left-[-38px]">
                   <Lottie
                     options={defaultOptions}
-                    isStopped={startLottie !== "img4"}
                     width="220px"
+                    speed={3}
+                    direction={startLottie === "img4" ? 1 : -1}
                   />
                 </span>
                 <StaticImage
