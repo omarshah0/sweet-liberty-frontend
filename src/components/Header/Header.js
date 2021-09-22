@@ -7,7 +7,6 @@ import Logo_Dark from "../../assets/logo_dark.svg"
 import { Container, Hamburger } from "../UI"
 
 const Header = ({ hours, isDark }) => {
-  console.log("is Dark ", isDark)
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
     if (!modal) {

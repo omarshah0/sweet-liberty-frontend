@@ -25,7 +25,7 @@ const SlideThree = ({ className }) => {
                 Cocktail
               </span>
             </h3>
-            <p className="font-bebas text-brandLight text-left md:text-5xl inline-block relative md:bottom-18 -left-16 md:-left-64">
+            <p className="font-bebas text-brandLight text-left md:text-5xl inline-block relative md:bottom-18">
               FORDS GIN • NOILLY PRAT • SEA SALT •
               <br />
               BLUE • LEMON GAS EXPLOSION

@@ -28,7 +28,7 @@ const SlideOne = ({ className }) => {
                 Cocktail
               </span>
             </h3>
-            <p className="font-bebas text-brandDark text-left md:relative bottom-16 left-28 xl:-left-64 xl:text-5xl inline-block">
+            <p className="font-bebas text-brandDark text-left md:relative bottom-16  xl:text-5xl inline-block">
               Bacardi anejo • fresh lime
               <br /> fluffy pineapple • creme de menthe
             </p>

@@ -28,7 +28,7 @@ const SlideTwo = ({ className }) => {
                 Martini
               </span>
             </h3>
-            <p className="font-bebas text-brandLight text-left xl:text-5xl inline-block relative md:bottom-16 -left-16 md:-left-64">
+            <p className="font-bebas text-brandLight text-left xl:text-5xl inline-block relative md:bottom-16">
               FORDS GIN • NOILLY PRAT • SEA SALT •
               <br />
               BLUE • LEMON GAS EXPLOSION

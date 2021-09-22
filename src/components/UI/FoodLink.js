@@ -6,6 +6,7 @@ const FoodLink = ({ title, url }) => {
     <Link
       to={url}
       className="font-bebas text-[70px] leading-[70px] text-brandLight hover:text-brandPink transition-colors"
+      activeClassName="text-brandPink"
     >
       {title}
     </Link>

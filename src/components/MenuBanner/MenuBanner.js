@@ -18,6 +18,7 @@ const MenuBanner = () => {
   const divFourRef = useRef(null)
   const is969 = useMediaQuery({ query: "(min-height: 969px)" })
   const divOffset = is969 ? 1100 : 850
+  console.log("Div Off Set is ", divOffset)
   const divOnePos = useElementPosition(divOneRef, divOffset)
   const divTwoPos = useElementPosition(divTwoRef, divOffset)
   const divThreePos = useElementPosition(divThreeRef, divOffset)
