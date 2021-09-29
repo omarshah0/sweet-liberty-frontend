@@ -12,3 +12,7 @@
     transform: scale(2);
   }
 }
+
+.marquee-container {
+  overflow-x: visible !important;
+}
