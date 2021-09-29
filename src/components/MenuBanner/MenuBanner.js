@@ -18,7 +18,6 @@ const MenuBanner = () => {
   const divFourRef = useRef(null)
   const is969 = useMediaQuery({ query: "(min-height: 969px)" })
   const divOffset = is969 ? 1100 : 850
-  console.log("Div Off Set is ", divOffset)
   const divOnePos = useElementPosition(divOneRef, divOffset)
   const divTwoPos = useElementPosition(divTwoRef, divOffset)
   const divThreePos = useElementPosition(divThreeRef, divOffset)
@@ -41,7 +40,7 @@ const MenuBanner = () => {
   const opacityOne = useSpring(
     useTransform(scrollY, elOneInput, opacityOutput),
     easeOption
-  ) // The Number 4000 Represents the Starting of our Div which has those aniamtions
+  ) // The Number 4000 Represents the Starting of 0ur Div which has those aniamtions
   const xLeftOne = useSpring(
     useTransform(scrollY, elOneInput, [-800, 0]),
     easeOption
@@ -65,7 +64,7 @@ const MenuBanner = () => {
     easeOption
   ) // The Number 4000 Represents the Starting of our Div which has those aniamtions
 
-  //   --------------------------------Div Number 3------------------------------------
+  //   --------------------------------Div Number 3-----------------------------------
   const opacityThree = useSpring(
     useTransform(scrollY, elThreeInput, opacityOutput),
     easeOption

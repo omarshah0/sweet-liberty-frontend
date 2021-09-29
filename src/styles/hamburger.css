@@ -5,12 +5,18 @@
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  transform: rotate(0deg) scale(0.65);
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .hamburger {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 /* Icon 2 */

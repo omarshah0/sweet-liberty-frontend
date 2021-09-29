@@ -7,7 +7,7 @@ const FooterPrimary = ({ hours }) => {
     <div className="py-16 bg-brandDark">
       <Container>
         <div className="footer__grid">
-          <h2 className="footer__text font-bebas text-2xl md:text-3xl text-center xl:text-left text-white uppercase mb-10 mx-auto lg:w-4/5 xl:w-100">
+          <h2 className="footer__text font-bebas text-2xl md:text-3xl text-center xl:text-left text-white uppercase mb-10 lg:w-4/5 xl:w-100">
             Situated in the up-and-coming Collins Park area alongside the Bass
             Art Museum, <span className="text-brandLight">Sweet Liberty</span>{" "}
             offers guests world-class cocktails and creative American food.

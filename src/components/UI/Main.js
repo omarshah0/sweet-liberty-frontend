@@ -3,7 +3,7 @@ import React from "react"
 const Main = ({ children, backgroundColor, className }) => {
   return (
     <main
-      className={`pt-32 md:pt-44 relative ${className}`}
+      className={`${className} pt-32 md:pt-44 relative`}
       style={{ backgroundColor: backgroundColor }}
     >
       {children}

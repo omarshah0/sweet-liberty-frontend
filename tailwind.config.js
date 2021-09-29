@@ -71,6 +71,9 @@ module.exports = {
       animation: {
         fadeIn: "heroFadeIn 1.5s ease-in-out",
       },
+      screens: {
+        "sm-max": { max: "640px" },
+      },
     },
   },
   variants: {

@@ -13,11 +13,15 @@ const Scroller = () => {
       display: inline-block;
     }
     @media screen and (min-width: 768px) {
-      bottom: -50px;
+      bottom: -30px;
       left: 47%;
     }
     @media screen and (min-width: 1024px) {
-      bottom: 70px;
+      bottom: -20px;
+      left: 47%;
+    }
+    @media screen and (min-width: 1280px) {
+      bottom: -80px;
       left: 47%;
     }
   `
