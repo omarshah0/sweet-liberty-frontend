@@ -19,9 +19,9 @@ export const onRouteUpdate = () => {
   document.body.style.overflow = "auto"
 }
 
-// export const onInitialClientRender = () => {
-//   document.getElementById("___loader").style.display = "none"
-// }
+export const onInitialClientRender = () => {
+  document.getElementById("___loader").style.display = "none"
+}
 
 export const wrapRootElement = ({ element }) => (
   <ThemeProvider>{element}</ThemeProvider>

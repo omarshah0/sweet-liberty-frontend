@@ -4,7 +4,6 @@ import { Container } from "../UI"
 import ThemeContext from "../../system/ThemeContext"
 
 const MenuItemCard = ({ data }) => {
-  console.log("Data is ", data)
   const { theme } = useContext(ThemeContext)
 
   const Vegan = () => {

@@ -15,12 +15,12 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
-        {/* <div
+        <div
           key={`loader`}
           id="___loader"
           style={{
             alignItems: "center",
-            backgroundColor: "#F2F2F2",
+            backgroundColor: "#257972",
             display: "flex",
             justifyContent: "center",
             position: "absolute",
@@ -31,8 +31,21 @@ export default function HTML(props) {
             zIndex: 100,
           }}
         >
-          <h1>Loading</h1>
-        </div> */}
+          <div>
+            <h1
+              style={{
+                color: "#C0F3D4",
+                fontSize: "200px",
+                marginBottom: "30px",
+              }}
+            >
+              SW
+            </h1>
+            <p style={{ color: "#C0F3D4", fontSize: "50px" }}>
+              Loading Content
+            </p>
+          </div>
+        </div>
         <div
           key={`body`}
           id="___gatsby"
