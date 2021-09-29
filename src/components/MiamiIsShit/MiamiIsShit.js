@@ -162,49 +162,49 @@ const MiamiIsShit = () => {
                 >
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-new-orange-juice.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Orange Juice"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-platter.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Platter"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-pina-colada.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Pina Colada"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-chick.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Chick"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-new-orange-juice.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty New Orange Juice"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-coffee.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Coffee"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-champagne.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Champagne"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
                   <StaticImage
                     src="../../assets/MiamiIsShit/sweet-liberty-red-coffee.png"
-                    alt="Sweet Liberty"
+                    alt="Sweet Liberty Red Coffee"
                     placeholder="blurred"
                     className="mr-10 xl:mr-20 xl:transform xl:-rotate-90"
                   />
