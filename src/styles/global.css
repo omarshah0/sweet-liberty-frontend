@@ -16,6 +16,12 @@
   .svg-none {
     filter: none;
   }
+  .flip {
+    transform: scale(-1, 1);
+  }
+  .straight {
+    transform: scale(1);
+  }
 }
 
 ::-webkit-scrollbar {
