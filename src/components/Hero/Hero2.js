@@ -8,7 +8,7 @@ import { Container, TitleSolid, TitleStroke, Scroller } from "../UI"
 const Hero2 = () => {
   return (
     <section className="bg-brandDark mx-auto mb-[220px] md:mb-[193px] lg:mb-[300px] relative">
-      <div className="max-w-[1440px]">
+      <div className="max-w-[1440px] mx-auto">
         <div className="w-full relative pl-[17px] pr-[17px] lg:pl-[97px] lg:pr-0 max-w-[1220px]">
           <motion.div4
             className="absolute top-0 right-0 md:top-[55px] lg:top-[70px] md:left-[180px] lg:left-[462px] w-[270px] h-[360px] md:w-[495px] md:h-[625px] lg:w-[516px] lg:h-[652px] z-[1]"
