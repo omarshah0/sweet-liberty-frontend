@@ -15,6 +15,7 @@ import "./src/styles/hamburger.css"
 import "./src/styles/menuNav.css"
 import "./src/styles/hero.css"
 import "./src/styles/marquee.css"
+import "./src/styles/scrollingMenu.css"
 
 export const onRouteUpdate = () => {
   document.body.style.overflow = "auto"

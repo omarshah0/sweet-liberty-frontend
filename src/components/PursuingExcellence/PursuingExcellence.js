@@ -5,8 +5,38 @@ import { InView } from "react-intersection-observer"
 
 import { TitleSolid, TitleStroke } from "../UI"
 import Brands from "./Brands"
+import Awards from "./Awards"
+
+import {
+  SpritedAwards,
+  BestBarsAwards,
+  NewTimesAwards,
+  TheDailyMealAwards,
+  TimeOutAwards,
+} from "./Data"
 
 const PursuingExcellence = () => {
+  const [data, setData] = useState({ key: 1, data: SpritedAwards })
+
+  const dataHandler = key => {
+    console.log("Key is ", key)
+    if (key === "img1") {
+      return setData({ key: 1, data: SpritedAwards })
+    }
+    if (key === "img2") {
+      return setData({ key: 2, data: BestBarsAwards })
+    }
+    if (key === "img3") {
+      return setData({ key: 3, data: TimeOutAwards })
+    }
+    if (key === "img4") {
+      return setData({ key: 4, data: NewTimesAwards })
+    }
+    if (key === "img5") {
+      return setData({ key: 5, data: TheDailyMealAwards })
+    }
+  }
+
   return (
     <section className="relative pb-60 md:pb-100">
       <div className="mx-auto max-w-1440">
@@ -18,7 +48,7 @@ const PursuingExcellence = () => {
             className="w-[280px]"
           />
         </div>
-        <div className="relative lg:flex lg:flex-col">
+        <div className="relative lg:flex lg:flex-col md:mb-80 lg:mb-64">
           <InView threshold={0.8} triggerOnce>
             {({ ref, inView }) => (
               <div
@@ -148,30 +178,28 @@ const PursuingExcellence = () => {
                 ref={ref}
                 className="absolute bottom-[-90px] left-0 font-bebas px-[20px] text-[60px] leading-none text-brandLight md:text-[125px] md:leading-[100px] md:bottom-[-280px] lg:bottom-[-155px] lg:left-[265px] lg:w-[515px]"
               >
-                <TitleSolid
+                <motion.span
                   initial={{ x: "-100vw" }}
-                  animate={{ x: "0vw" }}
                   animate={inView ? { x: "0vw" } : { x: "-100vw" }}
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >
-                  Pursuing
-                </TitleSolid>{" "}
-                <TitleStroke
-                  strokeWidth="1px"
+                  <TitleSolid>Pursuing</TitleSolid>{" "}
+                </motion.span>
+                <motion.span
                   initial={{ x: "100vw" }}
-                  animate={{ x: "0vw" }}
                   animate={inView ? { x: "0vw" } : { x: "100vw" }}
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >
-                  Excellence
-                </TitleStroke>
+                  <TitleStroke strokeWidth="1px">Excellence</TitleStroke>
+                </motion.span>
               </h2>
             )}
           </InView>
         </div>
-        <Brands />
+        <Brands className="mb-12" setData={dataHandler} />
+        <Awards data={data.data} key={data.key} />
       </div>
     </section>
   )

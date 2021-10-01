@@ -1,84 +1,134 @@
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { ScrollMenu } from "react-horizontal-scrolling-menu"
-import Lottie from "react-lottie"
 
-import lottieData from "../../assets/Json/data.json"
+import LottieWrapper from "../LottieWrapper"
+import { useDrag } from "../../hooks"
 
-const Brands = () => {
+const Brands = ({ className, setData }) => {
   const [startLottie, setStartLottie] = useState(null)
-  const defaultOptions = {
-    loop: false,
-    autoplay: false,
-    animationData: lottieData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
+  const { dragStart, dragStop, dragMove } = useDrag()
+
+  const mouseEnterHandler = key => {
+    setStartLottie(key)
+    setData(key)
   }
+
+  const mouseLeaveHandler = () => {
+    setStartLottie(null)
+  }
+
+  const handleDrag =
+    ({ scrollContainer }) =>
+    ev =>
+      dragMove(ev, newPos => {
+        if (scrollContainer.current) {
+          const currentScroll = scrollContainer.current.scrollLeft
+          scrollContainer.current.scrollLeft = currentScroll + newPos
+        }
+      })
+
   return (
-    <div className="mt-36 relative">
-      <ScrollMenu>
-        <div
-          className="relative"
-          onMouseEnter={() => setStartLottie("img")}
-          onMouseLeave={() => setStartLottie(null)}
+    <div className={`${className} mt-36 relative`} onMouseLeave={dragStop}>
+      <ScrollMenu
+        onWheel={onWheel}
+        onMouseDown={() => dragStart}
+        onMouseUp={() => dragStop}
+        onMouseMove={handleDrag}
+      >
+        {/* ---------------------------------------- Logo 1 ---------------------------------------- */}
+        <LottieWrapper
+          className="mx-5"
+          img="img1"
+          startLottie={startLottie}
+          onMouseEnter={() => mouseEnterHandler("img1")}
+          onMouseLeave={() => mouseLeaveHandler}
+        >
+          <StaticImage
+            src="../../assets/sprited_awards.png"
+            alt="Sprited Awards Logo"
+            placeholder="blurred"
+            layout="fixed"
+          />
+        </LottieWrapper>
+
+        {/* ---------------------------------------- Logo 2 ---------------------------------------- */}
+        <LottieWrapper
+          img="img2"
+          startLottie={startLottie}
+          onMouseEnter={() => mouseEnterHandler("img2")}
+          onMouseLeave={() => mouseLeaveHandler}
         >
           <StaticImage
             src="../../assets/best_bars.png"
-            alt="Timeout Logo"
+            alt="Best Bars Logo"
             placeholder="blurred"
             layout="fixed"
-            className="ml-5 mr-12"
           />
-          <span className="absolute top-[-25px] left-0 z-[2]">
-            <Lottie
-              options={defaultOptions}
-              width="220px"
-              speed={3}
-              direction={startLottie === "img" ? 1 : -1}
-            />
-          </span>
-        </div>
-        <div className="mr-12">
+        </LottieWrapper>
+
+        {/* ---------------------------------------- Logo 3 ---------------------------------------- */}
+        <LottieWrapper
+          img="img3"
+          startLottie={startLottie}
+          onMouseEnter={() => mouseEnterHandler("img3")}
+          onMouseLeave={() => mouseLeaveHandler}
+        >
           <StaticImage
-            src="../../assets/sprited_awards.png"
+            src="../../assets/timeout.png"
             alt="Timeout Logo"
             placeholder="blurred"
             layout="fixed"
-            className=" mr-12"
           />
-        </div>
-        <StaticImage
-          src="../../assets/timeout.png"
-          alt="Timeout Logo"
-          placeholder="blurred"
-          layout="fixed"
-          className="mr-12"
-        />
-        <StaticImage
-          src="../../assets/best_bars.png"
-          alt="Timeout Logo"
-          placeholder="blurred"
-          layout="fixed"
-          className=" mr-12"
-        />
-        <StaticImage
-          src="../../assets/sprited_awards.png"
-          alt="Timeout Logo"
-          placeholder="blurred"
-          layout="fixed"
-          className=" mr-12"
-        />
-        <StaticImage
-          src="../../assets/timeout.png"
-          alt="Timeout Logo"
-          placeholder="blurred"
-          layout="fixed"
-          className=""
-        />
+        </LottieWrapper>
+
+        {/* ---------------------------------------- Logo 4 ---------------------------------------- */}
+        <LottieWrapper
+          img="img4"
+          startLottie={startLottie}
+          onMouseEnter={() => mouseEnterHandler("img4")}
+          onMouseLeave={() => mouseLeaveHandler}
+        >
+          <StaticImage
+            src="../../assets/new_times.png"
+            alt="Miami New Times"
+            placeholder="blurred"
+            layout="fixed"
+          />
+        </LottieWrapper>
+
+        {/* ---------------------------------------- Logo 5 ---------------------------------------- */}
+        <LottieWrapper
+          img="img5"
+          startLottie={startLottie}
+          onMouseEnter={() => mouseEnterHandler("img5")}
+          onMouseLeave={() => mouseLeaveHandler}
+        >
+          <StaticImage
+            src="../../assets/the_daily_meal.png"
+            alt="The Daily Meal"
+            placeholder="blurred"
+            layout="fixed"
+          />
+        </LottieWrapper>
       </ScrollMenu>
     </div>
   )
 }
 
 export default Brands
+
+function onWheel(apiObj, ev) {
+  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15
+
+  if (isThouchpad) {
+    ev.stopPropagation()
+    return
+  }
+
+  if (ev.deltaY < 0) {
+    apiObj.scrollNext()
+  } else if (ev.deltaY > 0) {
+    apiObj.scrollPrev()
+  }
+}
