@@ -32,18 +32,18 @@ export default function HTML(props) {
           }}
         >
           <div>
-            <h1
+            <span
               style={{
+                display: "block",
                 color: "#C0F3D4",
-                fontSize: "200px",
-                marginBottom: "30px",
+                fontSize: "20px",
+                letterSpacing: "1em",
+                fontWeight: "bold",
+                textTransform: "uppercase",
               }}
             >
-              SW
-            </h1>
-            <p style={{ color: "#C0F3D4", fontSize: "50px" }}>
-              Loading Content
-            </p>
+              Pursuing Happiness
+            </span>
           </div>
         </div>
         <div

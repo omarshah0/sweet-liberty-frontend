@@ -1,3 +1,7 @@
 .marquee-container {
   overflow-x: visible !important;
 }
+
+.marquee {
+  align-items: baseline !important;
+}
