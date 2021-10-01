@@ -16,24 +16,23 @@ import {
 } from "./Data"
 
 const PursuingExcellence = () => {
-  const [data, setData] = useState({ key: 1, data: SpritedAwards })
+  const [data, setData] = useState(SpritedAwards)
 
   const dataHandler = key => {
-    console.log("Key is ", key)
     if (key === "img1") {
-      return setData({ key: 1, data: SpritedAwards })
+      return setData(SpritedAwards)
     }
     if (key === "img2") {
-      return setData({ key: 2, data: BestBarsAwards })
+      return setData(BestBarsAwards)
     }
     if (key === "img3") {
-      return setData({ key: 3, data: TimeOutAwards })
+      return setData(TimeOutAwards)
     }
     if (key === "img4") {
-      return setData({ key: 4, data: NewTimesAwards })
+      return setData(NewTimesAwards)
     }
     if (key === "img5") {
-      return setData({ key: 5, data: TheDailyMealAwards })
+      return setData(TheDailyMealAwards)
     }
   }
 
@@ -199,7 +198,7 @@ const PursuingExcellence = () => {
           </InView>
         </div>
         <Brands className="mb-12" setData={dataHandler} />
-        <Awards data={data.data} key={data.key} />
+        <Awards data={data} />
       </div>
     </section>
   )
