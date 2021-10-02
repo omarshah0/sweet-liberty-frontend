@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
-import { Container, TitleSolid, TitleStroke, Scroller } from "../UI"
+import { TitleSolid, TitleStroke } from "../UI"
 
 const Hero2 = () => {
   return (

@@ -1,11 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../../components/Layout"
 import MenuNav from "../../components/MenuNav"
 import MenuItemCard from "../../components/MenuItemCard"
-import LeafLeft from "../../assets/leaf_left.png"
-import LeafRight from "../../assets/leaf_right.png"
 import {
   Container,
   Main,
@@ -22,17 +21,17 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
         className={`page__${datoCmsMenu.slug}`}
       >
         <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
-          <img
-            src={LeafLeft}
+          <StaticImage
+            src="../../assets/leaf_left.png"
             alt="Sweet Liberty"
-            width="381px"
-            height="824px"
+            className="w-[381px] h-[824px] z-[1]"
+            placeholder="blurred"
           />
-          <img
-            src={LeafRight}
+          <StaticImage
+            src="../../assets/leaf_right.png"
             alt="Sweet Liberty"
-            width="220px"
-            height="497px"
+            className="w-[220px] h-[497px]"
+            placeholder="blurred"
           />
         </div>
         <Container>

@@ -111,7 +111,6 @@ const PursuingExcellence = () => {
                 <motion.span
                   className="block"
                   initial={{ opacity: 0, x: "100vw" }}
-                  animate={{ opacity: 1, x: "0vw" }}
                   animate={
                     inView
                       ? { opacity: 1, x: "0vw" }

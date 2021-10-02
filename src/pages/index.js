@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
-import Hero, { Hero2 } from "../components/Hero"
+import Hero from "../components/Hero"
 import PursuingExcellence from "../components/PursuingExcellence"
 import FeaturedSection from "../components/FeaturedSection"
 import MenuBanner from "../components/MenuBanner"
@@ -20,7 +20,7 @@ const HomePage = () => {
     <Layout isDark>
       <Seo title="Sweet Liberty" />
       <Main className="bg-brandDark overflow-hidden md:pt-48">
-        <Hero2 />
+        <Hero />
         <PursuingExcellence />
         <FeaturedSection />
         <MenuBanner />

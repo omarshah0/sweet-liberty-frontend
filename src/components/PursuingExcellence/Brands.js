@@ -29,7 +29,12 @@ const Brands = ({ className, setData }) => {
       })
 
   return (
-    <div className={`${className} mt-36 relative`} onMouseLeave={dragStop}>
+    <div
+      className={`${className} mt-36 relative`}
+      onMouseLeave={dragStop}
+      role="button"
+      tabIndex="0"
+    >
       <ScrollMenu
         onWheel={onWheel}
         onMouseDown={() => dragStart}
@@ -51,7 +56,6 @@ const Brands = ({ className, setData }) => {
             layout="fixed"
           />
         </LottieWrapper>
-
         {/* ---------------------------------------- Logo 2 ---------------------------------------- */}
         <LottieWrapper
           img="img2"
@@ -66,7 +70,6 @@ const Brands = ({ className, setData }) => {
             layout="fixed"
           />
         </LottieWrapper>
-
         {/* ---------------------------------------- Logo 3 ---------------------------------------- */}
         <LottieWrapper
           img="img3"
@@ -81,7 +84,6 @@ const Brands = ({ className, setData }) => {
             layout="fixed"
           />
         </LottieWrapper>
-
         {/* ---------------------------------------- Logo 4 ---------------------------------------- */}
         <LottieWrapper
           img="img4"
@@ -96,7 +98,6 @@ const Brands = ({ className, setData }) => {
             layout="fixed"
           />
         </LottieWrapper>
-
         {/* ---------------------------------------- Logo 5 ---------------------------------------- */}
         <LottieWrapper
           img="img5"

@@ -26,11 +26,15 @@ const LottieWrapper = ({
       className={`${
         className && className
       } relative mr-12 h-[300px] grid place-items-center`}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       {children}
-      <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1]">
+      <span
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1]"
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        role="button"
+        tabIndex="0"
+      >
         <Lottie
           options={defaultOptions}
           width="220px"
