@@ -20,8 +20,6 @@ const LottieWrapper = ({
     },
   }
 
-  console.log(`${img} is hovered: ${startLottie == img}`)
-
   return (
     <div
       key={img}
