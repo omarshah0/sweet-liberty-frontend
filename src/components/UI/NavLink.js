@@ -20,7 +20,9 @@ const NavLink = ({ title, url, small }) => {
     <StyledLink
       to={url}
       className={`font-bebas ${
-        small ? "text-4xl" : "text-6xl md:text-8xl lg:text-9xl text-custom-vh"
+        small
+          ? "text-[40px] leading-[46px]"
+          : "text-[76px] leading-[76px] md:text-8xl lg:text-[128px] lg:leading-[111px]"
       } text-brandLight hover:text-brandPink transition-colors`}
       activeClassName="text-brandPink"
     >

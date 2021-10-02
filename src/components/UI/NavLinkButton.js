@@ -17,7 +17,7 @@ const NavLinkButton = ({ title, onClick }) => {
   `
   return (
     <Button
-      className="font-bebas text-6xl md:text-8xl lg:text-9xl text-custom-vh text-brandLight hover:text-brandPink transition-colors"
+      className="font-bebas text-[76px] leading-[76px] md:text-8xl lg:text-[128px] lg:leading-[111px] text-brandLight hover:text-brandPink transition-colors"
       onClick={onClick}
     >
       {title}

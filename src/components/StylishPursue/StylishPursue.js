@@ -3,12 +3,12 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const StylishPursue = () => {
   return (
-    <section className="-mt-12">
+    <section className="lg:-mt-16">
       <StaticImage
         src="../../assets/pursue_happyness.png"
         alt="Pursue Happiness"
         placeholder="blurred"
-        layout="fullWidth"
+        className="w-full"
       />
     </section>
   )

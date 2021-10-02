@@ -34,7 +34,7 @@ const Nav = ({ hours, modal }) => {
     >
       <Container className="lg:flex h-full overflow-y-auto">
         {/* ---------------------- Left Block Nav ----------------------------- */}
-        <nav className="lg:w-1/2 flex flex-col justify-between lg:justify-between mb-[50px] lg:mb-0 relative">
+        <nav className="lg:w-1/2 flex flex-col justify-between lg:justify-between relative h-full">
           {subMenu && (
             <button
               className="absolute top-0 left-0"
@@ -107,7 +107,7 @@ const Nav = ({ hours, modal }) => {
           </div>
         </nav>
         {/* ---------------------- Right Block ----------------------------- */}
-        <div className="lg:w-1/2 flex flex-col justify-end lg:items-end">
+        <div className="hidden lg:w-1/2 lg:flex flex-col justify-end lg:items-end">
           <div>
             <div className="mb-16">
               <Hours hours={hours} />

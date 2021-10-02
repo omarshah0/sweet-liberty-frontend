@@ -67,9 +67,14 @@ module.exports = {
           "0%": { tranform: "translateX(-100vw)" },
           "100%": { tranform: "translateX(0vw)" },
         },
+        awardsFadeIn: {
+          "0%": { tranform: "translateY(200px)" },
+          "100%": { tranform: "translateY(0px)" },
+        },
       },
       animation: {
         fadeIn: "heroFadeIn 1.5s ease-in-out",
+        awardsFadeIn: "awardsFadeIn 1s infinite",
       },
       screens: {
         "sm-max": { max: "640px" },
