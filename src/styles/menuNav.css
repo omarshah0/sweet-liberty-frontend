@@ -1,3 +1,9 @@
+:root {
+  --brandDark: #257972;
+  --brandLight: #c0f3d4;
+  --brandPink: #ef5da8;
+}
+
 .page__food nav li a {
   @apply bg-shopBg text-brandDark hover:bg-brandRed hover:text-white;
 }
@@ -303,5 +309,55 @@
 
 .nav__cocktail::-webkit-scrollbar-thumb {
   @apply bg-brandRed;
+}
+
+.type__box__undefined,
+.type__box__food,
+.type__box__beer-and-wine,
+.type__box__cocktail {
+  background: var(--brandDark) !important;
+  color: var(--brandLight) !important;
+  text-transform: uppercase;
+}
+
+.type__text__undefined,
+.type__text__food,
+.type__text__beer-and-wine,
+.type__text__cocktail {
+  @apply text-brandDark;
+}
+
+.type__box__specials {
+  background: var(--brandLight) !important;
+  color: var(var(--brandDark)) !important;
+  text-transform: uppercase;
+}
+
+.type__text__specials {
+  @apply text-brandLight;
+}
+
+.type__box__happy-hour {
+  background: var(--brandPink) !important;
+  color: var(--brandLight) !important;
+  text-transform: uppercase;
+}
+
+.type__text__happy-hour {
+  @apply text-brandLight;
+}
+
+.type__box__brunch {
+  background: var(--brandPink) !important;
+  color: white !important;
+  text-transform: uppercase;
+}
+
+.type__text__brunch {
+  @apply text-black;
+}
+
+.types-container > *:last-child {
+  margin-right: 0;
 }
 /*# sourceMappingURL=menuNav.css.map */

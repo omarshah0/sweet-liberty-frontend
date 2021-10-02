@@ -13,6 +13,15 @@ import {
   SecondaryDealBox,
 } from "../../components/UI"
 
+const types = [
+  { shortForm: "v", longForm: "Vegan" },
+  {
+    shortForm: "vg",
+    longForm: "Vegetarian",
+  },
+  { shortForm: "gf", longForm: "Gluten Free" },
+]
+
 const MenuPage = ({ data: { datoCmsMenu } }) => {
   return (
     <Layout isDark={datoCmsMenu.darkTheme}>
@@ -47,7 +56,11 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
               data={datoCmsMenu.dealBoxTop[0]}
             />
           )}
-          <MenuItemCard data={datoCmsMenu.menu} />
+          <MenuItemCard
+            data={datoCmsMenu.menu}
+            types={types}
+            stylingSlug={datoCmsMenu.slug}
+          />
           {datoCmsMenu.secondMenuTitle && (
             <MenuTitle title={datoCmsMenu.secondMenuTitle} className="mb-14" />
           )}
@@ -58,44 +71,41 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
             />
           )}
           {datoCmsMenu.SecondMenu && (
-            <MenuItemCard data={datoCmsMenu.secondMenu} />
+            <MenuItemCard
+              data={datoCmsMenu.secondMenu}
+              types={types}
+              stylingSlug={datoCmsMenu.slug}
+            />
           )}
-          {/* <Container>
-          <div className={"pt-44 text-center font-cantataOne"}>
-          <div className="mb-4 flex justify-center items-center">
-          <div className="flex items-center mr-14">
-          <span
-          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
-          >
-          V
-          </span>
-          <span className={`text-sm ${theme.infoText}`}>Vegan</span>
-          </div>
-          <div className="flex items-center mr-14">
-          <span
-          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
-          >
-          Vg
-          </span>
-          <span className={`text-sm ${theme.infoText}`}>Vegetarian</span>
-          </div>
-          <div className="flex items-center">
-          <span
-          className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] ${theme.vegBg} ${theme.vegText}`}
-                >
-                Gf
-                </span>
-                <span className={`text-sm ${theme.infoText}`}>Gluten Free</span>
-                </div>
-                </div>
-                <div>
-                <p className={`text-xs ${theme.infoText}`}>
-                Consuming raw or undercooked meats, poultry, seafood, shellfish,
-                or eggs may increase your risk of foodborne illness.
+          <Container>
+            <div className={"pt-44 text-center font-cantataOne"}>
+              <div className="mb-4 flex justify-center items-center types-container">
+                {React.Children.toArray(
+                  types.map(t => (
+                    <div className="flex items-center mr-14">
+                      <span
+                        className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] type__box__${datoCmsMenu.slug}`}
+                      >
+                        {t.shortForm}
+                      </span>
+                      <span
+                        className={`text-sm type__text__${datoCmsMenu.slug}`}
+                      >
+                        {t.longForm}
+                      </span>
+                    </div>
+                  ))
+                )}
+              </div>
+              <div>
+                <p className={`text-xs type__text__${datoCmsMenu.slug}`}>
+                  Consuming raw or undercooked meats, poultry, seafood,
+                  shellfish, or eggs may increase your risk of foodborne
+                  illness.
                 </p>
-                </div>
-                </div>
-            </Container> */}
+              </div>
+            </div>
+          </Container>
         </div>
       </Main>
     </Layout>
@@ -122,9 +132,10 @@ export const query = graphql`
           name
           ingredients
           price
-          vegan
-          vegetarian
-          glutenFree
+          category {
+            shortForm
+            longForm
+          }
         }
       }
       dealBoxTop {
@@ -144,6 +155,10 @@ export const query = graphql`
           name
           ingredients
           price
+          category {
+            shortForm
+            longForm
+          }
         }
       }
       dealBoxSecondMenu {

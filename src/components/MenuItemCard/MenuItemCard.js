@@ -1,40 +1,10 @@
-import React, { Fragment, useContext } from "react"
+import React, { Fragment } from "react"
 
 import { Container } from "../UI"
-import ThemeContext from "../../system/ThemeContext"
 
-const MenuItemCard = ({ data }) => {
-  const { theme } = useContext(ThemeContext)
-
-  const Vegan = () => {
-    return (
-      <span
-        className={`uppercase align-top font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[2px] ${theme.vegBg} ${theme.vegText}`}
-      >
-        V
-      </span>
-    )
-  }
-
-  const Vegetarian = () => {
-    return (
-      <span
-        className={`uppercase align-top font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[2px] ${theme.vegBg} ${theme.vegText}`}
-      >
-        Vg
-      </span>
-    )
-  }
-
-  const GlutenFree = () => {
-    return (
-      <span
-        className={`uppercase align-top font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[2px] ${theme.vegBg} ${theme.vegText}`}
-      >
-        Gf
-      </span>
-    )
-  }
+const MenuItemCard = ({ data, stylingSlug, types }) => {
+  console.log("Styling Slug is ", stylingSlug)
+  console.log("Data is ", data)
 
   return (
     <React.Fragment>
@@ -60,9 +30,16 @@ const MenuItemCard = ({ data }) => {
                       >
                         {item.name}
                         <span className="ml-[4px]">
-                          {item.vegan && <Vegan />}
-                          {item.vegetarian && <Vegetarian />}
-                          {item.glutenFree && <GlutenFree />}
+                          {item.category.length !== 0 &&
+                            React.Children.toArray(
+                              item.category.map(cat => (
+                                <span
+                                  className={`uppercase align-top font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[2px] type__box__${stylingSlug}`}
+                                >
+                                  {cat.shortForm}
+                                </span>
+                              ))
+                            )}
                         </span>
                       </h4>
                       <span
