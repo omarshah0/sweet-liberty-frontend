@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const Awards = ({ data }) => {
   return (
     <motion.div
-      className="px-6 h-[350px]"
+      className="px-6"
       initial={{ opacity: 0, y: 150 }}
       animate={{ opacity: 1, y: 0 }}
     >

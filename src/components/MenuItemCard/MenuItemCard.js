@@ -2,10 +2,7 @@ import React, { Fragment } from "react"
 
 import { Container } from "../UI"
 
-const MenuItemCard = ({ data, stylingSlug, types }) => {
-  console.log("Styling Slug is ", stylingSlug)
-  console.log("Data is ", data)
-
+const MenuItemCard = ({ data, stylingSlug }) => {
   return (
     <React.Fragment>
       {React.Children.toArray(

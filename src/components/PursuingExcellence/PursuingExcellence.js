@@ -37,7 +37,7 @@ const PursuingExcellence = () => {
   }
 
   return (
-    <section className="relative pb-60 md:pb-100">
+    <section className="relative pb-60 md:pb-44">
       <div className="mx-auto max-w-1440">
         <div className="absolute top-[-230px] left-0">
           <StaticImage
@@ -197,7 +197,7 @@ const PursuingExcellence = () => {
           </InView>
         </div>
         <Brands className="mb-12" setData={dataHandler} />
-        <Awards data={data} />
+        {/* <Awards data={data} /> */}
       </div>
     </section>
   )

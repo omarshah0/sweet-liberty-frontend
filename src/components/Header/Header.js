@@ -27,9 +27,17 @@ const Header = ({ hours, isDark }) => {
       <Container className="px-[17px] md:px-10 lg:px-12 max-w-screen-2xl mx-auto py-2 md:py-8 relative flex items-center justify-between">
         <Link to="/">
           {isDark ? (
-            <img src={Logo_Dark} alt="Sweet Liberty" />
+            <img
+              src={Logo_Dark}
+              alt="Sweet Liberty"
+              className="w-[154px] h-[103px]"
+            />
           ) : (
-            <img src={Logo_Light} alt="Sweet Liberty" />
+            <img
+              src={Logo_Light}
+              alt="Sweet Liberty"
+              className="w-[154px] h-[103px]"
+            />
           )}
         </Link>
         <Hamburger

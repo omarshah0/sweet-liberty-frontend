@@ -13,16 +13,7 @@ import {
   SecondaryDealBox,
 } from "../../components/UI"
 
-const types = [
-  { shortForm: "v", longForm: "Vegan" },
-  {
-    shortForm: "vg",
-    longForm: "Vegetarian",
-  },
-  { shortForm: "gf", longForm: "Gluten Free" },
-]
-
-const MenuPage = ({ data: { datoCmsMenu } }) => {
+const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
   return (
     <Layout isDark={datoCmsMenu.darkTheme}>
       <Main
@@ -58,7 +49,6 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
           )}
           <MenuItemCard
             data={datoCmsMenu.menu}
-            types={types}
             stylingSlug={datoCmsMenu.slug}
           />
           {datoCmsMenu.secondMenuTitle && (
@@ -73,7 +63,6 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
           {datoCmsMenu.SecondMenu && (
             <MenuItemCard
               data={datoCmsMenu.secondMenu}
-              types={types}
               stylingSlug={datoCmsMenu.slug}
             />
           )}
@@ -81,8 +70,8 @@ const MenuPage = ({ data: { datoCmsMenu } }) => {
             <div className={"pt-44 text-center font-cantataOne"}>
               <div className="mb-4 flex justify-center items-center types-container">
                 {React.Children.toArray(
-                  types.map(t => (
-                    <div className="flex items-center mr-14">
+                  allDatoCmsCategory.nodes.map(t => (
+                    <div className="flex flex-wrap items-center mr-14">
                       <span
                         className={`uppercase font-frankRuhlLibre font-bold text-[8px] py-[3px] px-[10px] rounded-[10px] mr-[10px] type__box__${datoCmsMenu.slug}`}
                       >
@@ -166,6 +155,12 @@ export const query = graphql`
         price
       }
       darkTheme
+    }
+    allDatoCmsCategory {
+      nodes {
+        shortForm
+        longForm
+      }
     }
   }
 `
