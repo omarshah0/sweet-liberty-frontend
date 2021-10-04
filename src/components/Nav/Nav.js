@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import {
@@ -11,7 +11,7 @@ import {
   NavLinkButton,
 } from "../UI"
 
-const Nav = ({ hours, modal }) => {
+const Nav = ({ hours, modal, location }) => {
   const [subMenu, setSubMenu] = useState(false)
   const { allDatoCmsMenu } = useStaticQuery(graphql`
     query getAllMenusNav {
@@ -26,6 +26,11 @@ const Nav = ({ hours, modal }) => {
       }
     }
   `)
+
+  useEffect(() => {
+    setSubMenu(false)
+  }, [location])
+
   return (
     <div
       className={`py-8 bg-brandDark fixed inset-0 z-[10] ${

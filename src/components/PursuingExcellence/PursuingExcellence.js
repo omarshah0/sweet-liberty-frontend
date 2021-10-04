@@ -197,7 +197,7 @@ const PursuingExcellence = () => {
           </InView>
         </div>
         <Brands className="mb-12" setData={dataHandler} />
-        {/* <Awards data={data} /> */}
+        <Awards data={data} />
       </div>
     </section>
   )

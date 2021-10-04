@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 
 import Nav from "../Nav"
@@ -7,6 +8,7 @@ import Logo_Dark from "../../assets/logo_dark.svg"
 import { Container, Hamburger } from "../UI"
 
 const Header = ({ hours, isDark }) => {
+  const location = useLocation()
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
     if (!modal) {
@@ -21,6 +23,10 @@ const Header = ({ hours, isDark }) => {
       setModal(false)
     }
   }
+
+  useEffect(() => {
+    setModal(false)
+  }, [location])
 
   return (
     <header className="absolute top-0 left-0 right-0 z-10">
@@ -46,7 +52,12 @@ const Header = ({ hours, isDark }) => {
           onClick={buttonHandler}
         />
       </Container>
-      <Nav hours={hours} modal={modal} closeModal={buttonHandler} />
+      <Nav
+        hours={hours}
+        modal={modal}
+        closeModal={buttonHandler}
+        location={location}
+      />
     </header>
   )
 }

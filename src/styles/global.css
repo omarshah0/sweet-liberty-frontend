@@ -24,14 +24,14 @@
   }
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
-} */
+}
 
-/* body {
+body {
   -ms-overflow-style: none;
   scrollbar-width: none;
-} */
+}
 
 input,
 textarea,

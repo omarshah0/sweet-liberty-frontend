@@ -13,6 +13,8 @@ import BookingSection from "../components/BookingSection"
 import NewsEvents from "../components/NewEvents"
 import DoGoodWork from "../components/DoGoodWork"
 import ShowAndEvents from "../components/ShowAndEvents"
+
+import ScrollTop from "../components/ScrollTop"
 import { Main } from "../components/UI"
 
 const HomePage = () => {
@@ -31,6 +33,7 @@ const HomePage = () => {
         <NewsEvents />
         <DoGoodWork />
         <ShowAndEvents />
+        <ScrollTop />
       </Main>
     </Layout>
   )
