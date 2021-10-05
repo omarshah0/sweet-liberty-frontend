@@ -73,7 +73,7 @@ const BlogPost = ({ data, pageContext }) => {
                   )}
                 </h2>
               </div>
-              {heroImage.gatsbyImageData && (
+              {heroImage?.gatsbyImageData && (
                 <div className="rounded-xl w-full h-[184px] lg:w-[578px] md:h-[360px] overflow-hidden">
                   <GatsbyImage
                     image={heroImage.gatsbyImageData}
