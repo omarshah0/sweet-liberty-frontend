@@ -73,13 +73,15 @@ const BlogPost = ({ data, pageContext }) => {
                   )}
                 </h2>
               </div>
-              <div className="rounded-xl w-full h-[184px] lg:w-[578px] md:h-[360px] overflow-hidden">
-                <GatsbyImage
-                  image={heroImage.gatsbyImageData}
-                  alt={heroImage.title}
-                  className="w-full h-full"
-                />
-              </div>
+              {heroImage.gatsbyImageData && (
+                <div className="rounded-xl w-full h-[184px] lg:w-[578px] md:h-[360px] overflow-hidden">
+                  <GatsbyImage
+                    image={heroImage.gatsbyImageData}
+                    alt={heroImage.title}
+                    className="w-full h-full"
+                  />
+                </div>
+              )}
             </div>
             <div className="lg:grid lg:grid-cols-4">
               <aside className="mb-4 md:mb-0 lg:mr-9">
