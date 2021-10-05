@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Panels from "../Panels"
@@ -11,29 +11,50 @@ const FeaturedSection = () => {
 
   const nextSlideHandler = () => {
     if (currentSlide === 2) return
-    setPanelNextAnim(true)
-    setTimeout(() => {
-      setCurrentSlide(currentSlide + 1)
-    }, 500)
-    setTimeout(() => {
-      setPanelNextAnim(false)
-    }, 1000)
+    setCurrentSlide(currentSlide + 1)
+
+    // setPanelNextAnim(true)
+    // setTimeout(() => {
+    //   setCurrentSlide(currentSlide + 1)
+    // }, 500)
+    // setTimeout(() => {
+    //   setPanelNextAnim(false)
+    // }, 1000)
   }
 
   const prevSlideHandler = () => {
     if (currentSlide === 0) return
-    setPanelBackAnim(true)
-    setTimeout(() => {
-      setCurrentSlide(currentSlide - 1)
-    }, 500)
-    setTimeout(() => {
-      setPanelBackAnim(false)
-    }, 1000)
+    setCurrentSlide(currentSlide - 1)
+
+    // setPanelBackAnim(true)
+    // setTimeout(() => {
+    //   setCurrentSlide(currentSlide - 1)
+    // }, 500)
+    // setTimeout(() => {
+    //   setPanelBackAnim(false)
+    // }, 1000)
   }
 
+  const customScroll = () => {
+    console.log("Test")
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+
   return (
-    <section className="relative bg-gray-400">
-      <Panels
+    <section
+      className={`relative ${
+        currentSlide === 0
+          ? "bg-brandLight"
+          : currentSlide === 1
+          ? "bg-brandPink"
+          : currentSlide === 2
+          ? "bg-brandDark"
+          : null
+      }`}
+      onMouseEnter={customScroll}
+    >
+      {/* <Panels
         enterAnim={panelNextAnim}
         exitAnim={panelBackAnim}
         color={
@@ -45,7 +66,7 @@ const FeaturedSection = () => {
             ? "bg-brandDark"
             : null
         }
-      />
+      /> */}
       <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-50">
         <StaticImage
           src="../../assets/featured_leaf.png"
@@ -53,9 +74,18 @@ const FeaturedSection = () => {
           placeholder="blurred"
         />
       </div>
-      <SlideOne className={currentSlide === 0 ? "" : "hidden"} />
-      <SlideTwo className={currentSlide === 1 ? "" : "hidden"} />
-      <SlideThree className={currentSlide === 2 ? "" : "hidden"} />
+      <SlideOne
+        className={currentSlide === 0 ? "" : "hidden"}
+        isVisible={currentSlide === 0}
+      />
+      <SlideTwo
+        className={currentSlide === 1 ? "" : "hidden"}
+        isVisible={currentSlide === 1}
+      />
+      <SlideThree
+        className={currentSlide === 2 ? "" : "hidden"}
+        isVisible={currentSlide === 2}
+      />
 
       <div className="inline-flex absolute bottom-12 right-3 md:bottom-28 md:right-40 z-[60]">
         <button

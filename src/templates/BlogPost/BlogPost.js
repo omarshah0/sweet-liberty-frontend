@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
+import Seo from "../../components/SEO"
 import Layout from "../../components/Layout"
 import {
   Main,
@@ -17,8 +18,10 @@ import {
 import ShareArticle from "../../components/ShareArticle"
 
 const BlogPost = ({ data, pageContext }) => {
+  console.log("Blog ", pageContext)
   const { nextPost, prevPost } = pageContext
-  const { title, body, category, createdAt, author } = data.contentfulBlog
+  const { title, body, category, createdAt, author, heroImage, seo } =
+    data.contentfulBlog
 
   const options = {
     renderText: text => {
@@ -44,6 +47,12 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <Seo
+        title={seo?.title}
+        description={seo?.description}
+        twitterCard={seo?.twitterCardType}
+        imageUrl={heroImage?.file.url}
+      />
       <Main className="bg-brandLight">
         <Container>
           <div className="md:px-12 lg:px-16 pb-24 md:pb-36 lg:pb-48">
@@ -64,11 +73,11 @@ const BlogPost = ({ data, pageContext }) => {
                   )}
                 </h2>
               </div>
-              <div className="rounded-xl overflow-hidden">
-                <StaticImage
-                  src="../../assets/hero.png"
-                  alt="Blog Dummy"
-                  className="w-full"
+              <div className="rounded-xl w-full h-[184px] lg:w-[578px] md:h-[360px] overflow-hidden">
+                <GatsbyImage
+                  image={heroImage.gatsbyImageData}
+                  alt={heroImage.title}
+                  className="w-full h-full"
                 />
               </div>
             </div>
@@ -97,7 +106,7 @@ const BlogPost = ({ data, pageContext }) => {
                 <BackToBlog />
               </aside>
               <div className="body col-span-3">
-                <ShareArticle className="mb-9" />
+                <ShareArticle className="mb-9" slug={pageContext.slug} />
                 {body && <div>{renderRichText(body, options)}</div>}
               </div>
             </div>
@@ -116,6 +125,13 @@ export const query = graphql`
       contentful_id
       title
       slug
+      heroImage {
+        title
+        gatsbyImageData
+        file {
+          url
+        }
+      }
       category {
         title
         slug
@@ -133,6 +149,11 @@ export const query = graphql`
       author {
         name
         slug
+      }
+      seo {
+        title
+        description
+        twitterCardType
       }
       createdAt(formatString: "MMMM DD, YYYY")
     }

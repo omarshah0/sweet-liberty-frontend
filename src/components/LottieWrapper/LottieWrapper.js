@@ -39,7 +39,7 @@ const LottieWrapper = ({
           options={defaultOptions}
           width="220px"
           speed={3}
-          direction={startLottie === img ? 1 : -1}
+          isStopped={startLottie !== img}
         />
       </span>
     </div>

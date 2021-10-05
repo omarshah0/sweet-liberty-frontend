@@ -1,13 +1,34 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  InstapaperShareButton,
+  TwitterShareButton,
+} from "react-share"
 
-const ShareArticle = ({ className }) => {
+const ShareArticle = ({ className, slug }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
+      }
+    `
+  )
+
+  const siteName = site.siteMetadata.siteUrl
+
   return (
     <div className={`flex justify-between items-center ${className}`}>
       <p className="font-frankRuhlLibre text-sm text-brandDark font-bold">
         Share article link
       </p>
       <div className="flex">
-        <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+        <FacebookShareButton url={`${siteName}/blog/${slug}`}>
           <svg
             width="24"
             height="24"
@@ -21,8 +42,8 @@ const ShareArticle = ({ className }) => {
               fill="#257972"
             />
           </svg>
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+        </FacebookShareButton>
+        <InstapaperShareButton url={`${siteName}/blog/${slug}`}>
           <svg
             width="24"
             height="24"
@@ -42,8 +63,8 @@ const ShareArticle = ({ className }) => {
               fill="#257972"
             />
           </svg>
-        </a>
-        <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
+        </InstapaperShareButton>
+        <TwitterShareButton url={`${siteName}/blog/${slug}`}>
           <svg
             width="24"
             height="24"
@@ -57,8 +78,8 @@ const ShareArticle = ({ className }) => {
               fill="#257972"
             />
           </svg>
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+        </TwitterShareButton>
+        <LinkedinShareButton url={`${siteName}/blog/${slug}`}>
           <svg
             width="24"
             height="24"
@@ -73,7 +94,7 @@ const ShareArticle = ({ className }) => {
               fill="#257972"
             />
           </svg>
-        </a>
+        </LinkedinShareButton>
       </div>
     </div>
   )

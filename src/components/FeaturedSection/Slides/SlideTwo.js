@@ -5,7 +5,7 @@ import { Container } from "../../UI"
 
 const SlideTwo = ({ className }) => {
   return (
-    <Container>
+    <Container className={`${className} h-screen grid place-items-center`}>
       <div className="relative">
         <h2 className="font-bebas text-brandLight mb-8 md:mb-20 text-5xl xl:text-8xl text-left">
           Featured Cocktail

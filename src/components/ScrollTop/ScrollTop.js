@@ -4,7 +4,6 @@ import { useScrollValue } from "../../hooks"
 
 const ScrollTop = () => {
   const scrollValue = useScrollValue()
-  console.log("Scroll Value is ", scrollValue)
   const scrollTopHandler = () => {
     window.scrollTo(0, 0)
   }
