@@ -1,16 +1,27 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
+import Lottie from "react-lottie"
+import { InView } from "react-intersection-observer"
+
+import NeonLight from "../../assets/Json/neon_light.json"
+
+const defaultOptions = {
+  loop: false,
+  autoplay: false,
+  animationData: NeonLight,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+}
 
 const StylishPursue = () => {
   return (
-    <section className="lg:-mt-16">
-      <StaticImage
-        src="../../assets/pursue_happyness.png"
-        alt="Pursue Happiness"
-        placeholder="blurred"
-        className="w-full"
-      />
-    </section>
+    <InView threshold={0.5} triggerOnce>
+      {({ ref, inView }) => (
+        <section className="pointer-events-none relative" ref={ref}>
+          <Lottie options={defaultOptions} isStopped={!inView} />
+        </section>
+      )}
+    </InView>
   )
 }
 
