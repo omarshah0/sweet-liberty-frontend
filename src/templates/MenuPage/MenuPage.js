@@ -15,7 +15,6 @@ import {
 } from "../../components/UI"
 
 const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
-  console.log(datoCmsMenu)
   return (
     <Fragment>
       <Seo

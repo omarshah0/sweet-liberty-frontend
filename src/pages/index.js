@@ -26,12 +26,9 @@ const FeaturedSection = loadable(
     ),
   }
 )
-const StylishPursue = loadable(
-  () => import("../components/PursuingExcellence"),
-  {
-    fallback: <p>Pursing Happiness</p>,
-  }
-)
+const StylishPursue = loadable(() => import("../components/StylishPursue"), {
+  fallback: <p>Pursing Happiness</p>,
+})
 const MiamiIsShit = loadable(() => import("../components/MiamiIsShit"), {
   fallback: <p>Miami Is Shit</p>,
 })

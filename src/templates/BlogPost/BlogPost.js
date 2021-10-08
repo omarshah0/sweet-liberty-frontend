@@ -18,7 +18,6 @@ import {
 import ShareArticle from "../../components/ShareArticle"
 
 const BlogPost = ({ data, pageContext }) => {
-  console.log("Blog ", pageContext)
   const { nextPost, prevPost } = pageContext
   const { title, body, category, createdAt, author, heroImage, seo } =
     data.contentfulBlog
