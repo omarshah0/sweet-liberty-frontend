@@ -1,4 +1,6 @@
 import React from "react"
+import ReactDOM from "react-dom"
+import { loadableReady } from "@loadable/component"
 import { ThemeProvider } from "./src/system/ThemeContext"
 
 import "@fontsource/bebas-neue"
@@ -15,6 +17,14 @@ import "./src/styles/menuNav.css"
 import "./src/styles/hero.css"
 import "./src/styles/marquee.css"
 import "./src/styles/scrollingMenu.css"
+
+export const replaceHydrateFunction = () => {
+  return (element, container, callback) => {
+    loadableReady(() => {
+      ReactDOM.render(element, container, callback)
+    })
+  }
+}
 
 export const onRouteUpdate = () => {
   document.body.style.overflow = "auto"

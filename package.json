@@ -50,6 +50,8 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "@loadable/babel-plugin": "^5.13.2",
+    "@loadable/webpack-plugin": "^5.15.1",
     "autoprefixer": "^10.3.1",
     "gatsby-plugin-postcss": "^4.10.0",
     "postcss": "^8.3.6",

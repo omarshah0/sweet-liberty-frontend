@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import loadable from "@loadable/component"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
 
 import { TitleSolid, TitleStroke } from "../UI"
+import Brands from "./Brands"
 import Awards from "./Awards"
 
 import {
@@ -14,11 +14,6 @@ import {
   TheDailyMealAwards,
   TimeOutAwards,
 } from "./Data"
-
-//Lazy Loading
-const Brands = loadable(() => import("./Brands"), {
-  fallback: <div></div>,
-})
 
 const PursuingExcellence = () => {
   const [data, setData] = useState(SpritedAwards)

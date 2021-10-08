@@ -1,5 +1,5 @@
 import React from "react"
-import lodable from "@loadable/component"
+import loadable from "@loadable/component"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
@@ -15,19 +15,24 @@ import ShowAndEvents from "../components/ShowAndEvents"
 import ScrollTop from "../components/ScrollTop"
 import { Main } from "../components/UI"
 
-//Importing Lazy
-const FeaturedSection = lodable(() => import("../components/FeaturedSection"), {
-  fallback: (
-    <div>
-      <p>The Pina Colada</p>
-      <p>The Miami Martini</p>
-    </div>
-  ),
-})
-const StylishPursue = lodable(() => import("../components/StylishPursue"), {
-  fallback: <p>Pursue Happiness</p>,
-})
-const MiamiIsShit = lodable(() => import("../components/MiamiIsShit"), {
+const FeaturedSection = loadable(
+  () => import("../components/FeaturedSection"),
+  {
+    fallback: (
+      <div>
+        <p>The Miami Martini</p>
+        <p>The Pina Colada</p>
+      </div>
+    ),
+  }
+)
+const StylishPursue = loadable(
+  () => import("../components/PursuingExcellence"),
+  {
+    fallback: <p>Pursing Happiness</p>,
+  }
+)
+const MiamiIsShit = loadable(() => import("../components/MiamiIsShit"), {
   fallback: <p>Miami Is Shit</p>,
 })
 
