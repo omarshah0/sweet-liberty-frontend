@@ -1,5 +1,4 @@
 import React from "react"
-
 import { ThemeProvider } from "./src/system/ThemeContext"
 
 import "@fontsource/bebas-neue"
