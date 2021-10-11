@@ -1,49 +1,24 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Panels from "../Panels"
 import { SlideOne, SlideTwo, SlideThree } from "./Slides"
 
 const FeaturedSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [panelNextAnim, setPanelNextAnim] = useState(false)
-  const [panelBackAnim, setPanelBackAnim] = useState(false)
 
   const nextSlideHandler = () => {
     if (currentSlide === 2) return
     setCurrentSlide(currentSlide + 1)
-
-    // setPanelNextAnim(true)
-    // setTimeout(() => {
-    //   setCurrentSlide(currentSlide + 1)
-    // }, 500)
-    // setTimeout(() => {
-    //   setPanelNextAnim(false)
-    // }, 1000)
   }
 
   const prevSlideHandler = () => {
     if (currentSlide === 0) return
     setCurrentSlide(currentSlide - 1)
-
-    // setPanelBackAnim(true)
-    // setTimeout(() => {
-    //   setCurrentSlide(currentSlide - 1)
-    // }, 500)
-    // setTimeout(() => {
-    //   setPanelBackAnim(false)
-    // }, 1000)
   }
-
-  const customScroll = () => {
-    console.log("Test")
-  }
-
-  /////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <section
-      className={`relative ${
+      className={`relative py-20 ${
         currentSlide === 0
           ? "bg-brandLight"
           : currentSlide === 1
@@ -52,22 +27,8 @@ const FeaturedSection = () => {
           ? "bg-brandDark"
           : null
       }`}
-      onMouseEnter={customScroll}
     >
-      {/* <Panels
-        enterAnim={panelNextAnim}
-        exitAnim={panelBackAnim}
-        color={
-          currentSlide === 0
-            ? "bg-brandLight"
-            : currentSlide === 1
-            ? "bg-brandPink"
-            : currentSlide === 2
-            ? "bg-brandDark"
-            : null
-        }
-      /> */}
-      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-50">
+      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-50 pointer-events-none">
         <StaticImage
           src="../../assets/featured_leaf.png"
           alt="Featured Leaf"

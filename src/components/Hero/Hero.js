@@ -3,92 +3,89 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
-import { TitleSolid, TitleStroke, Scroller } from "../UI"
+import { TitleSolid, TitleStroke } from "../UI"
 
-const Hero = () => {
+const Hero2 = () => {
   return (
-    <section className="mb-24 lg:mb-52 relative">
-      <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
-        <StaticImage
-          src="../../assets/hero_leaf_left.png"
-          alt="Sweet Liberty Leaf"
-          placeholder="blurred"
-          className="mt-60"
-        />
+    <section className="bg-brandDark mx-auto mb-[220px] md:mb-[193px] lg:mb-[300px] relative">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="w-full relative pl-[17px] pr-[17px] lg:pl-[97px] lg:pr-0 max-w-[1220px]">
+          <motion.div
+            className="absolute top-0 right-0 md:top-[55px] lg:top-[30px] md:left-[180px] lg:left-[462px] w-[270px] h-[360px] md:w-[495px] md:h-[625px] lg:w-[516px] lg:h-[652px] z-[1]"
+            initial={{ opacity: 0, y: 200 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1, ease: "backOut" }}
+          >
+            <StaticImage
+              src="../../assets/hero-center.png"
+              alt="Sweet Liberty"
+              placeholder="blurred"
+              className="w-full h-full"
+            />
+          </motion.div>
+          <div className="relative">
+            <h1 className="text-[75px] md:text-[125px] lg:text-[180px] md:leading-[92px] lg:leading-[133px] leading-[65px] text-brandLight font-bebas relative z-[6] pt-[53px] md:pt-2 overflow-hidden mb-[50px] md:mb-0">
+              <motion.span
+                className="inline-block mb-[30px] md:mb-[290px] lg:mb-0 lg:w-[450px]"
+                initial={{ x: "-100vw" }}
+                animate={{ x: "0" }}
+                transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.9] }}
+              >
+                <TitleSolid className="float-right">Life</TitleSolid>
+                <br />
+                <TitleSolid>Liberty </TitleSolid>
+                <br />
+                <TitleStroke className="float-right">&amp; THE</TitleStroke>
+              </motion.span>
+              <br />
+              <motion.span
+                className="lg:mt-[-6px] float-right"
+                initial={{ x: "100vw" }}
+                animate={{ x: "0" }}
+                transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.9] }}
+              >
+                <TitleSolid>PURSUIT</TitleSolid> <TitleStroke>OF</TitleStroke>
+                <br />
+                <TitleSolid>HAPPY HOUR</TitleSolid>
+              </motion.span>
+            </h1>
+            <motion.div
+              className="flex items-center sm-max:static absolute left-0 bottom-0"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 2.7 }}
+            >
+              <Link
+                to="/reservation"
+                className="font-bebas md:font-bold text-white text-[32px] md:text-5xl"
+              >
+                Reservations
+              </Link>
+              <span className="bg-white text-brandDark uppercase text-resky font-bold px-1 ml-3 mb-1 tracking-widest">
+                Resy
+              </span>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute top-[-100px] left-0 md:right-0 md:left-auto z-[5] flip md:straight pointer-events-none">
         <StaticImage
           src="../../assets/hero_leaf_right.png"
           alt="Sweet Liberty Leaf"
           placeholder="blurred"
-          className=""
+          className="w-[220px] md:w-[300px]"
         />
       </div>
-      <div className="pl-6 md:pl-10 lg:pl-12 max-w-screen-2xl mx-auto relative">
-        <div
-          className="w-[285px] md:w-[516px] absolute top-0 md:top-10 right-0 md:left-0 md:mx-auto"
-          initial={{ opacity: 0, y: "-100%", x: "-50%" }}
-          animate={{ opacity: 1, y: "-50%" }}
-          transition={{ ease: "easeOut", duration: 2, delay: 1 }}
-        >
-          <StaticImage
-            src="../../assets/hero-center.png"
-            alt="Sweet Liberty"
-            placeholder="blurred"
-            className="transform hero-image-animation w-full"
-          />
-        </div>
-        <h1 className="font-bebas text-[75px] md:text-hero text-brandLight leading-hero transform pt-24 md:pt-0 mb-[75px] md:mb-[30px] sm-max:overflow-auto">
-          {/* Working Block */}
-          <span
-            className="inline-block hero-text-animation-left mb-[30px] lg:mb-[50px] xl:mb-0"
-            initial={{ x: "-100vw" }}
-            animate={{ x: 0 }}
-            transition={{ ease: "linear", duration: 1.5 }}
-          >
-            <TitleSolid className="inline-block transform translate-x-[5.8rem] xl:translate-x-80">
-              Life
-            </TitleSolid>
-            <br />
-            <TitleSolid className="inline-block transform xl:translate-x-24">
-              Liberty
-            </TitleSolid>
-            <br />
-            <TitleStroke className="inline-block transform translate-x-[3.3rem] xl:translate-x-56">
-              &amp; THE
-            </TitleStroke>
-          </span>
-          <br />
-          <span
-            className="inline-block pr-6 md:pr-10 lg:pr-12 transform lg:translate-x-[15.5rem] xl:translate-x-[33rem] xl:translate-y-[-38px] sm-max:float-right"
-            initial={{ x: "100vw" }}
-            animate={{ x: "0%" }}
-            transition={{ ease: "linear", duration: 1.5 }}
-          >
-            <TitleSolid>PURSUIT</TitleSolid>
-            <TitleStroke>OF</TitleStroke>
-            <br />
-            <TitleSolid>HAPPY HOUR</TitleSolid>
-          </span>
-        </h1>
-        <motion.div
-          className="flex items-center xl:absolute xl:left-[150px] xl:bottom-10"
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2.7 }}
-        >
-          <Link
-            to="/reservation"
-            className="font-bebas md:font-bold text-white text-[32px] md:text-5xl"
-          >
-            Reservations
-          </Link>
-          <span className="bg-white text-brandDark uppercase text-resky font-bold px-1 ml-3 mb-1 tracking-widest">
-            Resy
-          </span>
-        </motion.div>
-        <Scroller />
+      <div className="absolute bottom-[-300px] md:bottom-0 right-0 md:left-0 md:right-auto flip md:straight pointer-events-none">
+        <StaticImage
+          src="../../assets/hero_leaf_left.png"
+          alt="Sweet Liberty Leaf"
+          placeholder="blurred"
+          className="w-[232px]"
+        />
       </div>
     </section>
   )
 }
 
-export default Hero
+export default Hero2

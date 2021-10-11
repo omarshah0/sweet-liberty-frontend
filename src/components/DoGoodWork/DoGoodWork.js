@@ -13,7 +13,15 @@ const DoGoodWork = () => {
   `
   const heading = "Our greatest award is being able to open every day"
   return (
-    <section className="bg-black pt-20 pb-24">
+    <section className="relative bg-black pt-20 pb-24">
+      <div className="absolute top-0 left-0 w-[400px] pointer-events-none">
+        <StaticImage
+          src="../../assets/do_good.png"
+          alt="Leaf Miam Shit"
+          placeholder="blurred"
+          className="w-full"
+        />
+      </div>
       <div className="pl-6 md:pl-10 lg:pl-36 max-w-screen-2xl mx-auto relative">
         <InView threshold={0.1} triggerOnce>
           {({ ref, inView }) => (

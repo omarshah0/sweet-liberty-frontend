@@ -2,18 +2,20 @@ import React from "react"
 import { Link } from "gatsby"
 import { InView } from "react-intersection-observer"
 
-import { Container, MerchCard, TitleWithStroke } from "../UI"
+import { Container, TitleWithStroke, FormButton } from "../UI"
 import { StaticImage } from "gatsby-plugin-image"
-
-import Jacket from "../../assets/Merch/test_jacket.png"
-import Tee from "../../assets/Merch/tee.png"
-import Cap from "../../assets/Merch/cap.png"
 
 const Merch = () => {
   return (
     <InView threshold="0.15" triggerOnce>
       {({ ref, inView }) => (
-        <section className="bg-brandLight" ref={ref}>
+        <section className="relative bg-brandLight" ref={ref}>
+          <div className="absolute -top-10 left-0 pointer-events-none">
+            <StaticImage
+              src="../../assets/pursue_leaf.png"
+              className="w-[320px] h-[908px]"
+            />
+          </div>
           <Container>
             <div className="relative pt-[100px] pb-0 lg:pb-[36rem] xl:pb-[37rem]">
               <h2 className="font-bebas text-[7.875rem] md:text-[8.875rem] leading-[7rem] lg:text-[190px] xl:text-merch text-brandDark relative lg:leading-hero xl:ml-10">
@@ -59,28 +61,62 @@ const Merch = () => {
               </div>
             </div>
             <div className="md:grid md:grid-cols-2 lg:grid-cols-3 mb-36">
-              <MerchCard
-                img={Jacket}
-                title="Miami Jacket"
-                description="Red - Womens"
-                price="$150"
-                link="/"
-                className="mb-20 md:mb-0"
-              />
-              <MerchCard
-                img={Tee}
-                title="Sweet Tee"
-                description="Red - Womens"
-                price="$50"
-                link="/"
-              />
-              <MerchCard
-                img={Cap}
-                title="Sweet Cap"
-                description="Red - Womens"
-                price="$80"
-                link="/"
-              />
+              {/* //Using Static Image At The Moment , so Replace with Merch Card  Named Import ffrom UI*/}
+              {/* Card One  */}
+              <div className="font-bebas text-brandDark text-center">
+                <StaticImage
+                  src="../../assets/Merch/test_jacket.png"
+                  alt="Miami Jacket"
+                  placeholder="blurred"
+                  className="mb-14 w-full h-[315px] object-cover"
+                />
+                <h3 className="text-7xl w-48 mx-auto mb-4">Miami Jacket</h3>
+                <h3 className="text-5xl mb-4">Red - Womens</h3>
+                <span className="block text-4xl mb-4">$150</span>
+                <FormButton
+                  className="border-brandLight"
+                  font="font-bebas text-brandLight text-2xl"
+                >
+                  View Product
+                </FormButton>
+              </div>
+              {/* Card Two */}
+              <div className="font-bebas text-brandDark text-center">
+                <StaticImage
+                  src="../../assets/Merch/tee.png"
+                  alt="Sweet Tee"
+                  placeholder="blurred"
+                  className="mb-14 w-full h-[315px] object-cover"
+                />
+                <h3 className="text-7xl w-48 mx-auto mb-4">Sweet Tee</h3>
+                <h3 className="text-5xl mb-4">Red - Womens</h3>
+                <span className="block text-4xl mb-4">$50</span>
+                <FormButton
+                  className="border-brandLight"
+                  font="font-bebas text-brandLight text-2xl"
+                >
+                  View Product
+                </FormButton>
+              </div>
+              {/* Card Three */}
+              <div className="font-bebas text-brandDark text-center">
+                <StaticImage
+                  src="../../assets/Merch/cap.png"
+                  alt="Sweet Tee"
+                  placeholder="blurred"
+                  className="mb-14 w-full h-[315px] object-cover"
+                />
+                <h3 className="text-7xl w-48 mx-auto mb-4">Sweet Cap</h3>
+                <h3 className="text-5xl mb-4">Red - Womens</h3>
+                <span className="block text-4xl mb-4">$80</span>
+                <FormButton
+                  className="border-brandLight"
+                  font="font-bebas text-brandLight text-2xl"
+                >
+                  View Product
+                </FormButton>
+              </div>
+              {/* //End of Section */}
             </div>
             <div className="text-center pb-36">
               <Link

@@ -39,7 +39,7 @@ const PursuingExcellence = () => {
   return (
     <section className="relative pb-60 md:pb-44">
       <div className="mx-auto max-w-1440">
-        <div className="absolute top-[-230px] left-0">
+        <div className="absolute top-[-230px] left-0 pointer-events-none">
           <StaticImage
             src="../../assets/pursue_leaf.png"
             alt="Pursue Happiness"

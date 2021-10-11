@@ -1,2 +1,2 @@
-import Hero from "./Hero2"
+import Hero from "./Hero"
 export default Hero

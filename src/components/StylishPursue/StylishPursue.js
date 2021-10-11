@@ -1,4 +1,5 @@
 import React from "react"
+import { StaticImage } from "gatsby-plugin-image"
 import Lottie from "react-lottie"
 import { InView } from "react-intersection-observer"
 
@@ -18,6 +19,12 @@ const StylishPursue = () => {
     <InView threshold={0.5} triggerOnce>
       {({ ref, inView }) => (
         <section className="pointer-events-none relative" ref={ref}>
+          <div className="hidden md:block absolute top-56 right-0 flip z-10 pointer-events-none">
+            <StaticImage
+              src="../../assets/pursue_leaf.png"
+              placeholder="blurred"
+            />
+          </div>
           <Lottie options={defaultOptions} isStopped={!inView} />
         </section>
       )}
