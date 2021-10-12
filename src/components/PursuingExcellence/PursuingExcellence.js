@@ -38,7 +38,7 @@ const PursuingExcellence = () => {
 
   return (
     <section className="relative pb-60 md:pb-44">
-      <div className="mx-auto max-w-1440">
+      <div className="">
         <div className="absolute top-[-230px] left-0 pointer-events-none">
           <StaticImage
             src="../../assets/pursue_leaf.png"
@@ -47,12 +47,12 @@ const PursuingExcellence = () => {
             className="w-[280px]"
           />
         </div>
-        <div className="relative lg:flex lg:flex-col md:mb-80 lg:mb-64">
+        <div className="relative md:mb-80 lg:mb-64">
           <InView threshold={0.8} triggerOnce>
             {({ ref, inView }) => (
               <div
                 ref={ref}
-                className="overflow-hidden pl-[20px] pr-[20px] mb-6 md:pl-[140px] md:pr-[45px] md:mb-16 lg:w-[1040px] lg:pl-[167px] lg:order-1"
+                className="overflow-hidden max-w-1440 pl-[20px] pr-[20px] mb-4 md:pl-[140px] md:pr-[45px] md:mb-16 lg:w-[1040px] lg:pl-[167px]"
               >
                 <motion.h2
                   className="font-bebas text-[60px] leading-[60px] text-brandLight md:text-[80px] md:leading-[65px] lg:text-[116px] lg:leading-[119px]"
@@ -67,11 +67,43 @@ const PursuingExcellence = () => {
               </div>
             )}
           </InView>
+
+          <InView threshold={0.3} triggerOnce>
+            {({ ref, inView }) => (
+              <div ref={ref} className="relative mb-4 ml-auto lg:mb-[50px]">
+                <div className="absolute bottom-0 right-0 z-10 top-16 md:top-50 lg:top-[55rem] lg:flip-vertical">
+                  <StaticImage
+                    src="../../assets/hero_leaf_left.png"
+                    alt="Sweet Liberty Leaf"
+                    className="w-[165px] md:w-[380px] flip"
+                  />
+                </div>
+                <div className="mx-auto max-w-1440">
+                  <motion.span
+                    className="block w-[355px] md:w-[631px] mr-[30px] lg:w-[1005px] lg:ml-auto lg:mr-[120px]"
+                    initial={{ opacity: 0, x: "100vw" }}
+                    animate={
+                      inView
+                        ? { opacity: 1, x: "0vw" }
+                        : { opacity: 0, x: "100vw" }
+                    }
+                    transition={{ duration: 0.7, ease: "linear" }}
+                  >
+                    <StaticImage
+                      src="../../assets/pursue-dsc.png"
+                      alt="Sweet Liberty Pursuing Excellence"
+                      placeholder="blurred"
+                    />
+                  </motion.span>
+                </div>
+              </div>
+            )}
+          </InView>
           <InView threshold={0.3} triggerOnce>
             {({ ref, inView }) => (
               <div
                 ref={ref}
-                className="pr-[20px] md:pl-[140px] md:pr-[45px] lg:w-[970px] lg:pl-[167px] lg:pr-0 lg:order-3 lg:mb-[45px]"
+                className="relative max-w-1440 pr-[20px] md:pl-[140px] md:pr-[45px] lg:w-[970px] lg:pl-[167px] lg:pr-0 lg:mb-[45px]"
               >
                 <motion.p
                   initial={{ opacity: 0, x: "-100vw" }}
@@ -95,49 +127,11 @@ const PursuingExcellence = () => {
               </div>
             )}
           </InView>
-          <div className="relative bg-happyHour w-[168px] ml-auto mr-[30px] top-12 z-[1] md:w-[463px] md:z-[0] lg:hidden">
-            <StaticImage
-              src="../../assets/hero-center.png"
-              alt="Sweet Liberty Shirt"
-              className="w-full"
-            />
-          </div>
-          <InView threshold={0.3} triggerOnce>
-            {({ ref, inView }) => (
-              <div
-                ref={ref}
-                className="relative lg:order-2 lg:self-end lg:mr-[126px] lg:mb-[50px]"
-              >
-                <motion.span
-                  className="block"
-                  initial={{ opacity: 0, x: "100vw" }}
-                  animate={
-                    inView
-                      ? { opacity: 1, x: "0vw" }
-                      : { opacity: 0, x: "100vw" }
-                  }
-                  transition={{ duration: 0.7, ease: "linear" }}
-                >
-                  <StaticImage
-                    src="../../assets/pursue-dsc.png"
-                    alt="Sweet Liberty Pursuing Excellence"
-                    placeholder="blurred"
-                    className="w-[355px] md:w-[631px] ml-[30px] lg:w-[1005px]"
-                  />
-                </motion.span>
-                <StaticImage
-                  src="../../assets/hero_leaf_left.png"
-                  alt="Sweet Liberty Leaf"
-                  className="w-[165px] flip absolute bottom-[-120px] right-0 md:hidden"
-                />
-              </div>
-            )}
-          </InView>
           <InView threshold={0.5} triggerOnce>
             {({ ref, inView }) => (
               <div
                 ref={ref}
-                className="hidden lg:flex lg:justify-end order-4 lg:mr-[126px]"
+                className="pl-[20px] pr-[20px] max-w-1440 flex justify-between md:pl-[20px] md:pr-[20px]  lg:justify-end lg:mr-[126px]"
               >
                 <motion.span
                   className="block"
@@ -150,7 +144,7 @@ const PursuingExcellence = () => {
                   <StaticImage
                     src="../../assets/Sweet_Liberty_Team.png"
                     alt="Michy and Davide"
-                    className="lg:w-[504px] lg:h-[540px] lg:mr-[41px]"
+                    className="w-[160px] h-[170px] lg:w-[504px] lg:h-[540px] lg:mr-[41px]"
                   />
                 </motion.span>
                 <motion.span
@@ -164,7 +158,7 @@ const PursuingExcellence = () => {
                   <StaticImage
                     src="../../assets/Michy_David.png"
                     alt="Sweet Liberty Team"
-                    className="w-[423px] lg:h-[447px]"
+                    className="w-[160px] h-[170px] lg:w-[423px] lg:h-[447px]"
                   />
                 </motion.span>
               </div>
@@ -186,7 +180,7 @@ const PursuingExcellence = () => {
                 </motion.span>
                 <motion.span
                   initial={{ x: "100vw" }}
-                  animate={inView ? { x: "0vw" } : { x: "100vw" }}
+                  animate={inView ? { x: "16vw" } : { x: "100vw" }}
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >

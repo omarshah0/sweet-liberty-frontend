@@ -76,7 +76,7 @@ const Hero2 = () => {
           className="w-[220px] md:w-[300px]"
         />
       </div>
-      <div className="absolute bottom-[-300px] md:bottom-0 right-0 md:left-0 md:right-auto flip md:straight pointer-events-none">
+      <div className="absolute bottom-[-250px] md:bottom-0 right-0 md:left-0 md:right-auto flip md:straight pointer-events-none">
         <StaticImage
           src="../../assets/hero_leaf_left.png"
           alt="Sweet Liberty Leaf"
