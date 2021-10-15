@@ -71,7 +71,7 @@ const PursuingExcellence = () => {
           <InView threshold={0.3} triggerOnce>
             {({ ref, inView }) => (
               <div ref={ref} className="relative mb-4 ml-auto lg:mb-[50px]">
-                <div className="absolute bottom-0 right-0 z-10 top-16 md:top-50 lg:top-[55rem] lg:flip-vertical">
+                <div className="absolute bottom-0 right-0 z-10 top-16 md:top-50 lg:top-[55rem ] lg:flip-vertical">
                   <StaticImage
                     src="../../assets/hero_leaf_left.png"
                     alt="Sweet Liberty Leaf"

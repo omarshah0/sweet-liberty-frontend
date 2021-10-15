@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 
 import { Container } from "../UI"
 
-const MenuItemCard = ({ data, stylingSlug }) => {
+const MenuItemCard = ({ data, stylingSlug, onClick }) => {
   return (
     <React.Fragment>
       {React.Children.toArray(
@@ -21,7 +21,13 @@ const MenuItemCard = ({ data, stylingSlug }) => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-32 lg:gap-x-36 gap-y-10 md:gap-y-14 lg:gap-y-18">
                 {React.Children.toArray(
                   d.foodItem?.map(item => (
-                    <div className="food-item">
+                    <div
+                      className="food-item cursor-pointer"
+                      onClick={() => onClick(item.image)}
+                      role="button"
+                      tabIndex="0"
+                      aria-hidden="true"
+                    >
                       <h4
                         className={`inline font-frankRuhlLibre text-xl font-bold`}
                       >

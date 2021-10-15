@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useState } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -6,6 +6,7 @@ import Seo from "../../components/SEO"
 import Layout from "../../components/Layout"
 import MenuNav from "../../components/MenuNav"
 import MenuItemCard from "../../components/MenuItemCard"
+import FoodItemImageModal from "../../components/FoodItemImageModal"
 import {
   Container,
   Main,
@@ -15,6 +16,19 @@ import {
 } from "../../components/UI"
 
 const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
+  const [modal, setModal] = useState({ show: false, image: null })
+
+  const foodMenuClickHandler = image => {
+    if (!image) return
+    document.body.style.overflow = "hidden"
+    setModal({ show: true, image: image })
+  }
+
+  const closeModalHandler = () => {
+    document.body.style.overflow = "auto"
+    setModal({ show: false, image: null })
+  }
+
   return (
     <Fragment>
       <Seo
@@ -58,6 +72,7 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
             <MenuItemCard
               data={datoCmsMenu.menu}
               stylingSlug={datoCmsMenu.slug}
+              onClick={foodMenuClickHandler}
             />
             {datoCmsMenu.secondMenuTitle && (
               <MenuTitle
@@ -109,6 +124,12 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
           </div>
         </Main>
       </Layout>
+      {modal.show && modal.image && (
+        <FoodItemImageModal
+          image={modal.image}
+          closeModal={closeModalHandler}
+        />
+      )}
     </Fragment>
   )
 }
@@ -133,6 +154,10 @@ export const query = graphql`
           name
           ingredients
           price
+          image {
+            gatsbyImageData
+            alt
+          }
           category {
             shortForm
             longForm
