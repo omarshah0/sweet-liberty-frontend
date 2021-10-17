@@ -5,7 +5,7 @@ import ScrollProgress from "../ScrollProgress"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children, isDark }) => {
+const Layout = ({ children, isDark, smallLogo }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -24,7 +24,7 @@ const Layout = ({ children, isDark }) => {
   return (
     <Fragment>
       <ScrollProgress />
-      <Header hours={hours[0]} isDark={isDark} />
+      <Header hours={hours[0]} isDark={isDark} smallLogo={smallLogo} />
       {children}
       <Footer hours={hours[0]} />
     </Fragment>

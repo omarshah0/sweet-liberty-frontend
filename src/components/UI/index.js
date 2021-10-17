@@ -27,6 +27,7 @@ import Hamburger from "./Hamburger"
 import FoodLink from "./FoodLink"
 import NavLinkButton from "./NavLinkButton"
 import MenuNavBtn from "./MenuNavBtn"
+import ProductCard from "./ProductCard"
 
 export {
   Container,
@@ -58,4 +59,5 @@ export {
   FoodLink,
   NavLinkButton,
   MenuNavBtn,
+  ProductCard,
 }
