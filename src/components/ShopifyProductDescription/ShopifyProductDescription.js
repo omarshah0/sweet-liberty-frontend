@@ -19,8 +19,8 @@ const ShopifyProductDescription = ({
   )
   const [selectedVariantQuantity, setSelectedVariantQuantity] = useState(
     hasOnlyDefaultVariant
-      ? normalizedVariants.colorFilter[0].inventoryQuantity
-      : 1
+      ? 1
+      : normalizedVariants.colorFilter[0].inventoryQuantity
   )
   const [outOfStock, setOutOfStock] = useState(false)
 

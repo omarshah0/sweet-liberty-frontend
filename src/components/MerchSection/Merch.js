@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image"
 import { InView } from "react-intersection-observer"
 
 import { Container, TitleWithStroke, FormButton } from "../UI"
-import { StaticImage } from "gatsby-plugin-image"
 
-const Merch = () => {
+const Merch = ({ products }) => {
   return (
     <InView threshold="0.15" triggerOnce>
       {({ ref, inView }) => (
@@ -62,61 +62,32 @@ const Merch = () => {
             </div>
             <div className="md:grid md:grid-cols-2 lg:grid-cols-3 mb-36">
               {/* //Using Static Image At The Moment , so Replace with Merch Card  Named Import ffrom UI*/}
-              {/* Card One  */}
-              <div className="font-bebas text-brandDark text-center">
-                <StaticImage
-                  src="../../assets/Merch/test_jacket.png"
-                  alt="Miami Jacket"
-                  placeholder="blurred"
-                  className="mb-14 w-full h-[315px] object-cover"
-                />
-                <h3 className="text-7xl w-48 mx-auto mb-4">Miami Jacket</h3>
-                <h3 className="text-5xl mb-4">Red - Womens</h3>
-                <span className="block text-4xl mb-4">$150</span>
-                <FormButton
-                  className="border-brandLight"
-                  font="font-bebas text-brandLight text-2xl"
-                >
-                  View Product
-                </FormButton>
-              </div>
-              {/* Card Two */}
-              <div className="font-bebas text-brandDark text-center">
-                <StaticImage
-                  src="../../assets/Merch/tee.png"
-                  alt="Sweet Tee"
-                  placeholder="blurred"
-                  className="mb-14 w-full h-[315px] object-cover"
-                />
-                <h3 className="text-7xl w-48 mx-auto mb-4">Sweet Tee</h3>
-                <h3 className="text-5xl mb-4">Red - Womens</h3>
-                <span className="block text-4xl mb-4">$50</span>
-                <FormButton
-                  className="border-brandLight"
-                  font="font-bebas text-brandLight text-2xl"
-                >
-                  View Product
-                </FormButton>
-              </div>
-              {/* Card Three */}
-              <div className="font-bebas text-brandDark text-center">
-                <StaticImage
-                  src="../../assets/Merch/cap.png"
-                  alt="Sweet Tee"
-                  placeholder="blurred"
-                  className="mb-14 w-full h-[315px] object-cover"
-                />
-                <h3 className="text-7xl w-48 mx-auto mb-4">Sweet Cap</h3>
-                <h3 className="text-5xl mb-4">Red - Womens</h3>
-                <span className="block text-4xl mb-4">$80</span>
-                <FormButton
-                  className="border-brandLight"
-                  font="font-bebas text-brandLight text-2xl"
-                >
-                  View Product
-                </FormButton>
-              </div>
-              {/* //End of Section */}
+              {React.Children.toArray(
+                products.map(p => (
+                  <div className="font-bebas text-brandDark text-center">
+                    <GatsbyImage
+                      image={
+                        p.featuredImage.localFile.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={p.featuredImage.altText}
+                      className="mb-14 w-full h-[315px] object-cover"
+                    />
+                    <h3 className="text-7xl w-48 mx-auto mb-4">{p.title}</h3>
+                    {/* <h3 className="text-5xl mb-4">Red - Womens</h3> */}
+                    <span className="block text-4xl mb-4">
+                      $ {parseInt(p.priceRangeV2.minVariantPrice.amount)}
+                    </span>
+                    <FormButton
+                      to={`/shop/${p.handle}`}
+                      className="border-brandLight"
+                      font="font-bebas text-brandLight text-2xl"
+                    >
+                      View Product
+                    </FormButton>
+                  </div>
+                ))
+              )}
             </div>
             <div className="text-center pb-36">
               <Link
@@ -135,5 +106,4 @@ const Merch = () => {
     </InView>
   )
 }
-
 export default Merch
