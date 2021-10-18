@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-import { shopifyProductImageNormalize } from "../../utilities"
-
 const ShopifyProducImages = ({
   featuredImage,
   variantsThumbnails,
@@ -12,9 +10,6 @@ const ShopifyProducImages = ({
     image: featuredImage.localFile.childImageSharp.gatsbyImageData,
     altText: featuredImage.localFile.altText,
   })
-
-  const normalizedImageVariants =
-    shopifyProductImageNormalize(variantsThumbnails)
   const setFeaturedImage = (image, altText) => {
     setFeatImage({ image, altText })
   }
@@ -49,7 +44,7 @@ const ShopifyProducImages = ({
           />
         </div>
         {React.Children.toArray(
-          normalizedImageVariants.map(variant => {
+          variantsThumbnails.map(variant => {
             return (
               variant.image && (
                 <div

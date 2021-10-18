@@ -1,5 +1,6 @@
 const { paginate } = require("gatsby-awesome-pagination")
 const path = require("path")
+const shopifyVariants = require("./src/utilities/ssrUtilities/shopifyVariants")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -72,6 +73,21 @@ exports.createPages = async ({ graphql, actions }) => {
               amount
             }
           }
+          hasOnlyDefaultVariant
+          variants {
+            id
+            title
+            price
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              altText
+            }
+            inventoryQuantity
+          }
         }
       }
     }
@@ -128,11 +144,14 @@ exports.createPages = async ({ graphql, actions }) => {
 
   //Creating Single Shopify Product Page
   shopifyProducts.map(product => {
+    const normalizedVariants =
+      !product.hasOnlyDefaultVariant && shopifyVariants(product.variants)
     createPage({
       component: shopifyProductPage,
       path: `/shop/${product.handle}`,
       context: {
         handle: product.handle,
+        normalizedVariants: normalizedVariants,
       },
     })
   })

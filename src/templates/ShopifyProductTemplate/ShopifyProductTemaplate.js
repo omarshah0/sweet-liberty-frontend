@@ -18,6 +18,7 @@ const ShopifyProductTemaplate = ({
       variants,
     },
   },
+  pageContext: { normalizedVariants },
 }) => {
   return (
     <Layout smallLogo>
@@ -34,7 +35,9 @@ const ShopifyProductTemaplate = ({
             hasOnlyDefaultVariant={hasOnlyDefaultVariant}
             totalInverntory={totalInverntory}
             price={priceRangeV2}
+            normalizedVariants={normalizedVariants}
             variants={variants}
+            defaultVariantTotalInventory={totalInverntory}
           />
         </Container>
       </Main>
@@ -78,6 +81,7 @@ export const query = graphql`
         }
         inventoryQuantity
       }
+      totalInventory
     }
   }
 `
