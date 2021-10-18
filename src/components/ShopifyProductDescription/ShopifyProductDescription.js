@@ -9,6 +9,7 @@ const ShopifyProductDescription = ({
   variants,
   defaultVariantTotalInventory,
 }) => {
+  console.log(normalizedVariants)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.colorFilter[0].color
@@ -16,7 +17,11 @@ const ShopifyProductDescription = ({
   const [selectedSize, setSelectedSize] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.sizeFilter[0].size
   )
-  const [selectedVariantQuantity, setSelectedVariantQuantity] = useState(1)
+  const [selectedVariantQuantity, setSelectedVariantQuantity] = useState(
+    hasOnlyDefaultVariant
+      ? normalizedVariants.colorFilter[0].inventoryQuantity
+      : 1
+  )
   const [outOfStock, setOutOfStock] = useState(false)
 
   const increaseQuantityHandler = () => {
@@ -45,6 +50,7 @@ const ShopifyProductDescription = ({
   }
 
   const checkStockQuantity = () => {
+    console.log("Out of stock status: ", outOfStock)
     setQuantity(1)
     const matchTitle = `${selectedSize} / ${selectedColor}`
     var results = variants.filter(function (entry) {
@@ -73,20 +79,20 @@ const ShopifyProductDescription = ({
     checkStockQuantity()
   }, [selectedSize, selectedColor])
 
-  useEffect(() => {
-    if (hasOnlyDefaultVariant && quantity === defaultVariantTotalInventory) {
-      setOutOfStock(true)
-    } else if (quantity === selectedVariantQuantity) {
-      setOutOfStock(true)
-    } else {
-      setOutOfStock(false)
-    }
-  }, [quantity])
+  // useEffect(() => {
+  //   if (hasOnlyDefaultVariant && quantity === defaultVariantTotalInventory) {
+  //     setOutOfStock(true)
+  //   } else if (quantity === selectedVariantQuantity) {
+  //     setOutOfStock(true)
+  //   } else {
+  //     setOutOfStock(false)
+  //   }
+  // }, [quantity])
 
   return (
     <div className="font-bebas mt-[-7px]">
       {console.log(
-        `Selected Product is Size: ${selectedSize} and Color: ${selectedColor} and Quantity: ${quantity}`
+        `Selected Product is Size: ${selectedSize} and Color: ${selectedColor} and Quantity: ${quantity} || OUT OF STOCK STATUS : ${outOfStock}`
       )}
       <h1 className="text-brandDark text-[68px] mb-[15px] leading-none">
         {title}
@@ -161,7 +167,11 @@ const ShopifyProductDescription = ({
             >
               <MinusSvg firstNumber={quantity === 1} />
             </button>
-            <span className="text-lg w-[70px] grid place-items-center">
+            <span
+              className={`text-lg w-[70px] grid place-items-center ${
+                outOfStock ? "text-[#808080]" : "text-black"
+              }`}
+            >
               {quantity}
             </span>
             <button
