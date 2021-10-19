@@ -86,6 +86,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               altText
             }
+            legacyResourceId
             inventoryQuantity
           }
         }

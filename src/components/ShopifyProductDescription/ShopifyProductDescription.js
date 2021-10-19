@@ -1,4 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react"
+import Loader from "react-loader-spinner"
+
+import { getProductVariantQuantity } from "../../functions"
 
 const ShopifyProductDescription = ({
   title,
@@ -7,9 +10,7 @@ const ShopifyProductDescription = ({
   price,
   normalizedVariants,
   variants,
-  defaultVariantTotalInventory,
 }) => {
-  console.log(normalizedVariants)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.colorFilter[0].color
@@ -17,27 +18,22 @@ const ShopifyProductDescription = ({
   const [selectedSize, setSelectedSize] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.sizeFilter[0].size
   )
+  const [outOfStock, setOutOfStock] = useState(false)
   const [selectedVariantQuantity, setSelectedVariantQuantity] = useState(
     hasOnlyDefaultVariant
-      ? 1
+      ? ""
       : normalizedVariants.colorFilter[0].inventoryQuantity
   )
-  const [outOfStock, setOutOfStock] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const increaseQuantityHandler = () => {
-    if (hasOnlyDefaultVariant && quantity <= defaultVariantTotalInventory) {
-      checkStockQuantityDefaultVariant()
-      setQuantity(quantity + 1)
-    } else if (quantity < selectedVariantQuantity) {
-      setQuantity(quantity + 1)
+    if (quantity < selectedVariantQuantity) {
+      return setQuantity(quantity + 1)
     }
   }
 
   const decreaseQuantityHandler = () => {
-    if (quantity <= 1) return
-    if (quantity < selectedVariantQuantity) {
-      setOutOfStock(false)
-    }
+    if (quantity === 1) return
     setQuantity(quantity - 1)
   }
 
@@ -49,51 +45,46 @@ const ShopifyProductDescription = ({
     setSelectedSize(e.target.value)
   }
 
-  const checkStockQuantity = () => {
-    console.log("Out of stock status: ", outOfStock)
+  const getSelectedVariantIDHandler = defaultID => {
     setQuantity(1)
+    if (hasOnlyDefaultVariant) {
+      return getSelectedVariantStockQuantityHandler(defaultID)
+    }
     const matchTitle = `${selectedSize} / ${selectedColor}`
-    var results = variants.filter(function (entry) {
+    var results = variants.filter(entry => {
       return entry.title === matchTitle
     })
-    if (results.length !== 0 && results[0].inventoryQuantity !== 0) {
-      setOutOfStock(false)
-      return setSelectedVariantQuantity(results[0].inventoryQuantity)
-    }
-    return setOutOfStock(true)
+    getSelectedVariantStockQuantityHandler(results[0].legacyResourceId)
   }
 
-  const checkStockQuantityDefaultVariant = () => {
-    setQuantity(1)
-    if (hasOnlyDefaultVariant && quantity <= defaultVariantTotalInventory) {
-      return setOutOfStock(false)
+  const getSelectedVariantStockQuantityHandler = async id => {
+    setLoading(true)
+    const { status, data } = await getProductVariantQuantity(id)
+    if (status !== 200) return
+    if (data.data.inventory_quantity === 0) {
+      setSelectedVariantQuantity(0)
+      setOutOfStock(true)
     } else {
-      return setOutOfStock(true)
+      setOutOfStock(false)
+      setSelectedVariantQuantity(data.data.inventory_quantity)
     }
+    setLoading(false)
   }
 
   useEffect(() => {
-    if (hasOnlyDefaultVariant) {
-      return checkStockQuantityDefaultVariant()
+    if (!hasOnlyDefaultVariant) {
+      getSelectedVariantIDHandler()
     }
-    checkStockQuantity()
   }, [selectedSize, selectedColor])
 
-  // useEffect(() => {
-  //   if (hasOnlyDefaultVariant && quantity === defaultVariantTotalInventory) {
-  //     setOutOfStock(true)
-  //   } else if (quantity === selectedVariantQuantity) {
-  //     setOutOfStock(true)
-  //   } else {
-  //     setOutOfStock(false)
-  //   }
-  // }, [quantity])
+  useEffect(async () => {
+    if (hasOnlyDefaultVariant) {
+      getSelectedVariantIDHandler(variants[0].legacyResourceId)
+    }
+  }, [])
 
   return (
     <div className="font-bebas mt-[-7px]">
-      {console.log(
-        `Selected Product is Size: ${selectedSize} and Color: ${selectedColor} and Quantity: ${quantity} || OUT OF STOCK STATUS : ${outOfStock}`
-      )}
       <h1 className="text-brandDark text-[68px] mb-[15px] leading-none">
         {title}
       </h1>
@@ -156,9 +147,16 @@ const ShopifyProductDescription = ({
         </Fragment>
       )}
       <div>
-        <span className="block text-brandPink text-[23px] font-bebas mb-4">
-          Quantity
-        </span>
+        <div className="flex">
+          <span className="block text-brandPink text-[23px] font-bebas mb-4">
+            Quantity : {selectedVariantQuantity}
+          </span>
+          {loading && (
+            <span className="ml-5 mt-1">
+              <Loader type="Circles" color="#EF5DA8" height={25} width={25} />
+            </span>
+          )}
+        </div>
         <div className="flex">
           <div className="inline-flex font-sourceSansProBold bg-gray-200 rounded mr-10">
             <button
@@ -179,13 +177,20 @@ const ShopifyProductDescription = ({
               onClick={increaseQuantityHandler}
               disabled={outOfStock}
             >
-              <PlusSvg outOfStock={outOfStock} />
+              <PlusSvg
+                disabled={quantity === selectedVariantQuantity || outOfStock}
+              />
             </button>
           </div>
           <button className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all">
             Add to Card
           </button>
         </div>
+        {outOfStock && (
+          <div>
+            <span>Out of Stock</span>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -210,7 +215,7 @@ const MinusSvg = ({ firstNumber }) => {
   )
 }
 
-const PlusSvg = ({ outOfStock }) => {
+const PlusSvg = ({ disabled }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +227,7 @@ const PlusSvg = ({ outOfStock }) => {
     >
       <path
         d="M8.5575 6.4425L8.5575 1.5075C8.565 1.23 8.46 0.96 8.25 0.749999C7.8375 0.337499 7.1625 0.3375 6.75 0.75C6.54 0.959999 6.435 1.23 6.435 1.5L6.4425 6.4425L1.5 6.435C1.23 6.435 0.96 6.54 0.75 6.75C0.3375 7.1625 0.3375 7.8375 0.75 8.25C0.96 8.46 1.23 8.565 1.5 8.565L6.4425 8.5575L6.4425 13.4925C6.435 13.77 6.54 14.04 6.75 14.25C7.1625 14.6625 7.8375 14.6625 8.25 14.25C8.46 14.04 8.565 13.77 8.565 13.5L8.5575 8.5575L13.4925 8.5575C13.77 8.565 14.04 8.46 14.25 8.25C14.6625 7.8375 14.6625 7.1625 14.25 6.75C14.04 6.54 13.77 6.435 13.5 6.435L8.5575 6.4425Z"
-        fill={outOfStock ? "gray" : "black"}
+        fill={disabled ? "gray" : "black"}
       />
     </svg>
   )

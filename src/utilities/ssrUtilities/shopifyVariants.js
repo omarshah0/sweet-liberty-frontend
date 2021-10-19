@@ -8,7 +8,7 @@ function shopifyProductVariantNormalize(variants) {
     let color = ""
     let splitTitle = v.title.split("/")
     size = splitTitle[0].replace(/\s+/g, "")
-    color = splitTitle[1].replace(/\s+/g, "")
+    color = splitTitle[1].trim()
     return newArray.push({ ...v, size, color })
   })
 

@@ -37,7 +37,6 @@ const ShopifyProductTemaplate = ({
             price={priceRangeV2}
             normalizedVariants={normalizedVariants}
             variants={variants}
-            defaultVariantTotalInventory={totalInverntory}
           />
         </Container>
       </Main>
@@ -79,6 +78,7 @@ export const query = graphql`
           }
           altText
         }
+        legacyResourceId
         inventoryQuantity
       }
       totalInventory
