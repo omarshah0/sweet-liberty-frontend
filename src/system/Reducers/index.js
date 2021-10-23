@@ -1,4 +1,4 @@
-import { cartReducer } from "./actions"
+import { cartReducer } from "./Actions"
 
 const reducers = {
   cartReducer,
