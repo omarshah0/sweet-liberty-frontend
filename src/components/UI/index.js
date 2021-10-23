@@ -28,6 +28,8 @@ import FoodLink from "./FoodLink"
 import NavLinkButton from "./NavLinkButton"
 import MenuNavBtn from "./MenuNavBtn"
 import ProductCard from "./ProductCard"
+import CheckoutInputField from "./CheckoutInputField"
+import CheckoutButton from "./CheckoutButton"
 
 export {
   Container,
@@ -60,4 +62,6 @@ export {
   NavLinkButton,
   MenuNavBtn,
   ProductCard,
+  CheckoutInputField,
+  CheckoutButton,
 }

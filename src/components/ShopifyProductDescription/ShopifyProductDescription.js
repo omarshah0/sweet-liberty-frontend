@@ -1,9 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react"
+import { Link } from "gatsby"
 import Loader from "react-loader-spinner"
+import { useDispatch } from "react-redux"
+import { addToCartMessage } from "../../system/Reducers/Actions"
 
 import { getProductVariantQuantity } from "../../functions"
+import { PlusSvg, MinusSvg } from "../UI/Arrows"
 
 const ShopifyProductDescription = ({
+  featuredImage,
   title,
   description,
   hasOnlyDefaultVariant,
@@ -11,6 +16,7 @@ const ShopifyProductDescription = ({
   normalizedVariants,
   variants,
 }) => {
+  const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.colorFilter[0].color
@@ -23,6 +29,11 @@ const ShopifyProductDescription = ({
     hasOnlyDefaultVariant
       ? ""
       : normalizedVariants.colorFilter[0].inventoryQuantity
+  )
+  const [selectedVariantId, setSelectedVariantId] = useState(
+    hasOnlyDefaultVariant
+      ? variants[0].legacyResourceId
+      : normalizedVariants.colorFilter[0].id
   )
   const [loading, setLoading] = useState(false)
 
@@ -60,12 +71,13 @@ const ShopifyProductDescription = ({
   const getSelectedVariantStockQuantityHandler = async id => {
     setLoading(true)
     const { status, data } = await getProductVariantQuantity(id)
-    if (status !== 200) return
+    if (status !== 200) return setLoading(false)
     if (data.data.inventory_quantity === 0) {
       setSelectedVariantQuantity(0)
       setOutOfStock(true)
     } else {
       setOutOfStock(false)
+      setSelectedVariantId(data.data.id)
       setSelectedVariantQuantity(data.data.inventory_quantity)
     }
     setLoading(false)
@@ -77,11 +89,23 @@ const ShopifyProductDescription = ({
     }
   }, [selectedSize, selectedColor])
 
-  useEffect(async () => {
+  useEffect(() => {
     if (hasOnlyDefaultVariant) {
       getSelectedVariantIDHandler(variants[0].legacyResourceId)
     }
   }, [])
+
+  const dispatchProductToStore = () => {
+    const selectedVariant = { color: selectedColor, size: selectedSize }
+    const cart = {
+      id: selectedVariantId,
+      featuredImage,
+      title,
+      selectedVariant,
+      quantity,
+    }
+    dispatch({ type: "ADD_TO_CART", payload: cart })
+  }
 
   return (
     <div className="font-bebas mt-[-7px]">
@@ -182,7 +206,10 @@ const ShopifyProductDescription = ({
               />
             </button>
           </div>
-          <button className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all">
+          <button
+            className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all"
+            onClick={dispatchProductToStore}
+          >
             Add to Card
           </button>
         </div>
@@ -192,43 +219,9 @@ const ShopifyProductDescription = ({
           </div>
         )}
       </div>
+      <Link to="/cart">Go to Cart</Link>
     </div>
   )
 }
 
 export default ShopifyProductDescription
-
-const MinusSvg = ({ firstNumber }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="15"
-      height="3"
-      viewBox="0 0 15 3"
-      fill="none"
-    >
-      <path
-        d="M1.5 0.435L6.4425 0.4425L8.5575 0.4425L13.5 0.435C13.77 0.435 14.04 0.539999 14.25 0.75C14.6625 1.1625 14.6625 1.8375 14.25 2.25C14.04 2.46 13.77 2.565 13.4925 2.5575L8.5575 2.5575L6.4425 2.5575L1.5 2.565C1.23 2.565 0.96 2.46 0.75 2.25C0.3375 1.8375 0.3375 1.1625 0.75 0.75C0.96 0.54 1.23 0.435 1.5 0.435Z"
-        fill={firstNumber ? "gray" : "black"}
-      />
-    </svg>
-  )
-}
-
-const PlusSvg = ({ disabled }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="15"
-      height="15"
-      viewBox="0 0 15 15"
-      fill="none"
-      className="float-right"
-    >
-      <path
-        d="M8.5575 6.4425L8.5575 1.5075C8.565 1.23 8.46 0.96 8.25 0.749999C7.8375 0.337499 7.1625 0.3375 6.75 0.75C6.54 0.959999 6.435 1.23 6.435 1.5L6.4425 6.4425L1.5 6.435C1.23 6.435 0.96 6.54 0.75 6.75C0.3375 7.1625 0.3375 7.8375 0.75 8.25C0.96 8.46 1.23 8.565 1.5 8.565L6.4425 8.5575L6.4425 13.4925C6.435 13.77 6.54 14.04 6.75 14.25C7.1625 14.6625 7.8375 14.6625 8.25 14.25C8.46 14.04 8.565 13.77 8.565 13.5L8.5575 8.5575L13.4925 8.5575C13.77 8.565 14.04 8.46 14.25 8.25C14.6625 7.8375 14.6625 7.1625 14.25 6.75C14.04 6.54 13.77 6.435 13.5 6.435L8.5575 6.4425Z"
-        fill={disabled ? "gray" : "black"}
-      />
-    </svg>
-  )
-}

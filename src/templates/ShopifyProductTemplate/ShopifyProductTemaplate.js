@@ -1,10 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { useSelector } from "react-redux"
 
 import Layout from "../../components/Layout"
 import { Main, Container } from "../../components/UI"
 import ShopifyProducImages from "../../components/ShopifyProducImages"
 import ShopifyProductDescription from "../../components/ShopifyProductDescription"
+import Breadcumbs from "../../components/Breadcumbs"
 
 const ShopifyProductTemaplate = ({
   data: {
@@ -19,25 +21,32 @@ const ShopifyProductTemaplate = ({
     },
   },
   pageContext: { normalizedVariants },
+  location,
 }) => {
+  const { cartReducer } = useSelector(state => state)
+  console.log("Omar Data is ", cartReducer)
   return (
     <Layout smallLogo>
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
-        <Container className="flex">
-          <ShopifyProducImages
-            featuredImage={featuredImage}
-            variantsThumbnails={variants}
-            className="mr-[42px]"
-          />
-          <ShopifyProductDescription
-            title={title}
-            description={description}
-            hasOnlyDefaultVariant={hasOnlyDefaultVariant}
-            totalInverntory={totalInverntory}
-            price={priceRangeV2}
-            normalizedVariants={normalizedVariants}
-            variants={variants}
-          />
+        <Container>
+          <Breadcumbs pathname={location.pathname} className="mb-12" />
+          <div className="flex">
+            <ShopifyProducImages
+              featuredImage={featuredImage}
+              variantsThumbnails={variants}
+              className="mr-[42px]"
+            />
+            <ShopifyProductDescription
+              featuredImage={featuredImage}
+              title={title}
+              description={description}
+              hasOnlyDefaultVariant={hasOnlyDefaultVariant}
+              totalInverntory={totalInverntory}
+              price={priceRangeV2}
+              normalizedVariants={normalizedVariants}
+              variants={variants}
+            />
+          </div>
         </Container>
       </Main>
     </Layout>

@@ -1,0 +1,23 @@
+.product-cart {
+  grid-template-areas: "product product product price quantity close";
+}
+
+.product-cart-product {
+  width: 600px;
+  grid-area: product;
+}
+
+.product-cart-price {
+  width: 100px;
+  grid-area: price;
+}
+
+.product-cart-quantity {
+  width: 150px;
+  grid-area: quantity;
+}
+
+.product-cart-close-button {
+  width: 25px;
+  grid-area: close;
+}

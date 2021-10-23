@@ -69,6 +69,21 @@ module.exports = {
         downloadImages: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          // location: required and must include the pathname property
+          location: {
+            pathname: "/",
+          },
+          // crumbLabel: required label for the default crumb
+          crumbLabel: "HomeCustom",
+          // all other properties optional
+          crumbSeparator: " / ",
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
