@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { useSelector } from "react-redux"
 
 import Layout from "../../components/Layout"
 import { Main, Container } from "../../components/UI"
@@ -23,8 +22,6 @@ const ShopifyProductTemaplate = ({
   pageContext: { normalizedVariants },
   location,
 }) => {
-  const { cartReducer } = useSelector(state => state)
-  console.log("Omar Data is ", cartReducer)
   return (
     <Layout smallLogo>
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">

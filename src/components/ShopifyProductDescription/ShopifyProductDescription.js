@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Loader from "react-loader-spinner"
-import { useDispatch } from "react-redux"
-import { addToCartMessage } from "../../system/Reducers/Actions"
+import { useSelector, useDispatch } from "react-redux"
 
 import { getProductVariantQuantity } from "../../functions"
 import { PlusSvg, MinusSvg } from "../UI/Arrows"
@@ -16,6 +15,7 @@ const ShopifyProductDescription = ({
   normalizedVariants,
   variants,
 }) => {
+  const productFromStore = useSelector(state => state.cartReducer)
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
@@ -25,6 +25,7 @@ const ShopifyProductDescription = ({
     hasOnlyDefaultVariant ? "" : normalizedVariants.sizeFilter[0].size
   )
   const [outOfStock, setOutOfStock] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [selectedVariantQuantity, setSelectedVariantQuantity] = useState(
     hasOnlyDefaultVariant
       ? ""
@@ -33,9 +34,12 @@ const ShopifyProductDescription = ({
   const [selectedVariantId, setSelectedVariantId] = useState(
     hasOnlyDefaultVariant
       ? variants[0].legacyResourceId
-      : normalizedVariants.colorFilter[0].id
+      : normalizedVariants.colorFilter[0].legacyResourceId
   )
-  const [loading, setLoading] = useState(false)
+
+  const inCartTest = productFromStore.products.some(
+    p => p.id === parseInt(selectedVariantId)
+  )
 
   const increaseQuantityHandler = () => {
     if (quantity < selectedVariantQuantity) {
@@ -73,13 +77,12 @@ const ShopifyProductDescription = ({
     const { status, data } = await getProductVariantQuantity(id)
     if (status !== 200) return setLoading(false)
     if (data.data.inventory_quantity === 0) {
-      setSelectedVariantQuantity(0)
       setOutOfStock(true)
     } else {
       setOutOfStock(false)
-      setSelectedVariantId(data.data.id)
-      setSelectedVariantQuantity(data.data.inventory_quantity)
     }
+    setSelectedVariantId(data.data.id)
+    setSelectedVariantQuantity(data.data.inventory_quantity)
     setLoading(false)
   }
 
@@ -104,7 +107,10 @@ const ShopifyProductDescription = ({
       selectedVariant,
       quantity,
     }
-    dispatch({ type: "ADD_TO_CART", payload: cart })
+    if (inCartTest) {
+      return dispatch({ type: "REMOVE_FROM_CART", payload: selectedVariantId })
+    }
+    return dispatch({ type: "ADD_TO_CART", payload: cart })
   }
 
   return (
@@ -210,7 +216,7 @@ const ShopifyProductDescription = ({
             className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all"
             onClick={dispatchProductToStore}
           >
-            Add to Card
+            {inCartTest ? "Remove from Cart" : "Add to Cart"}
           </button>
         </div>
         {outOfStock && (
