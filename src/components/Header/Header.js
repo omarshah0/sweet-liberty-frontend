@@ -58,13 +58,13 @@ const Header = ({ hours, isDark, smallLogo }) => {
           )}
         </Link>
         <div className="flex items-center">
-          {console.log("Cart Lenght is ", cart.products)}
           {cart.products.length > 0 && (
-            <CartSvg
-              svgClassName="text-brandDark"
-              className="mr-10"
-              quantity={cart.products.length}
-            />
+            <Link to="/cart" className="mr-10">
+              <CartSvg
+                svgClassName={isDark ? "text-brandLight" : "text-brandDark"}
+                quantity={cart.products.length}
+              />
+            </Link>
           )}
 
           <Hamburger

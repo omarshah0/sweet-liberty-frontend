@@ -9,6 +9,16 @@ import CheckoutBreadcrumbs from "../components/CheckoutBreadcrumbs/CheckoutBread
 
 const CheckoutPage = () => {
   const [step, setStep] = useState(1)
+  const [checkoutData, setCheckoutDta] = useState({
+    emailOrMobile: "",
+    address: "",
+    apartmentSuiteUnit: "",
+    townCity: "",
+    state: "",
+    zip: "",
+    countryRegion: "",
+    shippingPrice: 0,
+  })
 
   const CheckoutShipping = loadable(
     () => import("../components/CheckoutShipping"),
@@ -24,6 +34,15 @@ const CheckoutPage = () => {
     }
   )
 
+  const inputHandler = e => {
+    setCheckoutDta({ ...checkoutData, [e.target.name]: e.target.value })
+  }
+
+  const shippingMethodHandler = price => {
+    setCheckoutDta({ ...checkoutData, shippingPrice: price })
+  }
+
+  console.log("Shipping Checkout Data ", checkoutData)
   return (
     <Layout smallLogo>
       <Container className="flex">
@@ -33,15 +52,21 @@ const CheckoutPage = () => {
           </h1>
           <CheckoutBreadcrumbs step={step} className="mb-6" />
           {step === 1 ? (
-            <CheckoutInformation setStep={setStep} />
+            <CheckoutInformation
+              setStep={setStep}
+              inputHandler={inputHandler}
+            />
           ) : step === 2 ? (
-            <CheckoutShipping setStep={setStep} />
+            <CheckoutShipping
+              setStep={setStep}
+              shippingMethodHandler={shippingMethodHandler}
+            />
           ) : (
             step === 3 && <CheckoutPayment setStep={setStep} />
           )}
         </div>
         <div className="right-block-gray w-[40%] px-20 bg-gray-100 md:pt-48 lg:pb-[163px] relative">
-          <CheckoutProducts />
+          <CheckoutProducts step={step} checkoutData={checkoutData} />
         </div>
       </Container>
     </Layout>

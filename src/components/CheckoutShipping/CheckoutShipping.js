@@ -2,7 +2,7 @@ import React from "react"
 
 import { CheckoutButton } from "../UI"
 
-const CheckoutShipping = ({ setStep }) => {
+const CheckoutShipping = ({ setStep, shippingMethodHandler }) => {
   return (
     <div className="font-sourceSansProBold font-bold">
       <div className="border-[1px] border-[#D1D5DB] flex justify-between bg-gray-100 px-6 py-4">
@@ -21,34 +21,40 @@ const CheckoutShipping = ({ setStep }) => {
       </div>
       <div>
         <h2 className="mb-[38px] text-[20px]">Shipping Method</h2>
-        <div className="border-[1px] border-[#D1D5DB] flex items-center justify-between bg-gray-100 px-6 py-4 min-h-[98px]">
+        <button
+          className="border-[1px] border-[#D1D5DB] flex w-full items-center justify-between bg-gray-100 px-6 py-4 min-h-[98px]"
+          onClick={() => shippingMethodHandler(0)}
+        >
           <div className="flex items-center">
             <span className="mr-9">cheema</span>
             <div>
-              <span className="block mr-7 text-[#2A2D36] font-normal leading-none">
+              <span className="block text-left text-[#2A2D36] font-semibold leading-none">
                 Economy
               </span>
-              <span className="block text-[#2A2D36] text-opacity-50 font-normal">
+              <span className="block text-left text-[#2A2D36] text-opacity-50 font-normal">
                 5 to 8 business days
               </span>
             </div>
           </div>
-          <span>Free</span>
-        </div>
-        <div className="border-b-[1px] border-l-[1px] border-r-[1px] flex items-center justify-between bg-gray-100 px-6 py-4 min-h-[98px] mb-6">
+          <span className="font-semibold">Free</span>
+        </button>
+        <button
+          className="border-b-[1px] border-l-[1px] border-r-[1px] flex w-full items-center justify-between bg-gray-100 px-6 py-4 min-h-[98px] mb-6"
+          onClick={() => shippingMethodHandler(9.9)}
+        >
           <div className="flex items-center">
             <span className="mr-9">cheema</span>
             <div>
-              <span className="block mr-7 text-[#2A2D36] font-normal leading-none">
+              <span className="block text-left mr-7 text-[#2A2D36] font-semibold leading-none">
                 Standard
               </span>
-              <span className="block text-[#2A2D36] text-opacity-50 font-normal">
+              <span className="block text-left text-[#2A2D36] text-opacity-50 font-normal">
                 3 to 4 business days
               </span>
             </div>
           </div>
-          <span>$9.90</span>
-        </div>
+          <span className="font-semibold">$9.90</span>
+        </button>
         <CheckoutButton
           title="Continue to Payment"
           onClick={() => setStep(3)}

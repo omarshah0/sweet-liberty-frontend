@@ -2,7 +2,7 @@ import React from "react"
 
 import { CheckoutInputField, CheckoutButton } from "../UI"
 
-const CheckoutInformation = ({ setStep }) => {
+const CheckoutInformation = ({ setStep, inputHandler }) => {
   return (
     <div>
       <form
@@ -13,9 +13,9 @@ const CheckoutInformation = ({ setStep }) => {
         <CheckoutInputField
           label="Email or mobile phone number"
           type="text"
-          name="emailMlobile"
+          name="emailOrMobile"
           placeholder="enter email or phone number"
-          onChange={() => console.log("Name Changed")}
+          onChange={inputHandler}
           className="mb-11"
         />
         <hr className="mb-8 border-[1px] border-gray-300" />
@@ -25,7 +25,7 @@ const CheckoutInformation = ({ setStep }) => {
           type="text"
           name="address"
           placeholder="house number and street name"
-          onChange={() => console.log("Name Changed")}
+          onChange={inputHandler}
           className="mb-11"
         />
         <CheckoutInputField
@@ -33,16 +33,16 @@ const CheckoutInformation = ({ setStep }) => {
           type="text"
           name="apartmentSuiteUnit"
           placeholder="house number and street name"
-          onChange={() => console.log("Name Changed")}
+          onChange={inputHandler}
           className="mb-11"
         />
         <div className="flex">
           <CheckoutInputField
             label="Town / City *"
             type="text"
-            name="town"
+            name="townCity"
             placeholder="enter city"
-            onChange={() => console.log("Name Changed")}
+            onChange={inputHandler}
             className="mb-11 mr-5"
           />
           <CheckoutInputField
@@ -50,7 +50,7 @@ const CheckoutInformation = ({ setStep }) => {
             type="text"
             name="state"
             placeholder="enter state"
-            onChange={() => console.log("Name Changed")}
+            onChange={inputHandler}
             className="mb-11 mr-5"
           />
           <CheckoutInputField
@@ -58,7 +58,7 @@ const CheckoutInformation = ({ setStep }) => {
             type="text"
             name="zip"
             placeholder="enter your zip code"
-            onChange={() => console.log("Name Changed")}
+            onChange={inputHandler}
             className="mb-11"
           />
         </div>

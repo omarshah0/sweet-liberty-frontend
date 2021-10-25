@@ -8,8 +8,8 @@ import migrations from "./migration"
 
 const rootReducer = combineReducers(reducers)
 const persistConfig = {
-  key: "cartReducer",
-  whitelist: "cartReducer",
+  key: "sweet_Liberty_Shopify_Store",
+  whitelist: ["cartReducer", "checkoutReducer"],
   storage,
   version: 1,
   migrate: createMigrate(migrations, { debug: false }),

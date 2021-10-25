@@ -15,7 +15,8 @@ const CheckoutInputField = ({
       </label>
       <input
         type={type || "text"}
-        onChange={onChange}
+        onBlur={onChange}
+        name={name || "name"}
         className="w-full rounded-[3px] bg-gray-100 border-[1px] border-gray-300 p-3 font-sourceSansProBold text-base text-[#2A2D36] text-opacity-50 outline-none"
         placeholder={placeholder}
       />

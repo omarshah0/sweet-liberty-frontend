@@ -2,7 +2,6 @@ import React from "react"
 
 import { BreadCumbArrow } from "../UI/Arrows"
 const CheckoutBreadcrumbs = ({ step, className }) => {
-  console.log("Step is ", step)
   return (
     <div
       className={`font-sourceSansProBold font-bold text-xl leading-none flex items-center ${className}`}

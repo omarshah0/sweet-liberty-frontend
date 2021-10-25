@@ -36,6 +36,11 @@ const ShopifyProductDescription = ({
       ? variants[0].legacyResourceId
       : normalizedVariants.colorFilter[0].legacyResourceId
   )
+  const [selectedVariantPrice, setSelectedVariantPrice] = useState(
+    hasOnlyDefaultVariant
+      ? price.minVariantPrice.amount
+      : normalizedVariants.colorFilter[0].price
+  )
 
   const inCartTest = productFromStore.products.some(
     p => p.id === parseInt(selectedVariantId)
@@ -75,6 +80,7 @@ const ShopifyProductDescription = ({
   const getSelectedVariantStockQuantityHandler = async id => {
     setLoading(true)
     const { status, data } = await getProductVariantQuantity(id)
+    console.log("Data is ", data)
     if (status !== 200) return setLoading(false)
     if (data.data.inventory_quantity === 0) {
       setOutOfStock(true)
@@ -83,6 +89,7 @@ const ShopifyProductDescription = ({
     }
     setSelectedVariantId(data.data.id)
     setSelectedVariantQuantity(data.data.inventory_quantity)
+    setSelectedVariantPrice(data.data.price)
     setLoading(false)
   }
 
@@ -106,6 +113,7 @@ const ShopifyProductDescription = ({
       title,
       selectedVariant,
       quantity,
+      price: selectedVariantPrice,
     }
     if (inCartTest) {
       return dispatch({ type: "REMOVE_FROM_CART", payload: selectedVariantId })
@@ -119,7 +127,7 @@ const ShopifyProductDescription = ({
         {title}
       </h1>
       <span className="block text-brandPink text-[45px] mb-[18px]">
-        ${parseInt(price.minVariantPrice.amount)}
+        ${parseInt(selectedVariantPrice)}
       </span>
       <p className="text-brandDark text-2xl max-w-[400px] mb-4">
         {description}
