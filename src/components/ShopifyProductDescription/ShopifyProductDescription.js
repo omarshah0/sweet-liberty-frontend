@@ -106,6 +106,7 @@ const ShopifyProductDescription = ({
   }, [])
 
   const dispatchProductToStore = () => {
+    console.log("Am I Dispatched")
     const selectedVariant = { color: selectedColor, size: selectedSize }
     const cart = {
       id: selectedVariantId,
@@ -113,6 +114,7 @@ const ShopifyProductDescription = ({
       title,
       selectedVariant,
       quantity,
+      maxQuantity: selectedVariantQuantity,
       price: selectedVariantPrice,
     }
     if (inCartTest) {
@@ -198,8 +200,9 @@ const ShopifyProductDescription = ({
         <div className="flex">
           <div className="inline-flex font-sourceSansProBold bg-gray-200 rounded mr-10">
             <button
-              className="w-[70px] px-[15px] py-5"
+              className="w-[70px] px-[15px] py-5 disabled:cursor-not-allowed"
               onClick={decreaseQuantityHandler}
+              disabled={outOfStock || quantity === 1}
             >
               <MinusSvg firstNumber={quantity === 1} />
             </button>
@@ -211,9 +214,9 @@ const ShopifyProductDescription = ({
               {quantity}
             </span>
             <button
-              className="w-[70px] px-[15px] py-5"
+              className="w-[70px] px-[15px] py-5 disabled:cursor-not-allowed"
               onClick={increaseQuantityHandler}
-              disabled={outOfStock}
+              disabled={outOfStock || quantity === selectedVariantQuantity}
             >
               <PlusSvg
                 disabled={quantity === selectedVariantQuantity || outOfStock}
@@ -221,10 +224,15 @@ const ShopifyProductDescription = ({
             </button>
           </div>
           <button
-            className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all"
+            className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 disabled:opacity-50 disabled:cursor-not-allowed font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all"
             onClick={dispatchProductToStore}
+            disabled={outOfStock}
           >
-            {inCartTest ? "Remove from Cart" : "Add to Cart"}
+            {outOfStock
+              ? " Out Of Stock"
+              : inCartTest
+              ? "Remove from Cart"
+              : "Add to Cart"}
           </button>
         </div>
         {outOfStock && (

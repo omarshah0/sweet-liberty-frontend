@@ -8,7 +8,7 @@ const CartProductList = ({ className, product }) => {
   const dispatch = useDispatch()
 
   const updateQuantity = quantity => {
-    console.log("Quantity is ", quantity)
+    if (quantity > product.maxQuantity || quantity < 1) return
     dispatch({
       type: "UPDATE_QUANTITY",
       payload: { id: product.id, quantity: quantity },
@@ -16,7 +16,6 @@ const CartProductList = ({ className, product }) => {
   }
 
   const removeFromCart = () => {
-    console.log("Produc ID Internal ", product.id)
     dispatch({ type: "REMOVE_FROM_CART", payload: product.id })
   }
 
@@ -44,8 +43,9 @@ const CartProductList = ({ className, product }) => {
       <div className="product-cart-quantity text-center">
         <div className="inline-flex border-[1px] border-[#E5E7Eb] p-1 rounded">
           <button
-            className="w-[25px] grid place-items-center mr-4 bg-gray-200 rounded-[3px]"
+            className="w-[25px] grid place-items-center mr-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
             onClick={() => updateQuantity(product.quantity - 1)}
+            disabled={product.quantity === 1}
           >
             <MinusSvg />
           </button>
@@ -53,8 +53,9 @@ const CartProductList = ({ className, product }) => {
             {product.quantity}
           </span>
           <button
-            className="w-[25px] grid place-items-center ml-4 bg-gray-200 rounded-[3px]"
+            className="w-[25px] grid place-items-center ml-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
             onClick={() => updateQuantity(product.quantity + 1)}
+            disabled={product.quantity === product.maxQuantity}
           >
             <PlusSvg />
           </button>
