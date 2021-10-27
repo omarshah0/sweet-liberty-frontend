@@ -1,19 +1,19 @@
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
-import { useSelector } from "react-redux"
+import { useRecoilValue } from "recoil"
 
 import Layout from "../components/Layout"
 import { Main, Container } from "../components/UI"
 import CartProductList from "../components/CartProductList"
+import { cartState } from "../system/Atom"
 
 const CartPage = () => {
-  const { cartReducer: cart } = useSelector(state => state)
-  console.log("Cart is ", cart)
+  const products = useRecoilValue(cartState)
   return (
     <Layout smallLogo>
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
         <Container>
-          {cart.products.length === 0 ? (
+          {products.length === 0 ? (
             <div className="bg-brandDark px-9 py-6 font-bebas text-center text-white leading-none mb-20">
               <h2 className="mb-4 text-4xl">Cart is Empty</h2>
               <Link
@@ -32,10 +32,9 @@ const CartPage = () => {
                 <h2 className="product-cart-product">Product Details</h2>
                 <h2 className="product-cart-price text-center">Price</h2>
                 <h2 className="product-cart-quantity text-center">Quantity</h2>
-                <span></span>
               </div>
               <div className="bg-gray-50 px-9 py-10">
-                {cart.products.map(p => (
+                {products.map(p => (
                   <CartProductList className="mb-6" product={p} />
                 ))}
               </div>

@@ -8,7 +8,7 @@ const CheckoutProducts = ({ step, checkoutData }) => {
   let subTotal = 0
   cart.products.map(p => {
     const productTotalWithQuantity = parseInt(p.price) * parseInt(p.quantity)
-    subTotal += productTotalWithQuantity
+    return (subTotal += productTotalWithQuantity)
   })
   const total = checkoutData.shippingPrice + subTotal
 

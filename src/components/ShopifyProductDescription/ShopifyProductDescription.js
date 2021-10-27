@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import Loader from "react-loader-spinner"
-import { useSelector, useDispatch } from "react-redux"
+import { useRecoilState } from "recoil"
 
 import { getProductVariantQuantity } from "../../functions"
 import { PlusSvg, MinusSvg } from "../UI/Arrows"
+import { cartState } from "../../system/Atom"
 
 const ShopifyProductDescription = ({
   featuredImage,
@@ -15,8 +16,7 @@ const ShopifyProductDescription = ({
   normalizedVariants,
   variants,
 }) => {
-  const productFromStore = useSelector(state => state.cartReducer)
-  const dispatch = useDispatch()
+  const [cart, setCart] = useRecoilState(cartState)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.colorFilter[0].color
@@ -42,9 +42,7 @@ const ShopifyProductDescription = ({
       : normalizedVariants.colorFilter[0].price
   )
 
-  const inCartTest = productFromStore.products.some(
-    p => p.id === parseInt(selectedVariantId)
-  )
+  const inCartTest = cart.some(p => p.id === parseInt(selectedVariantId))
 
   const increaseQuantityHandler = () => {
     if (quantity < selectedVariantQuantity) {
@@ -106,9 +104,8 @@ const ShopifyProductDescription = ({
   }, [])
 
   const dispatchProductToStore = () => {
-    console.log("Am I Dispatched")
     const selectedVariant = { color: selectedColor, size: selectedSize }
-    const cart = {
+    const product = {
       id: selectedVariantId,
       featuredImage,
       title,
@@ -118,9 +115,10 @@ const ShopifyProductDescription = ({
       price: selectedVariantPrice,
     }
     if (inCartTest) {
-      return dispatch({ type: "REMOVE_FROM_CART", payload: selectedVariantId })
+      const newArray = cart.filter(p => p.id !== selectedVariantId)
+      return setCart(newArray)
     }
-    return dispatch({ type: "ADD_TO_CART", payload: cart })
+    return setCart([...cart, product])
   }
 
   return (

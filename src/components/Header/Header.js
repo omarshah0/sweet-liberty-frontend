@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
-import { useSelector } from "react-redux"
 
 import Nav from "../Nav"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
-import { CartSvg } from "../UI/Svgs"
 import { Container, Hamburger } from "../UI"
 
 const Header = ({ hours, isDark, smallLogo }) => {
-  const cart = useSelector(state => state.cartReducer)
   const location = useLocation()
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
@@ -58,15 +55,6 @@ const Header = ({ hours, isDark, smallLogo }) => {
           )}
         </Link>
         <div className="flex items-center">
-          {cart.products.length > 0 && (
-            <Link to="/cart" className="mr-10">
-              <CartSvg
-                svgClassName={isDark ? "text-brandLight" : "text-brandDark"}
-                quantity={cart.products.length}
-              />
-            </Link>
-          )}
-
           <Hamburger
             className={`${modal ? "open" : ""}`}
             color={`${modal || isDark ? "bg-brandLight" : "bg-brandDark"}`}

@@ -14,8 +14,6 @@ const ShopifyProducImages = ({
     setFeatImage({ image, altText })
   }
 
-  const setImageByColorSelectHandler = id => {}
-
   return (
     <div className={`${className} flex`}>
       <div className="bg-gray-200 w-[582px] h-[582px] py-8 order-2">

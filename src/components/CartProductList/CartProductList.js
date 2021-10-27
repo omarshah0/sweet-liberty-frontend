@@ -1,22 +1,23 @@
 import React from "react"
-import { useDispatch } from "react-redux"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { useRecoilState } from "recoil"
 
 import { MinusSvg, PlusSvg, CrossSVG } from "../UI/Arrows"
+import { cartState } from "../../system/Atom"
 
 const CartProductList = ({ className, product }) => {
-  const dispatch = useDispatch()
-
+  const [cart, setCart] = useRecoilState(cartState)
   const updateQuantity = quantity => {
     if (quantity > product.maxQuantity || quantity < 1) return
-    dispatch({
-      type: "UPDATE_QUANTITY",
-      payload: { id: product.id, quantity: quantity },
-    })
+    const updatedArray = cart.map(
+      item => product.id === item.id && { ...item, quantity: quantity }
+    )
+    return setCart(updatedArray)
   }
 
   const removeFromCart = () => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: product.id })
+    const updatedArray = cart.filter(p => p.id !== product.id)
+    return setCart(updatedArray)
   }
 
   return (

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export default async function (id) {
+async function getProductVariantQuantity(id) {
   try {
     const req = await axios("/.netlify/functions/getSingleProduct", {
       method: "post",
@@ -14,3 +14,5 @@ export default async function (id) {
     return e
   }
 }
+
+export default getProductVariantQuantity
