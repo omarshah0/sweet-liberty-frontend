@@ -1,0 +1,2 @@
+import ShopifyProductDescription from "./ShopifyProductDescription"
+export default ShopifyProductDescription

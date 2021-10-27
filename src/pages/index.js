@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import loadable from "@loadable/component"
 
 import Layout from "../components/Layout"
@@ -33,7 +34,7 @@ const MiamiIsShit = loadable(() => import("../components/MiamiIsShit"), {
   fallback: <p>Miami Is Shit</p>,
 })
 
-const HomePage = () => {
+const HomePage = ({ data: { allShopifyProduct } }) => {
   return (
     <Layout isDark>
       <Seo title="Sweet Liberty By Glass Full" />
@@ -42,7 +43,7 @@ const HomePage = () => {
         <PursuingExcellence />
         <FeaturedSection />
         <MenuBanner />
-        <MerchSection />
+        <MerchSection products={allShopifyProduct.nodes} />
         <MiamiIsShit />
         <StylishPursue />
         <BookingSection />
@@ -54,5 +55,29 @@ const HomePage = () => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allShopifyProduct(limit: 3, sort: { order: DESC, fields: createdAt }) {
+      nodes {
+        title
+        handle
+        priceRangeV2 {
+          minVariantPrice {
+            amount
+          }
+        }
+        featuredImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          altText
+        }
+      }
+    }
+  }
+`
 
 export default HomePage

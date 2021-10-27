@@ -7,7 +7,7 @@ import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 import { Container, Hamburger } from "../UI"
 
-const Header = ({ hours, isDark }) => {
+const Header = ({ hours, isDark, smallLogo }) => {
   const location = useLocation()
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
@@ -36,21 +36,31 @@ const Header = ({ hours, isDark }) => {
             <img
               src={Logo_Dark}
               alt="Sweet Liberty"
-              className="w-[79px] h-[52px] md:w-[154px] md:h-[103px]"
+              className={`w-[79px] h-[52px] ${
+                smallLogo
+                  ? "md:w-[114px] md:h-[75px]"
+                  : "md:w-[154px] md:h-[103px]"
+              }`}
             />
           ) : (
             <img
               src={Logo_Light}
               alt="Sweet Liberty"
-              className="w-[79px] h-[52px] md:w-[154px] md:h-[103px]"
+              className={`w-[79px] h-[52px] ${
+                smallLogo
+                  ? "md:w-[114px] md:h-[75px]"
+                  : "md:w-[154px] md:h-[103px]"
+              }`}
             />
           )}
         </Link>
-        <Hamburger
-          className={`${modal ? "open" : ""}`}
-          color={`${modal || isDark ? "bg-brandLight" : "bg-brandDark"}`}
-          onClick={buttonHandler}
-        />
+        <div className="flex items-center">
+          <Hamburger
+            className={`${modal ? "open" : ""}`}
+            color={`${modal || isDark ? "bg-brandLight" : "bg-brandDark"}`}
+            onClick={buttonHandler}
+          />
+        </div>
       </Container>
       <Nav
         hours={hours}

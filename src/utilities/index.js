@@ -1,3 +1,9 @@
 import nameFormatter, { createHashName } from "./nameFormatter"
 import timeConverter from "./timeConverter"
-export { nameFormatter, timeConverter, createHashName }
+import shopifyProductVariantNormalize from "./shopifyProductVariantNormalize"
+export {
+  nameFormatter,
+  timeConverter,
+  createHashName,
+  shopifyProductVariantNormalize,
+}
