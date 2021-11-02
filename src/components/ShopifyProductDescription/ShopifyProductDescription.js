@@ -17,6 +17,7 @@ const ShopifyProductDescription = ({
   variants,
 }) => {
   const [cart, setCart] = useRecoilState(cartState)
+  console.log("Cart is ", cart)
   const [quantity, setQuantity] = useState(1)
   const [selectedColor, setSelectedColor] = useState(
     hasOnlyDefaultVariant ? "" : normalizedVariants.colorFilter[0].color
