@@ -1,11 +1,11 @@
 import React, { Fragment } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ScrollProgress from "../ScrollProgress"
+// import ScrollProgress from "../ScrollProgress"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children, isDark, smallLogo }) => {
+const Layout = ({ children, isDark, smallLogo, menuPageDark }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -23,8 +23,13 @@ const Layout = ({ children, isDark, smallLogo }) => {
   const hours = allDatoCmsHour.nodes
   return (
     <Fragment>
-      <ScrollProgress />
-      <Header hours={hours[0]} isDark={isDark} smallLogo={smallLogo} />
+      {/* <ScrollProgress /> */}
+      <Header
+        hours={hours[0]}
+        isDark={isDark}
+        menuPageDark={menuPageDark}
+        smallLogo={smallLogo}
+      />
       {children}
       <Footer hours={hours[0]} />
     </Fragment>

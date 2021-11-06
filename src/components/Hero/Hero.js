@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
 import { TitleSolid, TitleStroke } from "../UI"
+import { SevenRoomSvg } from "../UI/Svgs"
 
 const Hero2 = () => {
   return (
@@ -50,20 +51,18 @@ const Hero2 = () => {
               </motion.span>
             </h1>
             <motion.div
-              className="flex items-center sm-max:static absolute left-0 bottom-0"
+              className="sm-max:static absolute left-0 bottom-0 z-10"
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 2.7 }}
             >
               <Link
                 to="/reservation"
-                className="font-bebas md:font-bold text-white text-[32px] md:text-5xl"
+                className="flex items-center font-bebas md:font-bold text-white text-[32px] md:text-5xl"
               >
-                Reservations
+                <span className="mr-4 -mb-2">Reservations</span>
+                <SevenRoomSvg />
               </Link>
-              <span className="bg-white text-brandDark uppercase text-resky font-bold px-1 ml-3 mb-1 tracking-widest">
-                Resy
-              </span>
             </motion.div>
           </div>
         </div>

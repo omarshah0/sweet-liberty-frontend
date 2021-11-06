@@ -43,7 +43,7 @@ const Brands = ({ className, setData }) => {
       >
         {/* ---------------------------------------- Logo 1 ---------------------------------------- */}
         <LottieWrapper
-          className="mx-5"
+          className="mx-5 lottie-image-filter"
           img="img1"
           startLottie={startLottie}
           onMouseEnter={() => mouseEnterHandler("img1")}
@@ -54,10 +54,12 @@ const Brands = ({ className, setData }) => {
             alt="Sprited Awards Logo"
             placeholder="blurred"
             layout="fixed"
+            className="filter-white"
           />
         </LottieWrapper>
         {/* ---------------------------------------- Logo 2 ---------------------------------------- */}
         <LottieWrapper
+          className="lottie-image-filter"
           img="img2"
           startLottie={startLottie}
           onMouseEnter={() => mouseEnterHandler("img2")}
@@ -68,10 +70,12 @@ const Brands = ({ className, setData }) => {
             alt="Best Bars Logo"
             placeholder="blurred"
             layout="fixed"
+            className="filter-white"
           />
         </LottieWrapper>
         {/* ---------------------------------------- Logo 3 ---------------------------------------- */}
         <LottieWrapper
+          className="lottie-image-filter"
           img="img3"
           startLottie={startLottie}
           onMouseEnter={() => mouseEnterHandler("img3")}
@@ -82,10 +86,12 @@ const Brands = ({ className, setData }) => {
             alt="Timeout Logo"
             placeholder="blurred"
             layout="fixed"
+            className="filter-white"
           />
         </LottieWrapper>
         {/* ---------------------------------------- Logo 4 ---------------------------------------- */}
         <LottieWrapper
+          className="lottie-image-filter"
           img="img4"
           startLottie={startLottie}
           onMouseEnter={() => mouseEnterHandler("img4")}
@@ -96,10 +102,12 @@ const Brands = ({ className, setData }) => {
             alt="Miami New Times"
             placeholder="blurred"
             layout="fixed"
+            className="filter-white"
           />
         </LottieWrapper>
         {/* ---------------------------------------- Logo 5 ---------------------------------------- */}
         <LottieWrapper
+          className="lottie-image-filter"
           img="img5"
           startLottie={startLottie}
           onMouseEnter={() => mouseEnterHandler("img5")}
@@ -110,6 +118,7 @@ const Brands = ({ className, setData }) => {
             alt="The Daily Meal"
             placeholder="blurred"
             layout="fixed"
+            className="filter-white"
           />
         </LottieWrapper>
       </ScrollMenu>

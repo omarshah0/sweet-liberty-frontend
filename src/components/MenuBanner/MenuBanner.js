@@ -41,6 +41,9 @@ const MenuBanner = () => {
             placeholder="blurred"
             className="mx-4 w-[105px] h-[70px] md:w-[250px] md:h-[160px] lg:w-[320px] lg:h-[210px]"
           />
+          <Title className="font-bebas text-brandDark text-[83px] md:text-[130px] lg:text-[190px]">
+            Cocktail Menu
+          </Title>
         </Marquee>
       </Link>
       {/* ----------------------------This is Block Two----------------------------- */}
@@ -61,6 +64,9 @@ const MenuBanner = () => {
             placeholder="blurred"
             className="mx-4 w-[105px] h-[70px] md:w-[250px] md:h-[160px] lg:w-[320px] lg:h-[210px]"
           />
+          <h3 className="font-bebas text-brandDark text-[83px] md:text-[130px] lg:text-[190px]">
+            Food Menu
+          </h3>
         </Marquee>
       </Link>
       {/* ----------------------------This is Block Three----------------------------- */}
@@ -81,6 +87,9 @@ const MenuBanner = () => {
             placeholder="blurred"
             className="mx-4 w-[105px] h-[70px] md:w-[250px] md:h-[160px] lg:w-[320px] lg:h-[210px]"
           />
+          <TitlePink className="font-bebas text-brandPink text-[83px] md:text-[130px] lg:text-[190px]">
+            Brunch Menu
+          </TitlePink>
         </Marquee>
       </Link>
       {/* ----------------------------This is Block Four----------------------------- */}
@@ -102,6 +111,9 @@ const MenuBanner = () => {
             placeholder="blurred"
             className="mx-4 w-[105px] h-[70px] md:w-[250px] md:h-[160px] lg:w-[320px] lg:h-[210px]"
           />
+          <h3 className="font-bebas text-brandDark text-[83px] md:text-[130px] lg:text-[190px]">
+            Happy Hour
+          </h3>
         </Marquee>
       </Link>
     </section>

@@ -9,3 +9,19 @@
 .hover-link-parent:hover > .scaled {
   transform: scale(1.7);
 }
+
+.crunch-container {
+  position: relative;
+}
+
+.crunch-div {
+  background: url("https://www.datocms-assets.com/53867/1630594369-vector-1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 360px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -150px;
+  z-index: 1;
+}

@@ -1,0 +1,5 @@
+.clip-mask {
+  mask: url("https://www.datocms-assets.com/53867/1635998913-phsign-mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}

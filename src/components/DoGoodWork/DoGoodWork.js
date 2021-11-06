@@ -60,12 +60,6 @@ const DoGoodWork = () => {
               </span>
             </Link>
           </div>
-          <div className="font-bebas text-[26px] text-brandLight text-center">
-            <span>
-              2015 BEST NEW COCKTAIL BAR <br />
-              2016 BEST COCKTAIL BAR
-            </span>
-          </div>
         </div>
         <div className="absolute top-20 lg:top-0 right-0">
           <StaticImage

@@ -37,7 +37,10 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
         twitterCard={datoCmsMenu.seo.twitterCard}
         imageUrl={datoCmsMenu.seo.image.url}
       />
-      <Layout isDark={datoCmsMenu.darkTheme}>
+      <Layout
+        isDark={datoCmsMenu.darkTheme}
+        menuPageDark={datoCmsMenu.darkTheme}
+      >
         <Main
           backgroundColor={datoCmsMenu.backgroundColor.hex}
           className={`page__${datoCmsMenu.slug}`}

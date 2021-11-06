@@ -18,8 +18,11 @@ const StylishPursue = () => {
   return (
     <InView threshold={0.5} triggerOnce>
       {({ ref, inView }) => (
-        <section className="pointer-events-none relative" ref={ref}>
-          <div className="hidden md:block absolute top-56 right-0 flip z-10 pointer-events-none">
+        <section
+          className="pointer-events-none relative clip-mask -top-5 md:-top-10 lg:-top-16 xl:-top-24"
+          ref={ref}
+        >
+          <div className="hidden md:block absolute top-72 right-0 flip z-10 pointer-events-none">
             <StaticImage
               src="../../assets/pursue_leaf.png"
               placeholder="blurred"

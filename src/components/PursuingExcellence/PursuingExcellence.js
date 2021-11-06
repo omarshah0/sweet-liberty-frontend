@@ -103,7 +103,7 @@ const PursuingExcellence = () => {
             {({ ref, inView }) => (
               <div
                 ref={ref}
-                className="relative max-w-1440 pr-[20px] md:pl-[140px] md:pr-[45px] lg:w-[970px] lg:pl-[167px] lg:pr-0 lg:mb-[45px]"
+                className="relative max-w-1440 pr-[20px] md:pl-[140px] md:pr-[45px] lg:w-[980px] lg:pl-[167px] lg:pr-0 lg:mb-[45px]"
               >
                 <motion.p
                   initial={{ opacity: 0, x: "-100vw" }}
@@ -172,7 +172,7 @@ const PursuingExcellence = () => {
               >
                 <motion.span
                   initial={{ x: "-100vw" }}
-                  animate={inView ? { x: "0vw" } : { x: "-100vw" }}
+                  animate={inView ? { x: "4vw" } : { x: "-100vw" }}
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >
@@ -180,7 +180,7 @@ const PursuingExcellence = () => {
                 </motion.span>
                 <motion.span
                   initial={{ x: "100vw" }}
-                  animate={inView ? { x: "16vw" } : { x: "100vw" }}
+                  animate={inView ? { x: "14vw" } : { x: "100vw" }}
                   transition={{ duration: 1, ease: "linear" }}
                   className="inline-block"
                 >
@@ -193,6 +193,7 @@ const PursuingExcellence = () => {
         <Brands className="mb-12" setData={dataHandler} />
         <Awards data={data} />
       </div>
+      <div className="crunch-div"></div>
     </section>
   )
 }

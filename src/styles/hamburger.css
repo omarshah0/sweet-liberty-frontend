@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 768px) {
   .hamburger {
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(0.75);
   }
 }
 

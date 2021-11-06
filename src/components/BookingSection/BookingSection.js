@@ -3,7 +3,7 @@ import { BookingCard } from "../UI"
 
 const BookingSection = () => {
   return (
-    <section className="bg-black pb-36 transform -mt-12">
+    <section className="bg-black pb-36 transform -mt-12 relative">
       <div className="md:px-32">
         <BookingCard
           title="Book A Party"
