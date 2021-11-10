@@ -61,14 +61,14 @@ module.exports = {
         useHydrate: true,
       },
     },
-    // {
-    //   resolve: "gatsby-source-shopify",
-    //   options: {
-    //     password: process.env.SHOPIFY_ADMIN_PASSWORD,
-    //     storeUrl: process.env.SHOPIFY_STORE_URL,
-    //     downloadImages: true,
-    //   },
-    // },
+    {
+      resolve: "gatsby-source-shopify",
+      options: {
+        password: process.env.SHOPIFY_ADMIN_PASSWORD,
+        storeUrl: process.env.SHOPIFY_STORE_URL,
+        downloadImages: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
