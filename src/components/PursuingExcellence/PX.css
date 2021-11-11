@@ -25,3 +25,22 @@
   bottom: -150px;
   z-index: 1;
 }
+
+.clip-mask-px {
+  position: relative;
+  z-index: 2;
+  bottom: -40px;
+}
+
+.clip-mask-px::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  mask: url("https://www.datocms-assets.com/53867/1636637590-vector-8.svg");
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  height: 300px;
+  @apply bg-brandDark;
+}

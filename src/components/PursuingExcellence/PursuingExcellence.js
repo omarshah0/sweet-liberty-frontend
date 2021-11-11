@@ -37,7 +37,7 @@ const PursuingExcellence = () => {
   }
 
   return (
-    <section className="relative pb-60 md:pb-44">
+    <section className="relative pb-60 md:pb-64">
       <div className="">
         <div className="absolute top-[-230px] left-0 pointer-events-none">
           <StaticImage
@@ -193,7 +193,7 @@ const PursuingExcellence = () => {
         <Brands className="mb-12" setData={dataHandler} />
         <Awards data={data} />
       </div>
-      <div className="crunch-div"></div>
+      <div className="clip-mask-px"></div>
     </section>
   )
 }
