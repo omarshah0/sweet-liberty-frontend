@@ -189,7 +189,7 @@ const ShopifyProductDescription = ({
       <div>
         <div className="flex">
           <span className="block text-brandPink text-[23px] font-bebas mb-4">
-            Quantity : {selectedVariantQuantity}
+            Stock : {selectedVariantQuantity}
           </span>
           {loading && (
             <span className="ml-5 mt-1">

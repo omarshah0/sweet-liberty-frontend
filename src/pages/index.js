@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql } from "gatsby"
 import loadable from "@loadable/component"
 
 import Layout from "../components/Layout"
@@ -6,7 +7,7 @@ import Seo from "../components/SEO"
 import Hero from "../components/Hero"
 import PursuingExcellence from "../components/PursuingExcellence"
 import MenuBanner from "../components/MenuBanner"
-// import MerchSection from "../components/MerchSection"
+import MerchSection from "../components/MerchSection"
 import BookingSection from "../components/BookingSection"
 import NewsEvents from "../components/NewEvents"
 import DoGoodWork from "../components/DoGoodWork"
@@ -33,7 +34,7 @@ const MiamiIsShit = loadable(() => import("../components/MiamiIsShit"), {
   fallback: <p>Miami Is Shit</p>,
 })
 
-const HomePage = () => {
+const HomePage = ({ data: { allShopifyProduct } }) => {
   return (
     <Layout isDark>
       <Seo title="Sweet Liberty By Glass Full" />
@@ -42,7 +43,7 @@ const HomePage = () => {
         <PursuingExcellence />
         <FeaturedSection />
         <MenuBanner />
-        {/* <MerchSection products={allShopifyProduct.nodes} /> */}
+        <MerchSection products={allShopifyProduct.nodes} />
         <MiamiIsShit />
         <div className="bg-black">
           <StylishPursue />
@@ -57,28 +58,28 @@ const HomePage = () => {
   )
 }
 
-// export const query = graphql`
-//   {
-//     allShopifyProduct(limit: 3, sort: { order: DESC, fields: createdAt }) {
-//       nodes {
-//         title
-//         handle
-//         priceRangeV2 {
-//           minVariantPrice {
-//             amount
-//           }
-//         }
-//         featuredImage {
-//           localFile {
-//             childImageSharp {
-//               gatsbyImageData
-//             }
-//           }
-//           altText
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  {
+    allShopifyProduct(limit: 3, sort: { order: DESC, fields: createdAt }) {
+      nodes {
+        title
+        handle
+        priceRangeV2 {
+          minVariantPrice {
+            amount
+          }
+        }
+        featuredImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          altText
+        }
+      }
+    }
+  }
+`
 
 export default HomePage

@@ -1,6 +1,6 @@
 const { paginate } = require("gatsby-awesome-pagination")
 const path = require("path")
-// const shopifyVariants = require("./src/utilities/ssrUtilities/shopifyVariants")
+const shopifyVariants = require("./src/utilities/ssrUtilities/shopifyVariants")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -9,12 +9,12 @@ exports.createPages = async ({ graphql, actions }) => {
     "./src/templates/AllBlogTemplate/AllBlogPosts.js"
   )
   const menuPageTemplate = path.resolve("./src/templates/MenuPage/MenuPage.js")
-  // const allShopifyProductsTemplate = path.resolve(
-  //   "./src/templates/AllShopifyProductsTemplate/AllShopifyProductsTemplate.js"
-  // )
-  // const shopifyProductPage = path.resolve(
-  //   "./src/templates/ShopifyProductTemplate/ShopifyProductTemaplate.js"
-  // )
+  const allShopifyProductsTemplate = path.resolve(
+    "./src/templates/AllShopifyProductsTemplate/AllShopifyProductsTemplate.js"
+  )
+  const shopifyProductPage = path.resolve(
+    "./src/templates/ShopifyProductTemplate/ShopifyProductTemaplate.js"
+  )
 
   // Fetching Contentful Blogs
 
@@ -54,47 +54,47 @@ exports.createPages = async ({ graphql, actions }) => {
   const menus = resquestMenu.data.allDatoCmsMenu.nodes
 
   // Fetching All Shopify Products
-  // const requestShopifyProducts = await graphql(`
-  //   query fetchShopifyProducts {
-  //     allShopifyProduct {
-  //       nodes {
-  //         title
-  //         handle
-  //         featuredImage {
-  //           localFile {
-  //             childImageSharp {
-  //               gatsbyImageData
-  //             }
-  //           }
-  //           altText
-  //         }
-  //         priceRangeV2 {
-  //           minVariantPrice {
-  //             amount
-  //           }
-  //         }
-  //         hasOnlyDefaultVariant
-  //         variants {
-  //           id
-  //           title
-  //           price
-  //           image {
-  //             localFile {
-  //               childImageSharp {
-  //                 gatsbyImageData
-  //               }
-  //             }
-  //             altText
-  //           }
-  //           legacyResourceId
-  //           inventoryQuantity
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
+  const requestShopifyProducts = await graphql(`
+    query fetchShopifyProducts {
+      allShopifyProduct {
+        nodes {
+          title
+          handle
+          featuredImage {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            altText
+          }
+          priceRangeV2 {
+            minVariantPrice {
+              amount
+            }
+          }
+          hasOnlyDefaultVariant
+          variants {
+            id
+            title
+            price
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              altText
+            }
+            legacyResourceId
+            inventoryQuantity
+          }
+        }
+      }
+    }
+  `)
 
-  // const shopifyProducts = requestShopifyProducts.data.allShopifyProduct.nodes
+  const shopifyProducts = requestShopifyProducts.data.allShopifyProduct.nodes
 
   // ---------------------------------------- CONTENTFUL BLOG SECTION ---------------------------------------- //
 
@@ -134,26 +134,26 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // ---------------------------------------- SHOPIFY SECTION ---------------------------------------- //
 
-  //Creating All Shopify Products with Pagination - Change itemsPerPage to control Products Per Page
-  // paginate({
-  //   createPage,
-  //   items: shopifyProducts,
-  //   itemsPerPage: 6,
-  //   pathPrefix: "/shop",
-  //   component: allShopifyProductsTemplate,
-  // })
+  // Creating All Shopify Products with Pagination - Change itemsPerPage to control Products Per Page
+  paginate({
+    createPage,
+    items: shopifyProducts,
+    itemsPerPage: 6,
+    pathPrefix: "/shop",
+    component: allShopifyProductsTemplate,
+  })
 
-  // //Creating Single Shopify Product Page
-  // shopifyProducts.map(product => {
-  //   const normalizedVariants =
-  //     !product.hasOnlyDefaultVariant && shopifyVariants(product.variants)
-  //   createPage({
-  //     component: shopifyProductPage,
-  //     path: `/shop/${product.handle}`,
-  //     context: {
-  //       handle: product.handle,
-  //       normalizedVariants: normalizedVariants,
-  //     },
-  //   })
-  // })
+  //Creating Single Shopify Product Page
+  shopifyProducts.map(product => {
+    const normalizedVariants =
+      !product.hasOnlyDefaultVariant && shopifyVariants(product.variants)
+    createPage({
+      component: shopifyProductPage,
+      path: `/shop/${product.handle}`,
+      context: {
+        handle: product.handle,
+        normalizedVariants: normalizedVariants,
+      },
+    })
+  })
 }
