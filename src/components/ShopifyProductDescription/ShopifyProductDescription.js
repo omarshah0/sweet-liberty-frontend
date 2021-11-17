@@ -124,14 +124,14 @@ const ShopifyProductDescription = ({
   }
 
   return (
-    <div className="font-bebas mt-[-7px]">
-      <h1 className="text-brandDark text-[68px] mb-[15px] leading-none">
+    <div className="font-bebas md:mt-[-7px]">
+      <h1 className="text-brandDark text-[50px] md:text-[68px] md:mb-[15px] leading-none">
         {title}
       </h1>
-      <span className="block text-brandPink text-[45px] mb-[18px]">
+      <span className="block text-brandPink text-[33px] md:text-[45px] mb-[18px]">
         ${parseInt(selectedVariantPrice)}
       </span>
-      <p className="text-brandDark text-2xl max-w-[400px] mb-4">
+      <p className="text-brandDark text-lg md:text-2xl max-w-[400px] mb-4">
         {description}
       </p>
       {!hasOnlyDefaultVariant && (
@@ -197,8 +197,8 @@ const ShopifyProductDescription = ({
             </span>
           )}
         </div>
-        <div className="flex">
-          <div className="inline-flex font-sourceSansProBold bg-gray-200 rounded mr-10">
+        <div className="md:flex">
+          <div className="inline-flex font-sourceSansProBold bg-gray-200 rounded md:mr-10 mb-4 md:mb-0">
             <button
               className="w-[70px] px-[15px] py-5 disabled:cursor-not-allowed"
               onClick={decreaseQuantityHandler}
@@ -224,7 +224,7 @@ const ShopifyProductDescription = ({
             </button>
           </div>
           <button
-            className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 disabled:opacity-50 disabled:cursor-not-allowed font-sourceSansProBold text-base py-3 min-w-[250px] text-center text-white rounded transition-all"
+            className="block bg-brandPink bg-opacity-90 hover:bg-opacity-100 disabled:opacity-50 disabled:cursor-not-allowed font-sourceSansProBold text-base py-3 min-w-[250px] w-full text-center text-white rounded transition-all"
             onClick={dispatchProductToStore}
             disabled={outOfStock}
           >

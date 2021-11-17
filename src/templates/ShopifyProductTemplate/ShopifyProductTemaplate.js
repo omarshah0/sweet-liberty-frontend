@@ -27,11 +27,11 @@ const ShopifyProductTemaplate = ({
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
         <Container>
           <Breadcumbs pathname={location.pathname} className="mb-12" />
-          <div className="flex">
+          <div className="md:flex">
             <ShopifyProducImages
               featuredImage={featuredImage}
               variantsThumbnails={variants}
-              className="mr-[42px]"
+              className="md:mr-[42px]"
             />
             <ShopifyProductDescription
               featuredImage={featuredImage}

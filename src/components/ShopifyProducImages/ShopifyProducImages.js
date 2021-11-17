@@ -17,17 +17,17 @@ const ShopifyProducImages = ({
   const setImageByColorSelectHandler = id => {}
 
   return (
-    <div className={`${className} flex`}>
-      <div className="bg-gray-200 w-[582px] h-[582px] py-8 order-2">
+    <div className={`${className} md:flex`}>
+      <div className="bg-gray-200 mb-3 md:w-[582px] md:h-[582px] order-2">
         <GatsbyImage
           image={featImage.image}
           alt={featImage.altText}
           className="w-full h-full"
         />
       </div>
-      <div className="order-1 mr-3">
+      <div className="order-1 md:mr-3 flex md:flex-col">
         <div
-          className="bg-gray-200 w-[109px] h-[109px] py-2 mb-[22px] cursor-pointer"
+          className="bg-gray-200 w-[109px] h-[109px] mb-[22px] cursor-pointer"
           onClick={() =>
             setFeaturedImage(
               featuredImage.localFile.childImageSharp.gatsbyImageData,
@@ -48,7 +48,7 @@ const ShopifyProducImages = ({
             return (
               variant.image && (
                 <div
-                  className="bg-gray-200 w-[109px] h-[109px] py-2 mb-[22px] cursor-pointer"
+                  className="bg-gray-200 w-[109px] h-[109px] mb-[22px] cursor-pointer"
                   onClick={() =>
                     setFeaturedImage(
                       variant.image.localFile.childImageSharp.gatsbyImageData,

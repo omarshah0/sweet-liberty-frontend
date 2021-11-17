@@ -7,6 +7,15 @@ import { TitleSolid, TitleStroke } from "../UI"
 import { SevenRoomSvg } from "../UI/Svgs"
 
 const Hero2 = () => {
+  const openReservationModal = () => {
+    window.SevenroomsWidget.init({
+      venueId: "mysweetliberty",
+      triggerId: "sr-res-root",
+      type: "reservations",
+      styleButton: true,
+      clientToken: "",
+    })
+  }
   return (
     <section className="bg-brandDark mx-auto mb-[220px] md:mb-[193px] lg:mb-[300px] relative">
       <div className="max-w-[1440px] mx-auto">
@@ -56,13 +65,14 @@ const Hero2 = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 2.7 }}
             >
-              <Link
-                to="/reservation"
+              <button
                 className="flex items-center font-bebas md:font-bold text-white text-[32px] md:text-5xl"
+                id="sr-res-root"
+                onClick={openReservationModal}
               >
                 <span className="mr-4 -mb-2">Reservations</span>
                 <SevenRoomSvg />
-              </Link>
+              </button>
             </motion.div>
           </div>
         </div>
