@@ -1,5 +1,4 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useEffect } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 
@@ -7,15 +6,14 @@ import { TitleSolid, TitleStroke } from "../UI"
 import { SevenRoomSvg } from "../UI/Svgs"
 
 const Hero2 = () => {
-  const openReservationModal = () => {
+  useEffect(() => {
     window.SevenroomsWidget.init({
       venueId: "mysweetliberty",
       triggerId: "sr-res-root",
       type: "reservations",
-      styleButton: true,
-      clientToken: "",
     })
-  }
+  })
+
   return (
     <section className="bg-brandDark mx-auto mb-[220px] md:mb-[193px] lg:mb-[300px] relative">
       <div className="max-w-[1440px] mx-auto">
@@ -68,7 +66,6 @@ const Hero2 = () => {
               <button
                 className="flex items-center font-bebas md:font-bold text-white text-[32px] md:text-5xl"
                 id="sr-res-root"
-                onClick={openReservationModal}
               >
                 <span className="mr-4 -mb-2">Reservations</span>
                 <SevenRoomSvg />
