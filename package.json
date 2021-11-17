@@ -51,11 +51,13 @@
     "react-responsive": "^9.0.0-beta.4",
     "react-responsive-carousel": "^3.2.21",
     "react-share": "^4.4.0",
+    "react-slick": "^0.28.1",
     "react-tabs": "^3.2.2",
     "redux": "^4.1.1",
     "redux-persist": "^6.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "shopify-api-node": "^3.8.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.1",
     "three": "^0.133.1"
   },
