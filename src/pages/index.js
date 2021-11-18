@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import loadable from "@loadable/component"
 
@@ -34,7 +34,24 @@ const MiamiIsShit = loadable(() => import("../components/MiamiIsShit"), {
   fallback: <p>Miami Is Shit</p>,
 })
 
+const TripleSeatModal = loadable(() =>
+  import("../components/Modals/TripleSeatModa")
+)
+
 const HomePage = ({ data: { allShopifyProduct } }) => {
+  const [tripleSeatModal, setTripleSeatModal] = useState(false)
+  useEffect(() => {
+    window.SevenroomsWidget.init({
+      venueId: "mysweetliberty",
+      triggerId: "sr-res-root",
+      type: "reservations",
+    })
+  })
+
+  const bookTripleSeatHandler = () => {
+    setTripleSeatModal(!tripleSeatModal)
+  }
+
   return (
     <Layout isDark>
       <Seo title="Sweet Liberty By Glass Full" />
@@ -47,13 +64,16 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         <MiamiIsShit />
         <div className="bg-black">
           <StylishPursue />
-          <BookingSection />
+          <BookingSection openModal={bookTripleSeatHandler} />
         </div>
         <NewsEvents />
         <DoGoodWork />
         <ShowAndEvents />
         <ScrollTop />
       </Main>
+      {tripleSeatModal && (
+        <TripleSeatModal closeModal={bookTripleSeatHandler} />
+      )}
     </Layout>
   )
 }
