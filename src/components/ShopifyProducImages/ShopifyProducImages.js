@@ -1,13 +1,19 @@
 import React, { useState, useRef, useEffect } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 
+import { ImageDownArrow } from "../UI/Arrows"
+
 const ShopifyProducImages = ({
   featuredImage,
   variantsThumbnails,
   className,
 }) => {
   const carouselRef = useRef(null)
-  // const [scrollHeight, setScrollHeight] = useState(0)
+  const [showScrollButton, setShowScrollButton] = useState({
+    up: true,
+    down: true,
+  })
+  const [isScrollable, setIsScrollable] = useState(false)
   const [featImage, setFeatImage] = useState({
     image: featuredImage.localFile.childImageSharp.gatsbyImageData,
     altText: featuredImage.localFile.altText,
@@ -17,38 +23,72 @@ const ShopifyProducImages = ({
   }
 
   const scrollDown = () => {
+    if (showScrollButton.down) {
+      setShowScrollButton({ up: true, down: true })
+    }
     const element = carouselRef.current
-    const maxScrollPosition = element.scrollHeight - element.clientHeight
-    const scrolledValue = element.scrollTop
-    if (scrolledValue >= maxScrollPosition) return
-    element.scroll({
-      top: scrolledValue + 110,
-      behavior: "smooth",
-    })
+    const isVerticalScroll = element.scrollHeight - element.clientHeight !== 0
+    const isHorizontalScroll = element.scrollWidth - element.clientWidth !== 0
+    const maxScrollPosition = isVerticalScroll
+      ? element.scrollHeight - element.clientHeight
+      : element.scrollWidth - element.clientWidth
+    const scrolledValue = isVerticalScroll
+      ? element.scrollTop
+      : element.scrollLeft
+    if (scrolledValue >= maxScrollPosition)
+      setShowScrollButton({ up: true, down: false })
+    if (isVerticalScroll) {
+      element.scroll({
+        top: scrolledValue + 110,
+        behavior: "smooth",
+      })
+    }
+    if (isHorizontalScroll) {
+      element.scroll({
+        left: scrolledValue + 110,
+        behavior: "smooth",
+      })
+    }
   }
 
   const scrollUp = () => {
+    if (showScrollButton.up) {
+      setShowScrollButton({ up: true, down: true })
+    }
     const element = carouselRef.current
-    const scrolledValue = element.scrollTop
-    if (scrolledValue <= 0) return
-    element.scroll({
-      top: scrolledValue - 110,
-      behavior: "smooth",
-    })
+    const isVerticalScroll = element.scrollHeight - element.clientHeight !== 0
+    const isHorizontalScroll = element.scrollWidth - element.clientWidth !== 0
+    const scrolledValue = isVerticalScroll
+      ? element.scrollTop
+      : element.scrollLeft
+    if (scrolledValue <= 0)
+      return setShowScrollButton({ up: false, down: true })
+    if (isVerticalScroll) {
+      element.scroll({
+        top: scrolledValue - 110,
+        behavior: "smooth",
+      })
+    }
+    if (isHorizontalScroll) {
+      element.scroll({
+        left: scrolledValue - 110,
+        behavior: "smooth",
+      })
+    }
   }
 
   useEffect(() => {
     const element = carouselRef.current
-    console.log("Elem is ", carouselRef)
-    console.log("Scroll Height is ", element.scrollHeight)
-    console.log("Client Height is ", element.clientHeight)
-    const maxScrollPosition = element.scrollHeight - element.clientHeight
-    console.log("Max Position is ", maxScrollPosition)
-  })
+    const isVerticalScroll = element.scrollHeight - element.clientHeight !== 0
+    const isHorizontalScroll = element.scrollWidth - element.clientWidth !== 0
+    if (isVerticalScroll || isHorizontalScroll) {
+      setIsScrollable(true)
+    }
+  }, [])
 
   return (
-    <div className={`${className} md:flex`}>
-      <div className="bg-gray-200 mb-3 md:mb-0 md:w-[582px] md:h-[582px] order-2">
+    <div className={`${className} md:flex mb-3`}>
+      <div className="bg-gray-200 mb-3 md:mb-0 md:w-[582px] order-2">
         <GatsbyImage
           image={featImage.image}
           alt={featImage.altText}
@@ -61,7 +101,7 @@ const ShopifyProducImages = ({
           ref={carouselRef}
         >
           <div
-            className="bg-gray-200 w-[109px] h-[109px] mb-3 cursor-pointer flex-shrink-0 mr-1 md:mr-0"
+            className="bg-gray-200 w-[109px] h-[109px] cursor-pointer flex-shrink-0 mr-1 md:mr-0"
             onClick={() =>
               setFeaturedImage(
                 featuredImage.localFile.childImageSharp.gatsbyImageData,
@@ -84,7 +124,7 @@ const ShopifyProducImages = ({
                 variant.image && (
                   <div
                     className={`bg-gray-200 w-[109px] h-[109px] cursor-pointer flex-shrink-0 ${
-                      isLastItem ? "ml-1 mr-0 md:ml-0" : "mx-1 md:mx-0 mb-3"
+                      isLastItem ? "ml-1 mr-0 md:ml-0" : "mx-1 md:mx-0 md:mb-3"
                     }`}
                     onClick={() =>
                       setFeaturedImage(
@@ -108,18 +148,22 @@ const ShopifyProducImages = ({
             })
           )}
         </div>
-        <button
-          className="absolute top-0 left-0 right z-20 w-full bg-red-500 text-white"
-          onClick={scrollUp}
-        >
-          Scroll Up
-        </button>
-        <button
-          className="absolute bottom-0 left-0 right z-20 w-full bg-red-500 text-white"
-          onClick={scrollDown}
-        >
-          Scroll Down
-        </button>
+        {showScrollButton.up && isScrollable && (
+          <button
+            className="absolute top-0 left-0 right z-[1] h-full md:h-auto md:w-full text-white bg-gradient-to-r md:bg-gradient-to-b from from-gray-200 to-white"
+            onClick={scrollUp}
+          >
+            <ImageDownArrow className="w-5 h-5 fill-current text-gray-500 grid m-auto tranform rotate-90 md:rotate-180" />
+          </button>
+        )}
+        {showScrollButton.down && isScrollable && (
+          <button
+            className="absolute bottom-0 right-0 md:left-0 right z-[1] h-full md:h-auto md:w-full text-white bg-gradient-to-l md:bg-gradient-to-t from from-gray-200 to-white"
+            onClick={scrollDown}
+          >
+            <ImageDownArrow className="w-5 h-5 fill-current text-gray-500 grid m-auto tranform -rotate-90 md:rotate-0" />
+          </button>
+        )}
       </div>
     </div>
   )

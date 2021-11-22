@@ -23,7 +23,7 @@ const MenuNav = ({ slug }) => {
       <ul
         className={`flex gap-4 md:gap-6 justify-between mb-24 pb-4 overflow-x-auto nav__${slug} nav-scroll`}
       >
-        {allDatoCmsMenu.nodes.map(m => (
+        {allDatoCmsMenu.nodes.map((m, i) => (
           <li key={m.slug}>
             <MenuNavBtn
               title={m.menuNameNavigation}

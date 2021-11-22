@@ -4,7 +4,7 @@ import Provider from "./src/system/Provider"
 
 const BodyComponents = [
   <script
-    ket="seven-roms"
+    key="seven-roms"
     src="https://www.sevenrooms.com/widget/embed.js"
   ></script>,
 ]

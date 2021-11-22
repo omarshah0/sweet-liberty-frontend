@@ -58,6 +58,7 @@
     "redux": "^4.1.1",
     "redux-persist": "^6.0.0",
     "resize-observer-polyfill": "^1.5.1",
+    "scroll-js": "^3.4.2",
     "shopify-api-node": "^3.8.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.1",
