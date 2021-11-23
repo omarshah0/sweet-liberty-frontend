@@ -5,6 +5,7 @@ import Layout from "../../components/Layout"
 import { Main, Container } from "../../components/UI"
 import ShopifyProducImages from "../../components/ShopifyProducImages"
 import ShopifyProductDescription from "../../components/ShopifyProductDescription"
+import ShopifyRelatedProducts from "../../components/ShopifyRelatedProducts"
 import Breadcumbs from "../../components/Breadcumbs"
 
 const ShopifyProductTemaplate = ({
@@ -44,6 +45,7 @@ const ShopifyProductTemaplate = ({
               variants={variants}
             />
           </div>
+          <ShopifyRelatedProducts className="mt-[50px]" />
         </Container>
       </Main>
     </Layout>
