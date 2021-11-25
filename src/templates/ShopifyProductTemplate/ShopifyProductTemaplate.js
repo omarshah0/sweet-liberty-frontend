@@ -12,6 +12,7 @@ const ShopifyProductTemaplate = ({
   data: {
     shopifyProduct: {
       title,
+      tags,
       description,
       featuredImage,
       hasOnlyDefaultVariant,
@@ -19,8 +20,9 @@ const ShopifyProductTemaplate = ({
       totalInverntory,
       variants,
     },
+    allShopifyProduct,
   },
-  pageContext: { normalizedVariants },
+  pageContext: { normalizedVariants, relatedArticles },
   location,
 }) => {
   return (
@@ -45,7 +47,10 @@ const ShopifyProductTemaplate = ({
               variants={variants}
             />
           </div>
-          <ShopifyRelatedProducts className="mt-[50px]" />
+          <ShopifyRelatedProducts
+            className="mt-[50px]"
+            relatedArticles={relatedArticles}
+          />
         </Container>
       </Main>
     </Layout>
@@ -58,6 +63,7 @@ export const query = graphql`
   query ShopifyProduct($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
       title
+      tags
       description
       hasOnlyDefaultVariant
       totalInventory
@@ -90,6 +96,13 @@ export const query = graphql`
         inventoryQuantity
       }
       totalInventory
+    }
+    allShopifyProduct {
+      nodes {
+        title
+        handle
+        tags
+      }
     }
   }
 `

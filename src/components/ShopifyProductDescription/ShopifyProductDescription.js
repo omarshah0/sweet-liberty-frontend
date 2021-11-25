@@ -80,7 +80,6 @@ const ShopifyProductDescription = ({
   const getSelectedVariantStockQuantityHandler = async id => {
     setLoading(true)
     const { status, data } = await getProductVariantQuantity(id)
-    console.log("Data is ", data)
     if (status !== 200) return setLoading(false)
     if (data.data.inventory_quantity === 0) {
       setOutOfStock(true)

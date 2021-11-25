@@ -1,7 +1,6 @@
 // A utility function to convert single object title: 'S / Black' into two key paris, size: "S" and color: "Black"
 
 function shopifyProductVariantNormalize(variants) {
-  console.log("SSR Rec ", variants)
   const newArray = []
   variants.map(v => {
     let size = ""
