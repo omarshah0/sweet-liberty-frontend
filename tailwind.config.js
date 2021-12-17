@@ -41,6 +41,10 @@ module.exports = {
         booking: "150px",
         "heavy-comp": "158px",
       },
+      flex: {
+        100: "0 1 50px",
+        300: "0 1 300px",
+      },
       lineHeight: {
         hero: "0.8",
       },

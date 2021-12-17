@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 const BookingCard = ({ title, onClick, linkTitle, className, id }) => {

@@ -101,7 +101,7 @@ const ShopifyProducImages = ({
           ref={carouselRef}
         >
           <div
-            className="bg-gray-200 w-[109px] h-[109px] cursor-pointer flex-shrink-0 mr-1 md:mr-0"
+            className="bg-gray-200 w-[109px] h-[109px] cursor-pointer flex-shrink-0 mr-1 md:mr-0 md:mb-3"
             onClick={() =>
               setFeaturedImage(
                 featuredImage.localFile.childImageSharp.gatsbyImageData,

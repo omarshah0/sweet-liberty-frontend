@@ -12,7 +12,7 @@ const AllShopifyProductsTemplate = ({
   return (
     <Layout smallLogo>
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
-        <Container className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <Container className="grid grid-cols-1 gap-y-9 md:grid-cols-2 md:gap-x-5 lg:grid-cols-3">
           {React.Children.toArray(
             products.map(p => (
               <ProductCard

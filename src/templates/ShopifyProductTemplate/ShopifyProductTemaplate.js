@@ -20,7 +20,6 @@ const ShopifyProductTemaplate = ({
       totalInverntory,
       variants,
     },
-    allShopifyProduct,
   },
   pageContext: { normalizedVariants, relatedArticles },
   location,

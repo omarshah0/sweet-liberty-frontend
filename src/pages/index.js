@@ -55,11 +55,11 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   return (
     <Layout isDark>
       <Seo title="Sweet Liberty By Glass Full" />
-      <Main className="bg-brandDark overflow-hidden md:pt-48">
+      <Main className="bg-brandDark md:pt-48">
         <Hero />
         <PursuingExcellence />
-        <FeaturedSection />
         <MenuBanner />
+        <FeaturedSection />
         <MerchSection products={allShopifyProduct.nodes} />
         <MiamiIsShit />
         <div className="bg-black">
@@ -71,6 +71,7 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         <ShowAndEvents />
         <ScrollTop />
       </Main>
+
       {tripleSeatModal && (
         <TripleSeatModal closeModal={bookTripleSeatHandler} />
       )}

@@ -28,7 +28,7 @@ const FeaturedSection = () => {
           : null
       }`}
     >
-      <div className="hidden md:block pointer-events-none absolute -top-56 right-0 z-50 pointer-events-none">
+      <div className="hidden md:block absolute -top-56 right-0 z-50 pointer-events-none">
         <StaticImage
           src="../../assets/featured_leaf.png"
           alt="Featured Leaf"

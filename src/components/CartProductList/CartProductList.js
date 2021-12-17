@@ -20,53 +20,60 @@ const CartProductList = ({ className, product }) => {
   }
 
   return (
-    <div className={`grid product-cart items-center ${className}`}>
-      <div className="flex items-center product-cart-product">
-        <div className="w-[102px] h-[102px] bg-gray-300 grid place-items-center mr-[70px]">
+    <div className={`${className}`}>
+      <div className="flex md:items-center">
+        {/* Left Section Having Image */}
+        <div className="w-[153px] h-[153px] md:w-[100px] md:h-[100px] bg-gray-300 mr-[10px] md:mr-[65px]">
           <GatsbyImage
             image={
               product.featuredImage.localFile.childImageSharp.gatsbyImageData
             }
             alt={product.featuredImage.altText}
+            className="w-full h-full"
           />
         </div>
-        <div className="text-brandDark font-bebas">
-          <h2 className="text-[32px] leading-none">{product.title}</h2>
-          <span className="text-lg leading-none">
-            {product.selectedVariant.color} / {product.selectedVariant.size}
+        {/* Right Section with Product Details */}
+        <div className="text-brandDark font-bebas flex flex-grow flex-col md:flex-row justify-between md:items-center">
+          <div className="md:flex-300">
+            <h2 className="text-[21px] leading-none">{product.title}</h2>
+            <span className="text-sm leading-none block">
+              {product.selectedVariant.color} / {product.selectedVariant.size}
+            </span>
+          </div>
+          <span className="font-bebas text-[18px] text-brandDark block flex-100">
+            ${product.price}
           </span>
+          <div className="flex-100">
+            <div className="inline-flex border-[1px] border-[#E5E7Eb] p-1 rounded">
+              <button
+                className="w-[25px] grid place-items-center mr-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                onClick={() => updateQuantity(product.quantity - 1)}
+                disabled={product.quantity === 1}
+              >
+                <MinusSvg />
+              </button>
+              <span className="text-lg font-sourceSansProBold font-semibold">
+                {product.quantity}
+              </span>
+              <button
+                className="w-[25px] grid place-items-center ml-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                onClick={() => updateQuantity(product.quantity + 1)}
+                disabled={product.quantity === product.maxQuantity}
+              >
+                <PlusSvg />
+              </button>
+            </div>
+          </div>
+          <div className="flex-100">
+            <button
+              className="group w-[25px] h-[25px] bg-[#F8D3D5] hover:bg-[#DB232E] rounded-full transition-all duration-150"
+              onClick={() => removeFromCart()}
+            >
+              <CrossSVG className="fill-current text-[#DB232E] group-hover:text-[#F3F3F3] transform translate-x-[7.5px]" />
+            </button>
+          </div>
         </div>
       </div>
-      <div className="product-cart-price font-bebas text-[25px] text-brandDark text-center">
-        $49.00
-      </div>
-      <div className="product-cart-quantity text-center">
-        <div className="inline-flex border-[1px] border-[#E5E7Eb] p-1 rounded">
-          <button
-            className="w-[25px] grid place-items-center mr-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => updateQuantity(product.quantity - 1)}
-            disabled={product.quantity === 1}
-          >
-            <MinusSvg />
-          </button>
-          <span className="text-lg font-sourceSansProBold font-semibold">
-            {product.quantity}
-          </span>
-          <button
-            className="w-[25px] grid place-items-center ml-4 bg-gray-200 rounded-[3px] disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => updateQuantity(product.quantity + 1)}
-            disabled={product.quantity === product.maxQuantity}
-          >
-            <PlusSvg />
-          </button>
-        </div>
-      </div>
-      <button
-        className="product-cart-close-button group w-[25px] h-[25px] mx-auto bg-[#F8D3D5] hover:bg-[#DB232E] rounded-full transition-all duration-150"
-        onClick={() => removeFromCart()}
-      >
-        <CrossSVG className="fill-current text-[#DB232E] group-hover:text-[#F3F3F3] transform translate-x-[7.5px]" />
-      </button>
     </div>
   )
 }

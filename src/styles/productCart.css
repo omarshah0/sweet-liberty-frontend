@@ -1,5 +1,10 @@
 .product-cart {
   grid-template-areas: "product product product price quantity close";
+  /* grid-template-areas:
+    "product"
+    "price"
+    "quantity"
+    "close"; */
 }
 
 .product-cart-product {

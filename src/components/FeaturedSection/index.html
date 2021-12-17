@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+        <script src="ScrollTrigger.min.js"></script>
+
+        <style>
+
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Bebas Neue', cursive;
+                height: 100vh;
+            }
+            .banner, .container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            .banner {
+                visibility: hidden;
+                scroll-snap-align: start;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .content {
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100%;
+                /*max-height: 960px;*/
+                overflow: hidden;
+            }
+            .content-inner {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .content-wrap {
+                margin: auto;
+                position: relative;
+                display: block;
+                max-width: 1440px;
+                width: 100%;
+                height: 100%;
+            }
+
+            .bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+
+            #content_miami .bg {
+                background-color: #EF5DA8;
+            }
+            #content_miami .featured-coctail {
+                color: #C0F3D4;
+            }
+            #content_miami .txt-top {
+                color: #FFFFFF;
+            }
+            #content_miami .txt-middle {
+                color: #C0F3D4;
+            }
+            #content_miami .txt-bottom {
+                color: #FFFFFF;
+            }
+            #content_miami .ingredients {
+                color: #C0F3D4;
+                width: 560px;
+            }
+
+
+            #content_florida .bg {
+                background-color: #C0F3D4;
+            }
+            #content_florida .featured-coctail {
+                color: #257972;
+                left: 100px;
+            }
+            #content_florida .txt-top {
+                color: #EF5DA8;
+                left: 158px;
+                /*top: -8px;*/
+            }
+            #content_florida .txt-middle {
+                color: #257972;
+                /*top: 40px;*/
+            }
+            #content_florida .txt-bottom {
+                color: #EF5DA8;
+                right: 94px;
+            }
+            #content_florida .ingredients {
+                color: #257972;
+                left: 100px;
+                /*width: 420px;*/
+            }
+
+
+
+            #content_colada .bg {
+                background-color: #257972;
+            }
+            #content_colada .featured-coctail {
+                color: #C0F3D4;
+            }
+            #content_colada .txt-top {
+                color: #FFFFFF;
+            }
+            #content_colada .txt-middle {
+                color: #C0F3D4;
+            }
+            #content_colada .txt-bottom {
+                color: #FFFFFF;
+                right: 236px;
+            }
+            #content_colada .ingredients {
+                color: #C0F3D4;
+                left: 132px;
+            }
+
+
+            .featured-coctail {
+                position: absolute;
+                left: 130px;
+                top: 66px;
+                top: 5%;
+                font-size: 96px;
+                line-height: 1;
+            }
+            .coctail-name {
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 550px;
+                /*top: 266px;*/
+                top: 50%;
+                margin-top: -230px;
+
+            }
+            .txt-top {
+                position: absolute;
+                top: 0;
+                left: 280px;
+                font-size: 158px;
+                line-height: 1;
+
+            }
+            .txt-middle {
+                position: absolute;
+                top: 26px;
+                width: 100%;
+                text-align: center;
+                font-size: 509px;
+                line-height: 1;
+            }
+            .txt-bottom {
+                position: absolute;
+                bottom: 0;
+                right: 146px;
+                font-size: 158px;
+                line-height: 1;
+            }
+            .ingredients {
+                position: absolute;
+                left: 150px;
+                /*bottom: 106px;*/
+                /*bottom: 5%;*/
+                bottom: 0;
+                width: 520px;
+                font-size: 30px;
+                line-height: 30px;
+            }
+
+
+            #content_miami .coctail {
+                position: absolute;
+                right: 32px;
+                top: 176px;
+                top: 50%;
+                margin-top: -350px;
+                right: 35%;
+                margin-right: -450px;
+                width: 800px;
+                height: 800px;
+                background-image: url("assets/zombie_sprite.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0 50%;
+                transform: scale(1) !important;
+            }
+            #content_florida .coctail {
+                position: absolute;
+                right: 92px;
+                top: 94px;
+                top: 50%;
+                margin-top: -400px;
+                right: 35%;
+                margin-right: -450px;
+                width: 900px;
+                height: 900px;
+                background-image: url("assets/florida_sprite.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0 50%;
+                transform: scale(1) !important;
+            }
+            #content_colada .coctail {
+                position: absolute;
+                right: 112px;
+                top: 78px;
+                top: 50%;
+                margin-top: -350px;
+                right: 35%;
+                margin-right: -450px;
+                width: 800px;
+                height: 800px;
+                background-image: url("assets/colada_sprite.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 0 50%;
+                transform: scale(1) !important;
+            }
+
+            @media (max-width: 1279.98px) {
+                .featured-coctail {
+                    font-size: 76px;
+                    left: 5% !important;
+                }
+                .coctail-name {
+                    height: 380px;
+                    margin-top: -150px;
+                }
+                .txt-top {
+                    font-size: 120px;
+                    left: 10% !important;
+                }
+
+                .txt-middle {
+                    top: 0;
+                    font-size: 380px;
+                }
+                .txt-bottom {
+                    font-size: 120px;
+                    right: 10% !important;
+                }
+                .ingredients {
+                    left: 10% !important;
+                    font-size: 22px;
+                    line-height: 22px;
+                    max-width: 400px;
+                }
+
+
+                #content_miami .featured-coctail {
+                }
+                #content_miami .txt-top {
+                }
+                #content_miami .txt-bottom {
+                }
+
+
+                #content_florida .featured-coctail {
+                    /*left: 100px;*/
+                }
+                #content_florida .txt-top {
+                    /*left: 158px;*/
+                }
+                #content_florida .txt-bottom {
+                    /*right: 94px;*/
+                }
+                #content_florida .ingredients {
+                    /*left: 100px;*/
+                }
+
+
+
+                #content_colada .txt-top {
+                }
+                #content_colada .txt-bottom {
+                    /*right: 236px;*/
+                }
+                #content_colada .ingredients {
+                    /*left: 132px;*/
+                }
+
+
+
+                #content_miami .coctail {
+                    transform: scale(0.8) !important;
+                    margin-top: -400px;
+                }
+                #content_florida .coctail {
+                    transform: scale(0.8) !important;
+                    margin-top: -400px;
+                }
+                #content_colada .coctail {
+                    transform: scale(0.81) !important;
+                    margin-top: -400px;
+                }
+
+            }
+
+
+            @media (max-width: 991.98px) {
+                .featured-coctail {
+                    font-size: 56px;
+                    left: 5% !important;
+                }
+                .coctail-name {
+                    height: 320px;
+                    margin-top: -130px;
+                }
+                .txt-top {
+                    font-size: 90px;
+                    left: 10% !important;
+                }
+
+                .txt-middle {
+                    top: 15px;
+                    font-size: 300px;
+                }
+                .txt-bottom {
+                    font-size: 90px;
+                    right: 10% !important;
+                }
+                .ingredients {
+                    left: 10% !important;
+                    font-size: 22px;
+                    line-height: 22px;
+                    max-width: 300px;
+                }
+
+                #content_miami .ingredients {
+                    font-size: 20px;
+                    line-height: 20px;
+                    max-width: 400px;
+                }
+
+                #content_miami .coctail {
+                    transform: scale(0.7) !important;
+                    margin-top: -400px;
+                }
+                #content_florida .coctail {
+                    transform: scale(0.7) !important;
+                    margin-top: -400px;
+                }
+                #content_colada .coctail {
+                    transform: scale(0.71) !important;
+                    margin-top: -400px;
+                }
+
+                .coctail {
+                    right: 25% !important;
+                }
+
+            }
+
+
+            @media (max-width: 767.98px) {
+
+                .featured-coctail {
+                    top: 80px;
+                    font-size: 56px;
+                    left: 5% !important;
+                }
+                .coctail-name {
+                    width: 100%;
+                    height: 100%;
+                    top: 0px;
+                    margin-top: 0;
+                    /*height: 320px;*/
+                    /*margin-top: -130px;*/
+                }
+                .txt-top {
+                    margin-top: 180px;
+                    font-size: 90px;
+                    left: 10% !important;
+                }
+
+                .txt-middle {
+                    margin-top: 180px;
+                    top: 15px;
+                    font-size: 230px;
+                }
+                .txt-bottom {
+                    top: 170px;
+                    margin-top: 180px;
+                    bottom: auto;
+                    font-size: 90px;
+                    right: 10% !important;
+                }
+                .ingredients {
+                    left: 10% !important;
+                    font-size: 22px;
+                    line-height: 22px;
+                    max-width: 300px;
+                    bottom: 30px;
+                }
+
+                #content_miami .ingredients {
+                    font-size: 22px;
+                    line-height: 22px;
+                    /*max-width: 400px;*/
+                }
+
+                #content_miami .coctail {
+                    right: 43% !important;
+                    margin-top: -360px;
+                    transform: scale(0.8) !important;
+                }
+                #content_florida .coctail {
+                    right: 35% !important;
+                    margin-top: -400px;
+                    transform: scale(0.7) !important;
+                }
+                #content_colada .coctail {
+                    right: 43% !important;
+                    margin-top: -360px;
+                    transform: scale(0.71) !important;
+                }
+
+            }
+
+
+            @media (max-width: 575.98px) {
+                .content {
+                    width: 100vw;
+                    height: calc(100% - 80px);
+                }
+                .featured-coctail {
+                    position: absolute;
+                    left: 32px !important;
+                    top: 75px;
+                    font-size: 40px;
+                    line-height: 1;
+                }
+                .coctail-name {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    top: 0px;
+                    margin-top: 0;
+                }
+                .txt-top {
+                    position: absolute;
+                    top: 0 !important;
+                    margin-top: 124px;
+                    left: 44px !important;
+                    font-size: 60px;
+                    line-height: 1;
+
+                }
+                .txt-middle {
+                    position: absolute;
+                    top: 28px;
+                    margin-top: 124px;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 136px;
+                    line-height: 1;
+                    padding-left: 10px;
+                }
+                .txt-bottom {
+                    position: absolute;
+                    top: 124px;
+                    margin-top: 124px;
+                    bottom: auto;
+                    right: auto !important;
+                    left: 44px;
+                    font-size: 60px;
+                }
+                .ingredients {
+                    position: absolute;
+                    left: 30px !important;
+                    bottom: 40px;
+                    width: 280px;
+                    font-size: 21px;
+                    line-height: 21px;
+                }
+
+                #content_miami .ingredients {
+                    font-size: 18px;
+                    line-height: 18px;
+                    max-width: 260px;
+                }
+
+                #content_miami .coctail {
+                    right: 63% !important;
+                    margin-top: -380px;
+                    transform: scale(0.67) !important;
+                }
+                #content_florida .coctail {
+                    right: 35% !important;
+                    margin-top: -420px;
+                    transform: scale(0.6) !important;
+                }
+                #content_colada .coctail {
+                    right: 73% !important;
+                    margin-top: -380px;
+                    transform: scale(0.62) !important;
+                }
+
+            }
+
+
+
+            #scroll_container {
+                position: absolute;
+                width: 100%;
+                max-height: 100vh;
+                overflow-y: scroll;
+                scroll-snap-type: y mandatory;
+                z-index: 10000000;
+                opacity: 0;
+            }
+
+            .panel {
+                scroll-snap-align: start;
+                height: 100vh;
+            }
+            .panel:nth-child(1) {
+                background-color: crimson;
+            }
+            .panel:nth-child(2) {
+                background-color: gold;
+            }
+            .panel:nth-child(3) {
+                background-color: turquoise;
+            }
+
+
+            .test {
+                font-size: 60px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="banner" class="banner">
+        <div id="scroll_container">
+            <div class="panel"></div>
+            <div class="panel"></div>
+            <div class="panel"></div>
+        </div>
+        <div id="animation_container" class="container">
+            <div id="content_colada" class="content">
+                <div class="content-inner">
+                    <div class="bg"></div>
+                    <div class="content-wrap">
+                        <div class="featured-coctail">FEATURED COCKTAIL</div>
+                        <div class="coctail-name">
+                            <div class="txt-middle">COLADA</div>
+                            <div class="txt-top">OUR PINA</div>
+                            <div class="txt-bottom">COCKTAIL</div>
+                            <div class="ingredients">
+                                <span>FORDS GIN </span><span>• </span><span>NOILLY PRAT </span><span>• </span><span>SEA SALT </span><span>• </span><br>
+                                <span>BLUE </span><span>• </span><span>LEMON GAS EXPLOSION</span>
+                            </div>
+                        </div>
+                        <div class="coctail"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content_miami" class="content">
+                <div class="content-inner">
+                    <div class="bg"></div>
+                    <div class="content-wrap">
+                        <div class="featured-coctail">FEATURED COCKTAIL</div>
+                        <div class="coctail-name">
+                            <div class="txt-middle">ZOMBIE</div>
+                            <div class="txt-top">BLUE</div>
+                            <div class="txt-bottom">COCKTAIL</div>
+                            <div class="ingredients">
+                                <span>PLANTATION 3 STAR </span><span>• </span><span>CLAIRIN RUM </span><span>• </span><span>BACARDI FALERNUM </span><span>• </span>
+                                <span>ABSINTHE </span><span>• </span><span>CINNAMON </span><span>• </span><span>PRESSED LIME & GRAPEFRUIT </span><span>• </span><span>BLUE</span>
+                            </div>
+                        </div>
+                        <div class="coctail"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content_florida" class="content">
+                <div class="content-inner">
+                    <div class="bg"></div>
+                    <div class="content-wrap">
+                        <div class="featured-coctail">FEATURED COCKTAIL</div>
+                        <div class="coctail-name">
+                            <div class="txt-middle">FLORIDA</div>
+                            <div class="txt-top">THE</div>
+                            <div class="txt-bottom">COCKTAIL</div>
+                            <div class="ingredients">
+                                <span>BACARDI ANEJO </span><span>• </span><span>FRESH LIME </span><span>• </span><br>
+                                <span>FLUFFY PINEAPPLE </span><span>• </span><span>CREME DE MENTHE</span>
+                            </div>
+                        </div>
+                        <div class="coctail"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function (e) {
+
+            gsap.defaults({overwrite: "auto"});
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.set(".content-wrap", {transformPerspective: 400, z: 0.01});
+
+            gsap.set(banner, {visibility: "visible"});
+
+            var tl = gsap.timeline({defaults: {ease: "none"}});
+
+            ScrollTrigger.create({
+                scroller: "#scroll_container",
+                scrub: true,
+                animation: tl
+            });
+
+            tl
+                .addLabel("florida", 0)
+                .to("#content_florida", 1, {xPercent: -100}, "florida")
+                .to("#content_florida .content-inner", 1, {xPercent: 100}, "florida")
+                .to("#content_florida .featured-coctail", 1, {xPercent: 35}, "florida")
+                .to("#content_florida .txt-top", 1, {xPercent: 20}, "florida")
+                .to("#content_florida .txt-middle", 1, {xPercent: -35}, "florida")
+                .to("#content_florida .txt-bottom", 1, {xPercent: 15}, "florida")
+                .to("#content_florida .coctail", 1, {xPercent: -30}, "florida")
+                .fromTo("#content_florida .coctail", 1 / 2, {backgroundPosition: "-31500px 50%"}, {backgroundPosition: "0px 50%", repeat: 1, ease: "steps(35)"}, "florida")
+                .fromTo("#content_miami .featured-coctail", 1, {xPercent: -35}, {xPercent: 0}, "florida")
+                .fromTo("#content_miami .txt-top", 1, {xPercent: -20}, {xPercent: 0}, "florida")
+                .fromTo("#content_miami .txt-middle", 1, {xPercent: 35}, {xPercent: 0}, "florida")
+                .fromTo("#content_miami .txt-bottom", 1, {xPercent: -15}, {xPercent: 0}, "florida")
+                .fromTo("#content_miami .coctail", 1, {xPercent: 30}, {xPercent: 0}, "florida")
+                .fromTo("#content_miami .coctail", 1 / 3, {backgroundPosition: "0px 50%"}, {backgroundPosition: "-28000px 50%", repeat: 2, ease: "steps(35)"}, "florida")
+
+
+                .addLabel("miami")
+                .to("#content_miami", 1, {xPercent: -100}, "miami")
+                .to("#content_miami .content-inner", 1, {xPercent: 100}, "miami")
+                .to("#content_miami .featured-coctail", 1, {xPercent: 35}, "miami")
+                .to("#content_miami .txt-top", 1, {xPercent: 20}, "miami")
+                .to("#content_miami .txt-middle", 1, {xPercent: -35}, "miami")
+                .to("#content_miami .txt-bottom", 1, {xPercent: 15}, "miami")
+                .to("#content_miami .coctail", 1, {xPercent: -30}, "miami")
+                .fromTo("#content_miami .coctail", 1 / 3, {backgroundPosition: "0px 50%"}, {backgroundPosition: "-28000px 50%", repeat: 2, ease: "steps(35)"}, "miami")
+                .fromTo("#content_colada .featured-coctail", 1, {xPercent: -35}, {xPercent: 0}, "miami")
+                .fromTo("#content_colada .txt-top", 1, {xPercent: -20}, {xPercent: 0}, "miami")
+                .fromTo("#content_colada .txt-middle", 1, {xPercent: 35}, {xPercent: 0}, "miami")
+                .fromTo("#content_colada .txt-bottom", 1, {xPercent: -15}, {xPercent: 0}, "miami")
+                .fromTo("#content_colada .coctail", 1, {xPercent: 30}, {xPercent: 0}, "miami")
+                .fromTo("#content_colada .coctail", 1 / 2, {backgroundPosition: "-28000px 50%"}, {backgroundPosition: "0px 50%", repeat: 1, ease: "steps(35)"}, "miami");
+
+        }
+
+    </script>
+    </body>
+</html>
