@@ -58,8 +58,8 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
       <Main className="bg-brandDark md:pt-48">
         <Hero />
         <PursuingExcellence />
-        <MenuBanner />
         <FeaturedSection />
+        <MenuBanner />
         <MerchSection products={allShopifyProduct.nodes} />
         <MiamiIsShit />
         <div className="bg-black">
