@@ -15,7 +15,7 @@ function Test() {
 
     ScrollTrigger.create({
       scroller: "#scroll_gsap_omar_container",
-      scrub: true,
+      scrub: 1,
       animation: tl,
     })
 
