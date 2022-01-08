@@ -6,16 +6,19 @@ import "./styles.css"
 function Test() {
   gsap.registerPlugin(ScrollTrigger)
   useEffect(() => {
-    gsap.defaults({ overwrite: "auto" })
-    gsap.set(".content-wrap", { transformPerspective: 400, z: 0.01 })
-
-    gsap.set(".banner", { visibility: "visible" })
-
-    const tl = gsap.timeline({ defaults: { ease: "none" } })
-
+    var tl = gsap.timeline({ defaults: { ease: "none" } })
     ScrollTrigger.create({
-      scroller: "#scroll_gsap_omar_container",
-      scrub: 1,
+      trigger: ".featured-coctail-section",
+      pin: true,
+      scrub: true,
+      start: "top top",
+      end: () => window.innerWidth * 3,
+      snap: {
+        snapTo: [0, 0.5, 1],
+        delay: 0,
+        duration: { min: 0.5, max: 1.5 },
+        inertia: true,
+      },
       animation: tl,
     })
 
@@ -137,17 +140,12 @@ function Test() {
   })
 
   return (
-    <section id="gsap_section">
-      <div id="banner" className="banner">
-        <div id="scroll_gsap_omar_container">
-          <div className="panel" />
-          <div className="panel" />
-          <div className="panel" />
-        </div>
-        <div id="animation_gsap_omar_container" className="gsap_omar_container">
-          <div id="content_colada" className="content">
+    <section className="featured-coctail-section">
+      <div className="featured-anim-banner">
+        <div className="featured-anim-container">
+          <div id="content_colada" className="featured-anim-content">
             <div className="content-inner">
-              <div className="bg" />
+              <div className="bg"></div>
               <div className="content-wrap">
                 <div className="featured-coctail">FEATURED COCKTAIL</div>
                 <div className="coctail-name">
@@ -167,13 +165,13 @@ function Test() {
                     <span>LEMON GAS EXPLOSION</span>
                   </div>
                 </div>
-                <div className="coctail" />
+                <div className="coctail"></div>
               </div>
             </div>
           </div>
-          <div id="content_miami" className="content">
+          <div id="content_miami" className="featured-anim-content">
             <div className="content-inner">
-              <div className="bg" />
+              <div className="bg"></div>
               <div className="content-wrap">
                 <div className="featured-coctail">FEATURED COCKTAIL</div>
                 <div className="coctail-name">
@@ -191,18 +189,18 @@ function Test() {
                     <span>• </span>
                     <span>CINNAMON </span>
                     <span>• </span>
-                    <span>PRESSED LIME &amp; GRAPEFRUIT </span>
+                    <span>PRESSED LIME & GRAPEFRUIT </span>
                     <span>• </span>
                     <span>BLUE</span>
                   </div>
                 </div>
-                <div className="coctail" />
+                <div className="coctail"></div>
               </div>
             </div>
           </div>
-          <div id="content_florida" className="content">
+          <div id="content_florida" className="featured-anim-content">
             <div className="content-inner">
-              <div className="bg" />
+              <div className="bg"></div>
               <div className="content-wrap">
                 <div className="featured-coctail">FEATURED COCKTAIL</div>
                 <div className="coctail-name">
@@ -220,7 +218,7 @@ function Test() {
                     <span>CREME DE MENTHE</span>
                   </div>
                 </div>
-                <div className="coctail" />
+                <div className="coctail"></div>
               </div>
             </div>
           </div>

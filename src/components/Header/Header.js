@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react"
-import { useLocation } from "@reach/router"
+// import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import { useSelector } from "react-redux"
 
-import Nav from "../Nav"
+// import Nav from "../Nav"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 import { CartSvg } from "../UI/Svgs"
 import { Container, Hamburger } from "../UI"
 import { useScrollValue } from "../../hooks"
 
-const Header = ({ hours, isDark, smallLogo, menuPageDark }) => {
+const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
   const cart = useSelector(state => state.cartReducer)
-  const location = useLocation()
+  // const location = useLocation()
   const scrollValue = useScrollValue()
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
@@ -29,24 +29,24 @@ const Header = ({ hours, isDark, smallLogo, menuPageDark }) => {
     }
   }
 
-  useEffect(() => {
-    setModal(false)
-  }, [location])
+  // useEffect(() => {
+  //   setModal(false)
+  // }, [location])
 
   return (
     <header
       className={`
         ${
-          isDark && !menuPageDark
+          isHomepage && isDark && !menuPageDark
             ? "fixed top-0 left-0 right-0 z-[9999] bg-brandDark"
             : "absolute top-0 left-0 right-0 z-10"
         }
-          ${scrollValue > 50 ? "shadow-2xl" : ""}
+          ${isHomepage && scrollValue > 50 ? "shadow-2xl" : ""}
       `}
     >
       <Container
         className={`px-[17px] md:px-10 lg:px-12 max-w-screen-2xl mx-auto relative flex items-center justify-between transition-all duration-200 ${
-          scrollValue > 50 ? "py-1 md:py:4" : "py-3 md:py-8"
+          isHomepage && scrollValue > 50 ? "py-1 md:py:4" : "py-3 md:py-8"
         }`}
       >
         <Link to="/">
@@ -54,7 +54,7 @@ const Header = ({ hours, isDark, smallLogo, menuPageDark }) => {
             <img
               src={Logo_Dark}
               alt="Sweet Liberty"
-              className={`w-[79px] h-[52px] ${
+              className={`w-[79px] h-[52px] transition-all duration-200 ${
                 smallLogo || scrollValue > 50
                   ? "md:w-[114px] md:h-[75px]"
                   : "md:w-[154px] md:h-[103px]"
@@ -64,7 +64,7 @@ const Header = ({ hours, isDark, smallLogo, menuPageDark }) => {
             <img
               src={Logo_Light}
               alt="Sweet Liberty"
-              className={`w-[79px] h-[52px] ${
+              className={`w-[79px] h-[52px] transition-all duration-200 ${
                 smallLogo || scrollValue > 50
                   ? "md:w-[114px] md:h-[75px]"
                   : "md:w-[154px] md:h-[103px]"
@@ -89,12 +89,12 @@ const Header = ({ hours, isDark, smallLogo, menuPageDark }) => {
           />
         </div>
       </Container>
-      <Nav
+      {/* <Nav
         hours={hours}
         modal={modal}
         closeModal={buttonHandler}
-        location={location}
-      />
+        // location={location}
+      /> */}
     </header>
   )
 }

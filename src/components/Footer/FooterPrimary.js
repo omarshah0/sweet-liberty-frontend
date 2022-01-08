@@ -19,7 +19,7 @@ const FooterPrimary = ({ hours }) => {
             <h4 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
               For large parties (8+)
             </h4>
-            <FormButton>Fill in Form</FormButton>
+            <FormButton to="#">Fill in Form</FormButton>
           </div>
           <div className="footer__social font-redHatDisplay font-bold text-socialLink">
             <a

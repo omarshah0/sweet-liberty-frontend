@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = ({ children, isDark, smallLogo, menuPageDark }) => {
+const Layout = ({ children, isDark, isHomepage, smallLogo, menuPageDark }) => {
   const { allDatoCmsHour } = useStaticQuery(graphql`
     query MyQuery {
       allDatoCmsHour {
@@ -27,6 +27,7 @@ const Layout = ({ children, isDark, smallLogo, menuPageDark }) => {
       <Header
         hours={hours[0]}
         isDark={isDark}
+        isHomepage={isHomepage}
         menuPageDark={menuPageDark}
         smallLogo={smallLogo}
       />

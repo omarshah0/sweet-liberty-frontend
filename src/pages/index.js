@@ -53,7 +53,7 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   }
 
   return (
-    <Layout isDark>
+    <Layout isDark isHomepage>
       <Seo title="Sweet Liberty By Glass Full" />
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />

@@ -40,6 +40,7 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
       <Layout
         isDark={datoCmsMenu.darkTheme}
         menuPageDark={datoCmsMenu.darkTheme}
+        smallLogo
       >
         <Main
           backgroundColor={datoCmsMenu.backgroundColor.hex}

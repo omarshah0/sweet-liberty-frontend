@@ -45,11 +45,18 @@ const CheckoutPage = () => {
   console.log("Shipping Checkout Data ", checkoutData)
   return (
     <Layout smallLogo>
-      <Container className="flex">
-        <div className="left w-[60%] mr-16 bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
+      <div className="pt-28">
+        <Container>
           <h1 className="text-brandPink font-bebas text-[40px] leading-none mb-5">
             Checkout
           </h1>
+        </Container>
+        <div className="bg-gray-100 border-t-2 border-t-[#979797] border-b-2 border-b-[#979797] py-5">
+          <Container>
+            <CheckoutProducts step={step} checkoutData={checkoutData} />
+          </Container>
+        </div>
+        <div className="left md:w-[60%] md:mr-16 bg-white overflow-hidden pt-28 md:pt-48 lg:pb-[163px] order-2">
           <CheckoutBreadcrumbs step={step} className="mb-6" />
           {step === 1 ? (
             <CheckoutInformation
@@ -65,10 +72,7 @@ const CheckoutPage = () => {
             step === 3 && <CheckoutPayment setStep={setStep} />
           )}
         </div>
-        <div className="right-block-gray w-[40%] px-20 bg-gray-100 md:pt-48 lg:pb-[163px] relative">
-          <CheckoutProducts step={step} checkoutData={checkoutData} />
-        </div>
-      </Container>
+      </div>
     </Layout>
   )
 }

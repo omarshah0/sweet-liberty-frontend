@@ -25,7 +25,7 @@ const CheckoutProducts = ({ step, checkoutData }) => {
         ))
       )}
       <hr className="border-[1px] border-[#979797] mb-9" />
-      <div className="flex justify-between text-[#0A0E15] font-sourceSansProBold font-bold mb-8">
+      <div className="flex justify-between items-center text-[#0A0E15] font-sourceSansProBold font-bold mb-8">
         <h2 className="">Subtotal</h2>
         <span>${subTotal}</span>
       </div>
