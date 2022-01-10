@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-// import { useLocation } from "@reach/router"
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import { useSelector } from "react-redux"
 
-// import Nav from "../Nav"
+import Nav from "../Nav"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 import { CartSvg } from "../UI/Svgs"
@@ -12,7 +12,7 @@ import { useScrollValue } from "../../hooks"
 
 const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
   const cart = useSelector(state => state.cartReducer)
-  // const location = useLocation()
+  const location = useLocation()
   const scrollValue = useScrollValue()
   const [modal, setModal] = useState(false)
   const buttonHandler = () => {
@@ -89,12 +89,12 @@ const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
           />
         </div>
       </Container>
-      {/* <Nav
+      <Nav
         hours={hours}
         modal={modal}
         closeModal={buttonHandler}
-        // location={location}
-      /> */}
+        location={location}
+      />
     </header>
   )
 }
