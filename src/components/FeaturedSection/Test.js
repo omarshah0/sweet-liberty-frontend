@@ -12,7 +12,7 @@ function Test() {
       pin: true,
       scrub: true,
       start: "top top",
-      end: () => window.innerWidth * 3,
+      end: 4500,
       snap: {
         snapTo: [0, 0.5, 1],
         delay: 0,
