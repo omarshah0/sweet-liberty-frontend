@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from "react"
+import React, { useState, lazy, Suspense } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -34,14 +34,6 @@ const TripleSeatModal = lazy(() =>
 
 const HomePage = ({ data: { allShopifyProduct } }) => {
   const [tripleSeatModal, setTripleSeatModal] = useState(false)
-  useEffect(() => {
-    window.SevenroomsWidget.init({
-      venueId: "mysweetliberty",
-      triggerId: "sr-res-root",
-      type: "reservations",
-    })
-  })
-
   const bookTripleSeatHandler = () => {
     setTripleSeatModal(!tripleSeatModal)
   }
@@ -81,9 +73,12 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         </Suspense>
         <ScrollTop />
       </Main>
-      {tripleSeatModal && (
-        <TripleSeatModal closeModal={bookTripleSeatHandler} />
-      )}
+      <Suspense fallback={() => <p>Loading...</p>}>
+        <TripleSeatModal
+          isModelOpen={tripleSeatModal}
+          closeModal={bookTripleSeatHandler}
+        />
+      </Suspense>
     </Layout>
   )
 }
