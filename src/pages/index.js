@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from "react"
+import React, { useState, useEffect, lazy } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -52,19 +52,17 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
         <PursuingExcellence />
-        <Suspense fallback={() => <p>Loading...</p>}>
-          <FeaturedSection />
-          <MenuBanner />
-          <MerchSection products={allShopifyProduct.nodes} />
-          <MiamiIsShit />
-          <div className="bg-black">
-            <StylishPursue />
-            <BookingSection openModal={bookTripleSeatHandler} />
-          </div>
-          <NewsEvents />
-          <DoGoodWork />
-          <ShowAndEvents />
-        </Suspense>
+        <FeaturedSection />
+        <MenuBanner />
+        <MerchSection products={allShopifyProduct.nodes} />
+        <MiamiIsShit />
+        <div className="bg-black">
+          <StylishPursue />
+          <BookingSection openModal={bookTripleSeatHandler} />
+        </div>
+        <NewsEvents />
+        <DoGoodWork />
+        <ShowAndEvents />
         <ScrollTop />
       </Main>
       {tripleSeatModal && (
