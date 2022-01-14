@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import { useSelector } from "react-redux"
 
-import Nav from "../Nav"
 import Logo_Light from "../../assets/logo_light.svg"
 import Logo_Dark from "../../assets/logo_dark.svg"
 import { CartSvg } from "../UI/Svgs"
 import { Container, Hamburger } from "../UI"
 import { useScrollValue } from "../../hooks"
+
+const Nav = lazy(() => import("../Nav"))
 
 const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
   const cart = useSelector(state => state.cartReducer)
@@ -29,9 +30,9 @@ const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
     }
   }
 
-  // useEffect(() => {
-  //   setModal(false)
-  // }, [location])
+  useEffect(() => {
+    setModal(false)
+  }, [location])
 
   return (
     <header
@@ -89,12 +90,14 @@ const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
           />
         </div>
       </Container>
-      <Nav
-        hours={hours}
-        modal={modal}
-        closeModal={buttonHandler}
-        location={location}
-      />
+      <Suspense fallback={"loading..."}>
+        <Nav
+          hours={hours}
+          modal={modal}
+          closeModal={buttonHandler}
+          location={location}
+        />
+      </Suspense>
     </header>
   )
 }
