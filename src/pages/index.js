@@ -4,13 +4,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
 import Hero from "../components/Hero"
+import PursuingExcellence from "../components/PursuingExcellence"
 
 import ScrollTop from "../components/ScrollTop"
 import { Main } from "../components/UI"
-
-const PursuingExcellence = lazy(() =>
-  import("../components/PursuingExcellence")
-)
 
 const FeaturedSection = lazy(() => import("../components/FeaturedSection"))
 
@@ -54,8 +51,8 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
       <Seo title="Sweet Liberty By Glass Full" />
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
+        <PursuingExcellence />
         <Suspense fallback={() => <p>Loading...</p>}>
-          <PursuingExcellence />
           <FeaturedSection />
           <MenuBanner />
           <MerchSection products={allShopifyProduct.nodes} />
