@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -52,17 +52,33 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
         <PursuingExcellence />
-        <FeaturedSection />
-        <MenuBanner />
-        <MerchSection products={allShopifyProduct.nodes} />
-        <MiamiIsShit />
-        <div className="bg-black">
-          <StylishPursue />
-          <BookingSection openModal={bookTripleSeatHandler} />
-        </div>
-        <NewsEvents />
-        <DoGoodWork />
-        <ShowAndEvents />
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <FeaturedSection />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <MenuBanner />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <MiamiIsShit />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <MerchSection products={allShopifyProduct.nodes} />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <div className="bg-black">
+            <StylishPursue />
+            <BookingSection openModal={bookTripleSeatHandler} />
+          </div>
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <NewsEvents />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <DoGoodWork />
+        </Suspense>
+        <Suspense fallback={() => <p>Loading...</p>}>
+          <ShowAndEvents />
+        </Suspense>
         <ScrollTop />
       </Main>
       {tripleSeatModal && (
