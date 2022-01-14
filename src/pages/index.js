@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from "react"
+import React, { useState, useEffect, lazy, Suspense } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
@@ -37,6 +37,14 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   const bookTripleSeatHandler = () => {
     setTripleSeatModal(!tripleSeatModal)
   }
+
+  useEffect(() => {
+    window.SevenroomsWidget.init({
+      venueId: "mysweetliberty",
+      triggerId: ["sr-res-root"],
+      type: "reservations",
+    })
+  })
 
   return (
     <Layout isDark isHomepage>

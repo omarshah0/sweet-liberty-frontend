@@ -31,6 +31,14 @@ const Nav = ({ hours, modal, location }) => {
     setSubMenu(false)
   }, [location])
 
+  useEffect(() => {
+    window.SevenroomsWidget.init({
+      venueId: "mysweetliberty",
+      triggerId: ["sr-res-navbutton"],
+      type: "reservations",
+    })
+  })
+
   return (
     <div
       className={`py-8 bg-brandDark fixed inset-0 z-[10] ${
@@ -102,8 +110,8 @@ const Nav = ({ hours, modal, location }) => {
               <li className="md:mr-[35px]">
                 <NavLink title="Homepage" url="/" small />
               </li>
-              <li className="flex items-center">
-                <NavLink title="Reservations" url="/reservation" small />
+              <li className="flex items-center" id="sr-res-navbutton">
+                <NavLink title="Reservations" url="#" small />
                 <span className="bg-brandLight text-brandDark uppercase text-resky font-bold py-0 px-1 ml-3 mb-1 tracking-widest">
                   Resy
                 </span>
