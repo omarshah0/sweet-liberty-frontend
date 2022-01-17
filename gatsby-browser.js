@@ -18,12 +18,17 @@ import "./src/styles/marquee.css"
 import "./src/styles/scrollingMenu.css"
 import "./src/styles/productCart.css"
 
-export const onRouteUpdate = () => {
-  document.body.style.overflow = "auto"
-}
-
 export const onInitialClientRender = () => {
   document.getElementById("___loader").style.display = "none"
+}
+
+export const onPreRouteUpdate = () => {
+  console.log("Start Animation")
+}
+
+export const onRouteUpdate = () => {
+  document.body.style.overflow = "auto"
+  console.log("End Animation")
 }
 
 export const wrapRootElement = Provider

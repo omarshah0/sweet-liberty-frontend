@@ -19,10 +19,9 @@ export default function HTML(props) {
           key={`loader`}
           id="___loader"
           style={{
-            alignItems: "center",
             backgroundColor: "#257972",
-            display: "flex",
-            justifyContent: "center",
+            display: "grid",
+            placeItems: "center",
             position: "absolute",
             left: 0,
             top: 0,
@@ -31,20 +30,18 @@ export default function HTML(props) {
             zIndex: 100,
           }}
         >
-          <div>
-            <span
-              style={{
-                display: "block",
-                color: "#C0F3D4",
-                fontSize: "20px",
-                letterSpacing: "1em",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-              }}
-            >
-              Pursuing Happiness
-            </span>
-          </div>
+          <p
+            style={{
+              display: "block",
+              color: "#C0F3D4",
+              fontSize: "20px",
+              letterSpacing: "1em",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+            }}
+          >
+            Pursuing Happiness
+          </p>
         </div>
         <div
           key={`body`}
