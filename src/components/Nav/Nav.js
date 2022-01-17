@@ -11,6 +11,8 @@ import {
   NavLinkButton,
 } from "../UI"
 
+import { SevenRoomSvg } from "../UI/Svgs"
+
 const Nav = ({ hours, modal, location }) => {
   const [subMenu, setSubMenu] = useState(false)
   const { allDatoCmsMenu } = useStaticQuery(graphql`
@@ -45,7 +47,7 @@ const Nav = ({ hours, modal, location }) => {
         modal ? "translate-x-[0vw]" : "translate-x-[100vw]"
       }`}
     >
-      <Container className="lg:flex h-full overflow-y-auto">
+      <Container className="lg:flex min-h-screen overflow-y-auto">
         {/* ---------------------- Left Block Nav ----------------------------- */}
         <nav className="lg:w-1/2 flex flex-col justify-between lg:justify-between relative h-full">
           {subMenu && (
@@ -112,9 +114,7 @@ const Nav = ({ hours, modal, location }) => {
               </li>
               <li className="flex items-center" id="sr-res-navbutton">
                 <NavLink title="Reservations" url="#" small />
-                <span className="bg-brandLight text-brandDark uppercase text-resky font-bold py-0 px-1 ml-3 mb-1 tracking-widest">
-                  Resy
-                </span>
+                <SevenRoomSvg />
               </li>
             </ul>
           </div>

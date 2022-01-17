@@ -52,36 +52,52 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
         <PursuingExcellence />
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <FeaturedSection />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <MenuBanner />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <MiamiIsShit />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <MerchSection products={allShopifyProduct.nodes} />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <div className="bg-black">
             <StylishPursue />
             <BookingSection openModal={bookTripleSeatHandler} />
           </div>
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <NewsEvents />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <DoGoodWork />
         </Suspense>
-        <Suspense fallback={() => <p>Loading...</p>}>
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
           <ShowAndEvents />
         </Suspense>
         <ScrollTop />
       </Main>
-      <Suspense fallback={() => <p>Loading...</p>}>
+      <Suspense fallback={() => <p style={{ display: "none" }}>Loading...</p>}>
         <TripleSeatModal
           isModelOpen={tripleSeatModal}
           closeModal={bookTripleSeatHandler}

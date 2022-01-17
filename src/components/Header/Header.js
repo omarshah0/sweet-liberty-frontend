@@ -90,7 +90,7 @@ const Header = ({ hours, isDark, smallLogo, isHomepage, menuPageDark }) => {
           />
         </div>
       </Container>
-      <Suspense fallback={"loading..."}>
+      <Suspense fallback={<p style={{ display: "none" }}>Loading...</p>}>
         <Nav
           hours={hours}
           modal={modal}

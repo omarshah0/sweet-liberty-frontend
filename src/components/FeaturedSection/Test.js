@@ -12,7 +12,7 @@ function Test() {
       pin: true,
       scrub: true,
       start: "top top",
-      end: 4500,
+      end: 10000,
       snap: {
         snapTo: [0, 0.5, 1],
         delay: 0,
