@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const ShopifyRelatedProducts = ({ className, relatedArticles }) => {
-  console.log("Related Article is ", relatedArticles)
   return (
     <div className={`font-bebas ${className}`}>
       <h2 className="text-brandPink text-4xl">Related Products</h2>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import { useSelector } from "react-redux"
 import Client from "shopify-buy"
@@ -8,14 +8,12 @@ import { Main, Container } from "../components/UI"
 import CartProductList from "../components/CartProductList"
 
 const CartPage = () => {
-  const [checkout, setCheckout] = useState(null)
   const { cartReducer: cart } = useSelector(state => state)
-  console.log(cart)
 
   function totalPriceOfProducts(products) {
     let price = 0
     products.map(p => {
-      const int = parseFloat(p.price)
+      const int = parseFloat(p.price) * p.quantity
       price += int
     })
     return price
@@ -27,22 +25,22 @@ const CartPage = () => {
     storefrontAccessToken: "653d33ca27f33d7ccf395d8fb6f8bb5e",
   })
 
-  useEffect(() => {
-    console.log("Cart Updated | Re-Run")
+  const buyProductHandler = () => {
     const lineItemToAdd = cart.products.map(item => {
-      console.log("I ", item)
-      const l_item = { variantId: item.storefrontId, quantity: item.quantity }
+      const l_item = {
+        variantId: item.storefrontId,
+        quantity: item.quantity,
+      }
       return l_item
     })
     shopifyClient.checkout.create().then(checkout => {
       shopifyClient.checkout
         .addLineItems(checkout.id, lineItemToAdd)
         .then(checkout => {
-          console.log("Checkout is ", checkout)
-          setCheckout(checkout)
+          window.open(checkout.webUrl)
         })
     })
-  }, [cart])
+  }
 
   return (
     <Layout smallLogo>
@@ -74,7 +72,10 @@ const CartPage = () => {
                 ))}
               </div>
               <div className="flex justify-between items-center  mb-10">
-                <button className="bg-brandPink text-white font-bebas text-[21px] leading-[28px] py-[14px] px-[40px] rounded">
+                <button
+                  className="bg-brandPink text-white font-bebas text-[21px] leading-[28px] py-[14px] px-[40px] rounded"
+                  onClick={buyProductHandler}
+                >
                   Checkout
                 </button>
                 <span className="font-bebas text-brandDark text-lg">

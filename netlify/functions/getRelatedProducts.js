@@ -12,16 +12,13 @@ const client = new Shopify({
 
 exports.handler = async (event, context) => {
   const { id } = JSON.parse(event.body)
-  console.log("IDDEE Is ", id)
   try {
     const data = await client.productVariant.get(id)
-    console.log("Data us ", data)
     return {
       statusCode: 200,
       body: JSON.stringify({ data, data }),
     }
   } catch (e) {
-    console.log("Error is ", e)
     return {
       statusCode: 400,
       body: JSON.stringify({ message: e }),

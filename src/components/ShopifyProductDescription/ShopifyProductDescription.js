@@ -33,9 +33,15 @@ const ShopifyProductDescription = ({
   )
   const [selectedVariantId, setSelectedVariantId] = useState(
     hasOnlyDefaultVariant
-      ? variants[0].legacyResourceId
-      : normalizedVariants.colorFilter[0].legacyResourceId
+      ? variants[0].shopifyId
+      : normalizedVariants.colorFilter[0].shopifyId
   )
+  const [selectedVariantStorefrontId, setSelectedVariantStorefrontId] =
+    useState(
+      hasOnlyDefaultVariant
+        ? variants[0].shopifyId
+        : normalizedVariants.colorFilter[0].shopifyId
+    )
   const [selectedVariantPrice, setSelectedVariantPrice] = useState(
     hasOnlyDefaultVariant
       ? price.minVariantPrice.amount
@@ -80,16 +86,16 @@ const ShopifyProductDescription = ({
   const getSelectedVariantStockQuantityHandler = async id => {
     setLoading(true)
     const { status, data } = await getProductVariantQuantity(id)
-    console.log(data)
     if (status !== 200) return setLoading(false)
-    if (data.data.inventory_quantity === 0) {
+    if (data.inventory_quantity === 0) {
       setOutOfStock(true)
     } else {
       setOutOfStock(false)
     }
-    setSelectedVariantId(data.data.id)
-    setSelectedVariantQuantity(data.data.inventory_quantity)
-    setSelectedVariantPrice(data.data.price)
+    setSelectedVariantId(data.id)
+    setSelectedVariantStorefrontId(data.storefrontId)
+    setSelectedVariantQuantity(data.inventory_quantity)
+    setSelectedVariantPrice(data.price)
     setLoading(false)
   }
 
@@ -108,8 +114,8 @@ const ShopifyProductDescription = ({
   const dispatchProductToStore = () => {
     const selectedVariant = { color: selectedColor, size: selectedSize }
     const cart = {
-      storefrontId,
       id: selectedVariantId,
+      storefrontId: selectedVariantStorefrontId,
       featuredImage,
       title,
       selectedVariant,

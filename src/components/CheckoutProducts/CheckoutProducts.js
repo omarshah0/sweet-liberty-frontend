@@ -3,7 +3,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { useSelector } from "react-redux"
 
 const CheckoutProducts = ({ step, checkoutData }) => {
-  console.log("Render Check")
   const { cartReducer: cart } = useSelector(state => state)
   let subTotal = 0
   cart.products.map(p => {
@@ -11,8 +10,6 @@ const CheckoutProducts = ({ step, checkoutData }) => {
     subTotal += productTotalWithQuantity
   })
   const total = checkoutData.shippingPrice + subTotal
-
-  console.log("Render Check Checkout Product Component")
 
   return (
     <div className="font-bebas">

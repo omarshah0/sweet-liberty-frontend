@@ -38,7 +38,6 @@ const ShopifyProductTemaplate = ({
               className="md:mr-[42px]"
             />
             <ShopifyProductDescription
-              storefrontId={storefrontId}
               featuredImage={featuredImage}
               title={title}
               description={description}
@@ -84,7 +83,7 @@ export const query = graphql`
         altText
       }
       variants {
-        storefrontId
+        shopifyId
         id
         title
         price

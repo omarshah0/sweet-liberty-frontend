@@ -5,7 +5,6 @@ function createRelatedArticles(articles, selectedArticleTags, handle) {
     allFilteredArticles.map(singleArticle => {
       let point = 0
       singleArticle.tags.map(sinArcTag => {
-        console.log(`${sinArcTag} === ${saTag} : ${sinArcTag === saTag}`)
         if (sinArcTag === saTag) {
           point = point + 1
         }

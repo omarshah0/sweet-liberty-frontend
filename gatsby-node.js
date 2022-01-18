@@ -78,6 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
           hasOnlyDefaultVariant
           variants {
             id
+            shopifyId
             title
             price
             image {

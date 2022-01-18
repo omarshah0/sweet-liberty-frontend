@@ -17,7 +17,6 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ message: "Order Placed Successfully" }),
     }
   } catch (e) {
-    console.log("Error is ", e)
     return {
       statusCode: 400,
       body: JSON.stringify({ message: e }),

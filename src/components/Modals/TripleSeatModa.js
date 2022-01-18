@@ -35,7 +35,6 @@ const TripleSeatModa = ({ isModelOpen, closeModal }) => {
 
   const formSumbitHandler = e => {
     e.preventDefault()
-    console.log("For Sumbitted")
   }
 
   useEffect(() => {
