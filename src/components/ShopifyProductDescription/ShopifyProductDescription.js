@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
-import Loader from "react-loader-spinner"
+import { TailSpin } from "react-loader-spinner"
 import { useSelector, useDispatch } from "react-redux"
 
 import { getProductVariantQuantity } from "../../functions"
@@ -80,6 +80,7 @@ const ShopifyProductDescription = ({
   const getSelectedVariantStockQuantityHandler = async id => {
     setLoading(true)
     const { status, data } = await getProductVariantQuantity(id)
+    console.log(data)
     if (status !== 200) return setLoading(false)
     if (data.data.inventory_quantity === 0) {
       setOutOfStock(true)
@@ -105,9 +106,9 @@ const ShopifyProductDescription = ({
   }, [])
 
   const dispatchProductToStore = () => {
-    console.log("Am I Dispatched")
     const selectedVariant = { color: selectedColor, size: selectedSize }
     const cart = {
+      storefrontId,
       id: selectedVariantId,
       featuredImage,
       title,
@@ -192,7 +193,7 @@ const ShopifyProductDescription = ({
           </span>
           {loading && (
             <span className="ml-5 mt-1">
-              <Loader type="Circles" color="#EF5DA8" height={25} width={25} />
+              <TailSpin color="#EF5DA8" height={25} width={25} />
             </span>
           )}
         </div>

@@ -10682,10 +10682,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-loader-spinner@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-5.0.6.tgz#fc833e74b4a90696c161521170cb0eef35ab3f7c"
-  integrity sha512-YZS89WkbNQcbOmro3234O5IqzvRAz4niiy6puR6t7Ae92jUoIcHReCNJwi69egUQR3eCRB2uyITk7Z97+xu2+w==
+react-loader-spinner@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/react-loader-spinner/-/react-loader-spinner-5.0.8.tgz#e451ed3be2c6b75fcb5cdba106d7ea03e6ed212f"
+  integrity sha512-VpX+RFRdEhrH3ju+NiLcN/Oryaw7ZquH6qFHkwXU0/yhgCjeDgqoq0C/pQD8m6F0Dm8SuVXovckDL/65YBjgcw==
 
 react-lottie@^1.2.3:
   version "1.2.3"
@@ -11372,6 +11372,11 @@ shopify-api-node@^3.8.0:
     lodash "^4.17.10"
     qs "^6.5.2"
     stopcock "^1.0.0"
+
+shopify-buy@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.14.0.tgz#b4a35cb7e83518f44476ff3e3b5530cf86a24ddb"
+  integrity sha512-ehQMBQzkmm837boIUb85umpWg25EYzgDTqSv1dLabTmfTQSlhTkBJ0r1mDZnZpEoYpWbAs6cSSa5C9/NIaSSOQ==
 
 side-channel@^1.0.4:
   version "1.0.4"

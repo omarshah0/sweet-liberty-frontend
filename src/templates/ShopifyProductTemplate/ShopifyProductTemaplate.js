@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
+import Seo from "../../components/SEO"
 import { Main, Container } from "../../components/UI"
 import ShopifyProducImages from "../../components/ShopifyProducImages"
 import ShopifyProductDescription from "../../components/ShopifyProductDescription"
@@ -26,6 +27,7 @@ const ShopifyProductTemaplate = ({
 }) => {
   return (
     <Layout smallLogo>
+      <Seo title={title} />
       <Main className="bg-white overflow-hidden md:pt-48  lg:pb-[163px]">
         <Container>
           <Breadcumbs pathname={location.pathname} className="mb-12" />
@@ -36,6 +38,7 @@ const ShopifyProductTemaplate = ({
               className="md:mr-[42px]"
             />
             <ShopifyProductDescription
+              storefrontId={storefrontId}
               featuredImage={featuredImage}
               title={title}
               description={description}
@@ -61,6 +64,7 @@ export default ShopifyProductTemaplate
 export const query = graphql`
   query ShopifyProduct($handle: String!) {
     shopifyProduct(handle: { eq: $handle }) {
+      storefrontId
       title
       tags
       description
@@ -80,6 +84,7 @@ export const query = graphql`
         altText
       }
       variants {
+        storefrontId
         id
         title
         price

@@ -1,14 +1,16 @@
-import React, { Fragment } from "react"
+import React, { useState, useEffect, Fragment } from "react"
 import { Link } from "gatsby"
 import { useSelector } from "react-redux"
+import Client from "shopify-buy"
 
 import Layout from "../components/Layout"
 import { Main, Container } from "../components/UI"
 import CartProductList from "../components/CartProductList"
 
 const CartPage = () => {
+  const [checkout, setCheckout] = useState(null)
   const { cartReducer: cart } = useSelector(state => state)
-  console.log("Cart is ", cart)
+  console.log(cart)
 
   function totalPriceOfProducts(products) {
     let price = 0
@@ -18,6 +20,29 @@ const CartPage = () => {
     })
     return price
   }
+
+  // Creating Client For Shopify
+  const shopifyClient = Client.buildClient({
+    domain: "mysweetliberty.myshopify.com",
+    storefrontAccessToken: "653d33ca27f33d7ccf395d8fb6f8bb5e",
+  })
+
+  useEffect(() => {
+    console.log("Cart Updated | Re-Run")
+    const lineItemToAdd = cart.products.map(item => {
+      console.log("I ", item)
+      const l_item = { variantId: item.storefrontId, quantity: item.quantity }
+      return l_item
+    })
+    shopifyClient.checkout.create().then(checkout => {
+      shopifyClient.checkout
+        .addLineItems(checkout.id, lineItemToAdd)
+        .then(checkout => {
+          console.log("Checkout is ", checkout)
+          setCheckout(checkout)
+        })
+    })
+  }, [cart])
 
   return (
     <Layout smallLogo>
@@ -49,12 +74,9 @@ const CartPage = () => {
                 ))}
               </div>
               <div className="flex justify-between items-center  mb-10">
-                <Link
-                  to="/checkout"
-                  className="bg-brandPink text-white font-bebas text-[21px] leading-[28px] py-[14px] px-[40px] rounded"
-                >
+                <button className="bg-brandPink text-white font-bebas text-[21px] leading-[28px] py-[14px] px-[40px] rounded">
                   Checkout
-                </Link>
+                </button>
                 <span className="font-bebas text-brandDark text-lg">
                   Sub Total <span>${totalPriceOfProducts(cart.products)}</span>
                 </span>
