@@ -33,18 +33,18 @@ const Nav = ({ hours, modal, location }) => {
     setSubMenu(false)
   }, [location])
 
-  useEffect(() => {
-    window.SevenroomsWidget.init({
-      venueId: "mysweetliberty",
-      triggerId: ["sr-res-navbutton"],
-      type: "reservations",
-    })
-    window.SevenroomsWidget.init({
-      venueId: "mysweetliberty",
-      triggerId: ["sr-res-navbutton_2"],
-      type: "reservations",
-    })
-  })
+  // useEffect(() => {
+  //   window.SevenroomsWidget.init({
+  //     venueId: "mysweetliberty",
+  //     triggerId: ["sr-res-navbutton"],
+  //     type: "reservations",
+  //   })
+  //   window.SevenroomsWidget.init({
+  //     venueId: "mysweetliberty",
+  //     triggerId: ["sr-res-navbutton_2"],
+  //     type: "reservations",
+  //   })
+  // })
 
   return (
     <div
