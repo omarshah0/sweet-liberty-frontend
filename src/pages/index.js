@@ -20,9 +20,7 @@ const StylishPursue = lazy(() => import("../components/StylishPursue"))
 
 const BookingSection = lazy(() => import("../components/BookingSection"))
 
-const NewsEvents = lazy(() => import("../components/NewEvents"), {
-  fallback: <p>News and Events</p>,
-})
+const NewsEvents = lazy(() => import("../components/NewEvents"))
 
 const DoGoodWork = lazy(() => import("../components/DoGoodWork"))
 
