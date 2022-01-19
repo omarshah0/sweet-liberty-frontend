@@ -39,24 +39,9 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   useEffect(() => {
     window.SevenroomsWidget.init({
       venueId: "mysweetliberty",
-      triggerId: "sr-res-root",
+      triggerId: ["sr-res-root"],
       type: "reservations",
     })
-    //   window.SevenroomsWidget.init({
-    //     venueId: "mysweetliberty",
-    //     triggerId: "sr-res-bookingbutton",
-    //     type: "reservations",
-    //   })
-    //   window.SevenroomsWidget.init({
-    //     venueId: "mysweetliberty",
-    //     triggerId: ["sr-res-navbutton"],
-    //     type: "reservations",
-    //   })
-    //   window.SevenroomsWidget.init({
-    //     venueId: "mysweetliberty",
-    //     triggerId: ["sr-res-navbutton_2"],
-    //     type: "reservations",
-    //   })
   })
 
   return (
@@ -85,18 +70,14 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         >
           <MerchSection products={allShopifyProduct.nodes} />
         </Suspense>
-        <div className="bg-black">
-          <Suspense
-            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-          >
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
+          <div className="bg-black">
             <StylishPursue />
-          </Suspense>
-          <Suspense
-            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-          >
             <BookingSection openModal={bookTripleSeatHandler} />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
         >
