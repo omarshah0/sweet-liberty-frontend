@@ -21,6 +21,7 @@ const Hero2 = () => {
               alt="Sweet Liberty"
               placeholder="blurred"
               className="w-full h-full"
+              loading="eager"
             />
           </motion.div>
           <div className="relative">

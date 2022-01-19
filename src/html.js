@@ -38,6 +38,7 @@ export default function HTML(props) {
               letterSpacing: "1em",
               fontWeight: "bold",
               textTransform: "uppercase",
+              textAlign: "center",
             }}
           >
             Pursuing Happiness
