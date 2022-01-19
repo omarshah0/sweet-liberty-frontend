@@ -1,14 +1,14 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { BookingCard } from "../UI"
 
 const BookingSection = ({ openModal }) => {
-  useEffect(() => {
-    window.SevenroomsWidget.init({
-      venueId: "mysweetliberty",
-      triggerId: ["sr-res-bookingbutton"],
-      type: "reservations",
-    })
-  })
+  // useEffect(() => {
+  //   window.SevenroomsWidget.init({
+  //     venueId: "mysweetliberty",
+  //     triggerId: ["sr-res-bookingbutton"],
+  //     type: "reservations",
+  //   })
+  // })
   return (
     <section className="bg-black pb-36 transform -mt-12 relative">
       <div className="md:px-32">
