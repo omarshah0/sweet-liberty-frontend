@@ -41,9 +41,24 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   useEffect(() => {
     window.SevenroomsWidget.init({
       venueId: "mysweetliberty",
-      triggerId: ["sr-res-root"],
+      triggerId: "sr-res-root",
       type: "reservations",
     })
+    //   window.SevenroomsWidget.init({
+    //     venueId: "mysweetliberty",
+    //     triggerId: "sr-res-bookingbutton",
+    //     type: "reservations",
+    //   })
+    //   window.SevenroomsWidget.init({
+    //     venueId: "mysweetliberty",
+    //     triggerId: ["sr-res-navbutton"],
+    //     type: "reservations",
+    //   })
+    //   window.SevenroomsWidget.init({
+    //     venueId: "mysweetliberty",
+    //     triggerId: ["sr-res-navbutton_2"],
+    //     type: "reservations",
+    //   })
   })
 
   return (
