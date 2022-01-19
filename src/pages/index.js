@@ -87,14 +87,18 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         >
           <MerchSection products={allShopifyProduct.nodes} />
         </Suspense>
-        <Suspense
-          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <div className="bg-black">
+        <div className="bg-black">
+          <Suspense
+            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+          >
             <StylishPursue />
+          </Suspense>
+          <Suspense
+            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+          >
             <BookingSection openModal={bookTripleSeatHandler} />
-          </div>
-        </Suspense>
+          </Suspense>
+        </div>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
         >
