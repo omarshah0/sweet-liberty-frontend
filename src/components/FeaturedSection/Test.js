@@ -4,6 +4,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import "./styles.css"
 
 function Test() {
+  function handleResize() {
+    ScrollTrigger.refresh(true)
+  }
   gsap.registerPlugin(ScrollTrigger)
   useEffect(() => {
     var tl = gsap.timeline({ defaults: { ease: "none" } })
@@ -12,7 +15,7 @@ function Test() {
       pin: true,
       scrub: true,
       start: "top top",
-      end: 10000,
+      end: () => window.innerWidth * 6,
       snap: {
         snapTo: [0, 0.5, 1],
         delay: 0,
@@ -137,6 +140,9 @@ function Test() {
         { backgroundPosition: "0px 50%", repeat: 1, ease: "steps(35)" },
         "miami"
       )
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   })
 
   return (
