@@ -14,6 +14,7 @@ const FeaturedSection = lazy(() => import("../components/FeaturedSection"))
 const MenuBanner = lazy(() => import("../components/MenuBanner"))
 
 const MerchSection = lazy(() => import("../components/MerchSection"))
+
 const MiamiIsShit = lazy(() => import("../components/MiamiIsShit"))
 
 const StylishPursue = lazy(() => import("../components/StylishPursue"))
@@ -71,18 +72,14 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
           <MerchSection products={allShopifyProduct.nodes} />
         </Suspense>
 
-        <div className="bg-black">
-          <Suspense
-            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-          >
+        <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        >
+          <div className="bg-black">
             <StylishPursue />
-          </Suspense>
-          <Suspense
-            fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-          >
             <BookingSection openModal={bookTripleSeatHandler} />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
         >
