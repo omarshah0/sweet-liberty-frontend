@@ -1,2 +1,2 @@
-import FeaturedSection from "./Test"
+import FeaturedSection from "./FeaturedSection"
 export default FeaturedSection
