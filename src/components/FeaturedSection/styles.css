@@ -4,6 +4,26 @@
   width: 100%;
   height: 100vh;
 }
+.featured-coctail-section::after {
+  position: absolute;
+  content: "";
+  background-color: #257972;
+  width: 100%;
+  height: 41px;
+}
+.featured-coctail-section::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  background-image: url("assets/header_bg.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 150px;
+  width: 100%;
+  z-index: 1111;
+}
 
 .featured-anim-banner,
 .featured-anim-container {
@@ -128,7 +148,7 @@
   position: absolute;
   left: 130px;
   top: 66px;
-  top: 10%;
+  top: 15%;
   font-size: 96px;
   line-height: 1;
 }
@@ -413,6 +433,13 @@
 }
 
 @media (max-width: 575.98px) {
+  .featured-coctail-section::after {
+    height: 0;
+  }
+  .featured-coctail-section::before {
+    top: 0;
+  }
+
   .featured-anim-content {
     width: 100vw;
     max-height: 100vh;

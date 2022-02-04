@@ -44,7 +44,7 @@ const Nav = ({ hours, modal, location }) => {
       triggerId: ["sr-res-navbutton_2"],
       type: "reservations",
     })
-  })
+  }, [])
 
   return (
     <div
