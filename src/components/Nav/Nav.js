@@ -39,11 +39,6 @@ const Nav = ({ hours, modal, location }) => {
       triggerId: ["sr-res-navbutton"],
       type: "reservations",
     })
-    window.SevenroomsWidget.init({
-      venueId: "mysweetliberty",
-      triggerId: ["sr-res-navbutton_2"],
-      type: "reservations",
-    })
   }, [])
 
   return (
@@ -81,7 +76,7 @@ const Nav = ({ hours, modal, location }) => {
           {!subMenu ? (
             <ul>
               <li>
-                <NavLink title="About" url="/" />
+                <NavLink title="About" url="#about" />
               </li>
               <li>
                 <NavLinkButton title="Menus" onClick={() => setSubMenu(true)} />
@@ -89,14 +84,14 @@ const Nav = ({ hours, modal, location }) => {
               <li>
                 <NavLink title="Shop" url="/shop" />
               </li>
-              <li id="sr-res-navbutton_2" className="cursor-pointer">
-                <NavLink title="Book Now" />
+              <li className="cursor-pointer">
+                <NavLink title="Book Now" url="#booking" />
               </li>
               <li>
                 <NavLink title="Happenings" url="/blog" />
               </li>
               <li>
-                <NavLink title="Contact" url="/" />
+                <NavLink title="Contact" url="#contact" />
               </li>
             </ul>
           ) : (

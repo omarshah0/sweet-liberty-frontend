@@ -55,49 +55,49 @@ exports.createPages = async ({ graphql, actions }) => {
   const menus = resquestMenu.data.allDatoCmsMenu.nodes
 
   // Fetching All Shopify Products
-  const requestShopifyProducts = await graphql(`
-    query fetchShopifyProducts {
-      allShopifyProduct {
-        nodes {
-          title
-          handle
-          tags
-          featuredImage {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-            altText
-          }
-          priceRangeV2 {
-            minVariantPrice {
-              amount
-            }
-          }
-          hasOnlyDefaultVariant
-          variants {
-            id
-            shopifyId
-            title
-            price
-            image {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-              altText
-            }
-            legacyResourceId
-            inventoryQuantity
-          }
-        }
-      }
-    }
-  `)
+  // const requestShopifyProducts = await graphql(`
+  //   query fetchShopifyProducts {
+  //     allShopifyProduct {
+  //       nodes {
+  //         title
+  //         handle
+  //         tags
+  //         featuredImage {
+  //           localFile {
+  //             childImageSharp {
+  //               gatsbyImageData
+  //             }
+  //           }
+  //           altText
+  //         }
+  //         priceRangeV2 {
+  //           minVariantPrice {
+  //             amount
+  //           }
+  //         }
+  //         hasOnlyDefaultVariant
+  //         variants {
+  //           id
+  //           shopifyId
+  //           title
+  //           price
+  //           image {
+  //             localFile {
+  //               childImageSharp {
+  //                 gatsbyImageData
+  //               }
+  //             }
+  //             altText
+  //           }
+  //           legacyResourceId
+  //           inventoryQuantity
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  const shopifyProducts = requestShopifyProducts.data.allShopifyProduct.nodes
+  // const shopifyProducts = requestShopifyProducts.data.allShopifyProduct.nodes
 
   // ---------------------------------------- CONTENTFUL BLOG SECTION ---------------------------------------- //
 
@@ -138,31 +138,31 @@ exports.createPages = async ({ graphql, actions }) => {
   // ---------------------------------------- SHOPIFY SECTION ---------------------------------------- //
 
   // Creating All Shopify Products with Pagination - Change itemsPerPage to control Products Per Page
-  paginate({
-    createPage,
-    items: shopifyProducts,
-    itemsPerPage: 6,
-    pathPrefix: "/shop",
-    component: allShopifyProductsTemplate,
-  })
+  // paginate({
+  //   createPage,
+  //   items: shopifyProducts,
+  //   itemsPerPage: 6,
+  //   pathPrefix: "/shop",
+  //   component: allShopifyProductsTemplate,
+  // })
 
   //Creating Single Shopify Product Page
-  shopifyProducts.map(product => {
-    const normalizedVariants =
-      !product.hasOnlyDefaultVariant && shopifyVariants(product.variants)
-    const relatedArticles = createRelatedArticles(
-      shopifyProducts,
-      product.tags,
-      product.handle
-    )
-    createPage({
-      component: shopifyProductPage,
-      path: `/shop/${product.handle}`,
-      context: {
-        handle: product.handle,
-        normalizedVariants: normalizedVariants,
-        relatedArticles: relatedArticles,
-      },
-    })
-  })
+  // shopifyProducts.map(product => {
+  //   const normalizedVariants =
+  //     !product.hasOnlyDefaultVariant && shopifyVariants(product.variants)
+  //   const relatedArticles = createRelatedArticles(
+  //     shopifyProducts,
+  //     product.tags,
+  //     product.handle
+  //   )
+  //   createPage({
+  //     component: shopifyProductPage,
+  //     path: `/shop/${product.handle}`,
+  //     context: {
+  //       handle: product.handle,
+  //       normalizedVariants: normalizedVariants,
+  //       relatedArticles: relatedArticles,
+  //     },
+  //   })
+  // })
 }

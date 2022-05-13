@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react"
+import SimpleBar from "simplebar-react"
 import DatePicker from "react-datepicker"
 
 const TripleSeatModa = ({ isModelOpen, closeModal }) => {
   const [data, setData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    company: "",
-    nature_of_event: "",
+    first_name: "Omar",
+    last_name: "Shah",
+    email: "oemyoem55@gmail.com",
+    phone_number: "09078601",
+    company: "SoloShah",
+    nature_of_event: "Office Party",
     event_date: new Date(),
     time_of_event: {
       start_time: "",
       end_time: "",
     },
-    number_of_peoples: "",
-    additional_note: "",
+    number_of_peoples: "16",
+    additional_note: "Lullar",
   })
 
   const changeHandler = e => {
@@ -43,8 +44,8 @@ const TripleSeatModa = ({ isModelOpen, closeModal }) => {
 
   return (
     isModelOpen && (
-      <div className="fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-black/70 grid place-items-center px-4 py-8">
-        <div className="text-brandDark bg-white p-6 rounded-lg h-full md:h-auto overflow-scroll md:max-w-[640px] md:mx-auto">
+      <div className="fixed inset-0 z-[9999999] bg-black/70 grid place-items-center p-4 md:p-6 overflow-y-scroll">
+        <div className="text-brandDark bg-white p-6 rounded-lg md:max-w-[640px]">
           <h2 className="text-lg leading-6 font-medium mb-1">
             The Perfect Spot
           </h2>

@@ -37,7 +37,7 @@ const PursuingExcellence = () => {
   }
 
   return (
-    <section className="relative pb-60 md:pb-64">
+    <section className="relative pb-60 md:pb-64" id="about">
       <div className="">
         <div className="absolute top-[-230px] left-0 pointer-events-none">
           <StaticImage

@@ -2,7 +2,7 @@ import React from "react"
 
 import { Container, FormButton, Contact, Address, Hours } from "../UI"
 
-const FooterPrimary = ({ hours }) => {
+const FooterPrimary = ({ hours, openModal }) => {
   return (
     <div className="py-16 bg-brandDark">
       <Container>
@@ -19,7 +19,7 @@ const FooterPrimary = ({ hours }) => {
             <h4 className="text-brandLight font-redHatDisplay font-bold text-xl mb-4">
               For large parties (8+)
             </h4>
-            <FormButton to="#">Fill in Form</FormButton>
+            <FormButton onClick={openModal}>Fill in Form</FormButton>
           </div>
           <div className="footer__social font-redHatDisplay font-bold text-socialLink">
             <a

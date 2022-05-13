@@ -1,9 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const FormButton = props => {
   return (
-    <Link
+    <button
       {...props}
       className={`bg-brandPink pl-6 pr-16 py-3 ${
         props.font ? props.font : "font-frankRuhlLibre text-white text-xl"
@@ -36,7 +36,7 @@ const FormButton = props => {
           />
         </svg>
       </div>
-    </Link>
+    </button>
   )
 }
 

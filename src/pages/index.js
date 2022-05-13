@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react"
-import { graphql } from "gatsby"
+// import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 import Seo from "../components/SEO"
@@ -13,7 +13,7 @@ const FeaturedSection = lazy(() => import("../components/FeaturedSection"))
 
 const MenuBanner = lazy(() => import("../components/MenuBanner"))
 
-const MerchSection = lazy(() => import("../components/MerchSection"))
+// const MerchSection = lazy(() => import("../components/MerchSection"))
 
 const MiamiIsShit = lazy(() => import("../components/MiamiIsShit"))
 
@@ -31,10 +31,23 @@ const TripleSeatModal = lazy(() =>
   import("../components/Modals/TripleSeatModa")
 )
 
-const HomePage = ({ data: { allShopifyProduct } }) => {
+// const HomePage = ({ data: { allShopifyProduct } }) => {
+const HomePage = () => {
   const [tripleSeatModal, setTripleSeatModal] = useState(false)
   const bookTripleSeatHandler = () => {
-    setTripleSeatModal(!tripleSeatModal)
+    // setTripleSeatModal(!tripleSeatModal)
+
+    if (!tripleSeatModal) {
+      //No Scrolling When Modal is Opened
+      document.body.style.overflow = "hidden"
+      setTripleSeatModal(true)
+    }
+    if (tripleSeatModal) {
+      //Scrolling When Modal is Opened
+      document.body.style.overflow = "auto"
+
+      setTripleSeatModal(false)
+    }
   }
 
   useEffect(() => {
@@ -46,7 +59,7 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   })
 
   return (
-    <Layout isDark isHomepage>
+    <Layout isDark isHomepage openModal={bookTripleSeatHandler}>
       <Seo title="Sweet Liberty By Glass Full" />
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
@@ -66,11 +79,11 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
         >
           <MiamiIsShit />
         </Suspense>
-        <Suspense
+        {/* <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
         >
           <MerchSection products={allShopifyProduct.nodes} />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
@@ -107,28 +120,28 @@ const HomePage = ({ data: { allShopifyProduct } }) => {
   )
 }
 
-export const query = graphql`
-  {
-    allShopifyProduct(limit: 3, sort: { order: DESC, fields: createdAt }) {
-      nodes {
-        title
-        handle
-        priceRangeV2 {
-          minVariantPrice {
-            amount
-          }
-        }
-        featuredImage {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          altText
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   {
+//     allShopifyProduct(limit: 3, sort: { order: DESC, fields: createdAt }) {
+//       nodes {
+//         title
+//         handle
+//         priceRangeV2 {
+//           minVariantPrice {
+//             amount
+//           }
+//         }
+//         featuredImage {
+//           localFile {
+//             childImageSharp {
+//               gatsbyImageData
+//             }
+//           }
+//           altText
+//         }
+//       }
+//     }
+//   }
+// `
 
 export default HomePage

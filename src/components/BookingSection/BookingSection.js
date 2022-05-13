@@ -10,7 +10,7 @@ const BookingSection = ({ openModal }) => {
     })
   })
   return (
-    <section className="bg-black pb-36 transform -mt-12 relative">
+    <section className="bg-black pb-36 transform -mt-12 relative" id="booking">
       <div className="md:px-32">
         <BookingCard
           title="Book A Party"

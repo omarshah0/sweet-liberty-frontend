@@ -4,10 +4,10 @@ import FooterPrimary from "./FooterPrimary"
 import FooterSecondary from "./FooterSecondary"
 import "./footerStyle.css"
 
-const Footer = ({ hours }) => {
+const Footer = ({ hours, openModal }) => {
   return (
-    <footer>
-      <FooterPrimary hours={hours} />
+    <footer id="contact">
+      <FooterPrimary hours={hours} openModal={openModal} />
       <FooterSecondary />
     </footer>
   )
