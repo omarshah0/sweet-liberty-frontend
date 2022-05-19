@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import SimpleBar from "simplebar-react"
+import React, { useState } from "react"
+import axios from "axios"
 import DatePicker from "react-datepicker"
 
 const TripleSeatModa = ({ isModelOpen, closeModal }) => {
@@ -34,13 +34,22 @@ const TripleSeatModa = ({ isModelOpen, closeModal }) => {
     })
   }
 
-  const formSumbitHandler = e => {
+  const formSumbitHandler = async e => {
     e.preventDefault()
+    try {
+      const req = await axios("/.netlify/functions/tripleSeat", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: { id: "Omar" },
+      })
+      console.log("Req us ", req)
+      return req
+    } catch (e) {
+      return e
+    }
   }
-
-  useEffect(() => {
-    console.log("Data is ", data)
-  }, [data])
 
   return (
     isModelOpen && (
