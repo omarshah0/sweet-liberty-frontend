@@ -7,28 +7,29 @@ const secret = "Whi75ecjWEj7tA6h8nL4JymDcZVzBM8mcKD28cWc"
 
 exports.handler = async (event, context) => {
   const booking = {
-    id: 333,
-    name: "OMAR-API",
-    customer_id: null,
-    site_id: null,
-    location_id: null,
+    id: 9217,
+    name: "OMAR-API-CONFIG",
+    start_date: "05-16-2023",
+    end_date: "05-17-2023",
+    status: "PROSPECT",
+    customer_id: 5253,
+    account_id: 8247996,
+    site_id: 5676,
+    location_id: 9217,
   }
 
   try {
-    const url = `https://api.tripleseat.com/v1/bookings.json?booking=${JSON.stringify(
-      booking
-    )}`
-
-    console.log("URL IS ", url)
+    const url = "https://api.tripleseat.com/v1/bookings.json"
 
     const request_data = {
       url: url,
       method: "POST",
+      body: booking,
     }
     const res = await doRequest(request_data)
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: res }),
+      body: JSON.stringify({ message: JSON.parse(res) }),
     }
   } catch (e) {
     return {
@@ -50,11 +51,13 @@ function doRequest(request_data) {
     },
   })
   return new Promise(function (resolve, reject) {
+    const auth = tripleseat.toHeader(tripleseat.authorize(request_data))
     request(
       {
         url: request_data.url,
         method: request_data.method,
-        headers: tripleseat.toHeader(tripleseat.authorize(request_data)),
+        body: JSON.stringify(request_data.body),
+        headers: { ...auth, "Content-Type": "application/json" },
       },
       function (err, res, event) {
         if (err) {
