@@ -40,6 +40,7 @@
     "gatsby-source-strapi": "^1.0.2",
     "gatsby-transformer-sharp": "^4.5.0",
     "gsap": "^3.8.0",
+    "jsonp": "^0.2.1",
     "oauth-1.0a": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^18.1.0",
@@ -58,6 +59,7 @@
     "request": "^2.88.2",
     "shopify-api-node": "^3.8.0",
     "shopify-buy": "^2.14.0",
+    "simple-jsonp-promise": "^1.1.0",
     "simplebar-react": "^2.3.7",
     "styled-components": "^5.3.1"
   },

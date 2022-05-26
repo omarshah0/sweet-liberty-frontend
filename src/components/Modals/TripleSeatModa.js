@@ -4,19 +4,19 @@ import DatePicker from "react-datepicker"
 
 const TripleSeatModa = ({ isModelOpen, closeModal }) => {
   const [data, setData] = useState({
-    first_name: "Omar",
-    last_name: "Shah",
-    email: "oemyoem55@gmail.com",
-    phone_number: "09078601",
-    company: "SoloShah",
-    nature_of_event: "Office Party",
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
+    company: "",
+    nature_of_event: "",
     event_date: new Date(),
     time_of_event: {
       start_time: "",
       end_time: "",
     },
-    number_of_peoples: "16",
-    additional_note: "Lullar",
+    number_of_peoples: 0,
+    additional_note: "",
   })
 
   const changeHandler = e => {
@@ -37,14 +37,28 @@ const TripleSeatModa = ({ isModelOpen, closeModal }) => {
   const formSumbitHandler = async e => {
     e.preventDefault()
     try {
+      const r = data.event_date.toISOString().substring(0, 10)
+      const s = r.split("-")
+      const date = `${s[1]}/${s[2]}/${s[0]}`
       const req = await axios("/.netlify/functions/tripleSeat", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
-        data: { id: "Omar" },
+        data: {
+          lead: {
+            first_name: data.first_name,
+            last_name: data.last_name,
+            email_address: data.email,
+            phone_number: data.phone_number,
+            event_date: date,
+            guest_count: data.number_of_peoples,
+            company: data.company,
+            additional_information: data.additional_note,
+            event_description: data.nature_of_event,
+          },
+        },
       })
-      console.log("Req us ", req)
       return req
     } catch (e) {
       return e
@@ -184,7 +198,7 @@ const TripleSeatModa = ({ isModelOpen, closeModal }) => {
             <div className="mb-2 md:mb-4 md:flex items-center justify-between">
               <Label>Number of people*</Label>
               <InputField
-                type="text"
+                type="number"
                 name="number_of_peoples"
                 value={data.number_of_peoples}
                 onChange={changeHandler}
@@ -247,6 +261,7 @@ const SubmitButton = ({ className }) => {
 const CancelButton = ({ onClick, className }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`${className} p-[9px] text-brandDark border-[1px] border-gray-300 text-sm leading-5 font-medium rounded-md shadow-sm w-full`}
     >
