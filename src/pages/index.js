@@ -33,7 +33,7 @@ const TripleSeatModal = lazy(() =>
 
 // const HomePage = ({ data: { allShopifyProduct } }) => {
 const HomePage = () => {
-  const [tripleSeatModal, setTripleSeatModal] = useState(true)
+  const [tripleSeatModal, setTripleSeatModal] = useState(false)
   const bookTripleSeatHandler = () => {
     // setTripleSeatModal(!tripleSeatModal)
 
