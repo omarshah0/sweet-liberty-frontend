@@ -82,7 +82,10 @@ const Nav = ({ hours, modal, location }) => {
                 <NavLinkButton title="Menus" onClick={() => setSubMenu(true)} />
               </li>
               <li>
-                <NavLink title="Shop" url="/shop" />
+                <NavLink title="Shop ." url="" />
+                <span className="ml-4">
+                  <NavLink title="Coming Soon" url="" small />
+                </span>
               </li>
               <li className="cursor-pointer">
                 <NavLink title="Book Now" url="#booking" />

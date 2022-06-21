@@ -25,7 +25,7 @@ const MenuBanner = () => {
     <section className="bg-brandLight xl:pt-36 pb-12">
       {/* ----------------------------This is Block One----------------------------- */}
       <Link to="/menu/food" className="block mb-0 overflow-hidden">
-        <Marquee gradient={false} direction="left" pauseOnHover speed={50}>
+        <Marquee gradient={false} direction="left" pauseOnHover speed={30}>
           <StaticImage
             src="../../assets/MenuBanner/banner-cocktail-glass.png"
             alt="The Miami Martini"
@@ -48,7 +48,7 @@ const MenuBanner = () => {
       </Link>
       {/* ----------------------------This is Block Two----------------------------- */}
       <Link to="/menu/food" className="block mb-0 overflow-hidden">
-        <Marquee gradient={false} direction="right" pauseOnHover speed={50}>
+        <Marquee gradient={false} direction="right" pauseOnHover speed={30}>
           <StaticImage
             src="../../assets/MenuBanner/buns-of-liberty-burger.png"
             alt="Buns of Liberty"
@@ -71,7 +71,7 @@ const MenuBanner = () => {
       </Link>
       {/* ----------------------------This is Block Three----------------------------- */}
       <Link to="/menu/brunch" className="block mb-0">
-        <Marquee gradient={false} direction="left" pauseOnHover speed={50}>
+        <Marquee gradient={false} direction="left" pauseOnHover speed={30}>
           <StaticImage
             src="../../assets/MenuBanner/eggs.png"
             alt="Brunch Eggs"
@@ -94,7 +94,7 @@ const MenuBanner = () => {
       </Link>
       {/* ----------------------------This is Block Four----------------------------- */}
       <Link to="/menu/happy-hour" className="block mb-0">
-        <Marquee gradient={false} direction="right" pauseOnHover speed={50}>
+        <Marquee gradient={false} direction="right" pauseOnHover speed={30}>
           <StaticImage
             src="../../assets/MenuBanner/sweet-liberty-drink.png"
             alt="Buns of Liberty"

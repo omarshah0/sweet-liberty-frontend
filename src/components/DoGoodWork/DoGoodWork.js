@@ -50,18 +50,19 @@ const DoGoodWork = () => {
         </InView>
         <div className="pr-6 md:pr-10 lg:pr-36 max-w-screen-2xl mx-auto mt-[195px]">
           <div className="mb-[60px]">
-            <Link
-              to="/work"
+            <a
+              href="https://pursuehappinessfoundation.com/"
+              target="_blank"
               className="block font-frankRuhlLibre font-bold text-brandLight text-6xl mt-auto text-center"
             >
               Do Good Work{" "}
               <span className="w-16 h-16 font-cantataOne rounded-full inline-grid place-items-center border-4 border-brandLight text-brandLight text-5xl mr-1">
                 <span className="relative left-1 bottom-1">{">"}</span>
               </span>
-            </Link>
+            </a>
           </div>
         </div>
-        <div className="absolute top-20 lg:top-0 right-0">
+        <div className="absolute top-20 lg:top-0 right-0 z-20 md:z-0">
           <StaticImage
             src="../../assets/OpenEveryday/jonathan.png"
             alt="Jonathan Holding US Flag"

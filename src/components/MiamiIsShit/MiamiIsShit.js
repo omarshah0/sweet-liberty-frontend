@@ -33,7 +33,7 @@ const MiamiIsShit = () => {
           </svg>
           <div className="w-[835px] h-[500px] md:w-[525px] md:h-[1075px] lg:w-[835px] lg:h-[1265px]">
             <div className="rotate-[100deg] relative w-[800px] left-[-185px] md:w-[1900px] md:left-[-580px] lg:w-[2060px] lg:left-[-550px]">
-              <Marquee gradient={false} className="mb-8">
+              <Marquee speed={10} gradient={false} className="mb-8">
                 <StaticImage
                   src="../../assets/MiamiIsShit/sweet-liberty-chicken.png"
                   alt="Sweet Liberty Chicken"
@@ -83,7 +83,7 @@ const MiamiIsShit = () => {
                   className="mr-8 h-[138px] w-[175px] md:w-[277px] md:h-[220px] lg:w-[366px] lg:h-[290px]"
                 />
               </Marquee>
-              <Marquee gradient={false} direction="right">
+              <Marquee speed={10} gradient={false} direction="right">
                 <StaticImage
                   src="../../assets/MiamiIsShit/sweet-liberty-new-orange-juice.png"
                   alt="Sweet Liberty Orange Juice"
