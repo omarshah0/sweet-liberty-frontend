@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { Container } from "../UI"
 
@@ -20,17 +20,18 @@ const ShowAndEvents = () => {
         <p className="font-bebas text-[35px] leading-[35px] mb-[25px] md:mb[50px] md:text-[47px] text-brandLight lg:mb-10">
           Every sunday 12:30 PM & 2:30 PM shows
         </p>
-        <a
-          href="http://pursuehappinessfoundation.com"
-          target="_blank"
-          rel="noreferrer"
+        <Link
+          // href="http://pursuehappinessfoundation.com"
+          // target="_blank"
+          // rel="noreferrer"
+          to="/blog"
           className="block font-frankRuhlLibre font-bold text-brandLight text-6xl mt-auto text-center"
         >
           More Events{" "}
           <span className="w-16 h-16 font-cantataOne rounded-full inline-grid place-items-center border-4 border-brandLight text-brandLight text-5xl mr-1">
             <span className="relative left-1 bottom-1">{">"}</span>
           </span>
-        </a>
+        </Link>
       </Container>
     </section>
   )
