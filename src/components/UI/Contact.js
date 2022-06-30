@@ -7,7 +7,7 @@ const Contact = ({ className }) => {
         Contact
       </h3>
       <h4 className="text-white font-redHatDisplay text-med mb-3">
-        <strong>Call:</strong> <a href="tel:05.763.8217">05.763.8217</a>
+        <strong>Call:</strong> <a href="tel:305.763.8217">305.763.8217</a>
       </h4>
       <h4 className="text-white font-redHatDisplay text-med">
         <strong>Email:</strong>{" "}
