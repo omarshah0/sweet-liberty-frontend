@@ -39,6 +39,7 @@ const AllBlogPosts = ({ data, pageContext }) => {
                     title={blog.title}
                     category={blog.category}
                     slug={blog.slug}
+                    thumbnail={blog.heroImage}
                   />
                 ))
               )}
@@ -67,6 +68,7 @@ export const query = graphql`
         }
         heroImage {
           gatsbyImageData
+          title
         }
       }
     }

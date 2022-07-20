@@ -76,7 +76,7 @@ const Nav = ({ hours, modal, location }) => {
           {!subMenu ? (
             <ul>
               <li>
-                <NavLink title="About" url="#about" />
+                <NavLink title="About" url="/#about" />
               </li>
               <li>
                 <NavLinkButton title="Menus" onClick={() => setSubMenu(true)} />
@@ -88,13 +88,13 @@ const Nav = ({ hours, modal, location }) => {
                 </span>
               </li>
               <li className="cursor-pointer">
-                <NavLink title="Book Now" url="#booking" />
+                <NavLink title="Book Now" url="/#booking" />
               </li>
               <li>
                 <NavLink title="Happenings" url="/blog" />
               </li>
               <li>
-                <NavLink title="Contact" url="#contact" />
+                <NavLink title="Contact" url="/#contact" />
               </li>
             </ul>
           ) : (
