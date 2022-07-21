@@ -9,23 +9,23 @@ import PursuingExcellence from "../components/PursuingExcellence"
 import ScrollTop from "../components/ScrollTop"
 import { Main } from "../components/UI"
 
-const FeaturedSection = lazy(() => import("../components/FeaturedSection"))
+import FeaturedSection from "../components/FeaturedSection"
 
-const MenuBanner = lazy(() => import("../components/MenuBanner"))
+import MenuBanner from "../components/MenuBanner"
 
 // const MerchSection = lazy(() => import("../components/MerchSection"))
 
-const MiamiIsShit = lazy(() => import("../components/MiamiIsShit"))
+import MiamiIsShit from "../components/MiamiIsShit"
 
-const StylishPursue = lazy(() => import("../components/StylishPursue"))
+import StylishPursue from "../components/StylishPursue"
 
-const BookingSection = lazy(() => import("../components/BookingSection"))
+import BookingSection from "../components/BookingSection"
 
-const NewsEvents = lazy(() => import("../components/NewEvents"))
+import NewsEvents from "../components/NewEvents"
 
-const DoGoodWork = lazy(() => import("../components/DoGoodWork"))
+import DoGoodWork from "../components/DoGoodWork"
 
-const ShowAndEvents = lazy(() => import("../components/ShowAndEvents"))
+import ShowAndEvents from "../components/ShowAndEvents"
 
 const TripleSeatModal = lazy(() =>
   import("../components/Modals/TripleSeatModa")
@@ -64,50 +64,44 @@ const HomePage = () => {
       <Main className="bg-brandDark overflow-hidden md:pt-48">
         <Hero />
         <PursuingExcellence />
+        <FeaturedSection />
+        <MenuBanner />
+        <MiamiIsShit />
+        <div className="bg-black">
+          <StylishPursue />
+          <BookingSection openModal={bookTripleSeatHandler} />
+        </div>
+        <NewsEvents />
+        <DoGoodWork />
+        <ShowAndEvents />
+
+        {/* <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        ></Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <FeaturedSection />
-        </Suspense>
+        ></Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <MenuBanner />
-        </Suspense>
-        <Suspense
-          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <MiamiIsShit />
-        </Suspense>
+        ></Suspense> */}
         {/* <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
         >
           <MerchSection products={allShopifyProduct.nodes} />
         </Suspense> */}
 
+        {/* <Suspense
+          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
+        ></Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <div className="bg-black">
-            <StylishPursue />
-            <BookingSection openModal={bookTripleSeatHandler} />
-          </div>
-        </Suspense>
+        ></Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <NewsEvents />
-        </Suspense>
+        ></Suspense>
         <Suspense
           fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <DoGoodWork />
-        </Suspense>
-        <Suspense
-          fallback={() => <p style={{ display: "none" }}>Loading...</p>}
-        >
-          <ShowAndEvents />
-        </Suspense>
+        ></Suspense> */}
         <ScrollTop />
       </Main>
       <Suspense fallback={() => <p style={{ display: "none" }}>Loading...</p>}>

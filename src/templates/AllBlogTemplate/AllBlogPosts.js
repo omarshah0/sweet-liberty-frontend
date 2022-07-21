@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../../components/Layout"
+import Seo from "../../components/SEO"
 import BlogCard from "../../components/BlogCard"
 import CategoriesDropDown from "../../components/CategoriesDropDown"
 import { Container, Main, Pagination } from "../../components/UI"
@@ -23,6 +24,7 @@ const AllBlogPosts = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <Seo title="Blogs | Sweet Liberty" description="Blogs By Sweet Liberty" />
       <Main className="bg-brandLight">
         <Container>
           <div className="md:px-8 lg:px-16">

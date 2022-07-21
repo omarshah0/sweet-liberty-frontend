@@ -146,7 +146,7 @@ function Test() {
   })
 
   return (
-    <section className="featured-coctail-section">
+    <section className="featured-coctail-section" id="featured">
       <div className="featured-anim-banner">
         <div className="featured-anim-container">
           <div id="content_colada" className="featured-anim-content">
