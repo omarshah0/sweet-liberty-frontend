@@ -39,7 +39,7 @@ const MenuNav = ({ slug }) => {
           <MenuNavBtn
             title="Spirits List"
             icon={null}
-            slug="https://drive.google.com/file/d/1xQg7bkMT7KLRZyVNc_FU89QU-m5bLiP0/view"
+            slug="https://drive.google.com/file/d/1HB9xlqW6EbeGB05MncORGk6NKJPxL3_c/view"
             outerLink
           />
         </li>
