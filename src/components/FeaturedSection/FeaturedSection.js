@@ -159,16 +159,19 @@ function Test() {
                   <div className="txt-top">OUR PINA</div>
                   <div className="txt-bottom">COCKTAIL</div>
                   <div className="ingredients">
-                    <span>FORDS GIN </span>
+                    <span>PLANTATION PINEAPPLE </span>
                     <span>• </span>
-                    <span>NOILLY PRAT </span>
+                    <span>CRUZAN COCONUT </span>
                     <span>• </span>
-                    <span>SEA SALT </span>
+                    <span>BACARDI CUATRO </span>
                     <span>• </span>
-                    <br />
-                    <span>BLUE </span>
+                    <span>FRESH PINEAPPLE </span>
                     <span>• </span>
-                    <span>LEMON GAS EXPLOSION</span>
+                    <span>COCONUT CREAM </span>
+                    <span>• </span>
+                    <span>JAMAICAN COFFEE </span>
+                    <span>• </span>
+                    <span>PEDRO XIMENEZ</span>
                   </div>
                 </div>
                 <div className="coctail"></div>
@@ -185,19 +188,19 @@ function Test() {
                   <div className="txt-top">BLUE</div>
                   <div className="txt-bottom">COCKTAIL</div>
                   <div className="ingredients">
-                    <span>PLANTATION PINEAPPLE </span>
+                    <span>PLANTATION 3 STAR </span>
                     <span>• </span>
-                    <span>CRUZAN COCONUT </span>
+                    <span>CLAIRIN RUM </span>
                     <span>• </span>
-                    <span>BACARDI CUATRO </span>
+                    <span>BACARDI FALERNUM </span>
                     <span>• </span>
-                    <span>FRESH PINEAPPLE </span>
+                    <span>ABSINTHE </span>
                     <span>• </span>
-                    <span>COCONUT CREAM </span>
+                    <span>CINNAMON </span>
                     <span>• </span>
-                    <span>JAMAICAN COFFEE </span>
+                    <span>PRESSED LIME & GRAPEFRUIT </span>
                     <span>• </span>
-                    <span>PEDRO XIMENEZ</span>
+                    <span>BLUE</span>
                   </div>
                 </div>
                 <div className="coctail"></div>
