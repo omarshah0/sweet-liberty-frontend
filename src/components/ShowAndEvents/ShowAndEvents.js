@@ -18,7 +18,7 @@ const ShowAndEvents = () => {
           Fruit cock tail drag show
         </h2>
         <p className="font-bebas text-[35px] leading-[35px] mb-[25px] md:mb[50px] md:text-[47px] text-brandLight lg:mb-10">
-          Every sunday 12:30 PM & 2:30 PM shows
+          First sunday 12:30 PM & 2:30 PM shows
         </p>
         <Link
           // href="http://pursuehappinessfoundation.com"

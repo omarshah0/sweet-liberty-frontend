@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import { InView } from "react-intersection-observer"
@@ -53,6 +53,7 @@ const DoGoodWork = () => {
             <a
               href="https://pursuehappinessfoundation.com/"
               target="_blank"
+              rel="noreferrer"
               className="block font-frankRuhlLibre font-bold text-brandLight text-6xl mt-auto text-center"
             >
               Do Good Work{" "}

@@ -185,19 +185,19 @@ function Test() {
                   <div className="txt-top">BLUE</div>
                   <div className="txt-bottom">COCKTAIL</div>
                   <div className="ingredients">
-                    <span>PLANTATION 3 STAR </span>
+                    <span>PLANTATION PINEAPPLE </span>
                     <span>• </span>
-                    <span>CLAIRIN RUM </span>
+                    <span>CRUZAN COCONUT </span>
                     <span>• </span>
-                    <span>BACARDI FALERNUM </span>
+                    <span>BACARDI CUATRO </span>
                     <span>• </span>
-                    <span>ABSINTHE </span>
+                    <span>FRESH PINEAPPLE </span>
                     <span>• </span>
-                    <span>CINNAMON </span>
+                    <span>COCONUT CREAM </span>
                     <span>• </span>
-                    <span>PRESSED LIME & GRAPEFRUIT </span>
+                    <span>JAMAICAN COFFEE </span>
                     <span>• </span>
-                    <span>BLUE</span>
+                    <span>PEDRO XIMENEZ</span>
                   </div>
                 </div>
                 <div className="coctail"></div>

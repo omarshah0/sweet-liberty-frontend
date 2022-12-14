@@ -14,7 +14,7 @@ const CartPage = () => {
     let price = 0
     products.map(p => {
       const int = parseFloat(p.price) * p.quantity
-      price += int
+      return (price += int)
     })
     return price
   }
