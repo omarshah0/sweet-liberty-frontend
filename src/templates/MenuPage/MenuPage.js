@@ -43,7 +43,7 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
         smallLogo
       >
         <Main
-          backgroundColor={datoCmsMenu.backgroundColor.hex}
+          backgroundColor={datoCmsMenu.backgroundColor?.hex || "#111827"}
           className={`page__${datoCmsMenu.slug}`}
         >
           <div className="hidden md:flex absolute top-0 left-0 right-0 justify-between items-start pointer-events-none">
