@@ -16,6 +16,7 @@ import {
 } from "../../components/UI"
 
 const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
+  console.log("All ", datoCmsMenu)
   const [modal, setModal] = useState({ show: false, image: null })
 
   const foodMenuClickHandler = image => {
@@ -81,7 +82,7 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
             {datoCmsMenu.secondMenuTitle && (
               <MenuTitle
                 title={datoCmsMenu.secondMenuTitle}
-                className="mb-14"
+                className="mb-14 mt-16"
               />
             )}
             {datoCmsMenu.dealBoxSecondMenu[0] && (
@@ -90,7 +91,7 @@ const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
                 data={datoCmsMenu.dealBoxSecondMenu[0]}
               />
             )}
-            {datoCmsMenu.SecondMenu && (
+            {datoCmsMenu.secondMenu && (
               <MenuItemCard
                 data={datoCmsMenu.secondMenu}
                 stylingSlug={datoCmsMenu.slug}
