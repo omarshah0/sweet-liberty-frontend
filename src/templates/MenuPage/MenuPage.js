@@ -16,6 +16,7 @@ import {
 } from "../../components/UI"
 
 const MenuPage = ({ data: { datoCmsMenu, allDatoCmsCategory } }) => {
+  console.log("All ", datoCmsMenu)
   const [modal, setModal] = useState({ show: false, image: null })
 
   const foodMenuClickHandler = image => {
